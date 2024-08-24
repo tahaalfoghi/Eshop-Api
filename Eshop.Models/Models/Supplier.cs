@@ -13,5 +13,11 @@ namespace Eshop.Models.Models
         public string? Address { get; set; } = string.Empty;
         public string? Phone { get; set; } = string.Empty;
         public virtual ICollection<Category> Categories { get; set; } =  new List<Category>();
+
+        public override string ToString()
+        {
+            return $"Id{Id} CompanyName:{CompanyName} ContactName:{ContactName?? "N/A"} Country:{Country?? "N/A"}" +
+                   $"Address:{Address?? "N/A"} Phone:{Phone?? "N/A"}";
+        }
     }
 }

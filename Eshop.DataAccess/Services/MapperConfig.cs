@@ -18,6 +18,7 @@ namespace Eshop.DataAccess.Services
                      .ReverseMap();
 
             CreateMap<Category,CategoryPostDTO>().ReverseMap();
+            CreateMap<Supplier, SupplierDTO>().ReverseMap();
         }
     }
 }

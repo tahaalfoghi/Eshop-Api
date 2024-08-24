@@ -133,7 +133,6 @@ namespace eshop.DataAccess.Services.Repo
                 existingCategory.Name = category.Name;
                 existingCategory.Description = category.Description;
                 existingCategory.SupplierId = category.SupplierId;
-                context.Set<Category>().Update(existingCategory);
             }
         }
     }

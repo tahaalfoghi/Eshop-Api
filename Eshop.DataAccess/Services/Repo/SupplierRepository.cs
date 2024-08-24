@@ -1,5 +1,6 @@
 using eshop.DataAccess.Data;
 using Eshop.Models;
+using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
@@ -61,14 +62,67 @@ namespace eshop.DataAccess.Services.Repo
             return await query.ToListAsync();
         }
 
-        public Task<Supplier> GetByIdAsync(int id, string? includes = null)
+        public async Task<Supplier> GetByIdAsync(int id, string? includes = null)
         {
-            throw new NotImplementedException();
+            if(includes is not null)
+            {
+                IQueryable<Supplier> query = context.Suppliers.AsNoTracking().AsQueryable();
+                foreach (var item in includes.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(item);
+                }
+                return await query.FirstOrDefaultAsync(x => x.Id == id);
+            }
+            return await context.Suppliers.FirstOrDefaultAsync(x=>x.Id == id);
         }
 
-        public Task<Supplier> GetFirstOrDefaultAsync(TableSearch search, string? includes = null)
+        public async Task<Supplier> GetFirstOrDefaultAsync(TableSearch search, string? includes = null)
         {
-            throw new NotImplementedException();
+
+            IQueryable<Supplier> query = context.Suppliers.AsNoTracking().AsQueryable();
+            if (!string.IsNullOrWhiteSpace(search.Name))
+            {
+                query = query.Where(x => x.CompanyName.Contains(search.Name));
+            }
+            if (!string.IsNullOrWhiteSpace(search.ASC))
+            {
+                query = query.OrderBy(x => x.Categories.Count);
+            }
+            if (!string.IsNullOrWhiteSpace(search.DESC))
+            {
+                query = query.OrderByDescending(x => x.Categories.Count);
+            }
+            if (includes is not null)
+            {
+                foreach (var item in includes.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(item);
+                }
+                return await query.FirstOrDefaultAsync();
+            }
+            return await query.FirstOrDefaultAsync();
+        }
+        public async Task UpdateAsync(int Id, Supplier supplier)
+        {
+            var exists_supplier = await context.Suppliers.FindAsync(Id);
+            if (exists_supplier is not null)
+            {
+                exists_supplier.CompanyName = supplier.CompanyName;
+                exists_supplier.ContactName = supplier.ContactName;
+                exists_supplier.Address = supplier.Address;
+                exists_supplier.Phone = supplier.Phone;
+            }
+        }
+        public async Task UpdatePatchAsync(int Id, Supplier supplier)
+        {
+            var exists_supplier = await context.Suppliers.FindAsync(Id);
+            if (exists_supplier is not null)
+            {
+                exists_supplier.CompanyName = supplier.CompanyName;
+                exists_supplier.ContactName = supplier.ContactName;
+                exists_supplier.Address = supplier.Address;
+                exists_supplier.Phone = supplier.Phone;
+            }
         }
     }
 }
