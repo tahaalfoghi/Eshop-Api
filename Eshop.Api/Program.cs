@@ -48,6 +48,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseExceptionHandler();
 app.UseAuthorization();
 app.MapControllers();
