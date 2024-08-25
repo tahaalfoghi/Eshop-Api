@@ -55,5 +55,6 @@ namespace Eshop.Api.Controllers
             var dto_product = mapper.Map<ProductDTO>(product);
             return Ok(dto_product);
         }
+        
     }
 }

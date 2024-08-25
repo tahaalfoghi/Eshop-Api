@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
 using Eshop.Models;
 using Eshop.DataAccess.Services.Validators;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Eshop.Api.Controllers
 {
+    [Authorize(Roles ="Admin")]
     [ApiController]
     [Route("api/[controller]")]
     public class CategoryController : ControllerBase
@@ -17,7 +19,7 @@ namespace Eshop.Api.Controllers
         private readonly IUnitOfWork uow;
         private readonly ILogger<CategoryController> logger;
         private readonly IMapper mapper;
-
+        
         public CategoryController(IUnitOfWork uow, ILogger<CategoryController> logger, IMapper mapper)
         {
             this.uow = uow;

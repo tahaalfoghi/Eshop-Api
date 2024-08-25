@@ -4,6 +4,7 @@ using Eshop.DataAccess.Services.Validators;
 using Eshop.Models;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +14,7 @@ namespace Eshop.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles ="Admin")]
     public class SupplierController : ControllerBase
     {
         private readonly IUnitOfWork uow;
@@ -145,6 +147,12 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> UpdateSupplier(int Id,SupplierDTO dto_supplier)
         {
+            var validate = new SupplierValidator();
+            var result =  validate.Validate(dto_supplier);
+            if (!result.IsValid)
+            {
+                return BadRequest(result);
+            }
             if (!ModelState.IsValid || Id<=0)
             {
                 throw new Exception($"Invalid data for supplier: {dto_supplier.ToString()} or id:{Id}");
@@ -170,7 +178,7 @@ namespace Eshop.Api.Controllers
         {
             if(!ModelState.IsValid || Id <= 0)
             {
-                throw new Exception($"ERROR InvalId model:{patch.ToString()} or Id:{Id} values");
+                throw new Exception($"ERROR Invalid model:{patch.ToString()} or Id:{Id} values");
             }
             var existingSupplier = await uow.SupplierRepository.GetByIdAsync(Id);
             if(existingSupplier is null)

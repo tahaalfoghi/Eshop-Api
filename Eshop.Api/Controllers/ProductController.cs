@@ -3,6 +3,7 @@ using eshop.DataAccess.Services.UnitOfWork;
 using Eshop.Models;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +14,7 @@ namespace Eshop.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class ProductController : ControllerBase
     {
         private readonly IUnitOfWork uow;
