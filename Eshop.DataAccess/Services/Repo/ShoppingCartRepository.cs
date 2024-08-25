@@ -18,6 +18,8 @@ namespace eshop.DataAccess.Services.Repo
             throw new NotImplementedException();
         }
 
+        
+
         public void DeleteAsync(ShoppingCart entity)
         {
             throw new NotImplementedException();
@@ -47,5 +49,11 @@ namespace eshop.DataAccess.Services.Repo
         {
             throw new NotImplementedException();
         }
+
+        public Task IncreaseCount(ShoppingCart cart, int count)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

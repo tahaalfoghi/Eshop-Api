@@ -4,8 +4,10 @@ using Eshop.Models;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Net.Sockets;
 
 namespace Eshop.Api.Controllers
 {
@@ -30,8 +32,8 @@ namespace Eshop.Api.Controllers
             {
                 return NotFound("Products not found");
             }
-            
-            return Ok(products);
+            var dto_products = mapper.Map<List<ProductDTO>>(products);
+            return Ok(dto_products);
         }
         [HttpGet]
         [Route("GetProduct/{Id:int}")]
@@ -119,6 +121,78 @@ namespace Eshop.Api.Controllers
             await uow.CommitAsync();
 
             return Ok($"Product with id:{Id} deleted successfully");
+        }
+        [HttpPut]
+        [Route("UpdateProduct/{Id:int}")]
+        public async Task<IActionResult> UpdateProduct(int Id, [FromForm] ProductPostDTO dto_product)
+        {
+            if (Id <= 0)
+                return BadRequest($"Invalid id:{Id} value");
+
+            var existingProduct = await uow.ProductRepository.GetByIdAsync(Id,includes:"Category");
+            if (existingProduct is null)
+                return BadRequest($"Product with Id:{Id} not found");
+
+            string? ImgUrl = string.Empty;
+            if (dto_product.ImageUrl is not null)
+            {
+                var path = Path.Combine("wwwroot", "images", dto_product.ImageUrl.FileName);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await dto_product.ImageUrl.CopyToAsync(stream);
+                }
+                ImgUrl = $"/images/{dto_product.ImageUrl.FileName}";
+            }
+            existingProduct = new Product
+            {
+                Name = dto_product.Name,
+                Description = dto_product.Description,
+                Price = dto_product.Price,
+                ImageUrl = ImgUrl,
+                CategoryId = dto_product.CategoryId,
+            };
+
+            await uow.ProductRepository.UpdateAsync(Id,existingProduct);
+            await uow.CommitAsync();
+
+            return Ok($"Product {Id} updated successfully");
+        }
+        [HttpPatch]
+        [Route("UpdatePatch/{Id:int}")]
+       public async Task<IActionResult> UpdatePatch(int Id, [FromBody] JsonPatchDocument<ProductPostDTO> patch)
+        {
+            if (Id <= 0)
+                return BadRequest($"Invalid Id:{Id}");
+
+            var existingProduct = await uow.ProductRepository.GetByIdAsync(Id,includes:"Category");
+            if (existingProduct is null)
+                return BadRequest($"Product with id:{Id} not found");
+
+            var dto_product = mapper.Map<ProductPostDTO>(existingProduct);
+            patch.ApplyTo(dto_product, ModelState);
+
+            string? ImgUrl = string.Empty;
+            if (dto_product.ImageUrl is not null)
+            {
+                var path = Path.Combine("wwwroot", "images", dto_product.ImageUrl.FileName);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await dto_product.ImageUrl.CopyToAsync(stream);
+                }
+                ImgUrl = $"/images/{dto_product.ImageUrl.FileName}";
+            }
+            var product = new Product
+            {
+                Name = dto_product.Name,
+                Description = dto_product.Description,
+                Price = dto_product.Price,
+                ImageUrl = ImgUrl,
+                CategoryId = dto_product.CategoryId,
+            };
+            await uow.ProductRepository.UpdatePatch(Id,product);
+            await uow.CommitAsync();
+
+            return Ok($"Product {Id} patch update success");
         }
     }
 }

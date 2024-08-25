@@ -25,7 +25,6 @@ builder.Services.AddDbContext<AppDbContext>(op =>
                  op.UseSqlServer(builder.Configuration.GetConnectionString("constr")));
 
 builder.Services.AddAutoMapper(typeof(MapperConfig));
-//builder.Services.AddScoped(typeof(IRepository<>));
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();

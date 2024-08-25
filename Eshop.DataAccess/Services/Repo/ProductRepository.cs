@@ -72,7 +72,7 @@ namespace eshop.DataAccess.Services.Repo
             {
                 IQueryable<Product> query = context.Products.AsNoTracking().AsQueryable();
 
-                foreach (var item in includes.Split(new[] {","}, StringSplitOptions.RemoveEmptyEntries))
+                foreach (var item in includes.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
                 {
                     query = query.Include(item);
                 }
@@ -121,13 +121,20 @@ namespace eshop.DataAccess.Services.Repo
                 existingProduct.Description = product.Description;
                 existingProduct.CategoryId = product.CategoryId;
                 existingProduct.ImageUrl = product.ImageUrl;
-
             }
         }
 
         public async Task UpdatePatch(int id, Product product)
         {
-            throw new NotImplementedException();
+            var existingProduct = await context.Products.FindAsync(id);
+            if (existingProduct is not null)
+            {
+                existingProduct.Name = product.Name;
+                existingProduct.Price = product.Price;
+                existingProduct.Description = product.Description;
+                existingProduct.CategoryId = product.CategoryId;
+                existingProduct.ImageUrl = product.ImageUrl;
+            }
         }
     }
 }
