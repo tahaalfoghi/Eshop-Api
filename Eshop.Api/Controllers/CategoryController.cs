@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Services.UnitOfWork;
-using Eshop.Models;
-using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
+using Eshop.Models.DTOModels;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
+using Eshop.Models;
+using Eshop.DataAccess.Services.Validators;
 
 namespace Eshop.Api.Controllers
 {
@@ -74,7 +75,7 @@ namespace Eshop.Api.Controllers
                 throw new Exception($"**ERROR IN CategoryController at GetAllByFilter endpoint\r\n Filter:{{{search.Id} {search.Name}");
             }
 
-            var dto_categories = mapper.Map<List<CategoryDTO>>(categories);
+            var dto_categories = mapper.Map<List<Models.DTOModels.CategoryDTO>>(categories);
             return Ok(dto_categories);
         }
         [HttpGet]
@@ -102,13 +103,20 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> CreateCategory(CategoryDTO dto_category)
+        public async Task<IActionResult> CreateCategory(CategoryPostDTO dto_category)
         {
             if (!ModelState.IsValid)
             {
                 var error_message = $"**ERROR IN CategoryController at CreateCategory endpoint\r\n" +
-                                    $"Invalid input for:{{ Name:{dto_category.Name} Supplier:{dto_category.SupplierName} }}";
+                                    $"Invalid input for:{{ Name:{dto_category.Name} Supplier:{dto_category.SupplierId} }}";
                 throw new Exception(error_message);
+            }
+
+            var validate = new CategoryValidator();
+            var result = validate.Validate(dto_category);
+            if (!result.IsValid)
+            {
+                return BadRequest($"Invalid input for category: {result.Errors.ToString()}");
             }
             var category = mapper.Map<Category>(dto_category);  
             await uow.CategoryRepository.CreateAsync(category);

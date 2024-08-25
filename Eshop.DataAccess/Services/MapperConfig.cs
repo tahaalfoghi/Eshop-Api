@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Eshop.DataAccess.Services
 {
-    public class MapperConfig:Profile
+    public class MapperConfig : Profile
     {
         public MapperConfig()
         {
@@ -17,7 +17,7 @@ namespace Eshop.DataAccess.Services
                      .ForMember(x => x.SupplierName, x => x.MapFrom(x => x.Supplier.CompanyName))
                      .ReverseMap();
 
-            CreateMap<Category,CategoryPostDTO>().ReverseMap();
+            CreateMap<Category, CategoryPostDTO>().ReverseMap();
             CreateMap<Supplier, SupplierDTO>().ReverseMap();
             CreateMap<Product, ProductDTO>()
                       .ForMember(x => x.CategoryName, x => x.MapFrom(x => x.Category.Name))

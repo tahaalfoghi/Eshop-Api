@@ -54,6 +54,9 @@ namespace eshop.DataAccess.Services.Repo
         {
             throw new NotImplementedException();
         }
+        public async Task DecreaseCount(ShoppingCart cart, int count)
+        {
 
+        }
     }
 }

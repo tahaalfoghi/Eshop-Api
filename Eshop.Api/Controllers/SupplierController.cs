@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Services.UnitOfWork;
+using Eshop.DataAccess.Services.Validators;
 using Eshop.Models;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
@@ -23,6 +24,10 @@ namespace Eshop.Api.Controllers
         }
         [HttpGet]
         [Route("GetAllSuppliers")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> GetAllSuppliers()
         {
             var suppliers = await uow.SupplierRepository.GetAllAsync(includes: "Categories");
@@ -35,6 +40,10 @@ namespace Eshop.Api.Controllers
         }
         [HttpGet]
         [Route("GetById/{id:int}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> GetById(int id)
         {
             if (id <= 0)
@@ -51,6 +60,10 @@ namespace Eshop.Api.Controllers
         }
         [HttpGet]
         [Route("GetAllByFilter")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> GetAllByFilter([FromQuery]TableSearch search)
         {
             var suppliers = await uow.SupplierRepository.GetAllByFilterAsync(search,includes:"Categories");
@@ -63,6 +76,10 @@ namespace Eshop.Api.Controllers
         }
         [HttpGet]
         [Route("GetSingleByFilter")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> GetSingleByFilter([FromQuery] TableSearch search)
         {
             var supplier = await uow.SupplierRepository.GetFirstOrDefaultAsync(search);
@@ -75,8 +92,19 @@ namespace Eshop.Api.Controllers
         }
         [HttpPost]
         [Route("CreateSupplier")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> CreateSupplier(SupplierDTO dto_supplier)
         {
+            var validate = new SupplierValidator();
+            var result = validate.Validate(dto_supplier);
+
+            if (!result.IsValid)
+            {
+                return BadRequest(result);
+            }
             if (!ModelState.IsValid)
             {
                 throw new Exception($"ERROR Invalid model for supplier:{{ {dto_supplier.ToString()} }}");
@@ -89,6 +117,10 @@ namespace Eshop.Api.Controllers
         }
         [HttpDelete]
         [Route("DeleteSupplier/{id:int}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> DeleteSupplier([FromRoute]int id)
         {
             if (id <= 0)
@@ -107,6 +139,10 @@ namespace Eshop.Api.Controllers
         }
         [HttpPut]
         [Route("UpdateSupplier/{Id:int}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> UpdateSupplier(int Id,SupplierDTO dto_supplier)
         {
             if (!ModelState.IsValid || Id<=0)
@@ -126,6 +162,10 @@ namespace Eshop.Api.Controllers
         }
         [HttpPatch]
         [Route("UpdatePatch/{Id:int}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> UpdatePatch(int Id,[FromBody] JsonPatchDocument<SupplierDTO> patch)
         {
             if(!ModelState.IsValid || Id <= 0)

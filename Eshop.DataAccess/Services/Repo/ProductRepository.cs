@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace eshop.DataAccess.Services.Repo
 {
-    public class ProductRepository:IProductRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly AppDbContext context;
 
@@ -43,17 +43,33 @@ namespace eshop.DataAccess.Services.Repo
             {
                 query = query.Where(x => x.Name.Contains(search.Name));
             }
-            if (!string.IsNullOrEmpty(search.ASC))
+            if (!string.IsNullOrEmpty(search.SortByAsc))
             {
-                query = query.OrderBy(x => x.Price);
+                if (search.SortByAsc.Equals("Price", StringComparison.OrdinalIgnoreCase))
+                {
+                    query = query.OrderBy(x => x.Price);
+
+                }
+                if (search.SortByAsc.Equals("Name", StringComparison.OrdinalIgnoreCase))
+                {
+                    query = query.OrderBy(x => x.Name);
+                }
             }
-            if (!string.IsNullOrEmpty(search.DESC))
+            if (!string.IsNullOrEmpty(search.SortByDesc))
             {
-                query = query.OrderByDescending(x => x.Price);
+                if (search.SortByDesc.Equals("Price", StringComparison.OrdinalIgnoreCase))
+                {
+                    query = query.OrderByDescending(x => x.Price);
+
+                }
+                if (search.SortByDesc.Equals("Name", StringComparison.OrdinalIgnoreCase))
+                {
+                    query = query.OrderByDescending(x => x.Price);
+                }
             }
             if (!string.IsNullOrEmpty(search.Category))
             {
-                query = query.Where(x=>x.Category.Name.Contains(search.Category));
+                query = query.Where(x => x.Category.Name.Equals(search.Category,StringComparison.OrdinalIgnoreCase));
             }
             if (includes is not null)
             {
@@ -68,7 +84,7 @@ namespace eshop.DataAccess.Services.Repo
 
         public async Task<Product> GetByIdAsync(int id, string? includes = null)
         {
-            if (string.IsNullOrEmpty(includes))
+            if (includes is not null)
             {
                 IQueryable<Product> query = context.Products.AsNoTracking().AsQueryable();
 
@@ -76,9 +92,9 @@ namespace eshop.DataAccess.Services.Repo
                 {
                     query = query.Include(item);
                 }
-                return await query.FirstOrDefaultAsync();
+                return await query.FirstOrDefaultAsync(x => x.Id == id);
             }
-            return await context.Products.FirstOrDefaultAsync();
+            return await context.Products.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<Product> GetFirstOrDefaultAsync(TableSearch search, string? includes = null)
@@ -88,13 +104,29 @@ namespace eshop.DataAccess.Services.Repo
             {
                 query = query.Where(x => x.Name.Contains(search.Name));
             }
-            if (!string.IsNullOrEmpty(search.ASC))
+            if (!string.IsNullOrEmpty(search.SortByAsc))
             {
-                query = query.OrderBy(x => x.Price);
+                if (search.SortByAsc.Equals("Price", StringComparison.OrdinalIgnoreCase))
+                {
+                    query = query.OrderBy(x => x.Price);
+
+                }
+                if (search.SortByAsc.Equals("Name", StringComparison.OrdinalIgnoreCase))
+                {
+                    query = query.OrderBy(x => x.Name);
+                }
             }
-            if (!string.IsNullOrEmpty(search.DESC))
+            if (!string.IsNullOrEmpty(search.SortByDesc))
             {
-                query = query.OrderByDescending(x => x.Price);
+                if (search.SortByDesc.Equals("Price", StringComparison.OrdinalIgnoreCase))
+                {
+                    query = query.OrderByDescending(x => x.Price);
+
+                }
+                if (search.SortByDesc.Equals("Name", StringComparison.OrdinalIgnoreCase))
+                {
+                    query = query.OrderByDescending(x => x.Price);
+                }
             }
             if (!string.IsNullOrEmpty(search.Category))
             {
@@ -110,11 +142,23 @@ namespace eshop.DataAccess.Services.Repo
             }
             return await query.FirstOrDefaultAsync();
         }
-
+        public async Task<Product> GetAsync(int id, string? includes = null)
+        {
+            IQueryable<Product> query = context.Products.AsNoTracking().AsQueryable();
+            if (includes is not null)
+            {
+                foreach (var i in includes.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(i);
+                }
+                return await query.FirstOrDefaultAsync(x => x.Id == id);
+            }
+            return await query.FirstOrDefaultAsync(x => x.Id == id);
+        }
         public async Task UpdateAsync(int id, Product product)
         {
             var existingProduct = await context.Products.FindAsync(id);
-            if(existingProduct is not null)
+            if (existingProduct is not null)
             {
                 existingProduct.Name = product.Name;
                 existingProduct.Price = product.Price;
@@ -136,5 +180,7 @@ namespace eshop.DataAccess.Services.Repo
                 existingProduct.ImageUrl = product.ImageUrl;
             }
         }
+
+
     }
 }

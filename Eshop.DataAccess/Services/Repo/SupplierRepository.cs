@@ -43,13 +43,29 @@ namespace eshop.DataAccess.Services.Repo
             {
                 query = query.Where(x => x.CompanyName.Contains(search.Name));
             }
-            if (!string.IsNullOrWhiteSpace(search.ASC))
+            if (!string.IsNullOrEmpty(search.SortByAsc))
             {
-                query = query.OrderBy(x => x.Categories.Count);
+                if (search.SortByAsc.Equals("Id", StringComparison.OrdinalIgnoreCase))
+                {
+                    query = query.OrderBy(x => x.Id);
+
+                }
+                if (search.SortByAsc.Equals("Categories", StringComparison.OrdinalIgnoreCase))
+                {
+                    query = query.OrderBy(x => x.Categories.Count);
+                }
             }
-            if (!string.IsNullOrWhiteSpace(search.DESC))
+            if (!string.IsNullOrEmpty(search.SortByDesc))
             {
-                query = query.OrderByDescending(x => x.Categories.Count);
+                if (search.SortByDesc.Equals("Id", StringComparison.OrdinalIgnoreCase))
+                {
+                    query = query.OrderByDescending(x => x.Id);
+
+                }
+                if (search.SortByDesc.Equals("CompanyName", StringComparison.OrdinalIgnoreCase))
+                {
+                    query = query.OrderByDescending(x => x.Categories.Count);
+                }
             }
             if (includes is not null)
             {
@@ -84,11 +100,11 @@ namespace eshop.DataAccess.Services.Repo
             {
                 query = query.Where(x => x.CompanyName.Contains(search.Name));
             }
-            if (!string.IsNullOrWhiteSpace(search.ASC))
+            if (!string.IsNullOrWhiteSpace(search.SortByAsc))
             {
                 query = query.OrderBy(x => x.Categories.Count);
             }
-            if (!string.IsNullOrWhiteSpace(search.DESC))
+            if (!string.IsNullOrWhiteSpace(search.SortByDesc))
             {
                 query = query.OrderByDescending(x => x.Categories.Count);
             }

@@ -25,6 +25,10 @@ namespace Eshop.Api.Controllers
         }
         [HttpGet]
         [Route("GetAllProducts")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> GetAllProducts()
         {
             var products = await uow.ProductRepository.GetAllAsync(includes:"Category");
@@ -37,7 +41,11 @@ namespace Eshop.Api.Controllers
         }
         [HttpGet]
         [Route("GetProduct/{Id:int}")]
-        public async Task<IActionResult> GetProduct(int Id)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> GetProduct([FromRoute]int Id)
         {
             if (Id <= 0)
                 return BadRequest($"Invalid Id:{Id}");
@@ -52,6 +60,10 @@ namespace Eshop.Api.Controllers
         }
         [HttpGet]
         [Route("GetAllProductsByFilter")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> GetAllProductsByFilter([FromQuery]TableSearch search)
         {
             var products = await uow.ProductRepository.GetAllByFilterAsync(search, includes: "Category");
@@ -65,7 +77,11 @@ namespace Eshop.Api.Controllers
         }
         [HttpGet]
         [Route("GetSingleProductByFilter")]
-        public async Task<IActionResult> GetSingleProductByFilter([FromQuery] TableSearch search)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> GetSingleProductByFilter([FromForm] TableSearch search)
         {
             var product =  await uow.ProductRepository.GetFirstOrDefaultAsync(search, includes: "Category");
             if (product is null)
@@ -76,6 +92,10 @@ namespace Eshop.Api.Controllers
         }
         [HttpPost]
         [Route("CreateProduct")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> CreateProduct([FromForm] ProductPostDTO dto_product)
         {
             if (!ModelState.IsValid)
@@ -108,7 +128,11 @@ namespace Eshop.Api.Controllers
         }
         [HttpDelete]
         [Route("DeleteProduct/{Id:int}")]
-        public async Task<IActionResult> DeleteProduct(int Id)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> DeleteProduct([FromRoute]int Id)
         {
             if (Id <= 0)
                 return BadRequest($"Invalid:{Id}");
@@ -124,6 +148,10 @@ namespace Eshop.Api.Controllers
         }
         [HttpPut]
         [Route("UpdateProduct/{Id:int}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> UpdateProduct(int Id, [FromForm] ProductPostDTO dto_product)
         {
             if (Id <= 0)
@@ -159,7 +187,11 @@ namespace Eshop.Api.Controllers
         }
         [HttpPatch]
         [Route("UpdatePatch/{Id:int}")]
-       public async Task<IActionResult> UpdatePatch(int Id, [FromBody] JsonPatchDocument<ProductPostDTO> patch)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> UpdatePatch(int Id, [FromBody] JsonPatchDocument<ProductPostDTO> patch)
         {
             if (Id <= 0)
                 return BadRequest($"Invalid Id:{Id}");
