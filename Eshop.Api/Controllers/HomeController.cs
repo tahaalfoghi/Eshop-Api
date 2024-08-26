@@ -6,6 +6,7 @@ using Eshop.Models.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace Eshop.Api.Controllers
 {
@@ -55,6 +56,12 @@ namespace Eshop.Api.Controllers
             var dto_product = mapper.Map<ProductDTO>(product);
             return Ok(dto_product);
         }
-        
+        /*[HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("AddToCart")]
+        public async Task<IActionResult> AddToCart(ShoppingCart cart)
+        {
+            var existingUser = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        }*/
     }
 }

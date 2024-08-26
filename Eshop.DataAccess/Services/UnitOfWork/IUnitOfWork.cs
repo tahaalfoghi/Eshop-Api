@@ -1,4 +1,5 @@
 using eshop.DataAccess.Services.Repo;
+using Eshop.DataAccess.Services.Repo;
 
 namespace eshop.DataAccess.Services.UnitOfWork
 {
@@ -9,7 +10,8 @@ namespace eshop.DataAccess.Services.UnitOfWork
          ISupplierRepository SupplierRepository { get;}
          IOrderRepository OrderRepository { get; }
          IOrderDetailRepository OrderDetailRepository { get;}
-         IShoppingCartRepository ShoppingCartRepository {get;}
+         ICartRepository CartRepository {get;}
+         IUsersRepository UsersRepository { get;} 
          Task CommitAsync();
     }
 }

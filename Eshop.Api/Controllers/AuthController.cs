@@ -25,8 +25,7 @@ namespace Eshop.Api.Controllers
             if (!result.IsAuthenticated)
                 return BadRequest(result.Message);
 
-            //return Ok(new {token = result.Token, ExpiresOn = result.ExpirsOn});
-            return Ok(result);
+            return Ok(new {token = result.Token, ExpiresOn = result.ExpirsOn});
         }
         [HttpPost]
         [Route("Login")]

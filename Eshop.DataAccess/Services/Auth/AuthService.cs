@@ -48,7 +48,7 @@ namespace Eshop.DataAccess.Services.Auth
                 string errors = string.Empty;
                 foreach (var e in result.Errors)
                 {
-                    errors = $"{e.Description}, ";
+                    errors += $"{e.Description}, ";
                 }
                 return new AuthModel { Message = errors };
             }
