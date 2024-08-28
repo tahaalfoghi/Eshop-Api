@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
 namespace Eshop.Api.Controllers
@@ -20,15 +21,11 @@ namespace Eshop.Api.Controllers
         private readonly IUnitOfWork uow;
         private readonly IMapper mapper;
         private readonly AppDbContext context;
-        private readonly UserManager<ApplicationUser> userManager;
-        private readonly SignInManager<ApplicationUser> signInManager;
-        public CartController(IUnitOfWork uow, IMapper mapper, AppDbContext context, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public CartController(IUnitOfWork uow, IMapper mapper, AppDbContext context)
         {
             this.uow = uow;
             this.mapper = mapper;
             this.context = context;
-            this.userManager = userManager;
-            this.signInManager = signInManager;
         }
         [HttpGet]
         [Route("GetUserCart")]
@@ -102,5 +99,60 @@ namespace Eshop.Api.Controllers
 
             return Ok($"Cart item:{Id} deleted successfully");
         }
+        [HttpPut]
+        [Route("UpdateCartItem/{Id:int}")]
+        public async Task<IActionResult> UpdateCartItem([FromRoute]CartPostDTO dto_cart)
+        {
+            var validate = new CartPostValidator();
+            var result = validate.Validate(dto_cart);
+            if (!result.IsValid)
+                return BadRequest(result.Errors.ToString());
+
+            if (!ModelState.IsValid)
+                return BadRequest($"Invalid cart model");
+
+            var cart = mapper.Map<Cart>(dto_cart);
+            await uow.CartRepository.Update(cart);
+            await uow.CommitAsync();
+
+            return Ok($"Cart item {cart.Id} updated successfully");
+        }
+        [HttpPut]
+        [Route("UpdateCartQuantity/{Id:int}/{ProductId:int}")]
+        public async Task<IActionResult> UpdateCartQuantity([FromRoute]CartPostDTO dto_cart)
+        {
+            var validate = new CartPostValidator();
+            var result = validate.Validate(dto_cart);
+            if(!result.IsValid)
+                return BadRequest(result.Errors.ToString());
+
+            var cart = await uow.CartRepository.GetCartAsync(x => x.Id == dto_cart.Id && x.ProductId == dto_cart.ProductId);
+            if (cart is not null)
+            {
+                await uow.CartRepository.IncreaseCount(cart, dto_cart.Count);
+                await uow.CommitAsync();
+                return Ok($"Cart item:{cart.Id} Product:{cart.ProductId} count updated successfully");
+            }
+            return BadRequest($"Cart item not found ");
+        }
+        [HttpGet]
+        [Route("Summery")]
+        public async Task<IActionResult> Summery()
+        {
+            var userId = User.FindFirstValue("uid");
+            if (userId is not null)
+            {
+                var carts = mapper.Map<List<CartDTO>>(await uow.CartRepository.GetUserCart(userId, includes: "Product"));
+                if (carts is not null)
+                {
+                    return Ok(carts);
+                }
+                else
+                    return BadRequest(new { Message = $"Cart is empty" });
+            }
+            else
+                return BadRequest(new {Message = $"You Must logged in to access this feature"});
+        }
+        
     }
 }

@@ -27,7 +27,8 @@ namespace Eshop.DataAccess.Services
 
             CreateMap<Cart, CartDTO>()
             .ForMember(x => x.ProductName, x => x.MapFrom(x => x.Product.Name))
-            .ForMember(x => x.Price, x => x.MapFrom(x => x.Product.Price));
+            .ForMember(x => x.Price, x => x.MapFrom(x => x.Product.Price))
+            .ForMember(x => x.ImgUrl, x => x.MapFrom(x => x.Product.ImageUrl));
 
             CreateMap<Cart,CartPostDTO>().ReverseMap();
         }

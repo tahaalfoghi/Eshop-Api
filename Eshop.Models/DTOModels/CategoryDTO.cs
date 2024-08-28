@@ -13,4 +13,10 @@ namespace Eshop.Models.DTOModels
         public string Description { get; set; } = string.Empty;
         public string SupplierName { get; set; } = string.Empty;
     }
+    public class CategoryPostDTO
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public int SupplierId { get; set; }
+    }
 }

@@ -16,7 +16,7 @@ namespace Eshop.Api.Controllers
         }
         [HttpPost]
         [Route("Register")]
-        public async Task<IActionResult> Register([FromBody]RegisterModel model)
+        public async Task<IActionResult> Register([FromForm]RegisterModel model)
         {
             if(!ModelState.IsValid)
                 return BadRequest($"Invalid model {ModelState}");
@@ -29,7 +29,7 @@ namespace Eshop.Api.Controllers
         }
         [HttpPost]
         [Route("Login")]
-        public async Task<IActionResult> Login([FromBody] TokenRequestModel model)
+        public async Task<IActionResult> Login([FromForm] TokenRequestModel model)
         {
             if (!ModelState.IsValid)
                 return BadRequest($"Invalid model {ModelState}");
@@ -43,7 +43,7 @@ namespace Eshop.Api.Controllers
         [Authorize(Roles ="Admin")]
         [HttpPost]
         [Route("AddRole")]
-        public async Task<IActionResult> AddRoleToUser([FromBody] AddModelRole model)
+        public async Task<IActionResult> AddRoleToUser([FromForm] AddModelRole model)
         {
             if (!ModelState.IsValid)
                 return BadRequest($"Invalid model {ModelState}");

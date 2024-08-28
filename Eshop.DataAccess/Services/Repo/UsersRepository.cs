@@ -47,6 +47,11 @@ namespace Eshop.DataAccess.Services.Repo
             throw new NotImplementedException();
         }
 
+        public async Task<ApplicationUser> GetUser(string? Id)
+        {
+            return await context.ApplicationUsers.FirstOrDefaultAsync(x => x.Id == Id);
+        }
+
         public async Task<IEnumerable<UserRoleModel>> GetUsersRole()
         {
             var users = from u in context.ApplicationUsers

@@ -62,7 +62,7 @@ builder.Services.AddAuthentication(op =>
         };
 
     });
-
+builder.Services.AddAuthorization();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAutoMapper(typeof(MapperConfig));
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();

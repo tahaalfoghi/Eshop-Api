@@ -11,5 +11,6 @@ namespace Eshop.DataAccess.Services.Repo
     public interface IUsersRepository:IRepository<ApplicationUser>
     {
         Task<IEnumerable<UserRoleModel>> GetUsersRole();
+        Task<ApplicationUser> GetUser(string? Id);
     }
 }
