@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Services.UnitOfWork;
+using Eshop.DataAccess.Services.Validators;
 using Eshop.Models;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
@@ -100,6 +101,11 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> CreateProduct([FromForm] ProductPostDTO dto_product)
         {
+            var validate = new ProductValidator();
+            var result = validate.Validate(dto_product);
+            if (!result.IsValid)
+                return BadRequest($"Invalid input: {result.ToString()}");
+
             if (!ModelState.IsValid)
             {
                 return BadRequest($"Invalid data for product: {dto_product.ToString()} {ModelState}");
@@ -159,6 +165,11 @@ namespace Eshop.Api.Controllers
             if (Id <= 0)
                 return BadRequest($"Invalid id:{Id} value");
 
+            var validate = new ProductValidator();
+            var result = validate.Validate(dto_product);
+            if (!result.IsValid)
+                return BadRequest($"Invalid input: {result.ToString()}");
+
             var existingProduct = await uow.ProductRepository.GetByIdAsync(Id,includes:"Category");
             if (existingProduct is null)
                 return BadRequest($"Product with Id:{Id} not found");
@@ -198,6 +209,8 @@ namespace Eshop.Api.Controllers
             if (Id <= 0)
                 return BadRequest($"Invalid Id:{Id}");
 
+            
+
             var existingProduct = await uow.ProductRepository.GetByIdAsync(Id,includes:"Category");
             if (existingProduct is null)
                 return BadRequest($"Product with id:{Id} not found");
@@ -215,6 +228,11 @@ namespace Eshop.Api.Controllers
                 }
                 ImgUrl = $"/images/{dto_product.ImageUrl.FileName}";
             }
+            var validate = new ProductValidator();
+            var result = validate.Validate(dto_product);
+            if (!result.IsValid)
+                return BadRequest($"Invalid input: {result.ToString()}");
+
             var product = new Product
             {
                 Name = dto_product.Name,
@@ -223,6 +241,8 @@ namespace Eshop.Api.Controllers
                 ImageUrl = ImgUrl,
                 CategoryId = dto_product.CategoryId,
             };
+
+
             await uow.ProductRepository.UpdatePatch(Id,product);
             await uow.CommitAsync();
 

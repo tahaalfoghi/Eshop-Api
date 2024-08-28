@@ -118,7 +118,7 @@ namespace Eshop.Api.Controllers
             var result = validate.Validate(dto_category);
             if (!result.IsValid)
             {
-                return BadRequest($"Invalid input for category: {result.Errors.ToString()}");
+                return BadRequest($"Invalid input for category: {result.ToString()}");
             }
             var category = mapper.Map<Category>(dto_category);  
             await uow.CategoryRepository.CreateAsync(category);
@@ -172,7 +172,12 @@ namespace Eshop.Api.Controllers
                                     $"Invalid input for the category: Name:{dto_category.Name} Supplier:{dto_category.SupplierId} ";
                 throw new Exception(error_message);
             }
-
+            var validate = new CategoryValidator();
+            var result = validate.Validate(dto_category);
+            if (!result.IsValid)
+            {
+                return BadRequest($"Invalid input for category: {result.ToString()}");
+            }
             await uow.CategoryRepository.UpdateAsync(id, dto_category);
             await uow.CommitAsync();
             
@@ -195,6 +200,12 @@ namespace Eshop.Api.Controllers
             var dto_category = mapper.Map<CategoryPostDTO>(existingcategory);
             patch.ApplyTo(dto_category,ModelState);
 
+            var validate = new CategoryValidator();
+            var result = validate.Validate(dto_category);
+            if (!result.IsValid)
+            {
+                return BadRequest($"Invalid input for category: {result.ToString()}");
+            }
             var category = mapper.Map<Category>(dto_category);
             await uow.CategoryRepository.UpdatePatchAsync(id,category);
             await uow.CommitAsync();

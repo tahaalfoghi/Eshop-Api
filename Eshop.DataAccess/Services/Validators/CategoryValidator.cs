@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Eshop.DataAccess.Services.Validators
 {
-    public class CategoryValidator:AbstractValidator<CategoryPostDTO>
+    public class CategoryValidator : AbstractValidator<CategoryPostDTO>
     {
         public CategoryValidator()
         {
@@ -22,6 +22,24 @@ namespace Eshop.DataAccess.Services.Validators
         public SupplierValidator()
         {
             RuleFor(x => x.CompanyName).NotEmpty().WithMessage("Name required");
+        }
+    }
+    public class ProductValidator : AbstractValidator<ProductPostDTO>
+    {
+        public ProductValidator()
+        {
+            RuleFor(x => x.Name).NotEmpty().NotNull();
+            RuleFor(x => x.Price).NotEmpty().NotNull().GreaterThanOrEqualTo(1).WithMessage("Price must be greater than or equal to 1");
+            RuleFor(x => x.CategoryId).NotEmpty().NotNull().GreaterThanOrEqualTo(1);
+            RuleFor(x => x.ImageUrl).NotEmpty().NotNull();
+        }
+    }
+    public class CartPostValidator : AbstractValidator<CartPostDTO>
+    {
+        public CartPostValidator()
+        {
+            RuleFor(x => x.ProductId).NotEmpty().NotNull().GreaterThanOrEqualTo(1).WithMessage("ProductId must be greater than or equal to 1");
+            RuleFor(x => x.Count).NotEmpty().NotNull().GreaterThanOrEqualTo(1).WithMessage("Count must be greater than or equal to 1");
         }
     }
 

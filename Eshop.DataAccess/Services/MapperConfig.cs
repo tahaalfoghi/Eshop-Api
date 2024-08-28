@@ -24,6 +24,12 @@ namespace Eshop.DataAccess.Services
                       .ReverseMap();
             CreateMap<Product, ProductPostDTO>()
                 .ForMember(x => x.ImageUrl, x => x.Ignore());
+
+            CreateMap<Cart, CartDTO>()
+            .ForMember(x => x.ProductName, x => x.MapFrom(x => x.Product.Name))
+            .ForMember(x => x.Price, x => x.MapFrom(x => x.Product.Price));
+
+            CreateMap<Cart,CartPostDTO>().ReverseMap();
         }
     }
 }

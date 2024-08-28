@@ -17,11 +17,13 @@ namespace Eshop.Api.Controllers
         private readonly AppDbContext context;
         private readonly IUnitOfWork uow;
         private readonly IMapper mapper;
-        public HomeController(AppDbContext context, IUnitOfWork uow, IMapper mapper)
+        private readonly IHttpContextAccessor httpContext;
+        public HomeController(AppDbContext context, IUnitOfWork uow, IMapper mapper, IHttpContextAccessor httpContext)
         {
             this.context = context;
             this.uow = uow;
             this.mapper = mapper;
+            this.httpContext = httpContext;
         }
         [HttpGet]
         [Route("Index")]
@@ -63,5 +65,6 @@ namespace Eshop.Api.Controllers
         {
             var existingUser = User.FindFirstValue(ClaimTypes.NameIdentifier);
         }*/
+        
     }
 }

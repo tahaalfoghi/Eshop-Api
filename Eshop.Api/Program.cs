@@ -34,10 +34,12 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+
 builder.Services.AddDbContext<AppDbContext>(op =>
                  op.UseSqlServer(builder.Configuration.GetConnectionString("constr")));
-
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
 builder.Services.Configure<JWT>(builder.Configuration.GetSection("JWT"));
 builder.Services.AddAuthentication(op =>
 {
@@ -60,6 +62,8 @@ builder.Services.AddAuthentication(op =>
         };
 
     });
+
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddAutoMapper(typeof(MapperConfig));
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();

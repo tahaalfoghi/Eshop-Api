@@ -102,10 +102,9 @@ namespace Eshop.Api.Controllers
         {
             var validate = new SupplierValidator();
             var result = validate.Validate(dto_supplier);
-
             if (!result.IsValid)
             {
-                return BadRequest(result);
+                return BadRequest(result.ToString());
             }
             if (!ModelState.IsValid)
             {
@@ -151,7 +150,7 @@ namespace Eshop.Api.Controllers
             var result =  validate.Validate(dto_supplier);
             if (!result.IsValid)
             {
-                return BadRequest(result);
+                return BadRequest(result.ToString());
             }
             if (!ModelState.IsValid || Id<=0)
             {
@@ -185,10 +184,17 @@ namespace Eshop.Api.Controllers
             {
                 return BadRequest($"Supplier with Id: {Id} is not found");
             }
-            var dto_suppplier = mapper.Map<SupplierDTO>(existingSupplier);
-            patch.ApplyTo(dto_suppplier,ModelState);
+            var dto_supplier = mapper.Map<SupplierDTO>(existingSupplier);
+            patch.ApplyTo(dto_supplier, ModelState);
 
-            var supplier = mapper.Map<Supplier>(dto_suppplier);
+            var validate = new SupplierValidator();
+            var result = validate.Validate(dto_supplier);
+            if (!result.IsValid)
+            {
+                return BadRequest(result.ToString());
+            }
+
+            var supplier = mapper.Map<Supplier>(dto_supplier);
             await uow.SupplierRepository.UpdatePatchAsync(Id,supplier);
             await uow.CommitAsync();
 
