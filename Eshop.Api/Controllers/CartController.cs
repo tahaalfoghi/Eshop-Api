@@ -9,8 +9,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
-using System.Data.Entity.Validation;
 using System.Security.Claims;
 
 namespace Eshop.Api.Controllers
@@ -153,7 +151,7 @@ namespace Eshop.Api.Controllers
             else
                 return BadRequest(new { Message = $"You Must logged in to access this feature" });
         }
-        [HttpPost]
+        /*[HttpPost]
         [Route("PlaceOrder")]
         public async Task<IActionResult> PlaceOrder([FromForm]OrderPostDTO dto_order)
         {
@@ -200,6 +198,7 @@ namespace Eshop.Api.Controllers
                             await uow.CommitAsync();
 
                         }
+                        
                         trans.Commit();
                         return Ok($"Order: {order.Id} created successfully");
 
@@ -211,6 +210,6 @@ namespace Eshop.Api.Controllers
                     }
                 }
             }
-        }
+        }*/
     }
 }

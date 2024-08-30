@@ -36,5 +36,4 @@ namespace Eshop.Models.DTOModels
         Delivered,
         Canceled
     }
-
 }

@@ -20,11 +20,12 @@ namespace Eshop.Api.Controllers
         [Route("GetOrders")]
         public async Task<IActionResult> GetOrders()
         {
-            var orders = await uow.OrderRepository.GetAllAsync(includes:"Product,ApplicationUser");
+            var orders = await uow.OrderRepository.GetAllAsync(includes:"ApplicationUser");
             if (orders is null)
                 return BadRequest($"No orders found");
 
-            return Ok(orders);
+            var dto_orders = mapper.Map<List<OrderDTO>>(orders);
+            return Ok(dto_orders);
         }
         [HttpGet]
         [Route("GetOrder/{Id:int}")]
