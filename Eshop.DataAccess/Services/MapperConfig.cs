@@ -31,6 +31,11 @@ namespace Eshop.DataAccess.Services
             .ForMember(x => x.ImgUrl, x => x.MapFrom(x => x.Product.ImageUrl));
 
             CreateMap<Cart,CartPostDTO>().ReverseMap();
+            CreateMap<Order, OrderDTO>()
+            .ForMember(x => x.UserEmail, x => x.MapFrom(x => x.ApplicationUser.Email))
+            .ForMember(x => x.Username, x => x.MapFrom(x => x.ApplicationUser.UserName));
+            
+            CreateMap<Order, OrderPostDTO>().ReverseMap();
         }
     }
 }

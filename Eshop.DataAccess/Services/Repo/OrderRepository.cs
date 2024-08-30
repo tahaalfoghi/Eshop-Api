@@ -41,7 +41,16 @@ namespace eshop.DataAccess.Services.Repo
 
         public async Task<Order> GetByIdAsync(int id, string? includes = null)
         {
-            throw new NotImplementedException();
+            if (!string.IsNullOrEmpty(includes))
+            {
+                IQueryable<Order> query = context.Orders.AsQueryable();
+                foreach(var i in includes.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(i);
+                }
+                return await query.FirstOrDefaultAsync(x => x.Id == id);
+            }
+            return await context.Orders.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<Order> GetFirstOrDefaultAsync(TableSearch search, string? includes = null)

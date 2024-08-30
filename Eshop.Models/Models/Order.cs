@@ -17,12 +17,12 @@ namespace Eshop.Models.Models
         public virtual ApplicationUser ApplicationUser { get; set; } = default!;
         public decimal TotalPrice { get; set; }
         public DateTime OrderDate { get; set; }
-        public DateTime PaymentDate { get; set; }
+        public DateTime? PaymentDate { get; set; }
         public string Status { get; set; } = string.Empty;
-        public string Address { get; set; } = string.Empty;
-        public string Carrier { get; set; } = string.Empty;
-        public string City { get; set; } = string.Empty;
-        public string TrackingNumber { get; set; } = string.Empty;
+        public string? Address { get; set; } = string.Empty;
+        public string? Carrier { get; set; } = string.Empty;
+        public string? City { get; set; } = string.Empty;
+        public string? TrackingNumber { get; set; } = string.Empty;
         public ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
     }
 }

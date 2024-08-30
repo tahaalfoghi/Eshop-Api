@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Eshop.Models.DTOModels
 {
-    public class CartOrderVM
+    public class CartOrderDTO
     {
         public IEnumerable<Cart> Carts { get; set; } = new List<Cart>();
         public Order Order { get; set; } = default!;

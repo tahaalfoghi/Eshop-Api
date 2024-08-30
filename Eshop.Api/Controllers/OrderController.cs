@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Services.UnitOfWork;
+using Eshop.Models.DTOModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Eshop.Api.Controllers
@@ -10,7 +11,6 @@ namespace Eshop.Api.Controllers
     {
         private readonly IUnitOfWork uow;
         private readonly IMapper mapper;
-
         public OrderController(IUnitOfWork uow, IMapper mapper)
         {
             this.uow = uow;
@@ -38,6 +38,25 @@ namespace Eshop.Api.Controllers
                 return BadRequest($"Order {Id} not found");
 
             return Ok(order);
+        }
+        [HttpPost]
+        [Route("OrderConfirmation/{orderId:int}")]
+        public async Task<IActionResult> OrderConfirmation(int orderId)
+        {
+            if (orderId <= 0)
+                return BadRequest($"Invalid id:{orderId}");
+
+            var order = await uow.OrderRepository.GetByIdAsync(orderId, includes:"ApplicationUser");
+            if (order is null)
+                return BadRequest($"Order not found");
+
+            order.Status = OrderStatus.Pending.ToString();
+            var orderCarts = await uow.CartRepository.GetCartsAsync(x=>x.UserId == order.ApplicationUser.Id);
+            uow.CartRepository.DeleteRangeAsync(orderCarts);
+            await uow.CommitAsync();
+
+            return Ok($"order successfully confirmed");
+
         }
     }
 }

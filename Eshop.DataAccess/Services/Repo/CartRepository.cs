@@ -18,7 +18,7 @@ namespace eshop.DataAccess.Services.Repo
 
         public void DeleteAsync(Cart entity) => context.Carts.Remove(entity);
 
-        public void DeleteRangeAsync(IEnumerable< Cart> entities) => context.Carts.RemoveRange(entities);
+        public void DeleteRangeAsync(IEnumerable<Cart> entities) => context.Carts.RemoveRange(entities);
 
         public async Task<IEnumerable<Cart>> GetAllAsync(string? includes = null)
         {
@@ -125,6 +125,11 @@ namespace eshop.DataAccess.Services.Repo
         public async Task Update(Cart cart)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<Cart>> GetCartsAsync(Expression<Func<Cart, bool>> predicate, string? includes = null)
+        {
+            return await context.Carts.Where(predicate).ToListAsync();
         }
     }
 }

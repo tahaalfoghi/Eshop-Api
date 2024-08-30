@@ -13,15 +13,9 @@ namespace eshop.DataAccess.Services.Repo
             this.context = context;
         }
 
-        public Task CreateAsync(OrderDetail entity)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task CreateAsync(OrderDetail entity) => await context.OrderDetails.AddAsync(entity);
 
-        public void DeleteAsync(OrderDetail entity)
-        {
-            throw new NotImplementedException();
-        }
+        public void DeleteAsync(OrderDetail entity) =>  context.OrderDetails.Remove(entity);
 
         public void DeleteRangeAsync(IEnumerable<OrderDetail> entities)
         {

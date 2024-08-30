@@ -15,6 +15,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Text;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers().AddNewtonsoftJson().AddFluentValidation(x =>
 {
     x.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-});
+}).AddJsonOptions(op=>op.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -32,6 +33,7 @@ builder.Services.AddSwaggerGen(options =>
         Description = "Shopping Cart Api Asp.Net Core 8",
         Version = "v1"
     });
+    options.UseInlineDefinitionsForEnums();
 });
 
 
@@ -50,9 +52,11 @@ builder.Services.AddAuthentication(op =>
     {
         op.RequireHttpsMetadata = false;
         op.SaveToken = false;
-        op.TokenValidationParameters = new TokenValidationParameters
+        op.TokenValidationParameters = new TokenValidationParameters()
         {
+            ValidateActor = true,
             ValidateIssuerSigningKey = true,
+            RequireExpirationTime = true,
             ValidateIssuer = true,
             ValidateAudience = true,
             ValidateLifetime = true,
@@ -62,6 +66,9 @@ builder.Services.AddAuthentication(op =>
         };
 
     });
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAuthorization();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAutoMapper(typeof(MapperConfig));
@@ -76,8 +83,6 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddExceptionHandler<BadRequestExceptionHandler>();
 builder.Services.AddExceptionHandler<NotFoundExceptionHandler>();
-builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
-builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 

@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
+using System.Data.Entity.Validation;
 using System.Security.Claims;
 
 namespace Eshop.Api.Controllers
@@ -20,21 +22,19 @@ namespace Eshop.Api.Controllers
     {
         private readonly IUnitOfWork uow;
         private readonly IMapper mapper;
-        private readonly AppDbContext context;
-        public CartController(IUnitOfWork uow, IMapper mapper, AppDbContext context)
+        public CartController(IUnitOfWork uow, IMapper mapper)
         {
             this.uow = uow;
             this.mapper = mapper;
-            this.context = context;
         }
         [HttpGet]
         [Route("GetUserCart")]
         public async Task<IActionResult> GetUserCarts()
         {
             var userId = User.FindFirstValue("uid");
-            if(userId is not null)
+            if (userId is not null)
             {
-                var carts = await uow.CartRepository.GetUserCart(userId,includes:"Product");
+                var carts = await uow.CartRepository.GetUserCart(userId, includes: "Product");
                 if (carts is null)
                     return BadRequest($"User {userId} carts not found");
 
@@ -43,7 +43,7 @@ namespace Eshop.Api.Controllers
             }
             return NotFound($"User not found");
 
-            
+
         }
         [HttpPost]
         [Route("AddToCart")]
@@ -59,7 +59,7 @@ namespace Eshop.Api.Controllers
                 {
                     var existsCart = await uow.CartRepository
                                  .GetCartAsync(x => x.Id == dto_cart.Id && x.UserId == userId
-                                 && x.ProductId == dto_cart.ProductId,includes:"Product,ApplicationUser");
+                                 && x.ProductId == dto_cart.ProductId, includes: "Product,ApplicationUser");
 
                     if (existsCart is null)
                     {
@@ -101,7 +101,7 @@ namespace Eshop.Api.Controllers
         }
         [HttpPut]
         [Route("UpdateCartItem/{Id:int}")]
-        public async Task<IActionResult> UpdateCartItem([FromRoute]CartPostDTO dto_cart)
+        public async Task<IActionResult> UpdateCartItem([FromRoute] CartPostDTO dto_cart)
         {
             var validate = new CartPostValidator();
             var result = validate.Validate(dto_cart);
@@ -119,11 +119,11 @@ namespace Eshop.Api.Controllers
         }
         [HttpPut]
         [Route("UpdateCartQuantity/{Id:int}/{ProductId:int}")]
-        public async Task<IActionResult> UpdateCartQuantity([FromRoute]CartPostDTO dto_cart)
+        public async Task<IActionResult> UpdateCartQuantity([FromRoute] CartPostDTO dto_cart)
         {
             var validate = new CartPostValidator();
             var result = validate.Validate(dto_cart);
-            if(!result.IsValid)
+            if (!result.IsValid)
                 return BadRequest(result.Errors.ToString());
 
             var cart = await uow.CartRepository.GetCartAsync(x => x.Id == dto_cart.Id && x.ProductId == dto_cart.ProductId);
@@ -151,8 +151,66 @@ namespace Eshop.Api.Controllers
                     return BadRequest(new { Message = $"Cart is empty" });
             }
             else
-                return BadRequest(new {Message = $"You Must logged in to access this feature"});
+                return BadRequest(new { Message = $"You Must logged in to access this feature" });
         }
-        
+        [HttpPost]
+        [Route("PlaceOrder")]
+        public async Task<IActionResult> PlaceOrder([FromForm]OrderPostDTO dto_order)
+        {
+            using(var db = new AppDbContext())
+            {
+                using(var trans = db.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        var userId = User.FindFirstValue("uid");
+                        if (string.IsNullOrEmpty(userId))
+                            return BadRequest(new { Message = "No user has Signed In" });
+
+                        var user = await uow.UsersRepository.GetUser(userId);
+                        if (user is null)
+                            return BadRequest(new { Message = $"User not found" });
+
+                        var order = mapper.Map<Order>(dto_order);
+                        order.ApplicationUser = user;
+                        if (order.ApplicationUser is null)
+                            return BadRequest("Invalid User");
+
+                        order.OrderDate = DateTime.Now;
+                        order.Status = OrderStatus.Approved.ToString();
+                        var currentCart = await uow.CartRepository.GetUserCart(userId, "Product,ApplicationUser");
+                        if (currentCart is null)
+                            return BadRequest($"Cart is empty");
+
+                        order.TotalPrice = currentCart.Sum(x => x.Count * x.Product.Price);
+
+                        await uow.OrderRepository.CreateAsync(order);
+                        await uow.CommitAsync();
+
+                        foreach (var item in currentCart)
+                        {
+                            var orderDetail = new OrderDetail()
+                            {
+                                OrderId = order.Id,
+                                ProductId = item.ProductId,
+                                Quantity = item.Count,
+                                UnitPrice = item.Product.Price
+                            };
+                            await uow.OrderDetailRepository.CreateAsync(orderDetail);
+                            await uow.CommitAsync();
+
+                        }
+                        trans.Commit();
+                        return Ok($"Order: {order.Id} created successfully");
+
+                    }
+                    catch (Exception ex)
+                    {
+                        trans.Rollback();
+                        return BadRequest($"Exception: {ex.Message}, StackTrace: {ex.StackTrace}, InnerException: {ex.InnerException?.Message}");
+                    }
+                }
+            }
+        }
     }
 }

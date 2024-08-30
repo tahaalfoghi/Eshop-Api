@@ -18,4 +18,23 @@ namespace Eshop.Models.DTOModels
         public DateTime PaymentDate { get; set; }
         public string Status { get; set; } = string.Empty;
     }
+    public class OrderPostDTO
+    {
+        public int Id { get; set; }
+        public string City { get; set; } = string.Empty;
+        public string Address { get; set; } = string.Empty;
+        public string Carrier { get; set; } = string.Empty;
+        public string TrackingNumber { get; set; } = string.Empty;
+                
+    }
+    public enum OrderStatus
+    {
+        Approved,
+        Pending,
+        Processing,
+        Shipped,
+        Delivered,
+        Canceled
+    }
+
 }
