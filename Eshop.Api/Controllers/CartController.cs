@@ -28,7 +28,7 @@ namespace Eshop.Api.Controllers
             this.context = context;
         }
         [HttpGet]
-        [Route("GetUserCart")]
+        [Route("Carts")]
         public async Task<IActionResult> GetUserCarts()
         {
             var userId = User.FindFirstValue("uid");

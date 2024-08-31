@@ -57,14 +57,6 @@ namespace Eshop.Api.Controllers
 
             var dto_product = mapper.Map<ProductDTO>(product);
             return Ok(dto_product);
-        }
-        /*[HttpPost]
-        [ValidateAntiForgeryToken]
-        [Route("AddToCart")]
-        public async Task<IActionResult> AddToCart(ShoppingCart cart)
-        {
-            var existingUser = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        }*/
-        
+        }    
     }
 }

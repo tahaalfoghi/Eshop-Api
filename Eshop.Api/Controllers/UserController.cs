@@ -20,7 +20,7 @@ namespace Eshop.Api.Controllers
             this.authService = authService;
         }
         [HttpGet]
-        [Route("GetUsers")]
+        [Route("Users")]
         public async Task<IActionResult> GetUsers()
         {
             var users = await uow.UsersRepository.GetUsersRole();

@@ -38,8 +38,12 @@ namespace Eshop.Api.Controllers
 
             var result = await authService.LoginAsync(model);
             if (!result.IsAuthenticated)
+            {
+                logger.LogError($"Error while attempt to login user:[ {model.Email} ] is not authenticated");
                 return BadRequest(result.Message);
+            }
 
+            logger.LogInformation($"user [ {model.Email} ] login to the system");
             return Ok(new {token = result.Token, ExpiresOn = result.ExpirsOn});
         }
         [Authorize(Roles ="Admin")]

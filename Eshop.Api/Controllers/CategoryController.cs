@@ -27,7 +27,7 @@ namespace Eshop.Api.Controllers
             this.mapper = mapper;
         }
         [HttpGet]
-        [Route("GetAllCategories")]
+        [Route("Categories")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -46,7 +46,7 @@ namespace Eshop.Api.Controllers
             return Ok(dto_categories);
         }
         [HttpGet]
-        [Route("GetById/{id:int}")]
+        [Route("Category/{id:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -63,7 +63,7 @@ namespace Eshop.Api.Controllers
             return Ok(dto_category);
         }
         [HttpGet]
-        [Route("GetAllByFilter")]
+        [Route("CategoriesByFilter")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -81,7 +81,7 @@ namespace Eshop.Api.Controllers
             return Ok(dto_categories);
         }
         [HttpGet]
-        [Route("GetSingleByFilter/{search}")]
+        [Route("CategoryByFilter/{search}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]

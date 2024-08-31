@@ -19,7 +19,7 @@ namespace Eshop.Api.Controllers
         }
 
         [HttpGet]
-        [Route("GetTransactions")]
+        [Route("Transactions")]
         public async Task<IActionResult> GetTransactions()
         {
             var transactions = await uow.TransactionRepository.GetAllAsync(includes:"ApplicationUser");

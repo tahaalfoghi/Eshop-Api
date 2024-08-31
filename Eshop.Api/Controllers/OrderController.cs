@@ -21,7 +21,7 @@ namespace Eshop.Api.Controllers
             this.mapper = mapper;
         }
         [HttpGet]
-        [Route("GetOrders")]
+        [Route("Orders")]
         public async Task<IActionResult> GetOrders()
         {
             var orders = await uow.OrderRepository.GetAllAsync(includes:"ApplicationUser");
@@ -32,7 +32,7 @@ namespace Eshop.Api.Controllers
             return Ok(dto_orders);
         }
         [HttpGet]
-        [Route("GetOrder/{Id:int}")]
+        [Route("Order/{Id:int}")]
         public async Task<IActionResult> GetOrder([FromRoute] int Id)
         {
             if (Id <= 0)
