@@ -20,10 +20,12 @@ namespace Eshop.Api.Controllers
     {
         private readonly IUnitOfWork uow;
         private readonly IMapper mapper;
-        public CartController(IUnitOfWork uow, IMapper mapper)
+        private readonly AppDbContext context;
+        public CartController(IUnitOfWork uow, IMapper mapper, AppDbContext context)
         {
             this.uow = uow;
             this.mapper = mapper;
+            this.context = context;
         }
         [HttpGet]
         [Route("GetUserCart")]
@@ -151,65 +153,62 @@ namespace Eshop.Api.Controllers
             else
                 return BadRequest(new { Message = $"You Must logged in to access this feature" });
         }
-        /*[HttpPost]
+        [HttpPost]
         [Route("PlaceOrder")]
-        public async Task<IActionResult> PlaceOrder([FromForm]OrderPostDTO dto_order)
+        public async Task<IActionResult> PlaceOrder([FromForm] OrderPostDTO dto_order)
         {
-            using(var db = new AppDbContext())
+
+            using(var trans = context.Database.BeginTransaction())
             {
-                using(var trans = db.Database.BeginTransaction())
+                try
                 {
-                    try
+                    var userId = User.FindFirstValue("uid");
+                    if (string.IsNullOrEmpty(userId))
+                        return BadRequest(new { Message = "No user has Signed In" });
+
+                    var user = await uow.UsersRepository.GetUser(userId);
+                    if (user is null)
+                        return BadRequest(new { Message = $"User not found" });
+
+                    var order = mapper.Map<Order>(dto_order);
+                    order.ApplicationUser = user;
+                    if (order.ApplicationUser is null)
+                        return BadRequest("Invalid User");
+
+                    order.OrderDate = DateTime.Now;
+                    order.Status = OrderStatus.Approved.ToString();
+                    var currentCart = await uow.CartRepository.GetUserCart(userId, "Product,ApplicationUser");
+                    if (currentCart is null)
+                        return BadRequest($"Cart is empty");
+
+                    order.TotalPrice = currentCart.Sum(x => x.Count * x.Product.Price);
+
+                    await uow.OrderRepository.CreateAsync(order);
+                    await uow.CommitAsync();
+
+                    foreach (var item in currentCart)
                     {
-                        var userId = User.FindFirstValue("uid");
-                        if (string.IsNullOrEmpty(userId))
-                            return BadRequest(new { Message = "No user has Signed In" });
-
-                        var user = await uow.UsersRepository.GetUser(userId);
-                        if (user is null)
-                            return BadRequest(new { Message = $"User not found" });
-
-                        var order = mapper.Map<Order>(dto_order);
-                        order.ApplicationUser = user;
-                        if (order.ApplicationUser is null)
-                            return BadRequest("Invalid User");
-
-                        order.OrderDate = DateTime.Now;
-                        order.Status = OrderStatus.Approved.ToString();
-                        var currentCart = await uow.CartRepository.GetUserCart(userId, "Product,ApplicationUser");
-                        if (currentCart is null)
-                            return BadRequest($"Cart is empty");
-
-                        order.TotalPrice = currentCart.Sum(x => x.Count * x.Product.Price);
-
-                        await uow.OrderRepository.CreateAsync(order);
+                        var orderDetail = new OrderDetail()
+                        {
+                            OrderId = order.Id,
+                            ProductId = item.ProductId,
+                            Quantity = item.Count,
+                            UnitPrice = item.Product.Price
+                        };
+                        await uow.OrderDetailRepository.CreateAsync(orderDetail);
                         await uow.CommitAsync();
 
-                        foreach (var item in currentCart)
-                        {
-                            var orderDetail = new OrderDetail()
-                            {
-                                OrderId = order.Id,
-                                ProductId = item.ProductId,
-                                Quantity = item.Count,
-                                UnitPrice = item.Product.Price
-                            };
-                            await uow.OrderDetailRepository.CreateAsync(orderDetail);
-                            await uow.CommitAsync();
-
-                        }
-                        
-                        trans.Commit();
-                        return Ok($"Order: {order.Id} created successfully");
-
                     }
-                    catch (Exception ex)
-                    {
-                        trans.Rollback();
-                        return BadRequest($"Exception: {ex.Message}, StackTrace: {ex.StackTrace}, InnerException: {ex.InnerException?.Message}");
-                    }
+                    trans.Commit();
+                    return Ok($"Order: {order.Id} created successfully");
+
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    return BadRequest($"Exception: {ex.Message}, StackTrace: {ex.StackTrace}, InnerException: {ex.InnerException?.Message}");
                 }
             }
-        }*/
+        }
     }
 }

@@ -9,10 +9,11 @@ namespace Eshop.Api.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthService authService;
-
-        public AuthController(IAuthService authService)
+        private readonly ILogger<AuthController> logger;
+        public AuthController(IAuthService authService, ILogger<AuthController> logger)
         {
             this.authService = authService;
+            this.logger = logger;
         }
         [HttpPost]
         [Route("Register")]
@@ -25,6 +26,7 @@ namespace Eshop.Api.Controllers
             if (!result.IsAuthenticated)
                 return BadRequest(result.Message);
 
+            logger.LogInformation($"New user regitered to the system:[ {model.UserName}, {model.Email} ]");
             return Ok(new {token = result.Token, ExpiresOn = result.ExpirsOn});
         }
         [HttpPost]

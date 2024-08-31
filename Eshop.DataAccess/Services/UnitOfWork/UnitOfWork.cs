@@ -20,11 +20,12 @@ namespace eshop.DataAccess.Services.UnitOfWork
 
         public ICartRepository CartRepository{get;}
         public IUsersRepository UsersRepository{get;}
+        public ITransactionRepository TransactionRepository{get;}
         public UnitOfWork(
         ICategoryRepository CategoryRepository, IProductRepository ProductRepository, 
         ISupplierRepository SupplierRepository, IOrderRepository OrderRepository, 
         IOrderDetailRepository OrderDetailRepository, ICartRepository ShoppingCartRepository,
-        IUsersRepository UsersRepository,
+        IUsersRepository UsersRepository, ITransactionRepository TransactionRepository,
         AppDbContext context)
         {
             this.CategoryRepository = CategoryRepository;
@@ -34,6 +35,7 @@ namespace eshop.DataAccess.Services.UnitOfWork
             this.OrderDetailRepository = OrderDetailRepository;
             this.CartRepository = ShoppingCartRepository;
             this.UsersRepository = UsersRepository;
+            this.TransactionRepository = TransactionRepository;
             this.context = context;
         }
         public void Dispose()

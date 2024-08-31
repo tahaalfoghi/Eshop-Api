@@ -13,12 +13,19 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using System.Reflection;
 using System.Text;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+Log.Logger = new LoggerConfiguration()
+                 .MinimumLevel
+                 .Information()
+                 .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
+                 .CreateLogger();
+builder.Logging.AddSerilog();
 
 builder.Services.AddControllers().AddNewtonsoftJson().AddFluentValidation(x =>
 {
@@ -90,6 +97,12 @@ builder.Services.AddAuthentication(op =>
         };
 
     });
+
+Log.Logger = new LoggerConfiguration().MinimumLevel
+                 .Information()
+                 .WriteTo.File("Logging/log.txt", rollingInterval: RollingInterval.Day)
+                 .CreateLogger();
+
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
 builder.Services.AddEndpointsApiExplorer();
@@ -105,6 +118,7 @@ builder.Services.AddScoped<ICartRepository, CartRepository>();
 builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
 builder.Services.AddExceptionHandler<BadRequestExceptionHandler>();
 builder.Services.AddExceptionHandler<NotFoundExceptionHandler>();
 

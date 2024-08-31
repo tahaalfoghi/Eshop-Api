@@ -1,10 +1,14 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Services.UnitOfWork;
 using Eshop.Models.DTOModels;
+using Eshop.Models.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Transactions;
 
 namespace Eshop.Api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class OrderController:ControllerBase
@@ -52,12 +56,40 @@ namespace Eshop.Api.Controllers
                 return BadRequest($"Order not found");
 
             order.Status = OrderStatus.Pending.ToString();
+            var transaction = new Models.Models.Transaction()
+            {
+                OrderId = order.Id,
+                UserId = order.ApplicationUser.Id,
+                Amount = order.TotalPrice,
+                CreatedAt = DateTime.UtcNow,
+            };
+            await uow.TransactionRepository.CreateAsync(transaction);
             var orderCarts = await uow.CartRepository.GetCartsAsync(x=>x.UserId == order.ApplicationUser.Id);
             uow.CartRepository.DeleteRangeAsync(orderCarts);
             await uow.CommitAsync();
 
             return Ok($"order successfully confirmed");
 
+        }
+        [HttpPost]
+        [Route("ChangeOrderStatus/{orderId:int}")]
+        public async Task<IActionResult> ChangeOrderStatus(int orderId,OrderStatus status)
+        {
+            if (orderId <= 0)
+                return BadRequest($"Invalid Id value:{orderId}");
+
+            if (string.IsNullOrEmpty(status.ToString()))
+                return BadRequest($"Order status value is null");
+
+            var order = await uow.OrderRepository.GetByIdAsync(orderId);
+            if (order is null)
+                return BadRequest($"Order with id:{orderId} is not found");
+
+            var oldStatus = order.Status;
+            uow.OrderRepository.ChangeStatus(order, status);
+            await uow.CommitAsync();
+
+            return Ok($"Order:{order.Id} status changed from:`{oldStatus}` to `{status.ToString()}`");
         }
     }
 }

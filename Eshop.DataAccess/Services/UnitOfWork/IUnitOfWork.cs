@@ -11,7 +11,8 @@ namespace eshop.DataAccess.Services.UnitOfWork
          IOrderRepository OrderRepository { get; }
          IOrderDetailRepository OrderDetailRepository { get;}
          ICartRepository CartRepository {get;}
-         IUsersRepository UsersRepository { get;} 
+         IUsersRepository UsersRepository { get;}
+         ITransactionRepository TransactionRepository { get; }
          Task CommitAsync();
     }
 }

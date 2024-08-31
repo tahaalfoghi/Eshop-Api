@@ -1,5 +1,6 @@
 using eshop.DataAccess.Data;
 using Eshop.Models;
+using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
@@ -13,6 +14,8 @@ namespace eshop.DataAccess.Services.Repo
         {
             this.context = context;
         }
+
+        
 
         public async Task CreateAsync(Order entity)=> await context.Orders.AddAsync(entity);
 
@@ -56,6 +59,10 @@ namespace eshop.DataAccess.Services.Repo
         public async Task<Order> GetFirstOrDefaultAsync(TableSearch search, string? includes = null)
         {
             throw new NotImplementedException();
+        }
+        public void ChangeStatus(Order order, OrderStatus status)
+        {
+            order.Status = status.ToString();
         }
     }
 }
