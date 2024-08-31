@@ -42,34 +42,19 @@ namespace eshop.DataAccess.Services.Repo
             if (!string.IsNullOrEmpty(search.Name))
             {
                 query = query.Where(x => x.Name.Contains(search.Name));
-            }
-            if (!string.IsNullOrEmpty(search.SortByAsc))
-            {
-                if (search.SortByAsc.Equals("Price", StringComparison.OrdinalIgnoreCase))
-                {
-                    query = query.OrderBy(x => x.Price);
-
-                }
-                if (search.SortByAsc.Equals("Name", StringComparison.OrdinalIgnoreCase))
-                {
+                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Asc")
                     query = query.OrderBy(x => x.Name);
-                }
+                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Desc")
+                    query = query.OrderByDescending(x => x.Name);
             }
-            if (!string.IsNullOrEmpty(search.SortByDesc))
-            {
-                if (search.SortByDesc.Equals("Price", StringComparison.OrdinalIgnoreCase))
-                {
-                    query = query.OrderByDescending(x => x.Price);
-
-                }
-                if (search.SortByDesc.Equals("Name", StringComparison.OrdinalIgnoreCase))
-                {
-                    query = query.OrderByDescending(x => x.Price);
-                }
-            }
+           
             if (!string.IsNullOrEmpty(search.Category))
             {
                 query = query.Where(x => x.Category.Name.Equals(search.Category,StringComparison.OrdinalIgnoreCase));
+                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Asc")
+                    query = query.OrderBy(x => x.Category.Name);
+                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Desc")
+                    query = query.OrderByDescending(x => x.Category.Name);
             }
             if (includes is not null)
             {
@@ -103,34 +88,19 @@ namespace eshop.DataAccess.Services.Repo
             if (!string.IsNullOrEmpty(search.Name))
             {
                 query = query.Where(x => x.Name.Contains(search.Name));
-            }
-            if (!string.IsNullOrEmpty(search.SortByAsc))
-            {
-                if (search.SortByAsc.Equals("Price", StringComparison.OrdinalIgnoreCase))
-                {
-                    query = query.OrderBy(x => x.Price);
-
-                }
-                if (search.SortByAsc.Equals("Name", StringComparison.OrdinalIgnoreCase))
-                {
+                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Asc")
                     query = query.OrderBy(x => x.Name);
-                }
+                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Desc")
+                    query = query.OrderByDescending(x => x.Name);
             }
-            if (!string.IsNullOrEmpty(search.SortByDesc))
-            {
-                if (search.SortByDesc.Equals("Price", StringComparison.OrdinalIgnoreCase))
-                {
-                    query = query.OrderByDescending(x => x.Price);
 
-                }
-                if (search.SortByDesc.Equals("Name", StringComparison.OrdinalIgnoreCase))
-                {
-                    query = query.OrderByDescending(x => x.Price);
-                }
-            }
             if (!string.IsNullOrEmpty(search.Category))
             {
-                query = query.Where(x => x.Category.Name.Contains(search.Category));
+                query = query.Where(x => x.Category.Name.Equals(search.Category, StringComparison.OrdinalIgnoreCase));
+                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Asc")
+                    query = query.OrderBy(x => x.Category.Name);
+                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Desc")
+                    query = query.OrderByDescending(x => x.Category.Name);
             }
             if (includes is not null)
             {

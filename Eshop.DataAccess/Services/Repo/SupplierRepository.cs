@@ -42,31 +42,16 @@ namespace eshop.DataAccess.Services.Repo
             if (!string.IsNullOrWhiteSpace(search.Name))
             {
                 query = query.Where(x => x.CompanyName.Contains(search.Name));
-            }
-            if (!string.IsNullOrEmpty(search.SortByAsc))
-            {
-                if (search.SortByAsc.Equals("Id", StringComparison.OrdinalIgnoreCase))
+                if (!string.IsNullOrEmpty(search.Name))
                 {
-                    query = query.OrderBy(x => x.Id);
-
-                }
-                if (search.SortByAsc.Equals("Categories", StringComparison.OrdinalIgnoreCase))
-                {
-                    query = query.OrderBy(x => x.Categories.Count);
+                    query = query.Where(x => x.CompanyName.Contains(search.Name));
+                    if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Asc")
+                        query = query.OrderBy(x => x.CompanyName);
+                    if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Desc")
+                        query = query.OrderByDescending(x => x.CompanyName);
                 }
             }
-            if (!string.IsNullOrEmpty(search.SortByDesc))
-            {
-                if (search.SortByDesc.Equals("Id", StringComparison.OrdinalIgnoreCase))
-                {
-                    query = query.OrderByDescending(x => x.Id);
-
-                }
-                if (search.SortByDesc.Equals("CompanyName", StringComparison.OrdinalIgnoreCase))
-                {
-                    query = query.OrderByDescending(x => x.Categories.Count);
-                }
-            }
+            
             if (includes is not null)
             {
                 foreach (var item in includes.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
@@ -96,17 +81,14 @@ namespace eshop.DataAccess.Services.Repo
         {
 
             IQueryable<Supplier> query = context.Suppliers.AsNoTracking().AsQueryable();
-            if (!string.IsNullOrWhiteSpace(search.Name))
+            query = query.Where(x => x.CompanyName.Contains(search.Name));
+            if (!string.IsNullOrEmpty(search.Name))
             {
                 query = query.Where(x => x.CompanyName.Contains(search.Name));
-            }
-            if (!string.IsNullOrWhiteSpace(search.SortByAsc))
-            {
-                query = query.OrderBy(x => x.Categories.Count);
-            }
-            if (!string.IsNullOrWhiteSpace(search.SortByDesc))
-            {
-                query = query.OrderByDescending(x => x.Categories.Count);
+                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Asc")
+                    query = query.OrderBy(x => x.CompanyName);
+                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Desc")
+                    query = query.OrderByDescending(x => x.CompanyName);
             }
             if (includes is not null)
             {

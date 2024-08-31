@@ -79,3 +79,54 @@ WHERE [a].[UserId] = @__userId_0
 2024-08-31 11:30:58.904 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Register (Eshop.Api) in 5322.1285ms
 2024-08-31 11:30:58.905 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Register (Eshop.Api)'
 2024-08-31 11:30:58.929 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Auth/Register - 200 434 application/json; charset=utf-8 5470.4183ms
+2024-08-31 11:43:20.465 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-31 11:43:20.664 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger - null null
+2024-08-31 11:43:20.664 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-08-31 11:43:20.769 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-31 11:43:20.771 +02:00 [INF] Hosting environment: Development
+2024-08-31 11:43:20.773 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-08-31 11:43:20.844 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger - 499 null null 188.8202ms
+2024-08-31 11:43:20.909 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 253.9034ms
+2024-08-31 11:43:20.987 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-08-31 11:43:20.987 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - null null
+2024-08-31 11:43:20.987 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-08-31 11:43:20.996 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-31 11:43:21.003 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 10.7167ms
+2024-08-31 11:43:21.014 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-08-31 11:43:21.014 +02:00 [INF] Sending file. Request path: '/swagger-ui/SwaggerDark.css'. Physical path: 'C:\Users\HP\source\repos\Eshop\Eshop.Api\wwwroot\swagger-ui\SwaggerDark.css'
+2024-08-31 11:43:21.014 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 26.826ms
+2024-08-31 11:43:21.014 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - 499 56477 text/css 31.9414ms
+2024-08-31 11:43:21.057 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 69.8976ms
+2024-08-31 11:43:21.077 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-08-31 11:43:21.081 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-08-31 11:43:21.081 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 499 628 image/png 4.1478ms
+2024-08-31 11:43:21.148 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-08-31 11:43:21.314 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 166.7ms
+2024-08-31 12:04:53.226 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-08-31 12:04:53.430 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger - null null
+2024-08-31 12:04:53.430 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-08-31 12:04:53.512 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-31 12:04:53.515 +02:00 [INF] Hosting environment: Development
+2024-08-31 12:04:53.517 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-08-31 12:04:53.595 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger - 499 null null 168.808ms
+2024-08-31 12:04:53.686 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 260.772ms
+2024-08-31 12:04:53.757 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - null null
+2024-08-31 12:04:53.775 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-08-31 12:04:53.777 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-31 12:04:53.777 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-08-31 12:04:53.791 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 9.3492ms
+2024-08-31 12:04:53.807 +02:00 [INF] Sending file. Request path: '/swagger-ui/SwaggerDark.css'. Physical path: 'C:\Users\HP\source\repos\Eshop\Eshop.Api\wwwroot\swagger-ui\SwaggerDark.css'
+2024-08-31 12:04:53.807 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-08-31 12:04:53.808 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - 499 56477 text/css 50.6175ms
+2024-08-31 12:04:53.808 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 36.2751ms
+2024-08-31 12:04:53.827 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 49.7061ms
+2024-08-31 12:04:53.842 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-08-31 12:04:53.844 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-08-31 12:04:53.845 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 499 628 image/png 3.2521ms
+2024-08-31 12:04:53.877 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-08-31 12:04:54.043 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 165.6368ms
+2024-08-31 12:05:11.218 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Category/GetAllByFilter?Name=laptop&Sort=Desc - null null
+2024-08-31 12:05:11.335 +02:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-08-31 12:05:11.341 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-08-31 12:05:11.344 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Category/GetAllByFilter?Name=laptop&Sort=Desc - 401 null null 125.7992ms

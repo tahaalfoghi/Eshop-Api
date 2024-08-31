@@ -54,31 +54,13 @@ namespace eshop.DataAccess.Services.Repo
             if (!string.IsNullOrWhiteSpace(search.Name))
             {
                 query = query.Where(x => x.Name.Contains(search.Name));
-            }
-            if (!string.IsNullOrEmpty(search.SortByAsc))
-            {
-                if (search.SortByAsc.Equals("Id",StringComparison.OrdinalIgnoreCase))
-                {
-                    query = query.OrderBy(x => x.Id);
-
-                }
-                if (search.SortByAsc.Equals("Name",StringComparison.OrdinalIgnoreCase))
-                {
+                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Asc")
                     query = query.OrderBy(x => x.Name);
-                }
-            }
-            if (!string.IsNullOrEmpty(search.SortByDesc))
-            {
-                if (search.SortByDesc.Equals("Id", StringComparison.OrdinalIgnoreCase))
-                {
-                    query = query.OrderByDescending(x => x.Id);
-
-                }
-                if (search.SortByDesc.Equals("Name", StringComparison.OrdinalIgnoreCase))
-                {
+                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Desc")
                     query = query.OrderByDescending(x => x.Name);
-                }
+
             }
+
             if (includes is not null)
             {
                 foreach (var item in includes.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
@@ -114,31 +96,12 @@ namespace eshop.DataAccess.Services.Repo
             if (!string.IsNullOrEmpty(search.Name))
             {
                 query = query.Where(x => x.Name.ToLower() == search.Name);
-            }
-            if (!string.IsNullOrEmpty(search.SortByAsc))
-            {
-                if (search.SortByAsc.Equals("Id", StringComparison.OrdinalIgnoreCase))
-                {
-                    query = query.OrderBy(x => x.Id);
-
-                }
-                if (search.SortByAsc.Equals("Name", StringComparison.OrdinalIgnoreCase))
-                {
+                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Asc")
                     query = query.OrderBy(x => x.Name);
-                }
-            }
-            if (!string.IsNullOrEmpty(search.SortByDesc))
-            {
-                if (search.SortByDesc.Equals("Id", StringComparison.OrdinalIgnoreCase))
-                {
-                    query = query.OrderByDescending(x => x.Id);
-
-                }
-                if (search.SortByDesc.Equals("Name", StringComparison.OrdinalIgnoreCase))
-                {
+                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Desc")
                     query = query.OrderByDescending(x => x.Name);
-                }
             }
+            
             if (includes is not null)
             {
                 foreach (var item in includes.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
