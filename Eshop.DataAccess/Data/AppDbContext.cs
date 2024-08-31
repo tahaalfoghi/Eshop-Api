@@ -17,6 +17,7 @@ namespace eshop.DataAccess.Data
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public virtual DbSet<Transaction> Transactions { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
