@@ -10,7 +10,7 @@ namespace eshop.DataAccess.Services.Repo
         Task<T> GetByIdAsync(int id, string? includes = null);
         Task<T> GetFirstOrDefaultAsync(TableSearch search, string? includes = null);
         Task CreateAsync(T entity);
-        void DeleteAsync(T entity);
+        void Delete(T entity);
         void DeleteRangeAsync(IEnumerable<T> entities);
     }
 }

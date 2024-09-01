@@ -32,7 +32,7 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetAllCategories()
+        public async Task<IActionResult> GetCategories()
         {
             logger.LogInformation("GetAllCategories endpoint");
             var categories = await uow.CategoryRepository.GetAllAsync(includes:"Supplier");
@@ -51,7 +51,7 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetById(int categoryId)
+        public async Task<IActionResult> GetCategory(int categoryId)
         {
             logger.LogInformation($"Get category by id {categoryId}");
             var category = await uow.CategoryRepository.GetByIdAsync(categoryId, includes: "Supplier");
@@ -123,8 +123,8 @@ namespace Eshop.Api.Controllers
             var category = mapper.Map<Category>(dto_category);  
             await uow.CategoryRepository.CreateAsync(category);
             await uow.CommitAsync();
-            
-            return Ok(category.Id);
+
+            return CreatedAtAction(nameof(GetCategory), new { categoryId = category.Id }, category);
         }
         [HttpDelete]
         [Route("DeleteCategory/{categoryId:int}")]
@@ -147,7 +147,7 @@ namespace Eshop.Api.Controllers
                                     $"Category with id:{categoryId} not found ";
                 throw new Exception(error_message);
             }
-            uow.CategoryRepository.DeleteAsync(category);
+            uow.CategoryRepository.Delete(category);
             await uow.CommitAsync();
             return Ok(category.Id);
         }

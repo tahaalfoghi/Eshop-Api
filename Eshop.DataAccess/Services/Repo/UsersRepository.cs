@@ -23,7 +23,7 @@ namespace Eshop.DataAccess.Services.Repo
 
         public async Task CreateAsync(ApplicationUser entity) => await context.ApplicationUsers.AddAsync(entity);
 
-        public void DeleteAsync(ApplicationUser entity) => context.ApplicationUsers.Remove(entity);
+        public void Delete(ApplicationUser entity) => context.ApplicationUsers.Remove(entity);
 
         public void DeleteRangeAsync(IEnumerable<ApplicationUser> entities) => context.ApplicationUsers.RemoveRange(entities);
 
@@ -50,6 +50,12 @@ namespace Eshop.DataAccess.Services.Repo
         public async Task<ApplicationUser> GetUser(string? Id)
         {
             return await context.ApplicationUsers.FirstOrDefaultAsync(x => x.Id == Id);
+        }
+
+        public async Task<ApplicationUser> GetUserByUserName(string? userName)
+        {
+            var user = await context.ApplicationUsers.FirstOrDefaultAsync(x=>x.UserName.Equals(userName));
+            return user;
         }
 
         public async Task<IEnumerable<UserRoleModel>> GetUsersRole()

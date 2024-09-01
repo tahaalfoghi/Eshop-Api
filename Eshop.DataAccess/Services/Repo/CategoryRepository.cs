@@ -22,7 +22,7 @@ namespace eshop.DataAccess.Services.Repo
             context.Categories.Add(entity);
         }
 
-        public void DeleteAsync(Category entity)
+        public void Delete(Category entity)
         {
             context.Categories.Remove(entity);
         }

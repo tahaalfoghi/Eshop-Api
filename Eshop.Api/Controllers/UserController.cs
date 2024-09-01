@@ -29,9 +29,22 @@ namespace Eshop.Api.Controllers
 
             return Ok(users);
         }
+        [HttpGet]
+        [Route("Users/{userId:Guid}")]
+        public async Task<IActionResult> GetUser(Guid userId)
+        {
+            if (string.IsNullOrEmpty(userId.ToString()))
+                return BadRequest($"Invalid id: {userId.ToString()}");
+
+            var user = await uow.UsersRepository.GetUser(userId.ToString());
+            if (user is null)
+                return NotFound($"user not found");
+
+            return Ok(user);
+        }
         [HttpPost]
         [Route("CreateUser")]
-        public async Task<IActionResult> CreateUser([FromBody] RegisterModel model)
+        public async Task<IActionResult> CreateUser([FromForm] RegisterModel model)
         {
             if(!ModelState.IsValid)
                 return BadRequest($"Invalid input request {ModelState}");
@@ -41,6 +54,38 @@ namespace Eshop.Api.Controllers
                 return BadRequest(result.Message);
 
             return Ok($"User {{{model.UserName}, {model.Email}}} created successfully");
+        }
+        [HttpDelete]
+        [Route("DeleteUser/{userId:Guid}")]
+        public async Task<IActionResult> DeleteUser(Guid userId)
+        {
+            if (string.IsNullOrEmpty(userId.ToString()))
+                return BadRequest($"Invalid id");
+
+            var user = await uow.UsersRepository.GetUser(userId.ToString());
+            if (user is null)
+                return NotFound($"user not found");
+
+            uow.UsersRepository.Delete(user);
+            await uow.CommitAsync();
+
+            return Ok($"User: {user.UserName} deleted successfully");
+        }
+        [HttpDelete]
+        [Route("DeleteUser/{userName}")]
+        public async Task<IActionResult> DeleteUserbyUserName(string userName)
+        {
+            if (string.IsNullOrEmpty(userName))
+                return BadRequest($"Invalid id");
+
+            var user = await uow.UsersRepository.GetUserByUserName(userName);
+            if (user is null)
+                return NotFound($"user not found");
+
+            uow.UsersRepository.Delete(user);
+            await uow.CommitAsync();
+
+            return Ok($"User: {user.UserName} deleted successfully");
         }
     }
 }

@@ -89,6 +89,12 @@ namespace Eshop.Api.Controllers
             uow.OrderRepository.ChangeStatus(order, status);
             await uow.CommitAsync();
 
+            if (order.Status.Equals("Canceled"))
+            {
+                var trans = await uow.TransactionRepository.GetAsync(x=>x.OrderId == order.Id);
+                uow.TransactionRepository.Delete(trans);
+            }
+
             return Ok($"Order:{order.Id} status changed from:`{oldStatus}` to `{status.ToString()}`");
         }
     }

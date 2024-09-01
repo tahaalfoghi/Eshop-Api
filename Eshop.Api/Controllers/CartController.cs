@@ -31,12 +31,12 @@ namespace Eshop.Api.Controllers
         [Route("Carts")]
         public async Task<IActionResult> GetUserCarts()
         {
-            var userId = User.FindFirstValue("uid");
+            var userId = HttpContext.User.FindFirstValue("uid");
             if (userId is not null)
             {
                 var carts = await uow.CartRepository.GetUserCart(userId, includes: "Product");
-                if (carts is null)
-                    return BadRequest($"User {userId} carts not found");
+                if (carts is null || carts.Count() <=0)
+                    return NotFound($"Your cart is empty");
 
                 var dto_carts = mapper.Map<List<CartDTO>>(carts);
                 return Ok(dto_carts);
@@ -94,7 +94,7 @@ namespace Eshop.Api.Controllers
             if (cart is null)
                 return BadRequest($"Cart with id:{Id} not found");
 
-            uow.CartRepository.DeleteAsync(cart);
+            uow.CartRepository.Delete(cart);
             await uow.CommitAsync();
 
             return Ok($"Cart item:{Id} deleted successfully");
@@ -170,6 +170,11 @@ namespace Eshop.Api.Controllers
                     if (user is null)
                         return BadRequest(new { Message = $"User not found" });
 
+                    var validate = new OrderValidator();
+                    var result = validate.Validate(dto_order);
+                    if (!result.IsValid)
+                        return BadRequest($"Invalid order model");
+
                     var order = mapper.Map<Order>(dto_order);
                     order.ApplicationUser = user;
                     if (order.ApplicationUser is null)
@@ -195,6 +200,10 @@ namespace Eshop.Api.Controllers
                             Quantity = item.Count,
                             UnitPrice = item.Product.Price
                         };
+                        var validte = new OrderDetailValidator();
+                        var ordDetailResult = validte.Validate(orderDetail);
+                        if (!ordDetailResult.IsValid)
+                            return BadRequest($"Opreration failed for orderDetail model:{result.Errors.ToString()}");
                         await uow.OrderDetailRepository.CreateAsync(orderDetail);
                         await uow.CommitAsync();
 

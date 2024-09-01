@@ -27,7 +27,7 @@ namespace Eshop.Api.Controllers
                 return BadRequest(result.Message);
 
             logger.LogInformation($"New user regitered to the system:[ {model.UserName}, {model.Email} ]");
-            return Ok(new {token = result.Token, ExpiresOn = result.ExpirsOn});
+            return Ok(new {Message = "Registration successful!" });
         }
         [HttpPost]
         [Route("Login")]
@@ -44,7 +44,7 @@ namespace Eshop.Api.Controllers
             }
 
             logger.LogInformation($"user [ {model.Email} ] login to the system");
-            return Ok(new {token = result.Token, ExpiresOn = result.ExpirsOn});
+            return Ok(new {Message= "Signed in successful", token = result.Token, ExpiresOn = result.ExpirsOn});
         }
         [Authorize(Roles ="Admin")]
         [HttpPost]

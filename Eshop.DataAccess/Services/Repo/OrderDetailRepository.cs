@@ -15,7 +15,7 @@ namespace eshop.DataAccess.Services.Repo
 
         public async Task CreateAsync(OrderDetail entity) => await context.OrderDetails.AddAsync(entity);
 
-        public void DeleteAsync(OrderDetail entity) =>  context.OrderDetails.Remove(entity);
+        public void Delete(OrderDetail entity) =>  context.OrderDetails.Remove(entity);
 
         public void DeleteRangeAsync(IEnumerable<OrderDetail> entities)
         {

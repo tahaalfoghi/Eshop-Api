@@ -1,5 +1,6 @@
 ﻿using eshop.DataAccess.Data;
 using Eshop.Models.DTOModels;
+using Eshop.Models.Models;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -49,5 +50,24 @@ namespace Eshop.DataAccess.Services.Validators
             RuleFor(x => x.Amount).NotEmpty().NotNull().GreaterThanOrEqualTo(1).WithMessage("Amount must be greater than or equal to 1");
         }
     }
-
+    public class OrderValidator : AbstractValidator<OrderPostDTO>
+    {
+        public OrderValidator()
+        {
+            RuleFor(x => x.City).NotNull().NotEmpty().WithMessage("City is required");
+            RuleFor(x => x.Address).NotNull().NotEmpty().WithMessage("Address is required");
+            RuleFor(x => x.TrackingNumber).NotNull().NotEmpty().WithMessage("TrackingNumber is required");
+            RuleFor(x => x.Carrier).NotNull().NotEmpty().WithMessage("Carrier is required");
+        }
+    }
+    public class OrderDetailValidator : AbstractValidator<OrderDetail>
+    {
+        public OrderDetailValidator()
+        {
+            RuleFor(x => x.OrderId).NotEmpty().NotNull().GreaterThanOrEqualTo(1).WithMessage("OrderId must be greater than or equal to 1");
+            RuleFor(x => x.Quantity).NotEmpty().NotNull().GreaterThanOrEqualTo(1).WithMessage("Quantity must be greater than or equal to 1");
+            RuleFor(x => x.ProductId).NotEmpty().NotNull().GreaterThanOrEqualTo(1).WithMessage("ProductId must be greater than or equal to 1");
+            RuleFor(x => x.UnitPrice).NotEmpty().NotNull().GreaterThanOrEqualTo(1).WithMessage("UnitPrice must be greater than or equal to 1");
+        }
+    }
 }

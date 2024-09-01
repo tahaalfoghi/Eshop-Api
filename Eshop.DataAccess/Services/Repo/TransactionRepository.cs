@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,7 +23,7 @@ namespace Eshop.DataAccess.Services.Repo
 
         public async Task CreateAsync(Transaction entity) => await context.Transactions.AddAsync(entity);
 
-        public void DeleteAsync(Transaction entity) => context.Remove(entity);
+        public void Delete(Transaction entity) => context.Remove(entity);
 
         public void DeleteRangeAsync(IEnumerable<Transaction> entities) => context.RemoveRange(entities);
 
@@ -43,6 +44,12 @@ namespace Eshop.DataAccess.Services.Repo
         public async Task<IEnumerable<Transaction>> GetAllByFilterAsync(TableSearch search, string? includes = null)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<Transaction> GetAsync(Expression<Func<Transaction, bool>> predicate)
+        {
+            var trans = await context.Transactions.Where(predicate).FirstOrDefaultAsync();
+            return trans;
         }
 
         public async Task<Transaction> GetByIdAsync(int id, string? includes = null)

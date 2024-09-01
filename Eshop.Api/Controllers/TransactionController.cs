@@ -70,7 +70,7 @@ namespace Eshop.Api.Controllers
             if (trans is null)
                 return NotFound($"Transaction {Id} not found");
 
-            uow.TransactionRepository.DeleteAsync(trans);
+            uow.TransactionRepository.Delete(trans);
             await uow.CommitAsync();
 
             return Ok($"Transaction deleted");

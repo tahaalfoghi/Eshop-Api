@@ -12,5 +12,6 @@ namespace Eshop.DataAccess.Services.Repo
     {
         Task<IEnumerable<UserRoleModel>> GetUsersRole();
         Task<ApplicationUser> GetUser(string? Id);
+        Task<ApplicationUser> GetUserByUserName(string? userName);
     }
 }

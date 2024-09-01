@@ -13,9 +13,9 @@ using System.Net.Sockets;
 
 namespace Eshop.Api.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
     public class ProductController : ControllerBase
     {
         private readonly IUnitOfWork uow;
@@ -110,11 +110,11 @@ namespace Eshop.Api.Controllers
             {
                 return BadRequest($"Invalid data for product: {dto_product.ToString()} {ModelState}");
             }
-            string? ImgUrl =string.Empty;
-            if(dto_product.ImageUrl is not null)
+            string? ImgUrl = string.Empty;
+            if (dto_product.ImageUrl is not null)
             {
                 var path = Path.Combine("wwwroot", "images", dto_product.ImageUrl.FileName);
-                using(var stream = new FileStream(path, FileMode.Create))
+                using (var stream = new FileStream(path, FileMode.Create))
                 {
                     await dto_product.ImageUrl.CopyToAsync(stream);
                 }
@@ -132,7 +132,7 @@ namespace Eshop.Api.Controllers
             await uow.ProductRepository.CreateAsync(product);
             await uow.CommitAsync();
 
-            return Ok($"Product {product.Id} created successfully");
+            return CreatedAtAction(nameof(GetProduct), new {ProductId = product.Id}, product);
         }
         [HttpDelete]
         [Route("DeleteProduct/{productId:int}")]
@@ -149,7 +149,7 @@ namespace Eshop.Api.Controllers
             if (product is null)
                 return BadRequest($"Product with id:{productId} is not found");
 
-            uow.ProductRepository.DeleteAsync(product);
+            uow.ProductRepository.Delete(product);
             await uow.CommitAsync();
 
             return Ok($"Product with id:{productId} deleted successfully");

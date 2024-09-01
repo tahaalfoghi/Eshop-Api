@@ -12,9 +12,9 @@ using System.Text.Json.Serialization;
 
 namespace Eshop.Api.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles ="Admin")]
     public class SupplierController : ControllerBase
     {
         private readonly IUnitOfWork uow;
@@ -30,7 +30,7 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetAllSuppliers()
+        public async Task<IActionResult> GetSuppliers()
         {
             var suppliers = await uow.SupplierRepository.GetAllAsync(includes: "Categories");
             if(suppliers is null)
@@ -46,7 +46,7 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetById(int supplierId)
+        public async Task<IActionResult> GetSupplier(int supplierId)
         {
             if (supplierId <= 0)
             {
@@ -114,7 +114,7 @@ namespace Eshop.Api.Controllers
             await uow.SupplierRepository.CreateAsync(supplier);
             await uow.CommitAsync();
 
-            return Ok(supplier.Id+ " New Supplier Created");
+            return CreatedAtAction(nameof(GetSupplier), new {supplierId = supplier.Id}, supplier);
         }
         [HttpDelete]
         [Route("DeleteSupplier/{supplierId:int}")]
@@ -133,7 +133,7 @@ namespace Eshop.Api.Controllers
             {
                 return BadRequest($"Supplier with id:{supplierId} is not found");
             }
-            uow.SupplierRepository.DeleteAsync(supplier);
+            uow.SupplierRepository.Delete(supplier);
             await uow.CommitAsync();
 
             return Ok($"supplier with id: {supplier.Id} deleted successfully");

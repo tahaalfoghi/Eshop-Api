@@ -19,7 +19,7 @@ namespace eshop.DataAccess.Services.Repo
 
         public async Task CreateAsync(Order entity)=> await context.Orders.AddAsync(entity);
 
-        public void DeleteAsync(Order entity) => context.Orders.Remove(entity);
+        public void Delete(Order entity) => context.Orders.Remove(entity);
 
         public void DeleteRangeAsync(IEnumerable<Order> entities)=> context.Orders.RemoveRange(entities);
 
