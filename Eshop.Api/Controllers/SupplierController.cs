@@ -1,13 +1,17 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Services.UnitOfWork;
+using Eshop.Api.Commands;
+using Eshop.Api.Queries;
 using Eshop.DataAccess.Services.Validators;
 using Eshop.Models;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.InteropServices;
 using System.Text.Json.Serialization;
 
 namespace Eshop.Api.Controllers
@@ -19,10 +23,12 @@ namespace Eshop.Api.Controllers
     {
         private readonly IUnitOfWork uow;
         private readonly IMapper mapper;
-        public SupplierController(IUnitOfWork uow, IMapper mapper)
+        private readonly IMediator mediator;
+        public SupplierController(IUnitOfWork uow, IMapper mapper, IMediator mediator)
         {
             this.uow = uow;
             this.mapper = mapper;
+            this.mediator = mediator;
         }
         [HttpGet]
         [Route("Suppliers")]
@@ -32,13 +38,12 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> GetSuppliers()
         {
-            var suppliers = await uow.SupplierRepository.GetAllAsync(includes: "Categories");
-            if(suppliers is null)
-            {
-                return NotFound("Suppliers not found");
-            }
-            var dto_suppliers = mapper.Map<List<SupplierDTO>>(suppliers);
-            return Ok(dto_suppliers);
+            var query = new GetSupplliersQuery();
+            var result = await mediator.Send(query);
+            if(result is null)
+                return NotFound($"Suppliers not found");
+
+            return Ok(result);
         }
         [HttpGet]
         [Route("Suppliers/{supplierId:int}")]
@@ -48,17 +53,13 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> GetSupplier(int supplierId)
         {
-            if (supplierId <= 0)
-            {
-                throw new Exception($"id:{supplierId} not a valid value");
-            }
-            var supplier =  await uow.SupplierRepository.GetByIdAsync(supplierId, includes:"Categories");
-            if(supplier is null)
-            {
-                return NotFound($"Supplier with id:{supplierId} not found");
-            }
-            var dto_supplier = mapper.Map<SupplierDTO>(supplier);
-            return Ok(dto_supplier);
+            
+            var query = new GetSuppllierQuery(supplierId);
+            var result = await mediator.Send(query);
+            if(result is null)
+                return NotFound($"Supplir:[{supplierId}] not found");
+
+            return Ok(result);
         }
         [HttpGet]
         [Route("SupppliersByFilter")]
@@ -110,11 +111,11 @@ namespace Eshop.Api.Controllers
             {
                 throw new Exception($"ERROR Invalid model for supplier:{{ {dto_supplier.ToString()} }}");
             }
-            var supplier = mapper.Map<Supplier>(dto_supplier);
-            await uow.SupplierRepository.CreateAsync(supplier);
-            await uow.CommitAsync();
 
-            return CreatedAtAction(nameof(GetSupplier), new {supplierId = supplier.Id}, supplier);
+            var command = new CreateSupplierRequest(dto_supplier);
+            var supplierResult = await mediator.Send(command);
+
+            return CreatedAtAction(nameof(GetSupplier), new {supplierId = supplierResult.Id}, supplierResult);
         }
         [HttpDelete]
         [Route("DeleteSupplier/{supplierId:int}")]
@@ -122,7 +123,7 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> DeleteSupplier([FromRoute]int supplierId)
+        public async Task<IActionResult> DeleteSupplier([FromRoute] int supplierId)
         {
             if (supplierId <= 0)
             {
@@ -133,18 +134,19 @@ namespace Eshop.Api.Controllers
             {
                 return BadRequest($"Supplier with id:{supplierId} is not found");
             }
-            uow.SupplierRepository.Delete(supplier);
-            await uow.CommitAsync();
 
-            return Ok($"supplier with id: {supplier.Id} deleted successfully");
+            var command = new DeleteSupplierRequest(supplierId);
+            var result = await mediator.Send(command);
+
+            return result ? Ok($"supplier with id: {supplier.Id} deleted successfully") : BadRequest();
         }
         [HttpPut]
-        [Route("UpdateSupplier/{supplierId:int}")]
+        [Route("UpdateSupplier")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> UpdateSupplier(int supplierId, SupplierDTO dto_supplier)
+        public async Task<IActionResult> UpdateSupplier(SupplierDTO dto_supplier)
         {
             var validate = new SupplierValidator();
             var result =  validate.Validate(dto_supplier);
@@ -152,20 +154,15 @@ namespace Eshop.Api.Controllers
             {
                 return BadRequest(result.ToString());
             }
-            if (!ModelState.IsValid || supplierId <= 0)
+            if (!ModelState.IsValid)
             {
-                throw new Exception($"Invalid data for supplier: {dto_supplier.ToString()} or id:{supplierId}");
+                throw new Exception($"Invalid data for supplier: {dto_supplier.ToString()}");
             }
-            var existingsupplier = await uow.SupplierRepository.GetByIdAsync(supplierId);
-            if(existingsupplier is null)
-            {
-                return BadRequest($"Supplier with id:{dto_supplier.Id} is not found");
-            }
-            var supplier = mapper.Map<Supplier>(dto_supplier);
-            await uow.SupplierRepository.UpdateAsync(supplierId, supplier);
-            await uow.CommitAsync();
 
-            return Ok($"Supplier {supplierId} updated successfully\n Body:{supplier.ToString()}");
+            var command = new UpdateSupplierRequest(dto_supplier);
+            var supplierResult = await mediator.Send(command);
+
+            return supplierResult ? Ok($"Supplier updated successfully") : BadRequest();
         }
         [HttpPatch]
         [Route("UpdatePatch/{supplierId:int}")]

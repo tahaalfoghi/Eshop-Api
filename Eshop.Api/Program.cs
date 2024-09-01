@@ -103,6 +103,11 @@ Log.Logger = new LoggerConfiguration().MinimumLevel
                  .WriteTo.File("Logging/log.txt", rollingInterval: RollingInterval.Day)
                  .CreateLogger();
 
+builder.Services.AddMediatR(options =>
+{
+    options.RegisterServicesFromAssemblies(typeof(Program).Assembly);
+});
+
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
 builder.Services.AddEndpointsApiExplorer();

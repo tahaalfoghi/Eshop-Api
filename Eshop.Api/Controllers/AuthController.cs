@@ -1,4 +1,5 @@
 ﻿using Eshop.DataAccess.Services.Auth;
+using Eshop.DataAccess.Services.Validators;
 using Eshop.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,11 @@ namespace Eshop.Api.Controllers
         {
             if(!ModelState.IsValid)
                 return BadRequest($"Invalid model {ModelState}");
+
+            var validate = new RegisterModelValidator();
+            var check = validate.Validate(model);
+            if (!check.IsValid)
+                return BadRequest(check.Errors.ToString());
 
             var result = await authService.RegisterAsync(model);
             if (!result.IsAuthenticated)

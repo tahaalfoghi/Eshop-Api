@@ -100,9 +100,9 @@ namespace eshop.DataAccess.Services.Repo
             }
             return await query.FirstOrDefaultAsync();
         }
-        public async Task UpdateAsync(int Id, Supplier supplier)
+        public async Task UpdateAsync(Supplier supplier)
         {
-            var exists_supplier = await context.Suppliers.FindAsync(Id);
+            var exists_supplier = await context.Suppliers.FirstOrDefaultAsync(x => x.Id == supplier.Id);
             if (exists_supplier is not null)
             {
                 exists_supplier.CompanyName = supplier.CompanyName;
@@ -111,9 +111,9 @@ namespace eshop.DataAccess.Services.Repo
                 exists_supplier.Phone = supplier.Phone;
             }
         }
-        public async Task UpdatePatchAsync(int Id, Supplier supplier)
+        public async Task UpdatePatchAsync(int supplierId, Supplier supplier)
         {
-            var exists_supplier = await context.Suppliers.FindAsync(Id);
+            var exists_supplier = await context.Suppliers.FirstOrDefaultAsync(x=>x.Id == supplierId);
             if (exists_supplier is not null)
             {
                 exists_supplier.CompanyName = supplier.CompanyName;

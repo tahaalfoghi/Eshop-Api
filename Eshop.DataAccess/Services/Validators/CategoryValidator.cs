@@ -1,4 +1,5 @@
 ﻿using eshop.DataAccess.Data;
+using Eshop.Models;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
 using FluentValidation;
@@ -68,6 +69,26 @@ namespace Eshop.DataAccess.Services.Validators
             RuleFor(x => x.Quantity).NotEmpty().NotNull().GreaterThanOrEqualTo(1).WithMessage("Quantity must be greater than or equal to 1");
             RuleFor(x => x.ProductId).NotEmpty().NotNull().GreaterThanOrEqualTo(1).WithMessage("ProductId must be greater than or equal to 1");
             RuleFor(x => x.UnitPrice).NotEmpty().NotNull().GreaterThanOrEqualTo(1).WithMessage("UnitPrice must be greater than or equal to 1");
+        }
+    }
+    public class RegisterModelValidator : AbstractValidator<RegisterModel>
+    {
+        public RegisterModelValidator()
+        {
+            RuleFor(u => u.UserName)
+            .NotEmpty().WithMessage("First name is required");
+
+            RuleFor(u => u.Email)
+            .NotEmpty().WithMessage("Email is required")
+            .EmailAddress().WithMessage("Invalid email format");
+            RuleFor(u => u.Password)
+            .NotEmpty().WithMessage("Password is required")
+            .MinimumLength(8).WithMessage("Password must be at least 8 characters long")
+            .Matches("[A-Z]").WithMessage("Password must contain at least one uppercase letter")
+            .Matches("[a-z]").WithMessage("Password must contain at least one lowercase letter")
+            .Matches("[0-9]").WithMessage("Password must contain at least one numeric digit")
+            .Matches("[^a-zA-Z0-9]").WithMessage("Password must contain at least one special character");
+
         }
     }
 }
