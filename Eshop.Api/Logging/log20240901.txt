@@ -1,0 +1,26 @@
+2024-09-01 10:32:38.706 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-01 10:32:39.117 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-01 10:32:39.198 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-01 10:32:39.202 +02:00 [INF] Hosting environment: Development
+2024-09-01 10:32:39.205 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-01 10:32:40.110 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 1003.5543ms
+2024-09-01 10:32:40.203 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-01 10:32:40.204 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - null null
+2024-09-01 10:32:40.264 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-01 10:32:40.269 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-01 10:32:40.273 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-01 10:32:40.273 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 70.3361ms
+2024-09-01 10:32:40.275 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 9.0084ms
+2024-09-01 10:32:40.308 +02:00 [INF] Sending file. Request path: '/swagger-ui/SwaggerDark.css'. Physical path: 'C:\Users\HP\source\repos\Eshop\Eshop.Api\wwwroot\swagger-ui\SwaggerDark.css'
+2024-09-01 10:32:40.316 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - 200 56477 text/css 113.304ms
+2024-09-01 10:32:40.373 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 113.2937ms
+2024-09-01 10:32:40.731 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-01 10:32:40.735 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-01 10:32:40.737 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 200 628 image/png 5.2249ms
+2024-09-01 10:32:40.878 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-01 10:32:41.411 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 533.0626ms
+2024-09-01 10:33:22.020 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Transaction/Transactions - null null
+2024-09-01 10:33:22.095 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-09-01 10:33:22.097 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-01 10:33:22.098 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Transaction/Transactions - 401 null null 78.507ms
