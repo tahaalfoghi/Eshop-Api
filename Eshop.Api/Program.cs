@@ -122,6 +122,7 @@ builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
 builder.Services.AddExceptionHandler<BadRequestExceptionHandler>();
 builder.Services.AddExceptionHandler<NotFoundExceptionHandler>();
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

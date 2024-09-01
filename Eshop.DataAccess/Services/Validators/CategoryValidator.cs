@@ -42,5 +42,12 @@ namespace Eshop.DataAccess.Services.Validators
             RuleFor(x => x.Count).NotEmpty().NotNull().GreaterThanOrEqualTo(1).WithMessage("Count must be greater than or equal to 1");
         }
     }
+    public class TransactionPostValidator : AbstractValidator<TransactionPostDTO>
+    {
+        public TransactionPostValidator()
+        {
+            RuleFor(x => x.Amount).NotEmpty().NotNull().GreaterThanOrEqualTo(1).WithMessage("Amount must be greater than or equal to 1");
+        }
+    }
 
 }

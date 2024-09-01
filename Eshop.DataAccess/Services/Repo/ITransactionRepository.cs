@@ -1,4 +1,5 @@
 ﻿using eshop.DataAccess.Services.Repo;
+using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,6 @@ namespace Eshop.DataAccess.Services.Repo
 {
     public interface ITransactionRepository:IRepository<Models.Models.Transaction>
     {
+        void Update(Models.Models.Transaction trans);
     }
 }

@@ -20,5 +20,6 @@ namespace Eshop.Models.Models
         public ApplicationUser ApplicationUser { get; set; } = default!;
         public decimal Amount { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime? UpdateAt { get; set; } = DateTime.Now;
     }
 }

@@ -41,21 +41,21 @@ namespace Eshop.Api.Controllers
             return Ok(dto_suppliers);
         }
         [HttpGet]
-        [Route("Supplier/{id:int}")]
+        [Route("Suppliers/{supplierId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById(int supplierId)
         {
-            if (id <= 0)
+            if (supplierId <= 0)
             {
-                throw new Exception($"id:{id} not a valid value");
+                throw new Exception($"id:{supplierId} not a valid value");
             }
-            var supplier =  await uow.SupplierRepository.GetByIdAsync(id,includes:"Categories");
+            var supplier =  await uow.SupplierRepository.GetByIdAsync(supplierId, includes:"Categories");
             if(supplier is null)
             {
-                return NotFound($"Supplier with id:{id} not found");
+                return NotFound($"Supplier with id:{supplierId} not found");
             }
             var dto_supplier = mapper.Map<SupplierDTO>(supplier);
             return Ok(dto_supplier);
@@ -117,21 +117,21 @@ namespace Eshop.Api.Controllers
             return Ok(supplier.Id+ " New Supplier Created");
         }
         [HttpDelete]
-        [Route("DeleteSupplier/{id:int}")]
+        [Route("DeleteSupplier/{supplierId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> DeleteSupplier([FromRoute]int id)
+        public async Task<IActionResult> DeleteSupplier([FromRoute]int supplierId)
         {
-            if (id <= 0)
+            if (supplierId <= 0)
             {
-                throw new Exception($"Invalid id value:{id}");
+                throw new Exception($"Invalid id value:{supplierId}");
             }
-            var supplier = await uow.SupplierRepository.GetByIdAsync(id);
+            var supplier = await uow.SupplierRepository.GetByIdAsync(supplierId);
             if(supplier is null)
             {
-                return BadRequest($"Supplier with id:{id} is not found");
+                return BadRequest($"Supplier with id:{supplierId} is not found");
             }
             uow.SupplierRepository.DeleteAsync(supplier);
             await uow.CommitAsync();
@@ -139,12 +139,12 @@ namespace Eshop.Api.Controllers
             return Ok($"supplier with id: {supplier.Id} deleted successfully");
         }
         [HttpPut]
-        [Route("UpdateSupplier/{Id:int}")]
+        [Route("UpdateSupplier/{supplierId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> UpdateSupplier(int Id,SupplierDTO dto_supplier)
+        public async Task<IActionResult> UpdateSupplier(int supplierId, SupplierDTO dto_supplier)
         {
             var validate = new SupplierValidator();
             var result =  validate.Validate(dto_supplier);
@@ -152,37 +152,37 @@ namespace Eshop.Api.Controllers
             {
                 return BadRequest(result.ToString());
             }
-            if (!ModelState.IsValid || Id<=0)
+            if (!ModelState.IsValid || supplierId <= 0)
             {
-                throw new Exception($"Invalid data for supplier: {dto_supplier.ToString()} or id:{Id}");
+                throw new Exception($"Invalid data for supplier: {dto_supplier.ToString()} or id:{supplierId}");
             }
-            var existingsupplier = await uow.SupplierRepository.GetByIdAsync(Id);
+            var existingsupplier = await uow.SupplierRepository.GetByIdAsync(supplierId);
             if(existingsupplier is null)
             {
                 return BadRequest($"Supplier with id:{dto_supplier.Id} is not found");
             }
             var supplier = mapper.Map<Supplier>(dto_supplier);
-            await uow.SupplierRepository.UpdateAsync(Id,supplier);
+            await uow.SupplierRepository.UpdateAsync(supplierId, supplier);
             await uow.CommitAsync();
 
-            return Ok($"Supplier {Id} updated successfully\n Body:{supplier.ToString()}");
+            return Ok($"Supplier {supplierId} updated successfully\n Body:{supplier.ToString()}");
         }
         [HttpPatch]
-        [Route("UpdatePatch/{Id:int}")]
+        [Route("UpdatePatch/{supplierId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> UpdatePatch(int Id,[FromBody] JsonPatchDocument<SupplierDTO> patch)
+        public async Task<IActionResult> UpdatePatch(int supplierId, [FromBody] JsonPatchDocument<SupplierDTO> patch)
         {
-            if(!ModelState.IsValid || Id <= 0)
+            if(!ModelState.IsValid || supplierId <= 0)
             {
-                throw new Exception($"ERROR Invalid model:{patch.ToString()} or Id:{Id} values");
+                throw new Exception($"ERROR Invalid model:{patch.ToString()} or Id:{supplierId} values");
             }
-            var existingSupplier = await uow.SupplierRepository.GetByIdAsync(Id);
+            var existingSupplier = await uow.SupplierRepository.GetByIdAsync(supplierId);
             if(existingSupplier is null)
             {
-                return BadRequest($"Supplier with Id: {Id} is not found");
+                return BadRequest($"Supplier with Id: {supplierId} is not found");
             }
             var dto_supplier = mapper.Map<SupplierDTO>(existingSupplier);
             patch.ApplyTo(dto_supplier, ModelState);
@@ -195,7 +195,7 @@ namespace Eshop.Api.Controllers
             }
 
             var supplier = mapper.Map<Supplier>(dto_supplier);
-            await uow.SupplierRepository.UpdatePatchAsync(Id,supplier);
+            await uow.SupplierRepository.UpdatePatchAsync(supplierId, supplier);
             await uow.CommitAsync();
 
             return Ok($"Supplier with Id:{supplier.Id} patch updated successfully");

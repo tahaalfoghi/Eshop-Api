@@ -1,5 +1,6 @@
 ﻿using eshop.DataAccess.Data;
 using Eshop.Models;
+using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -62,6 +63,16 @@ namespace Eshop.DataAccess.Services.Repo
         public async Task<Transaction> GetFirstOrDefaultAsync(TableSearch search, string? includes = null)
         {
             throw new NotImplementedException();
+        }
+
+        public void Update(Transaction trans)
+        {
+            var existsTrans = context.Transactions.FirstOrDefault(x => x.Id == trans.Id);
+            if(existsTrans is not null)
+            {
+                existsTrans.UpdateAt = DateTime.Now;
+                context.Transactions.Update(existsTrans);
+            }
         }
     }
 }

@@ -39,6 +39,8 @@ namespace Eshop.DataAccess.Services
             CreateMap<Transaction, TransactionDTO>()
             .ForMember(x => x.UserEmail, x => x.MapFrom(x => x.ApplicationUser.Email))
             .ForMember(x => x.UserName, x => x.MapFrom(x => x.ApplicationUser.UserName));
+
+            CreateMap<Transaction, TransactionPostDTO>();
         }
     }
 }

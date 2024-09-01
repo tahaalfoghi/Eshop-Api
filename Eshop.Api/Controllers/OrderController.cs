@@ -32,15 +32,15 @@ namespace Eshop.Api.Controllers
             return Ok(dto_orders);
         }
         [HttpGet]
-        [Route("Order/{Id:int}")]
-        public async Task<IActionResult> GetOrder([FromRoute] int Id)
+        [Route("Orders/{orderId:int}")]
+        public async Task<IActionResult> GetOrder([FromRoute] int orderId)
         {
-            if (Id <= 0)
-                return BadRequest($"Invalid id value:{Id}");
+            if (orderId <= 0)
+                return BadRequest($"Invalid id value:{orderId}");
 
-            var order = await uow.OrderRepository.GetByIdAsync(Id,includes:"Product,ApplicationUser");
+            var order = await uow.OrderRepository.GetByIdAsync(orderId, includes:"Product,ApplicationUser");
             if (order is null)
-                return BadRequest($"Order {Id} not found");
+                return BadRequest($"Order {orderId} not found");
 
             return Ok(order);
         }

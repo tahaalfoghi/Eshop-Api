@@ -43,20 +43,20 @@ namespace Eshop.Api.Controllers
             return Ok(dto_products);
         }
         [HttpGet]
-        [Route("Product/{Id:int}")]
+        [Route("Products/{productId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetProduct([FromRoute]int Id)
+        public async Task<IActionResult> GetProduct([FromRoute]int productId)
         {
-            if (Id <= 0)
-                return BadRequest($"Invalid Id:{Id}");
+            if (productId <= 0)
+                return BadRequest($"Invalid Id:{productId}");
 
-            var product = await uow.ProductRepository.GetByIdAsync(Id,includes:"Category");
+            var product = await uow.ProductRepository.GetByIdAsync(productId, includes:"Category");
             if(product is null)
             {
-                return BadRequest($"Product with id:{Id} not found");
+                return BadRequest($"Product with id:{productId} not found");
             }
             var dto_product = mapper.Map<ProductDTO>(product);
             return Ok(dto_product);
@@ -135,44 +135,44 @@ namespace Eshop.Api.Controllers
             return Ok($"Product {product.Id} created successfully");
         }
         [HttpDelete]
-        [Route("DeleteProduct/{Id:int}")]
+        [Route("DeleteProduct/{productId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> DeleteProduct([FromRoute]int Id)
+        public async Task<IActionResult> DeleteProduct([FromRoute]int productId)
         {
-            if (Id <= 0)
-                return BadRequest($"Invalid:{Id}");
+            if (productId <= 0)
+                return BadRequest($"Invalid:{productId}");
 
-            var product =  await uow.ProductRepository.GetByIdAsync(Id,includes:"Category");
+            var product =  await uow.ProductRepository.GetByIdAsync(productId, includes:"Category");
             if (product is null)
-                return BadRequest($"Product with id:{Id} is not found");
+                return BadRequest($"Product with id:{productId} is not found");
 
             uow.ProductRepository.DeleteAsync(product);
             await uow.CommitAsync();
 
-            return Ok($"Product with id:{Id} deleted successfully");
+            return Ok($"Product with id:{productId} deleted successfully");
         }
         [HttpPut]
-        [Route("UpdateProduct/{Id:int}")]
+        [Route("UpdateProduct/{productId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> UpdateProduct(int Id, [FromForm] ProductPostDTO dto_product)
+        public async Task<IActionResult> UpdateProduct(int productId, [FromForm] ProductPostDTO dto_product)
         {
-            if (Id <= 0)
-                return BadRequest($"Invalid id:{Id} value");
+            if (productId <= 0)
+                return BadRequest($"Invalid id:{productId} value");
 
             var validate = new ProductValidator();
             var result = validate.Validate(dto_product);
             if (!result.IsValid)
                 return BadRequest($"Invalid input: {result.ToString()}");
 
-            var existingProduct = await uow.ProductRepository.GetByIdAsync(Id,includes:"Category");
+            var existingProduct = await uow.ProductRepository.GetByIdAsync(productId, includes:"Category");
             if (existingProduct is null)
-                return BadRequest($"Product with Id:{Id} not found");
+                return BadRequest($"Product with Id:{productId} not found");
 
             string? ImgUrl = string.Empty;
             if (dto_product.ImageUrl is not null)
@@ -193,27 +193,27 @@ namespace Eshop.Api.Controllers
                 CategoryId = dto_product.CategoryId,
             };
 
-            await uow.ProductRepository.UpdateAsync(Id,existingProduct);
+            await uow.ProductRepository.UpdateAsync(productId, existingProduct);
             await uow.CommitAsync();
 
-            return Ok($"Product {Id} updated successfully");
+            return Ok($"Product {productId} updated successfully");
         }
         [HttpPatch]
-        [Route("UpdatePatch/{Id:int}")]
+        [Route("UpdatePatch/{productId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> UpdatePatch(int Id, [FromBody] JsonPatchDocument<ProductPostDTO> patch)
+        public async Task<IActionResult> UpdatePatch(int productId, [FromBody] JsonPatchDocument<ProductPostDTO> patch)
         {
-            if (Id <= 0)
-                return BadRequest($"Invalid Id:{Id}");
+            if (productId <= 0)
+                return BadRequest($"Invalid Id:{productId}");
 
             
 
-            var existingProduct = await uow.ProductRepository.GetByIdAsync(Id,includes:"Category");
+            var existingProduct = await uow.ProductRepository.GetByIdAsync(productId, includes:"Category");
             if (existingProduct is null)
-                return BadRequest($"Product with id:{Id} not found");
+                return BadRequest($"Product with id:{productId} not found");
 
             var dto_product = mapper.Map<ProductPostDTO>(existingProduct);
             patch.ApplyTo(dto_product, ModelState);
@@ -243,10 +243,10 @@ namespace Eshop.Api.Controllers
             };
 
 
-            await uow.ProductRepository.UpdatePatch(Id,product);
+            await uow.ProductRepository.UpdatePatch(productId, product);
             await uow.CommitAsync();
 
-            return Ok($"Product {Id} patch update success");
+            return Ok($"Product {productId} patch update success");
         }
     }
 }

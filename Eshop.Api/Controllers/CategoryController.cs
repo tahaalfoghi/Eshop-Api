@@ -46,15 +46,15 @@ namespace Eshop.Api.Controllers
             return Ok(dto_categories);
         }
         [HttpGet]
-        [Route("Category/{id:int}")]
+        [Route("Categories/{categoryId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById(int categoryId)
         {
-            logger.LogInformation($"Get category by id {id}");
-            var category = await uow.CategoryRepository.GetByIdAsync(id, includes: "Supplier");
+            logger.LogInformation($"Get category by id {categoryId}");
+            var category = await uow.CategoryRepository.GetByIdAsync(categoryId, includes: "Supplier");
             if(category is null)
             {
                 throw new Exception($"**ERROR IN CategoryController GetById endpoint**\r\n");
@@ -127,24 +127,24 @@ namespace Eshop.Api.Controllers
             return Ok(category.Id);
         }
         [HttpDelete]
-        [Route("DeleteCategory/{id:int}")]
+        [Route("DeleteCategory/{categoryId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> DeleteCategory(int id)
+        public async Task<IActionResult> DeleteCategory(int categoryId)
         {
-            if (id <= 0)
+            if (categoryId <= 0)
             {
                 var error_message = $"ERROR IN ERROR IN CategoryController at CreateCategory endpoint\r\n" +
-                                    $"Invalid id:{id} ";
+                                    $"Invalid id:{categoryId} ";
                 throw new Exception(error_message);
             }
-            var category = await uow.CategoryRepository.GetByIdAsync(id);
+            var category = await uow.CategoryRepository.GetByIdAsync(categoryId);
             if(category is null)
             {
                 var error_message = $"ERROR IN ERROR IN CategoryController at CreateCategory endpoint\r\n" +
-                                    $"Category with id:{id} not found ";
+                                    $"Category with id:{categoryId} not found ";
                 throw new Exception(error_message);
             }
             uow.CategoryRepository.DeleteAsync(category);
@@ -152,18 +152,18 @@ namespace Eshop.Api.Controllers
             return Ok(category.Id);
         }
         [HttpPut]
-        [Route("UpdateCategory/{id:int}")]
+        [Route("UpdateCategory/{categoryId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> UpdateCategory(int id,CategoryPostDTO dto_category)
+        public async Task<IActionResult> UpdateCategory(int categoryId, CategoryPostDTO dto_category)
         {
-            var category = await uow.CategoryRepository.GetByIdAsync(id);
+            var category = await uow.CategoryRepository.GetByIdAsync(categoryId);
             if(category is null)
             {
                 var error_message = $"ERROR IN  CategoryController at UpdateCategory endpoint\r\n" +
-                                   $"Invalid id:{id} ";
+                                   $"Invalid id:{categoryId} ";
                 throw new Exception(error_message);
             }
             if (!ModelState.IsValid)
@@ -178,23 +178,23 @@ namespace Eshop.Api.Controllers
             {
                 return BadRequest($"Invalid input for category: {result.ToString()}");
             }
-            await uow.CategoryRepository.UpdateAsync(id, dto_category);
+            await uow.CategoryRepository.UpdateAsync(categoryId, dto_category);
             await uow.CommitAsync();
             
             return Ok(category.Id);
         }
         [HttpPatch]
-        [Route("UpdatePatchCategory/{id:int}")]
-        public async Task<IActionResult> UpdatePath(int id,[FromBody]JsonPatchDocument<CategoryPostDTO> patch)
+        [Route("UpdatePatchCategory/{categoryId:int}")]
+        public async Task<IActionResult> UpdatePath(int categoryId, [FromBody]JsonPatchDocument<CategoryPostDTO> patch)
         {
-            var existingcategory = await uow.CategoryRepository.GetByIdAsync(id);
+            var existingcategory = await uow.CategoryRepository.GetByIdAsync(categoryId);
             if(existingcategory is null)
             {
-                return NotFound($"Category with id:{id} is not found");
+                return NotFound($"Category with id:{categoryId} is not found");
             }
-            if(id<=0)
+            if(categoryId <= 0)
             {
-                throw new Exception($"Invalid id:{id}");
+                throw new Exception($"Invalid id:{categoryId}");
             }
 
             var dto_category = mapper.Map<CategoryPostDTO>(existingcategory);
@@ -207,10 +207,10 @@ namespace Eshop.Api.Controllers
                 return BadRequest($"Invalid input for category: {result.ToString()}");
             }
             var category = mapper.Map<Category>(dto_category);
-            await uow.CategoryRepository.UpdatePatchAsync(id,category);
+            await uow.CategoryRepository.UpdatePatchAsync(categoryId,category);
             await uow.CommitAsync();
 
-            return Ok(id);
+            return Ok(categoryId);
         }
     }
 }
