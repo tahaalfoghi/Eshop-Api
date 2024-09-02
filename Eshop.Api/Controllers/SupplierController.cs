@@ -65,9 +65,9 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> GetAllByFilter([FromQuery]TableSearch search)
         {
-            var suppliers = await uow.SupplierRepository.GetAllByFilterAsync(search,includes:"Categories");
-            var dto_records = mapper.Map<List<SupplierDTO>>(suppliers);
-            return Ok(dto_records);
+            var query = new GetSuppliersByFilterQuery(search);
+            var result = await mediator.Send(query);
+            return Ok(result);
         }
         [HttpGet]
         [Route("SupplierByFilter")]
@@ -77,9 +77,9 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> GetSingleByFilter([FromQuery] TableSearch search)
         {
-            var supplier = await uow.SupplierRepository.GetFirstOrDefaultAsync(search);
-            var dto_supplier = mapper.Map<SupplierDTO>(supplier);
-            return Ok(dto_supplier);
+            var query = new GetSupplierByFilterQuery(search);
+            var result = await mediator.Send(query);
+            return Ok(result);
         }
         [HttpPost]
         [Route("CreateSupplier")]

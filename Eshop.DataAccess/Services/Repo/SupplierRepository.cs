@@ -42,14 +42,10 @@ namespace eshop.DataAccess.Services.Repo
             if (!string.IsNullOrWhiteSpace(search.Name))
             {
                 query = query.Where(x => x.CompanyName.Contains(search.Name));
-                if (!string.IsNullOrEmpty(search.Name))
-                {
-                    query = query.Where(x => x.CompanyName.Contains(search.Name));
                     if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Asc")
                         query = query.OrderBy(x => x.CompanyName);
                     if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Desc")
                         query = query.OrderByDescending(x => x.CompanyName);
-                }
             }
             
             if (includes is not null)

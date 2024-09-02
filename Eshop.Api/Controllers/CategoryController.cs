@@ -65,15 +65,9 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> GetAllByFilter([FromQuery]TableSearch search)
         {
-            var categories = await uow.CategoryRepository.GetAllByFilterAsync(search, includes: "Supplier");
-
-            if (categories is null)
-            {
-                throw new Exception($"**ERROR IN CategoryController at GetAllByFilter endpoint\r\n Filter:{{{search.Id} {search.Name}");
-            }
-
-            var dto_categories = mapper.Map<List<Models.DTOModels.CategoryDTO>>(categories);
-            return Ok(dto_categories);
+            var query = new GetCategoriesByFilterQuery(search);
+            var result = await mediator.Send(query);
+            return Ok(result);
         }
         [HttpGet]
         [Route("CategoryByFilter/{search}")]
@@ -83,16 +77,9 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> GetSingleByFilter(TableSearch search)
         {
-            var category = await uow.CategoryRepository.GetFirstOrDefaultAsync(search);
-            if (category is null)
-            {
-                var errorMessage = $"**ERROR IN CategoryController at GetSingleByFilter endpoint**\r\n" +
-                                   $"filter:{search}";
-                throw new Exception(errorMessage);
-            }
-            var dto_category = mapper.Map<CategoryDTO>(category);
-
-            return Ok(dto_category);
+            var query = new GetCategoryByFilterQuery(search);
+            var result = await mediator.Send(query);
+            return Ok(result);
         }
         [HttpPost]
         [Route("CreateCatgory")]

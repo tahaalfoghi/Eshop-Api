@@ -24,8 +24,7 @@ namespace Eshop.Api.Handlers
             if (categroies is null || categroies.Count() == 0)
                 throw new NotFoundException("No category exists in database");
 
-            var dto_categories = mapper.Map<IEnumerable<CategoryDTO>>(categroies);
-            return dto_categories;
+            return mapper.Map<IEnumerable<CategoryDTO>>(categroies);
         }
     }
 }
