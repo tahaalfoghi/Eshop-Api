@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Services.UnitOfWork;
+using Eshop.Api.Queries;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Transactions;
@@ -15,34 +17,28 @@ namespace Eshop.Api.Controllers
     {
         private readonly IUnitOfWork uow;
         private readonly IMapper mapper;
-        public OrderController(IUnitOfWork uow, IMapper mapper)
+        private readonly IMediator mediator;
+        public OrderController(IUnitOfWork uow, IMapper mapper, IMediator mediator)
         {
             this.uow = uow;
             this.mapper = mapper;
+            this.mediator = mediator;
         }
         [HttpGet]
         [Route("Orders")]
         public async Task<IActionResult> GetOrders()
         {
-            var orders = await uow.OrderRepository.GetAllAsync(includes:"ApplicationUser");
-            if (orders is null)
-                return BadRequest($"No orders found");
-
-            var dto_orders = mapper.Map<List<OrderDTO>>(orders);
-            return Ok(dto_orders);
+            var query = new GetOrdersQuery();
+            var result = await mediator.Send(query);
+            return Ok(result);
         }
         [HttpGet]
         [Route("Orders/{orderId:int}")]
         public async Task<IActionResult> GetOrder([FromRoute] int orderId)
         {
-            if (orderId <= 0)
-                return BadRequest($"Invalid id value:{orderId}");
-
-            var order = await uow.OrderRepository.GetByIdAsync(orderId, includes:"Product,ApplicationUser");
-            if (order is null)
-                return BadRequest($"Order {orderId} not found");
-
-            return Ok(order);
+            var query = new GetOrderQuery(orderId);
+            var result = await mediator.Send(query);
+            return Ok(result);
         }
         [HttpPost]
         [Route("OrderConfirmation/{orderId:int}")]
