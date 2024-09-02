@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Services.UnitOfWork;
 using Eshop.Api.Commands;
+using Eshop.DataAccess.Services.Middleware;
 using MediatR;
 
 namespace Eshop.Api.Handlers
@@ -18,7 +19,13 @@ namespace Eshop.Api.Handlers
 
         public async Task<bool> Handle(DeleteSupplierRequest request, CancellationToken cancellationToken)
         {
+            if (request.SupplierId <= 0)
+                throw new BadRequestException($"Invalid id: {request.SupplierId}");
+
             var supplier = await uow.SupplierRepository.GetByIdAsync(request.SupplierId);
+            if (supplier is null)
+                throw new NotFoundException($"Supplier [{request.SupplierId}] doesn't exits");
+
             uow.SupplierRepository.Delete(supplier);
             await uow.CommitAsync();
 

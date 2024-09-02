@@ -24,7 +24,17 @@ namespace Eshop.DataAccess.Services.Middleware
         public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
         {
             logger.LogError(exception,"Exception occured {Error Happend in this action method\r\n}",exception.Message);
-
+            httpContext.Response.ContentType = "application/json";
+            var contextFeature = httpContext.Features.Get<IExceptionHandlerFeature>();
+            if(contextFeature != null)
+            {
+                httpContext.Response.StatusCode = contextFeature.Error switch
+                {
+                    NotFoundException => StatusCodes.Status404NotFound,
+                    BadRequestException => StatusCodes.Status400BadRequest,
+                    _ => StatusCodes.Status500InternalServerError,
+                };
+            }
             var details = new ProblemDetails()
             {
                 Detail = $"API Error {exception.Message}",

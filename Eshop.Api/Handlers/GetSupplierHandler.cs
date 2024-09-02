@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Services.UnitOfWork;
 using Eshop.Api.Queries;
+using Eshop.DataAccess.Services.Middleware;
 using Eshop.Models.DTOModels;
 using MediatR;
 
@@ -20,11 +21,11 @@ namespace Eshop.Api.Handlers
         public async Task<SupplierDTO> Handle(GetSuppllierQuery request, CancellationToken cancellationToken)
         {
             if (request.SupplierId <= 0)
-                throw new Exception($"Invalid id value:{request.SupplierId}");
+                throw new BadRequestException($"Invalid id value:{request.SupplierId}");
 
             var supplier = await uow.SupplierRepository.GetByIdAsync(request.SupplierId);
             if (supplier is null)
-                throw new Exception($"Supplier not found");
+                throw new NotFoundException($"Supplier [{request.SupplierId}] doesn't exists");
 
             return mapper.Map<SupplierDTO>(supplier);
         }

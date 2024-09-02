@@ -50,7 +50,7 @@ namespace Eshop.Api.Controllers
             }
 
             logger.LogInformation($"user [ {model.Email} ] login to the system");
-            return Ok(new {Message= "Signed in successful", token = result.Token, ExpiresOn = result.ExpirsOn});
+            return Ok(new {Message= "You Logged in successfully", token = result.Token, ExpiresOn = result.ExpirsOn});
         }
         [Authorize(Roles ="Admin")]
         [HttpPost]
@@ -65,7 +65,7 @@ namespace Eshop.Api.Controllers
             if (!string.IsNullOrEmpty(result))
                 return BadRequest(result);
 
-            return Ok($"User assigned to role successfully");
+            return Ok($"User assigned to [{model.RoleName}] role successfully");
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Services.UnitOfWork;
 using Eshop.Api.Queries;
+using Eshop.DataAccess.Services.Middleware;
 using Eshop.Models.DTOModels;
 using MediatR;
 
@@ -20,6 +21,9 @@ namespace Eshop.Api.Handlers
         public async Task<IEnumerable<SupplierDTO>> Handle(GetSupplliersQuery request, CancellationToken cancellationToken)
         {
             var suppliers = await uow.SupplierRepository.GetAllAsync(includes:"Categories");
+            if (suppliers is null)
+                throw new NotFoundException($"No supplier exists in database");
+
             return mapper.Map<IEnumerable<SupplierDTO>>(suppliers);
         }
     }
