@@ -1,8 +1,12 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Services.UnitOfWork;
+using Eshop.Api.Commands;
+using Eshop.Api.Handlers;
+using Eshop.Api.Queries;
 using Eshop.DataAccess.Services.Validators;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,64 +20,49 @@ namespace Eshop.Api.Controllers
         private readonly IUnitOfWork uow;
         private readonly IMapper mapper;
         private readonly ILogger<TransactionController> logger;
+        private readonly IMediator mediator;
 
-        public TransactionController(IUnitOfWork uow, IMapper mapper, ILogger<TransactionController> logger)
+        public TransactionController(IUnitOfWork uow, IMapper mapper, ILogger<TransactionController> logger, IMediator mediator)
         {
             this.uow = uow;
             this.mapper = mapper;
             this.logger = logger;
+            this.mediator = mediator;
         }
 
         [HttpGet]
         [Route("Transactions")]
         public async Task<IActionResult> GetTransactions()
         {
-            var transactions = await uow.TransactionRepository.GetAllAsync(includes:"ApplicationUser");
-            if(transactions is null)
-                return NotFound($"No transactions found");
-
-           var dto_transactions = mapper.Map<List<TransactionDTO>>(transactions);
-           logger.LogInformation($"Get all transactions");
-            
-            return Ok(dto_transactions);
+            var query = new GetTransactionsQuery();
+            var result = await mediator.Send(query);
+            return Ok(result);
+        }
+        [HttpGet]
+        [Route("Transactions/{transactionId:int}")]
+        public async Task<IActionResult> GetTransactionById(int transactionId)
+        {
+            var query = new GetTransactionQuery(transactionId);
+            var result = await mediator.Send(query);
+            return Ok(result);
         }
         [HttpPut]
-        [Route("EditTransaction/{Id:int}")]
-        public async Task<IActionResult> UpdateTransaction(int Id,[FromForm] TransactionPostDTO dto_trans)
+        [Route("EditTransaction")]
+        public async Task<IActionResult> UpdateTransaction([FromForm] TransactionPostDTO dto_trans)
         {
-            var trans = await uow.TransactionRepository.GetByIdAsync(Id, includes: "Order,ApplicationUser");
-            if (trans is null)
-                return NotFound($"Transaction with {Id} not found");
+            var command = new UpdateTransacrtionRequest(dto_trans);
+            var result = await mediator.Send(command);
+            return Ok($"transaction {dto_trans.Id} updated successfully");
 
-            var validate = new TransactionPostValidator();
-            var result = validate.Validate(dto_trans);
-            if (!result.IsValid)
-            {
-                logger.LogError($"Invalid model for update transaction");
-                return BadRequest($"Error: {result.Errors.ToString()}");
-            }
-
-            trans= mapper.Map<Transaction>(dto_trans);
-            uow.TransactionRepository.Update(trans);
-            await uow.CommitAsync();
-
-            return Ok($"Transaction updated successfully");
         }
         [HttpDelete]
         [Route("DeleteTransaction/{Id:int}")]
         public async Task<IActionResult> DeleteTransaction(int Id)
         {
-            if (Id <= 0)
-                return BadRequest($"Invalid id value");
-
-            var trans = await uow.TransactionRepository.GetByIdAsync(Id);
-            if (trans is null)
-                return NotFound($"Transaction {Id} not found");
-
-            uow.TransactionRepository.Delete(trans);
-            await uow.CommitAsync();
-
-            return Ok($"Transaction deleted");
+            var command = new DeleteTransactionRequest(Id);
+            var result = await mediator.Send(command);
+            return Ok($"transaction {Id} deleted successfully");
         }
+       
     }
 }
