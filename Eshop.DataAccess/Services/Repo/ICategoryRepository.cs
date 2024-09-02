@@ -7,7 +7,7 @@ namespace eshop.DataAccess.Services.Repo
 {
     public interface ICategoryRepository:IRepository<Category>
     {
-        Task UpdateAsync(int id, CategoryPostDTO dto_category);
-        Task UpdatePatchAsync(int id, Category category);
+        Task UpdateAsync(Category dto_category);
+        Task UpdatePatchAsync(Category category);
     }
 }

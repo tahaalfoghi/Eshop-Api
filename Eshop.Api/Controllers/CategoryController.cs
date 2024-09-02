@@ -8,6 +8,10 @@ using System.Linq.Expressions;
 using Eshop.Models;
 using Eshop.DataAccess.Services.Validators;
 using Microsoft.AspNetCore.Authorization;
+using MediatR;
+using Eshop.Api.Queries;
+using Eshop.Api.Commands;
+using Eshop.Api.Handlers;
 
 namespace Eshop.Api.Controllers
 {
@@ -19,12 +23,14 @@ namespace Eshop.Api.Controllers
         private readonly IUnitOfWork uow;
         private readonly ILogger<CategoryController> logger;
         private readonly IMapper mapper;
-        
-        public CategoryController(IUnitOfWork uow, ILogger<CategoryController> logger, IMapper mapper)
+        private readonly IMediator mediator;
+
+        public CategoryController(IUnitOfWork uow, ILogger<CategoryController> logger, IMapper mapper, IMediator mediator)
         {
             this.uow = uow;
             this.logger = logger;
             this.mapper = mapper;
+            this.mediator = mediator;
         }
         [HttpGet]
         [Route("Categories")]
@@ -34,16 +40,9 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> GetCategories()
         {
-            logger.LogInformation("GetAllCategories endpoint");
-            var categories = await uow.CategoryRepository.GetAllAsync(includes:"Supplier");
-
-            if(categories is null)
-            {
-                throw new Exception("**ERROR IN CategoryController GetAllCategories endpoint\r\n records not found");
-            }
-
-            var dto_categories = mapper.Map<List<CategoryDTO>>(categories);
-            return Ok(dto_categories);
+            var query = new GetCategoriesQuery();
+            var result = await mediator.Send(query);
+            return Ok(result);
         }
         [HttpGet]
         [Route("Categories/{categoryId:int}")]
@@ -53,14 +52,10 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> GetCategory(int categoryId)
         {
-            logger.LogInformation($"Get category by id {categoryId}");
-            var category = await uow.CategoryRepository.GetByIdAsync(categoryId, includes: "Supplier");
-            if(category is null)
-            {
-                throw new Exception($"**ERROR IN CategoryController GetById endpoint**\r\n");
-            }
-            var dto_category = mapper.Map<CategoryDTO>(category);
-            return Ok(dto_category);
+
+            var query = new GetCategoryQuery(categoryId);
+            var result = await mediator.Send(query);
+            return Ok(result);
         }
         [HttpGet]
         [Route("CategoriesByFilter")]
@@ -107,24 +102,10 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> CreateCategory(CategoryPostDTO dto_category)
         {
-            if (!ModelState.IsValid)
-            {
-                var error_message = $"**ERROR IN CategoryController at CreateCategory endpoint\r\n" +
-                                    $"Invalid input for:{{ Name:{dto_category.Name} Supplier:{dto_category.SupplierId} }}";
-                throw new Exception(error_message);
-            }
+            var command = new CreateCategoryRequest(dto_category);
+            var result = await mediator.Send(command);
 
-            var validate = new CategoryValidator();
-            var result = validate.Validate(dto_category);
-            if (!result.IsValid)
-            {
-                return BadRequest($"Invalid input for category: {result.ToString()}");
-            }
-            var category = mapper.Map<Category>(dto_category);  
-            await uow.CategoryRepository.CreateAsync(category);
-            await uow.CommitAsync();
-
-            return CreatedAtAction(nameof(GetCategory), new { categoryId = category.Id }, category);
+            return CreatedAtAction(nameof(GetCategory), new { categoryId = result.Id }, result);
         }
         [HttpDelete]
         [Route("DeleteCategory/{categoryId:int}")]
@@ -134,22 +115,9 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> DeleteCategory(int categoryId)
         {
-            if (categoryId <= 0)
-            {
-                var error_message = $"ERROR IN ERROR IN CategoryController at CreateCategory endpoint\r\n" +
-                                    $"Invalid id:{categoryId} ";
-                throw new Exception(error_message);
-            }
-            var category = await uow.CategoryRepository.GetByIdAsync(categoryId);
-            if(category is null)
-            {
-                var error_message = $"ERROR IN ERROR IN CategoryController at CreateCategory endpoint\r\n" +
-                                    $"Category with id:{categoryId} not found ";
-                throw new Exception(error_message);
-            }
-            uow.CategoryRepository.Delete(category);
-            await uow.CommitAsync();
-            return Ok(category.Id);
+            var command = new DeleteCategoryRequest(categoryId);
+            var result = await mediator.Send(command);
+            return result ? Ok($"Category [{categoryId}] deleted successfully") : BadRequest();
         }
         [HttpPut]
         [Route("UpdateCategory/{categoryId:int}")]
@@ -157,31 +125,12 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> UpdateCategory(int categoryId, CategoryPostDTO dto_category)
+        public async Task<IActionResult> UpdateCategory(CategoryPostDTO dto_category)
         {
-            var category = await uow.CategoryRepository.GetByIdAsync(categoryId);
-            if(category is null)
-            {
-                var error_message = $"ERROR IN  CategoryController at UpdateCategory endpoint\r\n" +
-                                   $"Invalid id:{categoryId} ";
-                throw new Exception(error_message);
-            }
-            if (!ModelState.IsValid)
-            {
-                var error_message = $"ERROR IN CategoryController at UpdateCategory endpoint\r\n" +
-                                    $"Invalid input for the category: Name:{dto_category.Name} Supplier:{dto_category.SupplierId} ";
-                throw new Exception(error_message);
-            }
-            var validate = new CategoryValidator();
-            var result = validate.Validate(dto_category);
-            if (!result.IsValid)
-            {
-                return BadRequest($"Invalid input for category: {result.ToString()}");
-            }
-            await uow.CategoryRepository.UpdateAsync(categoryId, dto_category);
-            await uow.CommitAsync();
-            
-            return Ok(category.Id);
+            var command = new UpdateCategoryRequest(dto_category);
+            var result = await mediator.Send(command);
+
+            return Ok($"Category updated successfully");
         }
         [HttpPatch]
         [Route("UpdatePatchCategory/{categoryId:int}")]
@@ -207,7 +156,7 @@ namespace Eshop.Api.Controllers
                 return BadRequest($"Invalid input for category: {result.ToString()}");
             }
             var category = mapper.Map<Category>(dto_category);
-            await uow.CategoryRepository.UpdatePatchAsync(categoryId,category);
+            await uow.CategoryRepository.UpdatePatchAsync(category);
             await uow.CommitAsync();
 
             return Ok(categoryId);

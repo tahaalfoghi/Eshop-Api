@@ -113,16 +113,20 @@ namespace eshop.DataAccess.Services.Repo
             return await query.FirstOrDefaultAsync();
         }
 
-        public async Task UpdateAsync(int id, CategoryPostDTO dto_category)
+        public async Task UpdateAsync(Category dto_category)
         {
-            var category = await context.Categories.FindAsync(id);
-            category.Name = dto_category.Name;
-            category.Description = dto_category.Description;
-            category.SupplierId = dto_category.SupplierId;
+            var existingCategory = await context.Categories.FirstOrDefaultAsync(x => x.Id == dto_category.Id);
+            if (existingCategory is not null)
+            {
+                existingCategory.Name = dto_category.Name;
+                existingCategory.Description = dto_category.Description;
+                existingCategory.SupplierId = dto_category.SupplierId;
+            }
         }
-        public async Task UpdatePatchAsync(int id, Category category)
+
+        public async Task UpdatePatchAsync(Category category)
         {
-            var existingCategory = await context.Categories.FindAsync(id);
+            var existingCategory = await context.Categories.FirstOrDefaultAsync(x => x.Id == category.Id);
             if (existingCategory is not null)
             {
                 existingCategory.Name = category.Name;
