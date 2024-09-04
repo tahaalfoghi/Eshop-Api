@@ -88,7 +88,24 @@ namespace Eshop.DataAccess.Services.Validators
             .Matches("[a-z]").WithMessage("Password must contain at least one lowercase letter")
             .Matches("[0-9]").WithMessage("Password must contain at least one numeric digit")
             .Matches("[^a-zA-Z0-9]").WithMessage("Password must contain at least one special character");
+        }
+    }
+    public class UserModelDTOValidator : AbstractValidator<UserModelDTO>
+    {
+        public UserModelDTOValidator()
+        {
+            RuleFor(u => u.UserName)
+            .NotEmpty().WithMessage("UserName is required");
 
+            RuleFor(u => u.Email)
+            .NotEmpty().WithMessage("Email is required")
+            .EmailAddress().WithMessage("Invalid email format");
+            RuleFor(u => u.FirstName)
+            .NotEmpty().WithMessage("FirstName is required");
+            RuleFor(u => u.LastName)
+            .NotEmpty().WithMessage("FirstName is required");
+            RuleFor(u => u.Phone)
+            .NotEmpty().WithMessage("Phone is required");
         }
     }
 }

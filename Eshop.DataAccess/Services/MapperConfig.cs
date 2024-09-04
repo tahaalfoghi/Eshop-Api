@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Eshop.Models;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
 using System;
@@ -41,6 +42,7 @@ namespace Eshop.DataAccess.Services
             .ForMember(x => x.UserName, x => x.MapFrom(x => x.ApplicationUser.UserName));
 
             CreateMap<Transaction, TransactionPostDTO>().ReverseMap();
+            CreateMap<ApplicationUser, UserModelDTO>().ReverseMap();
 
         }
     }

@@ -37,8 +37,11 @@ namespace Eshop.DataAccess.Services.Auth
 
             var user = new ApplicationUser
             {
+                FirstName = model.UserName,
+                LastName = model.LastName,
                 UserName = model.UserName,
                 Email = model.Email,
+                Phone = model.Phone
             };
 
             var result = await userManager.CreateAsync(user, model.Password);
@@ -53,7 +56,7 @@ namespace Eshop.DataAccess.Services.Auth
                 return new AuthModel { Message = errors };
             }
 
-            await userManager.AddToRoleAsync(user, "Customer");
+            await userManager.AddToRoleAsync(user, "Admin");
 
             var jwtSecurityToken = await CreateJwtTokenAsync(user);
 

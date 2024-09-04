@@ -20,12 +20,20 @@ namespace Eshop.Models
     public class RegisterModel
     {
         [Required]
+        public string FirstName { get; set; } = string.Empty;
+        [Required]
+        public string LastName { get; set; } = string.Empty;
+        [Required]
         public string UserName { get; set; } = string.Empty;
         [Required]
         [EmailAddress]
         public string Email { get; set; } = string.Empty;
         [Required]
         public string Password {  get; set; } = string.Empty;
+        [Required]
+        [Phone]
+        public string Phone { get; set; } = string.Empty;
+        
     }
     public class TokenRequestModel
     {
@@ -40,5 +48,15 @@ namespace Eshop.Models
         public string UserId { get; set; } = string.Empty;
         [Required]
         public string RoleName { get; set; } = string.Empty;
+    }
+    public class UserModelDTO
+    {
+        public string FirstName { get; set; } = string.Empty;
+        
+        public string LastName { get; set; } = string.Empty;
+        public string UserName { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Phone { get; set; } = string.Empty;
+
     }
 }

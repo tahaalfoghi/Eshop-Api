@@ -74,6 +74,5 @@ namespace Eshop.DataAccess.Services.Repo
             return users;
                         
         }
-
     }
 }
