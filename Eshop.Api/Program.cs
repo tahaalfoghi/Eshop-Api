@@ -30,7 +30,7 @@ builder.Logging.AddSerilog();
 builder.Services.AddControllers().AddNewtonsoftJson().AddFluentValidation(x =>
 {
     x.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-
+    
 }).AddJsonOptions(op=>op.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>

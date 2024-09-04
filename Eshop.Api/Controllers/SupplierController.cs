@@ -57,13 +57,13 @@ namespace Eshop.Api.Controllers
 
             return Ok(result);
         }
-        /*[HttpGet]
+        [HttpGet]
         [Route("SupppliersByFilter")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetAllByFilter([FromQuery]TableSearch search)
+        public async Task<IActionResult> GetAllByFilter([FromQuery] TableSearch search)
         {
             var query = new GetSuppliersByFilterQuery(search);
             var result = await mediator.Send(query);
@@ -80,7 +80,7 @@ namespace Eshop.Api.Controllers
             var query = new GetSupplierByFilterQuery(search);
             var result = await mediator.Send(query);
             return Ok(result);
-        }*/
+        }
         [HttpPost]
         [Route("CreateSupplier")]
         [ProducesResponseType(200)]
@@ -130,30 +130,10 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> UpdatePatch(int supplierId, [FromBody] JsonPatchDocument<SupplierDTO> patch)
         {
-            if(!ModelState.IsValid || supplierId <= 0)
-            {
-                throw new Exception($"ERROR Invalid model:{patch.ToString()} or Id:{supplierId} values");
-            }
-            var existingSupplier = await uow.SupplierRepository.GetByIdAsync(supplierId);
-            if(existingSupplier is null)
-            {
-                return BadRequest($"Supplier with Id: {supplierId} is not found");
-            }
-            var dto_supplier = mapper.Map<SupplierDTO>(existingSupplier);
-            patch.ApplyTo(dto_supplier, ModelState);
-
-            var validate = new SupplierValidator();
-            var result = validate.Validate(dto_supplier);
-            if (!result.IsValid)
-            {
-                return BadRequest(result.ToString());
-            }
-
-            var supplier = mapper.Map<Supplier>(dto_supplier);
-            await uow.SupplierRepository.UpdatePatchAsync(supplierId, supplier);
-            await uow.CommitAsync();
-
-            return Ok($"Supplier with Id:{supplier.Id} patch updated successfully");
+           
+           var command = new UpdatePatchSupplierRequest(supplierId, patch);
+           var result = await mediator.Send(command);
+           return result ? Ok($"Supplier updated successfully") : BadRequest();
         }
     }
 }

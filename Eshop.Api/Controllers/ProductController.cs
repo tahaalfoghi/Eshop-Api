@@ -1,18 +1,12 @@
 ﻿using AutoMapper;
-using eshop.DataAccess.Services.UnitOfWork;
 using Eshop.Api.Commands;
 using Eshop.Api.Queries;
-using Eshop.DataAccess.Services.Validators;
 using Eshop.Models;
 using Eshop.Models.DTOModels;
-using Eshop.Models.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.Net.Sockets;
 
 namespace Eshop.Api.Controllers
 {
