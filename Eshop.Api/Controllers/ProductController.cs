@@ -21,15 +21,11 @@ namespace Eshop.Api.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IUnitOfWork uow;
-        private readonly IMapper mapper;
         private readonly IMediator mediator;
 
-        public ProductController(IMediator mediator, IUnitOfWork uow, IMapper mapper)
+        public ProductController(IMediator mediator)
         {
             this.mediator = mediator;
-            this.uow = uow;
-            this.mapper = mapper;
         }
         [HttpGet]
         [Route("Products")]
@@ -64,14 +60,10 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> GetAllProductsByFilter([FromQuery] TableSearch search)
         {
-            var products = await uow.ProductRepository.GetAllByFilterAsync(search, includes: "Category");
-            if (products is null)
-            {
-                return BadRequest($"Products not found with filter:{search.ToString()}");
-            }
-            var dto_products = mapper.Map<List<ProductDTO>>(products);
 
-            return Ok(dto_products);
+            var query = new GetProductsByFilterQuery(search);
+            var result = await mediator.Send(query);
+            return Ok(result);
         }
         [HttpGet]
         [Route("ProductByFilter")]
@@ -81,12 +73,9 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> GetSingleProductByFilter([FromForm] TableSearch search)
         {
-            var product = await uow.ProductRepository.GetFirstOrDefaultAsync(search, includes: "Category");
-            if (product is null)
-                return BadRequest($"Produc with search:{search.ToString()} not found");
-
-            var dto_product = mapper.Map<ProductDTO>(product);
-            return Ok(dto_product);
+            var query = new GetProductByFilterQuery(search);
+            var result = await mediator.Send(query);
+            return Ok(result);
         }
         [HttpPost]
         [Route("CreateProduct")]
