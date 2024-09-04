@@ -25,11 +25,11 @@ namespace Eshop.Api.Controllers
         private readonly IMapper mapper;
         private readonly IMediator mediator;
 
-        public ProductController(IUnitOfWork uow, IMapper mapper, IMediator mediator)
+        public ProductController(IMediator mediator, IUnitOfWork uow, IMapper mapper)
         {
+            this.mediator = mediator;
             this.uow = uow;
             this.mapper = mapper;
-            this.mediator = mediator;
         }
         [HttpGet]
         [Route("Products")]
@@ -123,41 +123,7 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> UpdateProduct(int productId, [FromForm] ProductPostDTO dto_product)
         {
-            /*if (productId <= 0)
-                return BadRequest($"Invalid id:{productId} value");
-
-            var validate = new ProductValidator();
-            var result = validate.Validate(dto_product);
-            if (!result.IsValid)
-                return BadRequest($"Invalid input: {result.ToString()}");
-
-            var existingProduct = await uow.ProductRepository.GetByIdAsync(productId, includes:"Category");
-            if (existingProduct is null)
-                return BadRequest($"Product with Id:{productId} not found");
-
-            string? ImgUrl = string.Empty;
-            if (dto_product.ImageUrl is not null)
-            {
-                var path = Path.Combine("wwwroot", "images", dto_product.ImageUrl.FileName);
-                using (var stream = new FileStream(path, FileMode.Create))
-                {
-                    await dto_product.ImageUrl.CopyToAsync(stream);
-                }
-                ImgUrl = $"/images/{dto_product.ImageUrl.FileName}";
-            }
-            existingProduct = new Product
-            {
-                Name = dto_product.Name,
-                Description = dto_product.Description,
-                Price = dto_product.Price,
-                ImageUrl = ImgUrl,
-                CategoryId = dto_product.CategoryId,
-            };
-
-            await uow.ProductRepository.UpdateAsync(productId, existingProduct);
-            await uow.CommitAsync();
-
-            return Ok($"Product {productId} updated successfully");*/
+            
             var command = new UpdateProductRequest(productId, dto_product);
             var result = await mediator.Send(command);
             return result ? Ok("Product Updated successfully") : BadRequest();    
@@ -170,47 +136,10 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> UpdatePatch(int productId, [FromBody] JsonPatchDocument<ProductPostDTO> patch)
         {
-            if (productId <= 0)
-                return BadRequest($"Invalid Id:{productId}");
-
-            
-
-            var existingProduct = await uow.ProductRepository.GetByIdAsync(productId, includes:"Category");
-            if (existingProduct is null)
-                return BadRequest($"Product with id:{productId} not found");
-
-            var dto_product = mapper.Map<ProductPostDTO>(existingProduct);
-            patch.ApplyTo(dto_product, ModelState);
-
-            string? ImgUrl = string.Empty;
-            if (dto_product.ImageUrl is not null)
-            {
-                var path = Path.Combine("wwwroot", "images", dto_product.ImageUrl.FileName);
-                using (var stream = new FileStream(path, FileMode.Create))
-                {
-                    await dto_product.ImageUrl.CopyToAsync(stream);
-                }
-                ImgUrl = $"/images/{dto_product.ImageUrl.FileName}";
-            }
-            var validate = new ProductValidator();
-            var result = validate.Validate(dto_product);
-            if (!result.IsValid)
-                return BadRequest($"Invalid input: {result.ToString()}");
-
-            var product = new Product
-            {
-                Name = dto_product.Name,
-                Description = dto_product.Description,
-                Price = dto_product.Price,
-                ImageUrl = ImgUrl,
-                CategoryId = dto_product.CategoryId,
-            };
-
-
-            await uow.ProductRepository.UpdatePatch(productId, product);
-            await uow.CommitAsync();
-
-            return Ok($"Product {productId} patch update success");
+           
+            var command = new UpdatePatchProductRequest(productId, patch);
+            var result = await mediator.Send(command);
+            return result ? Ok($"Product {productId} patch update success") : BadRequest();
         }
     }
 }

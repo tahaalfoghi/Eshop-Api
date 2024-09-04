@@ -20,16 +20,12 @@ namespace Eshop.Api.Controllers
     [Route("api/[controller]")]
     public class CategoryController : ControllerBase
     {
-        private readonly IUnitOfWork uow;
         private readonly ILogger<CategoryController> logger;
-        private readonly IMapper mapper;
         private readonly IMediator mediator;
 
-        public CategoryController(IUnitOfWork uow, ILogger<CategoryController> logger, IMapper mapper, IMediator mediator)
+        public CategoryController(ILogger<CategoryController> logger, IMediator mediator)
         {
-            this.uow = uow;
             this.logger = logger;
-            this.mapper = mapper;
             this.mediator = mediator;
         }
         [HttpGet]
@@ -123,30 +119,10 @@ namespace Eshop.Api.Controllers
         [Route("UpdatePatchCategory/{categoryId:int}")]
         public async Task<IActionResult> UpdatePath(int categoryId, [FromBody]JsonPatchDocument<CategoryPostDTO> patch)
         {
-            var existingcategory = await uow.CategoryRepository.GetByIdAsync(categoryId);
-            if(existingcategory is null)
-            {
-                return NotFound($"Category with id:{categoryId} is not found");
-            }
-            if(categoryId <= 0)
-            {
-                throw new Exception($"Invalid id:{categoryId}");
-            }
-
-            var dto_category = mapper.Map<CategoryPostDTO>(existingcategory);
-            patch.ApplyTo(dto_category,ModelState);
-
-            var validate = new CategoryValidator();
-            var result = validate.Validate(dto_category);
-            if (!result.IsValid)
-            {
-                return BadRequest($"Invalid input for category: {result.ToString()}");
-            }
-            var category = mapper.Map<Category>(dto_category);
-            await uow.CategoryRepository.UpdatePatchAsync(category);
-            await uow.CommitAsync();
-
-            return Ok(categoryId);
+            
+            var command = new UpdatePatchCategoryRequest(categoryId, patch);
+            var result = await mediator.Send(command);
+            return result ? Ok("Product updated successfully"):BadRequest();
         }
     }
 }
