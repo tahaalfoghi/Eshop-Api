@@ -8,14 +8,13 @@ namespace Eshop.Models
 {
     public class TableSearch
     {
-        public int Id { get; set; }
-        public string? Name { get; set; }
+        public int Rows { get; set; }
+        public int Skip { get; set; }
+        public string? GlobalFilters { get; set; }
         public SortBy Sort { get; set; }
-        public string? Category { get; set; }
-        public string? UserId { get; set; }
         public override string ToString()
         {
-            return $"Name:{Name?? "N/A"} Category:{Category?? "N/A"}";
+            return $"Rows:{Rows} Skip:{Skip} GlobalFilters:{string.Join(",",GlobalFilters)}";
 
         }
     }

@@ -39,22 +39,45 @@ namespace eshop.DataAccess.Services.Repo
         public async Task<IEnumerable<Product>> GetAllByFilterAsync(TableSearch search, string? includes = null)
         {
             IQueryable<Product> query = context.Products.AsNoTracking().AsQueryable();
-            if (!string.IsNullOrEmpty(search.Name))
+            if(search is not null)
             {
-                query = query.Where(x => x.Name.Contains(search.Name));
-                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Asc")
-                    query = query.OrderBy(x => x.Name);
-                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Desc")
-                    query = query.OrderByDescending(x => x.Name);
-            }
-           
-            if (!string.IsNullOrEmpty(search.Category))
-            {
-                query = query.Where(x => x.Category.Name.Equals(search.Category,StringComparison.OrdinalIgnoreCase));
-                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Asc")
-                    query = query.OrderBy(x => x.Category.Name);
-                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Desc")
-                    query = query.OrderByDescending(x => x.Category.Name);
+                if(search.GlobalFilters is not null)
+                {
+                    var words = search.GlobalFilters.Split(new[] {","},StringSplitOptions.RemoveEmptyEntries);
+                    if(words.Length == 0)
+                    {
+                        var filter = words[0];
+                        query = query.Where(x => x.Category.Name.ToLower().Contains(filter.ToLower()));
+                    }
+                    else
+                    {
+                        foreach (var word in words)
+                        {
+                            query = query.Where(x => x.Name.Contains(word) ||
+                                          x.Category.Name.Contains(word) ||
+                                          x.Price.Equals(word));
+                                          
+                        }
+                    }
+                    if (search.Sort.ToString() is not null)
+                    {
+                        if (search.Sort.ToString().Equals("Asc"))
+                            query = query.OrderBy(x => x.Name);
+                        if (search.Sort.ToString().Equals("Desc"))
+                            query = query.OrderByDescending(x => x.Name);
+                        else
+                            query = query.OrderBy(x => x.Name);
+
+                    }
+                    if (search.Skip > 0)
+                    {
+                        query = query.Skip(search.Skip);
+                    }
+                    if (search.Rows > 0)
+                    {
+                        query = query.Take(search.Rows);
+                    }
+                }
             }
             if (includes is not null)
             {
@@ -85,23 +108,38 @@ namespace eshop.DataAccess.Services.Repo
         public async Task<Product> GetFirstOrDefaultAsync(TableSearch search, string? includes = null)
         {
             IQueryable<Product> query = context.Products.AsNoTracking().AsQueryable();
-            if (!string.IsNullOrEmpty(search.Name))
+            if (!string.IsNullOrEmpty(search.GlobalFilters))
             {
-                query = query.Where(x => x.Name.Contains(search.Name));
-                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Asc")
-                    query = query.OrderBy(x => x.Name);
-                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Desc")
-                    query = query.OrderByDescending(x => x.Name);
+                var words = search.GlobalFilters.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                if(words.Length == 0)
+                {
+                    string filter = words[0];
+                    query = query.Where(x=>x.Name==filter || 
+                                        x.Price.ToString() == filter || 
+                                        x.Category.Name == filter);
+                }
+                else
+                {
+                    foreach(var word in words)
+                    {
+                        query = query.Where(x => x.Name == word ||
+                                        x.Price.ToString() == word ||
+                                        x.Category.Name == word);
+                    }
+                }
+                if (!string.IsNullOrEmpty(search.Sort.ToString()))
+                {
+                    if (search.Sort.ToString().Equals("Asc", StringComparison.OrdinalIgnoreCase))
+                    {
+                        query = query.OrderBy(x => x.Category.Name);
+                    }
+                    if (search.Sort.ToString().Equals("Desc", StringComparison.OrdinalIgnoreCase))
+                    {
+                        query = query.OrderBy(x => x.Category.Name);
+                    }
+                }
             }
 
-            if (!string.IsNullOrEmpty(search.Category))
-            {
-                query = query.Where(x => x.Category.Name.Equals(search.Category, StringComparison.OrdinalIgnoreCase));
-                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Asc")
-                    query = query.OrderBy(x => x.Category.Name);
-                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Desc")
-                    query = query.OrderByDescending(x => x.Category.Name);
-            }
             if (includes is not null)
             {
                 foreach (var item in includes.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))

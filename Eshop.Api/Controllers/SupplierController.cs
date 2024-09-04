@@ -57,7 +57,7 @@ namespace Eshop.Api.Controllers
 
             return Ok(result);
         }
-        [HttpGet]
+        /*[HttpGet]
         [Route("SupppliersByFilter")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
@@ -80,7 +80,7 @@ namespace Eshop.Api.Controllers
             var query = new GetSupplierByFilterQuery(search);
             var result = await mediator.Send(query);
             return Ok(result);
-        }
+        }*/
         [HttpPost]
         [Route("CreateSupplier")]
         [ProducesResponseType(200)]

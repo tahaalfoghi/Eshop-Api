@@ -63,7 +63,7 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetAllByFilter([FromQuery]TableSearch search)
+        public async Task<IActionResult> GetAllByFilter([FromQuery] TableSearch search)
         {
             var query = new GetCategoriesByFilterQuery(search);
             var result = await mediator.Send(query);
