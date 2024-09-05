@@ -39,15 +39,46 @@ namespace eshop.DataAccess.Services.Repo
         public async Task<IEnumerable<Supplier>> GetAllByFilterAsync(TableSearch search, string? includes = null)
         {
             IQueryable<Supplier> query = context.Suppliers.AsNoTracking().AsQueryable();
-            /*if (!string.IsNullOrWhiteSpace(search.Name))
+            if (search is not null)
             {
-                query = query.Where(x => x.CompanyName.Contains(search.Name));
-                    if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Asc")
+                if (!string.IsNullOrEmpty(search.GlobalFilters))
+                {
+                    var words = search.GlobalFilters.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                    if (words.Length == 0)
+                    {
+                        string filter = words[0];
+                        query = query.Where(x => x.CompanyName.Contains(filter)
+                                            || x.ContactName.Contains(filter)
+                                            || x.Country.ToString().Equals(filter.ToString()));
+                    }
+                    else
+                    {
+                        foreach (var word in words)
+                        {
+                            query = query.Where(x => x.CompanyName.Contains(word));
+                        }
+                    }
+                }
+                if (search.Sort.ToString() is not null)
+                {
+                    if (search.Sort.ToString().Equals("Asc"))
                         query = query.OrderBy(x => x.CompanyName);
-                    if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Desc")
+                    if (search.Sort.ToString().Equals("Desc"))
                         query = query.OrderByDescending(x => x.CompanyName);
-            }*/
-            
+                    else
+                        query = query.OrderBy(x => x.CompanyName);
+
+                }
+                if (search.Skip > 0)
+                {
+                    query = query.Skip(search.Skip);
+                }
+                if (search.Rows > 0)
+                {
+                    query = query.Take(search.Rows);
+                }
+            }
+
             if (includes is not null)
             {
                 foreach (var item in includes.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
@@ -78,14 +109,46 @@ namespace eshop.DataAccess.Services.Repo
 
             IQueryable<Supplier> query = context.Suppliers.AsNoTracking().AsQueryable();
             query = query.Where(x => x.CompanyName.Contains(search.GlobalFilters));
-            /*if (!string.IsNullOrEmpty(search.Name))
+            if (search is not null)
             {
-                query = query.Where(x => x.CompanyName.Contains(search.Name));
-                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Asc")
-                    query = query.OrderBy(x => x.CompanyName);
-                if (!string.IsNullOrEmpty(search.Sort.ToString()) && search.Sort.ToString() == "Desc")
-                    query = query.OrderByDescending(x => x.CompanyName);
-            }*/
+                if (!string.IsNullOrEmpty(search.GlobalFilters))
+                {
+                    var words = search.GlobalFilters.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                    if (words.Length == 0)
+                    {
+                        string filter = words[0];
+                        query = query.Where(x => x.CompanyName.Contains(filter)
+                                            || x.ContactName.Contains(filter)
+                                            || x.Country.Contains(filter));
+                    }
+                    else
+                    {
+                        foreach (var word in words)
+                        {
+                            query = query.Where(x => x.CompanyName.Contains(word));
+                        }
+                    }
+                }
+                if (search.Sort.ToString() is not null)
+                {
+                    if (search.Sort.ToString().Equals("Asc"))
+                        query = query.OrderBy(x => x.CompanyName);
+                    if (search.Sort.ToString().Equals("Desc"))
+                        query = query.OrderByDescending(x => x.Id);
+                    else
+                        query = query.OrderBy(x => x.Id);
+
+                }
+                if (search.Skip > 0)
+                {
+                    query = query.Skip(search.Skip);
+                }
+                if (search.Rows > 0)
+                {
+                    query = query.Take(search.Rows);
+                }
+            }
+
             if (includes is not null)
             {
                 foreach (var item in includes.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))

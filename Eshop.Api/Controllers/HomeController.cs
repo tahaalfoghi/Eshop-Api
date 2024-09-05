@@ -3,6 +3,7 @@ using eshop.DataAccess.Data;
 using eshop.DataAccess.Services.UnitOfWork;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,18 +13,16 @@ namespace Eshop.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("Eshop-UI")]
+
     public class HomeController : ControllerBase
     {
-        private readonly AppDbContext context;
         private readonly IUnitOfWork uow;
         private readonly IMapper mapper;
-        private readonly IHttpContextAccessor httpContext;
-        public HomeController(AppDbContext context, IUnitOfWork uow, IMapper mapper, IHttpContextAccessor httpContext)
+        public HomeController( IUnitOfWork uow, IMapper mapper)
         {
-            this.context = context;
             this.uow = uow;
             this.mapper = mapper;
-            this.httpContext = httpContext;
         }
         [HttpGet]
         [Route("Index")]

@@ -44,8 +44,7 @@ namespace eshop.DataAccess.Services.Repo
                 return await query.ToListAsync();
             }
             
-            var categories = await context.Categories.AsNoTracking().ToListAsync();
-            return categories;
+            return await context.Categories.OrderBy(x => x.Name).ToListAsync();
         }
 
         public async Task<IEnumerable<Category>> GetAllByFilterAsync(TableSearch search, string? includes = null)

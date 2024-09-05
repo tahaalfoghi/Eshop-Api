@@ -5,6 +5,7 @@ using Eshop.DataAccess.Services.Validators;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +17,8 @@ namespace Eshop.Api.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("Eshop-UI")]
+
     public class CartController : ControllerBase
     {
         private readonly IUnitOfWork uow;

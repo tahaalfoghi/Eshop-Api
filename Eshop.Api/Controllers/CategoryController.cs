@@ -12,12 +12,15 @@ using MediatR;
 using Eshop.Api.Queries;
 using Eshop.Api.Commands;
 using Eshop.Api.Handlers;
+using Microsoft.AspNetCore.Cors;
 
 namespace Eshop.Api.Controllers
 {
     [Authorize(Roles ="Admin")]
     [ApiController]
     [Route("api/[controller]")]
+    [EnableCors("Eshop-UI")]
+
     public class CategoryController : ControllerBase
     {
         private readonly ILogger<CategoryController> logger;

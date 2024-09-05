@@ -3,6 +3,7 @@ using Eshop.Api.Queries;
 using Eshop.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration.UserSecrets;
 using System.Security.Claims;
@@ -12,6 +13,7 @@ namespace Eshop.Api.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("Eshop-UI")]
     public class AccountController:ControllerBase
     {
         private readonly IMediator mediator;

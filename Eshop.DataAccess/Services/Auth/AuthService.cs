@@ -30,10 +30,10 @@ namespace Eshop.DataAccess.Services.Auth
         public async Task<AuthModel> RegisterAsync(RegisterModel model)
         {
             if (await userManager.FindByEmailAsync(model.Email) is not null)
-                return new AuthModel { Message = "Email is already register !" };
+                return new AuthModel { Message = "Email is already registered !" };
 
             if (await userManager.FindByEmailAsync(model.UserName) is not null)
-                return new AuthModel { Message = "UserName is already register !" };
+                return new AuthModel { Message = "UserName is already registered !" };
 
             var user = new ApplicationUser
             {
@@ -56,7 +56,7 @@ namespace Eshop.DataAccess.Services.Auth
                 return new AuthModel { Message = errors };
             }
 
-            await userManager.AddToRoleAsync(user, "Admin");
+            await userManager.AddToRoleAsync(user, "Customer");
 
             var jwtSecurityToken = await CreateJwtTokenAsync(user);
 

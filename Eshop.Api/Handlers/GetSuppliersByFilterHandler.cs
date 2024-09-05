@@ -24,8 +24,7 @@ namespace Eshop.Api.Handlers
             if (suppliers is null || suppliers.Count() == 0)
                 throw new NotFoundException($"No suppliers exists with this filter: [{request.Search}]");
 
-            var dtoSuppliers = mapper.Map<IEnumerable<SupplierDTO>>(suppliers);
-            return dtoSuppliers;
+            return mapper.Map<IEnumerable<SupplierDTO>>(suppliers);
         }
     }
     public class GetSupplierByFilterHandler : IRequestHandler<GetSupplierByFilterQuery, SupplierDTO>

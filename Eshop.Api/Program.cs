@@ -99,6 +99,10 @@ builder.Services.AddAuthentication(op =>
 
     });
 
+builder.Services.AddCors(op => op.AddPolicy("Eshop-UI", cfg =>
+{
+    cfg.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+}));
 Log.Logger = new LoggerConfiguration().MinimumLevel
                  .Information()
                  .WriteTo.File("Logging/log.txt", rollingInterval: RollingInterval.Day)
@@ -145,4 +149,5 @@ app.UseExceptionHandler();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.UseCors("Eshop-UI");
 app.Run();

@@ -1,0 +1,953 @@
+2024-09-05 10:17:39.873 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-05 10:17:40.138 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-05 10:17:40.138 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger - null null
+2024-09-05 10:17:40.188 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-05 10:17:40.190 +02:00 [INF] Hosting environment: Development
+2024-09-05 10:17:40.193 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-05 10:18:06.789 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-05 10:18:06.990 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-05 10:18:07.068 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-05 10:18:07.071 +02:00 [INF] Hosting environment: Development
+2024-09-05 10:18:07.080 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-05 10:18:07.257 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 270.9643ms
+2024-09-05 10:18:07.341 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-05 10:18:07.341 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-05 10:18:07.389 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-05 10:18:07.393 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - null null
+2024-09-05 10:18:07.399 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 11.3802ms
+2024-09-05 10:18:07.422 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-05 10:18:07.422 +02:00 [INF] Sending file. Request path: '/swagger-ui/SwaggerDark.css'. Physical path: 'C:\Users\HP\source\repos\Eshop\Eshop.Api\wwwroot\swagger-ui\SwaggerDark.css'
+2024-09-05 10:18:07.422 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 81.571ms
+2024-09-05 10:18:07.422 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - 499 56477 text/css 32.3575ms
+2024-09-05 10:18:07.455 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 114.0731ms
+2024-09-05 10:18:07.539 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-05 10:18:07.541 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-05 10:18:07.542 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 499 628 image/png 2.3537ms
+2024-09-05 10:18:07.575 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-05 10:18:07.730 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 154.7275ms
+2024-09-05 10:18:32.932 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Account/Profile - multipart/form-data; boundary=--------------------------979995412624974450828064 287
+2024-09-05 10:18:33.109 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AccountController.GetProfile (Eshop.Api)'
+2024-09-05 10:18:33.130 +02:00 [INF] Route matched with {action = "GetProfile", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProfile() on controller Eshop.Api.Controllers.AccountController (Eshop.Api).
+2024-09-05 10:18:34.404 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:18:34.407 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:18:34.410 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:18:34.413 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:18:35.371 +02:00 [INF] Executed DbCommand (68ms) [Parameters=[@__Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__Id_0
+2024-09-05 10:18:35.489 +02:00 [INF] Executing OkObjectResult, writing value of type 'Eshop.Models.UserModelDTO'.
+2024-09-05 10:18:35.599 +02:00 [INF] Executed action Eshop.Api.Controllers.AccountController.GetProfile (Eshop.Api) in 2464.6155ms
+2024-09-05 10:18:35.600 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AccountController.GetProfile (Eshop.Api)'
+2024-09-05 10:18:35.607 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Account/Profile - 200 113 application/json; charset=utf-8 2674.5294ms
+2024-09-05 10:18:48.424 +02:00 [INF] Request starting HTTP/2 DELETE https://localhost:44369/api/Account/DeleteAccount - null null
+2024-09-05 10:18:48.430 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-09-05 10:18:48.437 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-05 10:18:48.442 +02:00 [INF] Request finished HTTP/2 DELETE https://localhost:44369/api/Account/DeleteAccount - 401 null null 17.7593ms
+2024-09-05 10:19:36.007 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-05 10:19:36.427 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger - null null
+2024-09-05 10:19:36.427 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-05 10:19:36.620 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-05 10:19:36.626 +02:00 [INF] Hosting environment: Development
+2024-09-05 10:19:36.631 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-05 10:19:36.783 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger - 499 null null 371.2697ms
+2024-09-05 10:19:36.915 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 501.2813ms
+2024-09-05 10:19:36.984 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-05 10:19:36.992 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 4.2545ms
+2024-09-05 10:19:36.993 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-05 10:19:37.057 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 63.806ms
+2024-09-05 10:19:37.123 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-05 10:19:37.446 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 322.8757ms
+2024-09-05 10:19:56.284 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=---------------------------18049871803746187293433989875 308
+2024-09-05 10:19:56.383 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-05 10:19:56.440 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-05 10:19:58.091 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:19:58.096 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:19:58.103 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:19:58.108 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:19:59.598 +02:00 [INF] Executed DbCommand (99ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-09-05 10:19:59.656 +02:00 [ERR] Error while attempt to login user:[ admin@gmail.com ] is not authenticated
+2024-09-05 10:19:59.669 +02:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2024-09-05 10:19:59.681 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 3232.475ms
+2024-09-05 10:19:59.682 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-05 10:19:59.698 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Auth/Login - 400 null text/plain; charset=utf-8 3414.4062ms
+2024-09-05 10:20:05.697 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=---------------------------188986996824611495083072601534 310
+2024-09-05 10:20:05.703 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-05 10:20:05.703 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-05 10:20:05.836 +02:00 [INF] Executed DbCommand (22ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-09-05 10:20:06.390 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2024-09-05 10:20:06.450 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-09-05 10:20:06.470 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-09-05 10:20:06.520 +02:00 [INF] user [ admin@mail.com ] login to the system
+2024-09-05 10:20:06.522 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-09-05 10:20:06.729 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 1025.7359ms
+2024-09-05 10:20:06.730 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-05 10:20:06.730 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Auth/Login - 200 470 application/json; charset=utf-8 1033.1573ms
+2024-09-05 10:20:25.874 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Account/Profile - null null
+2024-09-05 10:20:25.980 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AccountController.GetProfile (Eshop.Api)'
+2024-09-05 10:20:25.995 +02:00 [INF] Route matched with {action = "GetProfile", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProfile() on controller Eshop.Api.Controllers.AccountController (Eshop.Api).
+2024-09-05 10:20:26.257 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__Id_0
+2024-09-05 10:20:26.271 +02:00 [INF] Executing OkObjectResult, writing value of type 'Eshop.Models.UserModelDTO'.
+2024-09-05 10:20:26.277 +02:00 [INF] Executed action Eshop.Api.Controllers.AccountController.GetProfile (Eshop.Api) in 281.0091ms
+2024-09-05 10:20:26.277 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AccountController.GetProfile (Eshop.Api)'
+2024-09-05 10:20:26.279 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Account/Profile - 200 113 application/json; charset=utf-8 405.7446ms
+2024-09-05 10:20:59.156 +02:00 [INF] Request starting HTTP/2 PUT https://localhost:44369/api/Account/EditProfile - application/json-patch+json 129
+2024-09-05 10:20:59.161 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AccountController.EditProfile (Eshop.Api)'
+2024-09-05 10:20:59.168 +02:00 [INF] Route matched with {action = "EditProfile", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EditProfile(Eshop.Models.UserModelDTO) on controller Eshop.Api.Controllers.AccountController (Eshop.Api).
+2024-09-05 10:20:59.284 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__Id_0
+2024-09-05 10:20:59.487 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[@p4='?' (Size = 450), @p5='?' (Size = 4000), @p0='?' (Size = 256), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [Email] = @p0, [FirstName] = @p1, [LastName] = @p2, [UserName] = @p3
+OUTPUT 1
+WHERE [Id] = @p4 AND [ConcurrencyStamp] = @p5;
+2024-09-05 10:20:59.516 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-09-05 10:20:59.517 +02:00 [INF] Executed action Eshop.Api.Controllers.AccountController.EditProfile (Eshop.Api) in 349.2973ms
+2024-09-05 10:20:59.517 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AccountController.EditProfile (Eshop.Api)'
+2024-09-05 10:20:59.518 +02:00 [INF] Request finished HTTP/2 PUT https://localhost:44369/api/Account/EditProfile - 200 null text/plain; charset=utf-8 362.0616ms
+2024-09-05 10:21:04.969 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Account/Profile - null null
+2024-09-05 10:21:04.976 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AccountController.GetProfile (Eshop.Api)'
+2024-09-05 10:21:04.976 +02:00 [INF] Route matched with {action = "GetProfile", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProfile() on controller Eshop.Api.Controllers.AccountController (Eshop.Api).
+2024-09-05 10:21:04.989 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__Id_0
+2024-09-05 10:21:04.992 +02:00 [INF] Executing OkObjectResult, writing value of type 'Eshop.Models.UserModelDTO'.
+2024-09-05 10:21:04.994 +02:00 [INF] Executed action Eshop.Api.Controllers.AccountController.GetProfile (Eshop.Api) in 17.5332ms
+2024-09-05 10:21:04.994 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AccountController.GetProfile (Eshop.Api)'
+2024-09-05 10:21:04.994 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Account/Profile - 200 108 application/json; charset=utf-8 25.6808ms
+2024-09-05 10:21:15.594 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Order/Orders - null null
+2024-09-05 10:21:15.596 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.OrderController.GetOrders (Eshop.Api)'
+2024-09-05 10:21:15.601 +02:00 [INF] Route matched with {action = "GetOrders", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrders() on controller Eshop.Api.Controllers.OrderController (Eshop.Api).
+2024-09-05 10:21:15.752 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[Address], [o].[Carrier], [o].[City], [o].[CustomerId], [o].[OrderDate], [o].[PaymentDate], [o].[Status], [o].[TotalPrice], [o].[TrackingNumber], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[UnitPrice]
+FROM [Orders] AS [o]
+INNER JOIN [AspNetUsers] AS [a] ON [o].[CustomerId] = [a].[Id]
+LEFT JOIN [OrderDetails] AS [o0] ON [o].[Id] = [o0].[OrderId]
+ORDER BY [o].[Id], [a].[Id]
+2024-09-05 10:21:15.779 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.OrderDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-05 10:21:15.797 +02:00 [INF] Executed action Eshop.Api.Controllers.OrderController.GetOrders (Eshop.Api) in 195.2285ms
+2024-09-05 10:21:15.797 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.OrderController.GetOrders (Eshop.Api)'
+2024-09-05 10:21:15.798 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Order/Orders - 200 2 application/json; charset=utf-8 203.2406ms
+2024-09-05 10:21:49.977 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-05 10:21:50.174 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-05 10:21:50.174 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger - null null
+2024-09-05 10:21:50.258 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-05 10:21:50.261 +02:00 [INF] Hosting environment: Development
+2024-09-05 10:21:50.263 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-05 10:21:50.320 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger - 499 null null 152.0676ms
+2024-09-05 10:21:50.390 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 222.1964ms
+2024-09-05 10:21:50.471 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-05 10:21:50.473 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-05 10:21:50.474 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - null null
+2024-09-05 10:21:50.476 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-05 10:21:50.483 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 9.9108ms
+2024-09-05 10:21:50.506 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-05 10:21:50.506 +02:00 [INF] Sending file. Request path: '/swagger-ui/SwaggerDark.css'. Physical path: 'C:\Users\HP\source\repos\Eshop\Eshop.Api\wwwroot\swagger-ui\SwaggerDark.css'
+2024-09-05 10:21:50.506 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - 499 56477 text/css 31.8599ms
+2024-09-05 10:21:50.506 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 33.8441ms
+2024-09-05 10:21:50.524 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.7703ms
+2024-09-05 10:21:50.545 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-05 10:21:50.546 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-05 10:21:50.546 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 499 628 image/png 1.5789ms
+2024-09-05 10:21:50.591 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-05 10:21:50.734 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 142.4625ms
+2024-09-05 10:22:01.266 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/Suppliers - null null
+2024-09-05 10:22:01.503 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api)'
+2024-09-05 10:22:01.538 +02:00 [INF] Route matched with {action = "GetSuppliers", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSuppliers() on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-05 10:22:03.263 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:22:03.271 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:22:03.278 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:22:03.285 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:22:04.895 +02:00 [INF] Executed DbCommand (84ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone], [c].[Id], [c].[Description], [c].[Name], [c].[SupplierId]
+FROM [Suppliers] AS [s]
+LEFT JOIN [Categories] AS [c] ON [s].[Id] = [c].[SupplierId]
+ORDER BY [s].[Id]
+2024-09-05 10:22:05.065 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-05 10:22:05.328 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api) in 3781.7706ms
+2024-09-05 10:22:05.329 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api)'
+2024-09-05 10:22:05.352 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/Suppliers - 200 132508 application/json; charset=utf-8 4086.2898ms
+2024-09-05 10:22:19.212 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Rows=20 - null null
+2024-09-05 10:22:19.222 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:22:19.246 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.Models.TableSearch) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-05 10:22:19.449 +02:00 [INF] Executed DbCommand (48ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+ORDER BY [s].[CompanyName]
+2024-09-05 10:22:19.454 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-05 10:22:19.456 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 209.4951ms
+2024-09-05 10:22:19.456 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:22:19.457 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Rows=20 - 200 2565 application/json; charset=utf-8 245.048ms
+2024-09-05 10:22:34.774 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Rows=20&Skip=2&Sort=Asc - null null
+2024-09-05 10:22:34.782 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:22:34.783 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.Models.TableSearch) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-05 10:22:34.919 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+ORDER BY [s].[CompanyName]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2024-09-05 10:22:34.921 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-05 10:22:34.922 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 139.4373ms
+2024-09-05 10:22:34.923 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:22:34.923 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Rows=20&Skip=2&Sort=Asc - 200 2592 application/json; charset=utf-8 149.4664ms
+2024-09-05 10:23:09.327 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Rows=20&Skip=2&Sort=Asc - null null
+2024-09-05 10:23:09.327 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:23:09.328 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.Models.TableSearch) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-05 10:23:09.340 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+ORDER BY [s].[CompanyName]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2024-09-05 10:23:09.341 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-05 10:23:09.342 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 13.8524ms
+2024-09-05 10:23:09.342 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:23:09.342 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Rows=20&Skip=2&Sort=Asc - 200 2592 application/json; charset=utf-8 15.6126ms
+2024-09-05 10:23:11.992 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Rows=20&Skip=2&Sort=Asc - null null
+2024-09-05 10:23:11.993 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:23:11.994 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.Models.TableSearch) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-05 10:23:12.006 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+ORDER BY [s].[CompanyName]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2024-09-05 10:23:12.007 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-05 10:23:12.008 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 13.9926ms
+2024-09-05 10:23:12.008 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:23:12.008 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Rows=20&Skip=2&Sort=Asc - 200 2592 application/json; charset=utf-8 16.4565ms
+2024-09-05 10:23:23.142 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-05 10:23:23.346 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-05 10:23:23.346 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger - null null
+2024-09-05 10:23:23.420 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-05 10:23:23.423 +02:00 [INF] Hosting environment: Development
+2024-09-05 10:23:23.425 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-05 10:23:23.510 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger - 499 null null 171.4309ms
+2024-09-05 10:23:23.569 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 228.2318ms
+2024-09-05 10:23:23.629 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-05 10:23:23.630 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-05 10:23:23.631 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - null null
+2024-09-05 10:23:23.641 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 4.2445ms
+2024-09-05 10:23:23.641 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-05 10:23:23.658 +02:00 [INF] Sending file. Request path: '/swagger-ui/SwaggerDark.css'. Physical path: 'C:\Users\HP\source\repos\Eshop\Eshop.Api\wwwroot\swagger-ui\SwaggerDark.css'
+2024-09-05 10:23:23.658 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-05 10:23:23.659 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 28.7938ms
+2024-09-05 10:23:23.659 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - 499 56477 text/css 27.89ms
+2024-09-05 10:23:23.695 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 54.8412ms
+2024-09-05 10:23:23.823 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-05 10:23:23.836 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-05 10:23:23.837 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 499 628 image/png 14.3001ms
+2024-09-05 10:23:23.925 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-05 10:23:24.102 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 177.2717ms
+2024-09-05 10:23:35.425 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/Suppliers - null null
+2024-09-05 10:23:35.634 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api)'
+2024-09-05 10:23:35.666 +02:00 [INF] Route matched with {action = "GetSuppliers", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSuppliers() on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-05 10:23:37.338 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:23:37.342 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:23:37.346 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:23:37.350 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:23:38.851 +02:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone], [c].[Id], [c].[Description], [c].[Name], [c].[SupplierId]
+FROM [Suppliers] AS [s]
+LEFT JOIN [Categories] AS [c] ON [s].[Id] = [c].[SupplierId]
+ORDER BY [s].[Id]
+2024-09-05 10:23:39.029 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-05 10:23:39.265 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api) in 3590.8545ms
+2024-09-05 10:23:39.266 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api)'
+2024-09-05 10:23:39.282 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/Suppliers - 200 132508 application/json; charset=utf-8 3857.2635ms
+2024-09-05 10:24:10.666 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?GlobalFilters=Russia - null null
+2024-09-05 10:24:10.676 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:24:10.697 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.Models.TableSearch) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-05 10:24:10.940 +02:00 [INF] Executed DbCommand (57ms) [Parameters=[@__word_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[CompanyName] LIKE @__word_0_contains ESCAPE N'\'
+ORDER BY [s].[CompanyName]
+2024-09-05 10:24:11.153 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 456.0404ms
+2024-09-05 10:24:11.155 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:24:11.324 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Eshop.DataAccess.Services.Middleware.NotFoundException: No suppliers exists with this filter: [Rows:0 Skip:0 GlobalFilters:Russia]
+   at Eshop.Api.Handlers.GetSuppliersByFilterHandler.Handle(GetSuppliersByFilterQuery request, CancellationToken cancellationToken) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Handlers\GetSuppliersByFilterHandler.cs:line 25
+   at Eshop.Api.Controllers.SupplierController.GetAllByFilter(TableSearch search) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Controllers\SupplierController.cs:line 69
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2024-09-05 10:24:11.340 +02:00 [ERR] Exception occured {Error Happend in this action method
+}
+Eshop.DataAccess.Services.Middleware.NotFoundException: No suppliers exists with this filter: [Rows:0 Skip:0 GlobalFilters:Russia]
+   at Eshop.Api.Handlers.GetSuppliersByFilterHandler.Handle(GetSuppliersByFilterQuery request, CancellationToken cancellationToken) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Handlers\GetSuppliersByFilterHandler.cs:line 25
+   at Eshop.Api.Controllers.SupplierController.GetAllByFilter(TableSearch search) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Controllers\SupplierController.cs:line 69
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2024-09-05 10:24:11.363 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?GlobalFilters=Russia - 404 null application/json 697.2944ms
+2024-09-05 10:24:24.659 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Rows=10&GlobalFilters=Russia - null null
+2024-09-05 10:24:24.664 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:24:24.665 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.Models.TableSearch) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-05 10:24:24.784 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[@__p_1='?' (DbType = Int32), @__word_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_1) [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[CompanyName] LIKE @__word_0_contains ESCAPE N'\'
+ORDER BY [s].[CompanyName]
+2024-09-05 10:24:24.867 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 201.6948ms
+2024-09-05 10:24:24.867 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:24:24.875 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Eshop.DataAccess.Services.Middleware.NotFoundException: No suppliers exists with this filter: [Rows:10 Skip:0 GlobalFilters:Russia]
+   at Eshop.Api.Handlers.GetSuppliersByFilterHandler.Handle(GetSuppliersByFilterQuery request, CancellationToken cancellationToken) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Handlers\GetSuppliersByFilterHandler.cs:line 25
+   at Eshop.Api.Controllers.SupplierController.GetAllByFilter(TableSearch search) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Controllers\SupplierController.cs:line 69
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2024-09-05 10:24:24.885 +02:00 [ERR] Exception occured {Error Happend in this action method
+}
+Eshop.DataAccess.Services.Middleware.NotFoundException: No suppliers exists with this filter: [Rows:10 Skip:0 GlobalFilters:Russia]
+   at Eshop.Api.Handlers.GetSuppliersByFilterHandler.Handle(GetSuppliersByFilterQuery request, CancellationToken cancellationToken) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Handlers\GetSuppliersByFilterHandler.cs:line 25
+   at Eshop.Api.Controllers.SupplierController.GetAllByFilter(TableSearch search) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Controllers\SupplierController.cs:line 69
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2024-09-05 10:24:24.887 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Rows=10&GlobalFilters=Russia - 404 null application/json 228.0148ms
+2024-09-05 10:24:43.868 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Rows=10&GlobalFilters=Sweden - null null
+2024-09-05 10:24:43.869 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:24:43.869 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.Models.TableSearch) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-05 10:24:43.886 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_1='?' (DbType = Int32), @__word_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_1) [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[CompanyName] LIKE @__word_0_contains ESCAPE N'\'
+ORDER BY [s].[CompanyName]
+2024-09-05 10:24:43.980 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 110.6889ms
+2024-09-05 10:24:43.981 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:24:43.990 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Eshop.DataAccess.Services.Middleware.NotFoundException: No suppliers exists with this filter: [Rows:10 Skip:0 GlobalFilters:Sweden]
+   at Eshop.Api.Handlers.GetSuppliersByFilterHandler.Handle(GetSuppliersByFilterQuery request, CancellationToken cancellationToken) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Handlers\GetSuppliersByFilterHandler.cs:line 25
+   at Eshop.Api.Controllers.SupplierController.GetAllByFilter(TableSearch search) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Controllers\SupplierController.cs:line 69
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2024-09-05 10:24:44.000 +02:00 [ERR] Exception occured {Error Happend in this action method
+}
+Eshop.DataAccess.Services.Middleware.NotFoundException: No suppliers exists with this filter: [Rows:10 Skip:0 GlobalFilters:Sweden]
+   at Eshop.Api.Handlers.GetSuppliersByFilterHandler.Handle(GetSuppliersByFilterQuery request, CancellationToken cancellationToken) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Handlers\GetSuppliersByFilterHandler.cs:line 25
+   at Eshop.Api.Controllers.SupplierController.GetAllByFilter(TableSearch search) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Controllers\SupplierController.cs:line 69
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2024-09-05 10:24:44.002 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Rows=10&GlobalFilters=Sweden - 404 null application/json 134.9476ms
+2024-09-05 10:25:40.658 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-05 10:25:41.029 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger - null null
+2024-09-05 10:25:41.029 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-05 10:25:41.186 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-05 10:25:41.192 +02:00 [INF] Hosting environment: Development
+2024-09-05 10:25:41.196 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-05 10:25:41.356 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger - 499 null null 340.2852ms
+2024-09-05 10:25:41.483 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 469.6338ms
+2024-09-05 10:25:41.623 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-05 10:25:41.625 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - null null
+2024-09-05 10:25:41.625 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-05 10:25:41.630 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-05 10:25:41.649 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 25.5918ms
+2024-09-05 10:25:41.661 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-05 10:25:41.661 +02:00 [INF] Sending file. Request path: '/swagger-ui/SwaggerDark.css'. Physical path: 'C:\Users\HP\source\repos\Eshop\Eshop.Api\wwwroot\swagger-ui\SwaggerDark.css'
+2024-09-05 10:25:41.661 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - 499 56477 text/css 36.5283ms
+2024-09-05 10:25:41.661 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 31.1443ms
+2024-09-05 10:25:41.694 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 69.5498ms
+2024-09-05 10:25:41.709 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-05 10:25:41.710 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-05 10:25:41.710 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 499 628 image/png 1.9418ms
+2024-09-05 10:25:41.742 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-05 10:25:42.070 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 328.1451ms
+2024-09-05 10:25:58.338 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?GlobalFilters=Sweden - null null
+2024-09-05 10:25:58.564 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:25:58.608 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.Models.TableSearch) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-05 10:26:00.421 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:26:00.427 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:26:00.433 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:26:00.438 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:26:02.139 +02:00 [INF] Executed DbCommand (131ms) [Parameters=[@__word_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[CompanyName] LIKE @__word_0_contains ESCAPE N'\'
+ORDER BY [s].[CompanyName]
+2024-09-05 10:26:02.354 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 3736.0303ms
+2024-09-05 10:26:02.356 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:26:02.431 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Eshop.DataAccess.Services.Middleware.NotFoundException: No suppliers exists with this filter: [Rows:0 Skip:0 GlobalFilters:Sweden]
+   at Eshop.Api.Handlers.GetSuppliersByFilterHandler.Handle(GetSuppliersByFilterQuery request, CancellationToken cancellationToken) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Handlers\GetSuppliersByFilterHandler.cs:line 25
+   at Eshop.Api.Controllers.SupplierController.GetAllByFilter(TableSearch search) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Controllers\SupplierController.cs:line 69
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2024-09-05 10:26:02.458 +02:00 [ERR] Exception occured {Error Happend in this action method
+}
+Eshop.DataAccess.Services.Middleware.NotFoundException: No suppliers exists with this filter: [Rows:0 Skip:0 GlobalFilters:Sweden]
+   at Eshop.Api.Handlers.GetSuppliersByFilterHandler.Handle(GetSuppliersByFilterQuery request, CancellationToken cancellationToken) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Handlers\GetSuppliersByFilterHandler.cs:line 25
+   at Eshop.Api.Controllers.SupplierController.GetAllByFilter(TableSearch search) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Controllers\SupplierController.cs:line 69
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2024-09-05 10:26:02.492 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?GlobalFilters=Sweden - 404 null application/json 4153.5002ms
+2024-09-05 10:26:08.485 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Rows=10&GlobalFilters=Sweden - null null
+2024-09-05 10:26:08.495 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:26:08.496 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.Models.TableSearch) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-05 10:26:08.564 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[@__p_1='?' (DbType = Int32), @__word_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_1) [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[CompanyName] LIKE @__word_0_contains ESCAPE N'\'
+ORDER BY [s].[CompanyName]
+2024-09-05 10:26:08.647 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 150.9817ms
+2024-09-05 10:26:08.648 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:26:08.658 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Eshop.DataAccess.Services.Middleware.NotFoundException: No suppliers exists with this filter: [Rows:10 Skip:0 GlobalFilters:Sweden]
+   at Eshop.Api.Handlers.GetSuppliersByFilterHandler.Handle(GetSuppliersByFilterQuery request, CancellationToken cancellationToken) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Handlers\GetSuppliersByFilterHandler.cs:line 25
+   at Eshop.Api.Controllers.SupplierController.GetAllByFilter(TableSearch search) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Controllers\SupplierController.cs:line 69
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2024-09-05 10:26:08.669 +02:00 [ERR] Exception occured {Error Happend in this action method
+}
+Eshop.DataAccess.Services.Middleware.NotFoundException: No suppliers exists with this filter: [Rows:10 Skip:0 GlobalFilters:Sweden]
+   at Eshop.Api.Handlers.GetSuppliersByFilterHandler.Handle(GetSuppliersByFilterQuery request, CancellationToken cancellationToken) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Handlers\GetSuppliersByFilterHandler.cs:line 25
+   at Eshop.Api.Controllers.SupplierController.GetAllByFilter(TableSearch search) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Controllers\SupplierController.cs:line 69
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2024-09-05 10:26:08.672 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Rows=10&GlobalFilters=Sweden - 404 null application/json 187.7345ms
+2024-09-05 10:26:13.122 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Rows=10&Skip=1&GlobalFilters=Sweden - null null
+2024-09-05 10:26:13.128 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:26:13.128 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.Models.TableSearch) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-05 10:26:13.269 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__word_0_contains='?' (Size = 4000), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[CompanyName] LIKE @__word_0_contains ESCAPE N'\'
+ORDER BY [s].[CompanyName]
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2024-09-05 10:26:13.382 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 253.5769ms
+2024-09-05 10:26:13.383 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:26:13.396 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+Eshop.DataAccess.Services.Middleware.NotFoundException: No suppliers exists with this filter: [Rows:10 Skip:1 GlobalFilters:Sweden]
+   at Eshop.Api.Handlers.GetSuppliersByFilterHandler.Handle(GetSuppliersByFilterQuery request, CancellationToken cancellationToken) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Handlers\GetSuppliersByFilterHandler.cs:line 25
+   at Eshop.Api.Controllers.SupplierController.GetAllByFilter(TableSearch search) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Controllers\SupplierController.cs:line 69
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2024-09-05 10:26:13.410 +02:00 [ERR] Exception occured {Error Happend in this action method
+}
+Eshop.DataAccess.Services.Middleware.NotFoundException: No suppliers exists with this filter: [Rows:10 Skip:1 GlobalFilters:Sweden]
+   at Eshop.Api.Handlers.GetSuppliersByFilterHandler.Handle(GetSuppliersByFilterQuery request, CancellationToken cancellationToken) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Handlers\GetSuppliersByFilterHandler.cs:line 25
+   at Eshop.Api.Controllers.SupplierController.GetAllByFilter(TableSearch search) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Controllers\SupplierController.cs:line 69
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2024-09-05 10:26:13.414 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Rows=10&Skip=1&GlobalFilters=Sweden - 404 null application/json 291.7127ms
+2024-09-05 10:26:21.915 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/Suppliers - null null
+2024-09-05 10:26:21.917 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api)'
+2024-09-05 10:26:21.923 +02:00 [INF] Route matched with {action = "GetSuppliers", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSuppliers() on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-05 10:26:22.093 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone], [c].[Id], [c].[Description], [c].[Name], [c].[SupplierId]
+FROM [Suppliers] AS [s]
+LEFT JOIN [Categories] AS [c] ON [s].[Id] = [c].[SupplierId]
+ORDER BY [s].[Id]
+2024-09-05 10:26:22.185 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-05 10:26:22.395 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api) in 471.8603ms
+2024-09-05 10:26:22.395 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api)'
+2024-09-05 10:26:22.396 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/Suppliers - 200 132508 application/json; charset=utf-8 481.1443ms
+2024-09-05 10:26:46.358 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?GlobalFilters=Wikivu - null null
+2024-09-05 10:26:46.359 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:26:46.359 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.Models.TableSearch) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-05 10:26:46.372 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__word_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[CompanyName] LIKE @__word_0_contains ESCAPE N'\'
+ORDER BY [s].[CompanyName]
+2024-09-05 10:26:46.375 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-05 10:26:46.376 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 17.1681ms
+2024-09-05 10:26:46.377 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-05 10:26:46.377 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?GlobalFilters=Wikivu - 200 542 application/json; charset=utf-8 19.354ms
+2024-09-05 10:47:46.588 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-05 10:47:46.778 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger - null null
+2024-09-05 10:47:46.778 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-05 10:47:46.848 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-05 10:47:46.851 +02:00 [INF] Hosting environment: Development
+2024-09-05 10:47:46.853 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-05 10:47:46.922 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger - 499 null null 149.2957ms
+2024-09-05 10:47:46.980 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 206.8081ms
+2024-09-05 10:47:47.045 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-05 10:47:47.046 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-05 10:47:47.054 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - null null
+2024-09-05 10:47:47.054 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 9.7045ms
+2024-09-05 10:47:47.058 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-05 10:47:47.083 +02:00 [INF] Sending file. Request path: '/swagger-ui/SwaggerDark.css'. Physical path: 'C:\Users\HP\source\repos\Eshop\Eshop.Api\wwwroot\swagger-ui\SwaggerDark.css'
+2024-09-05 10:47:47.083 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-05 10:47:47.083 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - 499 56477 text/css 28.793ms
+2024-09-05 10:47:47.083 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 37.3014ms
+2024-09-05 10:47:47.106 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 50.0251ms
+2024-09-05 10:47:47.129 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-05 10:47:47.130 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-05 10:47:47.130 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 499 628 image/png 1.5239ms
+2024-09-05 10:47:47.176 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-05 10:47:47.326 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 149.1538ms
+2024-09-05 10:48:08.135 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Users/Users - null null
+2024-09-05 10:48:08.300 +02:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenException: IDX10612: Decryption failed. Header.Enc is null or empty, it must be specified.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.DecryptToken(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWEAsync(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-05 10:48:08.360 +02:00 [INF] Bearer was not authenticated. Failure message: IDX10612: Decryption failed. Header.Enc is null or empty, it must be specified.
+2024-09-05 10:48:08.367 +02:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-09-05 10:48:08.375 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-05 10:48:08.377 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Users/Users - 401 null null 241.965ms
+2024-09-05 10:48:45.947 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-05 10:48:46.149 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-05 10:48:46.241 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-05 10:48:46.244 +02:00 [INF] Hosting environment: Development
+2024-09-05 10:48:46.246 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-05 10:48:46.373 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 227.2273ms
+2024-09-05 10:48:46.442 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - null null
+2024-09-05 10:48:46.478 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-05 10:48:46.478 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-05 10:48:46.489 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-05 10:48:46.501 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 22.6236ms
+2024-09-05 10:48:46.515 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-05 10:48:46.515 +02:00 [INF] Sending file. Request path: '/swagger-ui/SwaggerDark.css'. Physical path: 'C:\Users\HP\source\repos\Eshop\Eshop.Api\wwwroot\swagger-ui\SwaggerDark.css'
+2024-09-05 10:48:46.516 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 26.494ms
+2024-09-05 10:48:46.516 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - 499 56477 text/css 74.1939ms
+2024-09-05 10:48:46.545 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 67.5276ms
+2024-09-05 10:48:46.564 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-05 10:48:46.565 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-05 10:48:46.565 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 499 628 image/png 1.5075ms
+2024-09-05 10:48:46.613 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-05 10:48:46.757 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 144.1889ms
+2024-09-05 10:49:04.528 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=---------------------------27999753793346357156965997681 307
+2024-09-05 10:49:04.642 +02:00 [INF] CORS policy execution successful.
+2024-09-05 10:49:04.647 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-05 10:49:04.691 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-05 10:49:06.313 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:49:06.318 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:49:06.322 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:49:06.327 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:49:07.588 +02:00 [INF] Executed DbCommand (79ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-09-05 10:49:07.645 +02:00 [ERR] Error while attempt to login user:[ taha@gmail.com ] is not authenticated
+2024-09-05 10:49:07.655 +02:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2024-09-05 10:49:07.665 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 2967.7925ms
+2024-09-05 10:49:07.666 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-05 10:49:07.681 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Auth/Login - 400 null text/plain; charset=utf-8 3153.6793ms
+2024-09-05 10:49:14.158 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=---------------------------94401814342882348124045662644 306
+2024-09-05 10:49:14.162 +02:00 [INF] CORS policy execution successful.
+2024-09-05 10:49:14.162 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-05 10:49:14.163 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-05 10:49:14.298 +02:00 [INF] Executed DbCommand (18ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-09-05 10:49:14.302 +02:00 [ERR] Error while attempt to login user:[ taha@mail.com ] is not authenticated
+2024-09-05 10:49:14.303 +02:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2024-09-05 10:49:14.304 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 140.2802ms
+2024-09-05 10:49:14.304 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-05 10:49:14.304 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Auth/Login - 400 null text/plain; charset=utf-8 146.3615ms
+2024-09-05 10:49:25.524 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=---------------------------384632504133326847724130571540 310
+2024-09-05 10:49:25.527 +02:00 [INF] CORS policy execution successful.
+2024-09-05 10:49:25.527 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-05 10:49:25.528 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-05 10:49:25.589 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-09-05 10:49:25.595 +02:00 [ERR] Error while attempt to login user:[ taha@gmail.com ] is not authenticated
+2024-09-05 10:49:25.595 +02:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2024-09-05 10:49:25.596 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 68.3518ms
+2024-09-05 10:49:25.596 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-05 10:49:25.597 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Auth/Login - 400 null text/plain; charset=utf-8 73.4817ms
+2024-09-05 10:49:34.558 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=---------------------------437899473910441924436693661 302
+2024-09-05 10:49:34.559 +02:00 [INF] CORS policy execution successful.
+2024-09-05 10:49:34.559 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-05 10:49:34.559 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-05 10:49:34.581 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-09-05 10:49:34.586 +02:00 [ERR] Error while attempt to login user:[ admin@gmail.com ] is not authenticated
+2024-09-05 10:49:34.587 +02:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2024-09-05 10:49:34.587 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 28.0639ms
+2024-09-05 10:49:34.587 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-05 10:49:34.588 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Auth/Login - 400 null text/plain; charset=utf-8 29.4637ms
+2024-09-05 10:49:39.323 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=---------------------------39469985963791055195490602472 307
+2024-09-05 10:49:39.324 +02:00 [INF] CORS policy execution successful.
+2024-09-05 10:49:39.324 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-05 10:49:39.324 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-05 10:49:39.344 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-09-05 10:49:39.756 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2024-09-05 10:49:39.821 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-09-05 10:49:39.842 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-09-05 10:49:39.896 +02:00 [INF] user [ admin@mail.com ] login to the system
+2024-09-05 10:49:39.897 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-09-05 10:49:40.096 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 772.0073ms
+2024-09-05 10:49:40.096 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-05 10:49:40.097 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Auth/Login - 200 468 application/json; charset=utf-8 773.7309ms
+2024-09-05 10:50:23.125 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Auth/Register - multipart/form-data; boundary=---------------------------37570388762834017561145004675 786
+2024-09-05 10:50:23.125 +02:00 [INF] CORS policy execution successful.
+2024-09-05 10:50:23.125 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Register (Eshop.Api)'
+2024-09-05 10:50:23.134 +02:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Eshop.Models.RegisterModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-05 10:50:23.214 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-09-05 10:50:23.223 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-09-05 10:50:23.458 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-09-05 10:50:23.715 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (DbType = Boolean), @p17='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [Phone], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17);
+2024-09-05 10:50:23.763 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-09-05 10:50:23.849 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE [a].[UserId] = @__p_0 AND [a].[RoleId] = @__p_1
+2024-09-05 10:50:23.863 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-09-05 10:50:23.891 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-09-05 10:50:23.959 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p19='?' (Size = 450), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p20='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p2, [ConcurrencyStamp] = @p3, [Email] = @p4, [EmailConfirmed] = @p5, [FirstName] = @p6, [LastName] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [Phone] = @p13, [PhoneNumber] = @p14, [PhoneNumberConfirmed] = @p15, [SecurityStamp] = @p16, [TwoFactorEnabled] = @p17, [UserName] = @p18
+OUTPUT 1
+WHERE [Id] = @p19 AND [ConcurrencyStamp] = @p20;
+2024-09-05 10:50:23.986 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2024-09-05 10:50:23.991 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-09-05 10:50:23.996 +02:00 [INF] New user regitered to the system:[ admin02, admin@gmail.com ]
+2024-09-05 10:50:23.997 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-09-05 10:50:24.001 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Register (Eshop.Api) in 866.4482ms
+2024-09-05 10:50:24.001 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Register (Eshop.Api)'
+2024-09-05 10:50:24.001 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Auth/Register - 200 38 application/json; charset=utf-8 877.5888ms
+2024-09-05 10:50:31.535 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=---------------------------77360294940611977653714437448 308
+2024-09-05 10:50:31.536 +02:00 [INF] CORS policy execution successful.
+2024-09-05 10:50:31.536 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-05 10:50:31.536 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-05 10:50:31.551 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-09-05 10:50:31.715 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2024-09-05 10:50:31.722 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-09-05 10:50:31.731 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-09-05 10:50:31.735 +02:00 [INF] user [ admin@gmail.com ] login to the system
+2024-09-05 10:50:31.736 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-09-05 10:50:31.736 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 200.2143ms
+2024-09-05 10:50:31.736 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-05 10:50:31.737 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Auth/Login - 200 470 application/json; charset=utf-8 201.6227ms
+2024-09-05 10:51:02.603 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-05 10:51:02.811 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger - null null
+2024-09-05 10:51:02.811 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-05 10:51:02.895 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-05 10:51:02.898 +02:00 [INF] Hosting environment: Development
+2024-09-05 10:51:02.899 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-05 10:51:02.973 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger - 499 null null 167.1712ms
+2024-09-05 10:51:03.043 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 238.0255ms
+2024-09-05 10:51:03.104 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-05 10:51:03.104 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-05 10:51:03.107 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - null null
+2024-09-05 10:51:03.126 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-05 10:51:03.132 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 28.9657ms
+2024-09-05 10:51:03.143 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-05 10:51:03.143 +02:00 [INF] Sending file. Request path: '/swagger-ui/SwaggerDark.css'. Physical path: 'C:\Users\HP\source\repos\Eshop\Eshop.Api\wwwroot\swagger-ui\SwaggerDark.css'
+2024-09-05 10:51:03.144 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 40.2351ms
+2024-09-05 10:51:03.144 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger-ui/SwaggerDark.css - 499 56477 text/css 37.5853ms
+2024-09-05 10:51:03.174 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.7664ms
+2024-09-05 10:51:03.196 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-05 10:51:03.198 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-05 10:51:03.199 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 499 628 image/png 2.3234ms
+2024-09-05 10:51:03.242 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-05 10:51:03.414 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 172.3244ms
+2024-09-05 10:51:30.775 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Auth/Register - multipart/form-data; boundary=---------------------------1794895627762727279650019604 779
+2024-09-05 10:51:30.894 +02:00 [INF] CORS policy execution successful.
+2024-09-05 10:51:30.898 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Register (Eshop.Api)'
+2024-09-05 10:51:30.940 +02:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Eshop.Models.RegisterModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-05 10:51:32.702 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:51:32.708 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:51:32.713 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:51:32.718 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-05 10:51:34.250 +02:00 [INF] Executed DbCommand (103ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-09-05 10:51:34.315 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-09-05 10:51:34.535 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-09-05 10:51:34.882 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (DbType = Boolean), @p17='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [Phone], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17);
+2024-09-05 10:51:34.922 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-09-05 10:51:35.038 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE [a].[UserId] = @__p_0 AND [a].[RoleId] = @__p_1
+2024-09-05 10:51:35.053 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-09-05 10:51:35.091 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-09-05 10:51:35.193 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p19='?' (Size = 450), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p20='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p2, [ConcurrencyStamp] = @p3, [Email] = @p4, [EmailConfirmed] = @p5, [FirstName] = @p6, [LastName] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [Phone] = @p13, [PhoneNumber] = @p14, [PhoneNumberConfirmed] = @p15, [SecurityStamp] = @p16, [TwoFactorEnabled] = @p17, [UserName] = @p18
+OUTPUT 1
+WHERE [Id] = @p19 AND [ConcurrencyStamp] = @p20;
+2024-09-05 10:51:35.309 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2024-09-05 10:51:35.364 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-09-05 10:51:35.425 +02:00 [INF] New user regitered to the system:[ Taha02, taha@gmail.com ]
+2024-09-05 10:51:35.436 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-09-05 10:51:35.629 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Register (Eshop.Api) in 4681.2545ms
+2024-09-05 10:51:35.630 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Register (Eshop.Api)'
+2024-09-05 10:51:35.644 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Auth/Register - 200 38 application/json; charset=utf-8 4870.1829ms
+2024-09-05 10:51:45.741 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=---------------------------4230652021664953512071635536 304
+2024-09-05 10:51:45.749 +02:00 [INF] CORS policy execution successful.
+2024-09-05 10:51:45.749 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-05 10:51:45.757 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-05 10:51:45.920 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-09-05 10:51:46.144 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2024-09-05 10:51:46.152 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-09-05 10:51:46.161 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-09-05 10:51:46.167 +02:00 [INF] user [ taha@gmail.com ] login to the system
+2024-09-05 10:51:46.168 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-09-05 10:51:46.178 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 420.7596ms
+2024-09-05 10:51:46.178 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-05 10:51:46.179 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Auth/Login - 200 468 application/json; charset=utf-8 438.3043ms
+2024-09-05 10:51:58.641 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Account/Profile - null null
+2024-09-05 10:51:58.724 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AccountController.GetProfile (Eshop.Api)'
+2024-09-05 10:51:58.729 +02:00 [INF] Route matched with {action = "GetProfile", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProfile() on controller Eshop.Api.Controllers.AccountController (Eshop.Api).
+2024-09-05 10:51:59.044 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__Id_0
+2024-09-05 10:51:59.063 +02:00 [INF] Executing OkObjectResult, writing value of type 'Eshop.Models.UserModelDTO'.
+2024-09-05 10:51:59.069 +02:00 [INF] Executed action Eshop.Api.Controllers.AccountController.GetProfile (Eshop.Api) in 339.9277ms
+2024-09-05 10:51:59.069 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AccountController.GetProfile (Eshop.Api)'
+2024-09-05 10:51:59.073 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Account/Profile - 200 111 application/json; charset=utf-8 431.8917ms

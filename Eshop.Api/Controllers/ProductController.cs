@@ -5,6 +5,7 @@ using Eshop.Models;
 using Eshop.Models.DTOModels;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,7 @@ namespace Eshop.Api.Controllers
     [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("Eshop-UI")]
     public class ProductController : ControllerBase
     {
         private readonly IMediator mediator;

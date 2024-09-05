@@ -3,6 +3,7 @@ using Eshop.DataAccess.Services.Auth;
 using Eshop.Models;
 using Eshop.Models.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Eshop.Api.Controllers
@@ -10,6 +11,7 @@ namespace Eshop.Api.Controllers
     [Authorize(Roles ="Admin")]
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("Eshop-UI")]
     public class UsersController:ControllerBase
     {
         private readonly IUnitOfWork uow;

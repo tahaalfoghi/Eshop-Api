@@ -7,6 +7,7 @@ using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Transactions;
@@ -16,6 +17,8 @@ namespace Eshop.Api.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("Eshop-UI")]
+
     public class OrderController:ControllerBase
     {
         private readonly IUnitOfWork uow;

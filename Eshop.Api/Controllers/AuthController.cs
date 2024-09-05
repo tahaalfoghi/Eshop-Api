@@ -2,11 +2,14 @@
 using Eshop.DataAccess.Services.Validators;
 using Eshop.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 namespace Eshop.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("Eshop-UI")]
+
     public class AuthController : ControllerBase
     {
         private readonly IAuthService authService;

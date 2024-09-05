@@ -8,6 +8,7 @@ using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -19,6 +20,7 @@ namespace Eshop.Api.Controllers
     [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("Eshop-UI")]
     public class SupplierController : ControllerBase
     {
         private readonly IUnitOfWork uow;
