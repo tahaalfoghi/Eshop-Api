@@ -1,4 +1,6 @@
+using AutoMapper;
 using eshop.DataAccess.Data;
+using Eshop.DataAccess.Services.Paging;
 using Eshop.Models;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
@@ -10,9 +12,11 @@ namespace eshop.DataAccess.Services.Repo
     public class SupplierRepository:ISupplierRepository
     {
         private readonly AppDbContext context;
-        public SupplierRepository(AppDbContext context)
+        private readonly IMapper mapper;
+        public SupplierRepository(AppDbContext context, IMapper mapper)
         {
             this.context = context;
+            this.mapper = mapper;
         }
 
         public async Task CreateAsync(Supplier entity) => await context.Suppliers.AddAsync(entity);
@@ -158,6 +162,12 @@ namespace eshop.DataAccess.Services.Repo
                 return await query.FirstOrDefaultAsync();
             }
             return await query.FirstOrDefaultAsync();
+        }
+        public async Task<PagedList<SupplierDTO>> GetSuppliersByPaged(RequestParameter parameter)
+        {
+            var suppliers = await context.Suppliers.OrderBy(x=>x.Id).ToListAsync();
+            var dto = mapper.Map<List<SupplierDTO>>(suppliers);
+            return PagedList<SupplierDTO>.ToPagedList(dto, parameter.PageNumber, parameter.PageSize);
         }
         public async Task UpdateAsync(Supplier supplier)
         {
