@@ -14,6 +14,7 @@ using Eshop.Api.Commands;
 using Eshop.Api.Handlers;
 using Microsoft.AspNetCore.Cors;
 using Eshop.DataAccess.Services.Paging;
+using Newtonsoft.Json;
 
 namespace Eshop.Api.Controllers
 {

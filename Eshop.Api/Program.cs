@@ -101,7 +101,7 @@ builder.Services.AddAuthentication(op =>
 
 builder.Services.AddCors(op => op.AddPolicy("Eshop-UI", cfg =>
 {
-    cfg.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+    cfg.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().WithExposedHeaders("X-Pagination");
 }));
 Log.Logger = new LoggerConfiguration().MinimumLevel
                  .Information()
