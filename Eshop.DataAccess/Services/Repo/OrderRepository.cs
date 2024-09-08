@@ -1,4 +1,5 @@
 using eshop.DataAccess.Data;
+using Eshop.DataAccess.Services.Paging;
 using Eshop.Models;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
@@ -23,18 +24,18 @@ namespace eshop.DataAccess.Services.Repo
 
         public void DeleteRangeAsync(IEnumerable<Order> entities)=> context.Orders.RemoveRange(entities);
 
-        public async Task<IEnumerable<Order>> GetAllAsync(string? includes = null)
+        public async Task<PagedList<Order>> GetAllAsync(RequestParameter requestParameter,string? includes = null)
         {
-            IQueryable<Order> query = context.Orders.AsNoTracking().AsQueryable();
+            IQueryable<Order> query = context.Orders.AsNoTracking().AsQueryable().OrderBy(x=>x.Id);
             if (!string.IsNullOrEmpty(includes))
             {
                 foreach(var item in includes.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
                 {
                     query = query.Include(item);
                 }
-                return await query.ToListAsync();
+                return PagedList<Order>.ToPagedList(query, requestParameter.PageNumber, requestParameter.PageSize);
             }
-            return await query.ToListAsync();
+            return PagedList<Order>.ToPagedList(query, requestParameter.PageNumber, requestParameter.PageSize);
         }
 
         public async Task<IEnumerable<Order>> GetAllByFilterAsync(TableSearch search, string? includes = null)

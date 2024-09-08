@@ -20,7 +20,7 @@ namespace Eshop.Api.Handlers
 
         public async Task<IEnumerable<OrderDTO>> Handle(GetOrdersQuery request, CancellationToken cancellationToken)
         {
-            var orders = await uow.OrderRepository.GetAllAsync(includes: "ApplicationUser,OrderDetails");
+            var orders = await uow.OrderRepository.GetAllAsync(request.requestParameter,includes: "ApplicationUser,OrderDetails");
             if (orders is null)
                 throw new NotFoundException($"No orders exists in database");
 

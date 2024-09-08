@@ -1,5 +1,6 @@
 ﻿using eshop.DataAccess.Data;
 using eshop.DataAccess.Services.Repo;
+using Eshop.DataAccess.Services.Paging;
 using Eshop.Models;
 using Eshop.Models.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -27,9 +28,9 @@ namespace Eshop.DataAccess.Services.Repo
 
         public void DeleteRangeAsync(IEnumerable<ApplicationUser> entities) => context.ApplicationUsers.RemoveRange(entities);
 
-        public async Task<IEnumerable<ApplicationUser>> GetAllAsync(string? includes = null)
+        public async Task<PagedList<ApplicationUser>> GetAllAsync(RequestParameter requestParameter,string? includes = null)
         {
-            return await context.ApplicationUsers.ToListAsync();
+            return PagedList<ApplicationUser>.ToPagedList(context.ApplicationUsers,requestParameter.PageNumber,requestParameter.PageSize);
         }
 
         public async Task<IEnumerable<ApplicationUser>> GetAllByFilterAsync(TableSearch search, string? includes = null)

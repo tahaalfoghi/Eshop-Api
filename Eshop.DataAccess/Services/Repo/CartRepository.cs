@@ -1,4 +1,5 @@
 using eshop.DataAccess.Data;
+using Eshop.DataAccess.Services.Paging;
 using Eshop.Models;
 using Eshop.Models.Models;
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +21,7 @@ namespace eshop.DataAccess.Services.Repo
 
         public void DeleteRangeAsync(IEnumerable<Cart> entities) => context.Carts.RemoveRange(entities);
 
-        public async Task<IEnumerable<Cart>> GetAllAsync(string? includes = null)
+        public async Task<PagedList<Cart>> GetAllAsync(RequestParameter requestParameter,string? includes = null)
         {
             if (includes is not null)
             {
@@ -29,11 +30,9 @@ namespace eshop.DataAccess.Services.Repo
                 {
                     query = query.Include(item);
                 }
-                return await query.ToListAsync();
+                return PagedList<Cart>.ToPagedList(query, requestParameter.PageNumber, requestParameter.PageSize);
             }
-
-            var carts = await context.Carts.AsNoTracking().ToListAsync();
-            return carts;
+            return PagedList<Cart>.ToPagedList(context.Carts, requestParameter.PageNumber, requestParameter.PageSize);
         }
 
         public async Task<IEnumerable<Cart>> GetAllByFilterAsync(TableSearch search, string? includes = null)

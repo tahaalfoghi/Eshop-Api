@@ -2,6 +2,7 @@
 using eshop.DataAccess.Data;
 using eshop.DataAccess.Services.UnitOfWork;
 using Eshop.Api.Queries;
+using Eshop.DataAccess.Services.Paging;
 using Eshop.DataAccess.Services.Validators;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
@@ -34,9 +35,9 @@ namespace Eshop.Api.Controllers
         }
         [HttpGet]
         [Route("Orders")]
-        public async Task<IActionResult> GetOrders()
+        public async Task<IActionResult> GetOrders([FromQuery] RequestParameter requestParameter)
         {
-            var query = new GetOrdersQuery();
+            var query = new GetOrdersQuery(requestParameter);
             var result = await mediator.Send(query);
             return Ok(result);
         }

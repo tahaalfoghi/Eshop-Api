@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Data;
 using eshop.DataAccess.Services.UnitOfWork;
+using Eshop.DataAccess.Services.Paging;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
 using Microsoft.AspNetCore.Cors;
@@ -30,9 +31,9 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index([FromQuery] RequestParameter requestParameter)
         {
-            var products = await uow.ProductRepository.GetAllAsync(includes: "Category");
+            var products = await uow.ProductRepository.GetAllAsync(requestParameter,includes: "Category");
             if (products is null)
                 return BadRequest($"Empty List no product found");
 

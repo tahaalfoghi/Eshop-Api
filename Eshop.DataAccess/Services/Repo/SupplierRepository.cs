@@ -25,7 +25,7 @@ namespace eshop.DataAccess.Services.Repo
 
         public void DeleteRangeAsync(IEnumerable<Supplier> entities) => context.Suppliers.RemoveRange(entities);
 
-        public async Task<IEnumerable<Supplier>> GetAllAsync(string? includes = null)
+        public async Task<PagedList<Supplier>> GetAllAsync(RequestParameter requestParameter ,string? includes = null)
         {
             if(includes is not null)
             {
@@ -34,10 +34,11 @@ namespace eshop.DataAccess.Services.Repo
                 {
                     query = query.Include(item);
                 }
-                return await query.ToListAsync();
+                return PagedList<Supplier>.ToPagedList(query, requestParameter.PageNumber, requestParameter.PageSize);
             }
             var suppliers = await context.Suppliers.ToListAsync();
-            return suppliers;
+            return PagedList<Supplier>.ToPagedList(suppliers, requestParameter.PageNumber, requestParameter.PageSize);
+
         }
 
         public async Task<IEnumerable<Supplier>> GetAllByFilterAsync(TableSearch search, string? includes = null)

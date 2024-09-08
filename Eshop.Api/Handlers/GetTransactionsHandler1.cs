@@ -20,7 +20,7 @@ namespace Eshop.Api.Handlers
 
         public async Task<IEnumerable<TransactionDTO>> Handle(GetTransactionsQuery request, CancellationToken cancellationToken)
         {
-            var transactions = await uow.TransactionRepository.GetAllAsync(includes:"ApplicationUser");
+            var transactions = await uow.TransactionRepository.GetAllAsync(request.requestParameter, includes:"ApplicationUser");
             if (transactions is null || transactions.Count() == 0)
                 throw new NotFoundException("No transaction exists in database");
 

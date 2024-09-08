@@ -21,22 +21,16 @@ using System.Text.Json.Serialization;
 
 namespace Eshop.Api.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     [EnableCors("Eshop-UI")]
     public class SupplierController : ControllerBase
     {
-        private readonly IUnitOfWork uow;
         private readonly IMediator mediator;
-        private readonly AppDbContext context;
-        private readonly IMapper mapper;
-        public SupplierController(IMediator mediator, AppDbContext context, IMapper mapper, IUnitOfWork uow)
+        public SupplierController(IMediator mediator)
         {
             this.mediator = mediator;
-            this.context = context;
-            this.mapper = mapper;
-            this.uow = uow;
         }
         [HttpGet]
         [Route("Suppliers")]
@@ -44,9 +38,9 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetSuppliers()
+        public async Task<IActionResult> GetSuppliers([FromQuery] RequestParameter requestParameter)
         {
-            var query = new GetSupplliersQuery();
+            var query = new GetSupplliersQuery(requestParameter);
             var result = await mediator.Send(query);
 
             return Ok(result);
@@ -88,16 +82,6 @@ namespace Eshop.Api.Controllers
             var query = new GetSupplierByFilterQuery(search);
             var result = await mediator.Send(query);
             return Ok(result);
-        }
-        [HttpGet]
-        [Route("Suppliers/Paging")]
-        public async Task<IActionResult> GetSuppliersWithPaging([FromQuery] RequestParameter parameter)
-        {
-            var suppliers = await uow.SupplierRepository.GetSuppliersByPaged(parameter);
-            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(suppliers.MetaData));
-
-            return Ok(mapper.Map<List<SupplierDTO>>(suppliers));
-
         }
         [HttpPost]
         [Route("CreateSupplier")]

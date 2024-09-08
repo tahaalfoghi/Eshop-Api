@@ -20,7 +20,7 @@ namespace Eshop.Api.Handlers
 
         public async Task<IEnumerable<CategoryDTO>> Handle(GetCategoriesQuery request, CancellationToken cancellationToken)
         {
-            var categroies = await uow.CategoryRepository.GetAllAsync(includes:"Supplier");
+            var categroies = await uow.CategoryRepository.GetAllAsync(request.requestParameter,includes:"Supplier");
             if (categroies is null || categroies.Count() == 0)
                 throw new NotFoundException("No category exists in database");
 

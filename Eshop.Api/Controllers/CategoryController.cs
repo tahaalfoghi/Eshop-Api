@@ -13,6 +13,7 @@ using Eshop.Api.Queries;
 using Eshop.Api.Commands;
 using Eshop.Api.Handlers;
 using Microsoft.AspNetCore.Cors;
+using Eshop.DataAccess.Services.Paging;
 
 namespace Eshop.Api.Controllers
 {
@@ -37,9 +38,9 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetCategories()
+        public async Task<IActionResult> GetCategories([FromQuery] RequestParameter requestParameter)
         {
-            var query = new GetCategoriesQuery();
+            var query = new GetCategoriesQuery(requestParameter);
             var result = await mediator.Send(query);
             return Ok(result);
         }

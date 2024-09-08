@@ -20,7 +20,7 @@ namespace Eshop.Api.Handlers
 
         public async Task<IEnumerable<SupplierDTO>> Handle(GetSupplliersQuery request, CancellationToken cancellationToken)
         {
-            var suppliers = await uow.SupplierRepository.GetAllAsync(includes:"Categories");
+            var suppliers = await uow.SupplierRepository.GetAllAsync(request.RequestParameter,includes:"Categories");
             if (suppliers is null)
                 throw new NotFoundException($"No supplier exists in database");
 

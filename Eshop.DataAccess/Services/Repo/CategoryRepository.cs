@@ -1,4 +1,5 @@
 using eshop.DataAccess.Data;
+using Eshop.DataAccess.Services.Paging;
 using Eshop.Models;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Linq.Expressions;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace eshop.DataAccess.Services.Repo
 {
@@ -32,19 +34,19 @@ namespace eshop.DataAccess.Services.Repo
             context.Categories.RemoveRange(entities);
         }
 
-        public async Task<IEnumerable<Category>> GetAllAsync(string? includes = null)
+        public async Task<PagedList<Category>> GetAllAsync(RequestParameter requestParameter,string? includes = null)
         {
             if(includes is not null)
             {
-                IQueryable<Category> query = context.Categories.AsNoTracking().AsQueryable();
+                IQueryable<Category> query = context.Categories.AsNoTracking().AsQueryable().OrderBy(x=>x.Name);
                 foreach (var item in includes.Split(new[] {","},StringSplitOptions.RemoveEmptyEntries))
                 {
                     query = query.Include(item);
                 }
-                return await query.ToListAsync();
+                return PagedList<Category>.ToPagedList(query,requestParameter.PageNumber,requestParameter.PageSize);
             }
             
-            return await context.Categories.OrderBy(x => x.Name).ToListAsync();
+            return PagedList<Category>.ToPagedList(context.Categories.OrderBy(x=>x.Name), requestParameter.PageNumber, requestParameter.PageSize);
         }
 
         public async Task<IEnumerable<Category>> GetAllByFilterAsync(TableSearch search, string? includes = null)

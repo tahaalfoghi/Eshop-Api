@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Eshop.Api.Commands;
 using Eshop.Api.Queries;
+using Eshop.DataAccess.Services.Paging;
 using Eshop.Models;
 using Eshop.Models.DTOModels;
 using MediatR;
@@ -29,9 +30,9 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetAllProducts()
+        public async Task<IActionResult> GetAllProducts([FromQuery] RequestParameter requestParameter)
         {
-            var query = new GetProductsQuery();
+            var query = new GetProductsQuery(requestParameter);
             var result = await mediator.Send(query);
 
             return Ok(result);

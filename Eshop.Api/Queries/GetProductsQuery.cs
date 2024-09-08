@@ -1,9 +1,16 @@
-﻿using Eshop.Models.DTOModels;
+﻿using Eshop.DataAccess.Services.Paging;
+using Eshop.Models.DTOModels;
 using MediatR;
 
 namespace Eshop.Api.Queries
 {
     public class GetProductsQuery:IRequest<IEnumerable<ProductDTO>>
     {
+        public RequestParameter requestParameter { get; set; }
+
+        public GetProductsQuery(RequestParameter requestParameter)
+        {
+            this.requestParameter = requestParameter;
+        }
     }
 }
