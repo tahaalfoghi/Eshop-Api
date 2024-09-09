@@ -31,10 +31,11 @@ namespace Eshop.DataAccess.Services.Requests
     public class OrderRequestParamater : RequestParameter
     {
         public string? UserName { get; set; }
+        public DateTime Date { get; set; }
     }
     public class OrderDetailRequestParamater : RequestParameter
     {
-
+        
     }
     public class CartRequestParamater : RequestParameter
     {

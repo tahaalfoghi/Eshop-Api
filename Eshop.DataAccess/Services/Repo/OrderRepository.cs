@@ -17,8 +17,6 @@ namespace eshop.DataAccess.Services.Repo
             this.context = context;
         }
 
-        
-
         public async Task CreateAsync(Order entity)=> await context.Orders.AddAsync(entity);
 
         public void Delete(Order entity) => context.Orders.Remove(entity);
@@ -39,11 +37,6 @@ namespace eshop.DataAccess.Services.Repo
             return PagedList<Order>.ToPagedList(query, requestParameter.PageNumber, requestParameter.PageSize);
         }
 
-        public async Task<PagedList<Order>> GetAllByFilterAsync(RequestParameter requestParameter , string? includes = null)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<Order> GetByIdAsync(int id, string? includes = null)
         {
             if (!string.IsNullOrEmpty(includes))
@@ -56,11 +49,6 @@ namespace eshop.DataAccess.Services.Repo
                 return await query.FirstOrDefaultAsync(x => x.Id == id);
             }
             return await context.Orders.FirstOrDefaultAsync(x => x.Id == id);
-        }
-
-        public async Task<Order> GetFirstOrDefaultAsync(RequestParameter requestParameter , string? includes = null)
-        {
-            throw new NotImplementedException();
         }
         public void ChangeStatus(Order order, OrderStatus status)
         {
@@ -77,7 +65,17 @@ namespace eshop.DataAccess.Services.Repo
                     query = query.Include(i);
                 }
             }
-            query = query.Filter(param);
+            if(param is not null)
+            {
+                if (!string.IsNullOrEmpty(param.UserName))
+                {
+                    query = query.Search(param.UserName);
+                }
+                if(param.Date !=null)
+                {
+                    query = query.Filter(param.Date);
+                }
+            }
             return PagedList<Order>.ToPagedList(query,param.PageNumber,param.PageSize);
         }
 
@@ -93,16 +91,21 @@ namespace eshop.DataAccess.Services.Repo
             }
             return await query.FirstOrDefaultAsync();
         }
+
+        public Task<PagedList<Order>> GetAllByFilterAsync(OrderRequestParamater param, string? include = null)
+        {
+            throw new NotImplementedException();
+        }
     }
     public static class OrderExtensions
     {
-        public static IQueryable<Order> Filter(this IQueryable<Order> source, OrderRequestParamater param)
+        public static IQueryable<Order> Filter(this IQueryable<Order> source, DateTime date)
         {
-            return source.Where(x => x.ApplicationUser.UserName.ToLower().Contains(param.UserName.Trim().ToLower()));
+            return source.Where(x => x.OrderDate == date);
         }
-        public static IQueryable<Order> Search(this IQueryable<Order> source, OrderRequestParamater param)
+        public static IQueryable<Order> Search(this IQueryable<Order> source, string username)
         {
-            return source.Where(x => x.ApplicationUser.UserName.Contains(param.UserName.Trim().ToLower()));
+            return source.Where(x => x.ApplicationUser.UserName.Contains(username.Trim().ToLower()));
         }
     }
 }

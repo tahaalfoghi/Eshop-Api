@@ -19,6 +19,7 @@ namespace Eshop.Api.Controllers
             this.authService = authService;
             this.logger = logger;
         }
+        [AllowAnonymous]
         [HttpPost]
         [Route("Register")]
         public async Task<IActionResult> Register([FromForm]RegisterModel model)

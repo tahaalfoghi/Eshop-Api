@@ -20,6 +20,7 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 builder.Services.AddHttpContextAccessor();
 Log.Logger = new LoggerConfiguration()
                  .MinimumLevel
@@ -117,7 +118,6 @@ builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAuthorization();
-builder.Services.AddHttpContextAccessor();
 builder.Services.AddAutoMapper(typeof(MapperConfig));
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
