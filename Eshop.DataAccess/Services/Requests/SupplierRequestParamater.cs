@@ -9,17 +9,26 @@ namespace Eshop.DataAccess.Services.Requests
 {
     public class SupplierRequestParamater:RequestParameter
     {
+        public SupplierRequestParamater()
+        {
+            OrderBy = "CompanyName";
+        }
         public string? Country { get; set; }
         public string? CompanyName { get; set; }
         public string? SearchTerm { get; set; }
     }
     public class CategoryRequestParamater : RequestParameter
     {
+        public CategoryRequestParamater()
+        {
+            OrderBy = "Name";
+        }
         public string? SupplierName { get; set; }
         public string? Name { get; set; }
     }
     public class ProductRequestParamater : RequestParameter
     {
+        
         public string? CategoryName { get; set; }
         public decimal Price { get; set; }
         public bool ValidPrice => Price > 0;

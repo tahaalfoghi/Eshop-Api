@@ -8,7 +8,9 @@ using Eshop.Models.Models;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-
+using System.Reflection;
+using System.Text;
+using System.Linq.Dynamic.Core;
 namespace eshop.DataAccess.Services.Repo
 {
     public class SupplierRepository:ISupplierRepository
@@ -48,6 +50,7 @@ namespace eshop.DataAccess.Services.Repo
             IQueryable<Supplier> query = context.Suppliers.AsNoTracking()
                                                           .Serach(requestParameter.CompanyName)
                                                           .Filter(requestParameter.Country)
+                                                          .Sort(requestParameter.OrderBy)
                                                           .AsQueryable();
             if (includes is not null)
             {
@@ -129,6 +132,35 @@ namespace eshop.DataAccess.Services.Repo
                 return source;
 
             return source.Where(x => x.Country.Contains(filter.Trim().ToLower()));
+        }
+        public static IQueryable<Supplier> Sort(this IQueryable<Supplier> source, string orderByQueryString)
+        {
+            if (string.IsNullOrWhiteSpace(orderByQueryString)) 
+                return source.OrderBy(e => e.CompanyName); 
+
+            var orderParams = orderByQueryString.Trim().Split(','); 
+
+            var propertyInfos = typeof(Supplier).GetProperties(BindingFlags.Public | BindingFlags.Instance); 
+
+            var orderQueryBuilder = new StringBuilder(); 
+            foreach (var param in orderParams) 
+            { 
+                if (string.IsNullOrWhiteSpace(param)) 
+                    continue; 
+
+                var propertyFromQueryName = param.Split(" ")[0]; 
+
+                var objectProperty = propertyInfos.FirstOrDefault(pi => pi.Name.Equals(propertyFromQueryName, StringComparison.InvariantCultureIgnoreCase));
+                if (objectProperty == null) 
+                    continue; 
+
+                var direction = param.EndsWith(" desc") ? "descending" : "ascending"; orderQueryBuilder.Append($"{objectProperty.Name.ToString()} {direction}, "); 
+            }
+            var orderQuery = orderQueryBuilder.ToString().TrimEnd(',', ' '); 
+            if (string.IsNullOrWhiteSpace(orderQuery)) 
+              return source.OrderBy(e => e.CompanyName);
+
+            return source.OrderBy(orderQuery);
         }
     }
 }

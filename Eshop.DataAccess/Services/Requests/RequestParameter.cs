@@ -22,5 +22,7 @@ namespace Eshop.DataAccess.Services.Requests
                 _pageSize = value > maxPageSize ? maxPageSize : value;
             }
         }
+        public string? OrderBy { get; set; } 
     }
+    
 }
