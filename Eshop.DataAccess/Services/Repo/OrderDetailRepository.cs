@@ -1,5 +1,6 @@
 using eshop.DataAccess.Data;
 using Eshop.DataAccess.Services.Paging;
+using Eshop.DataAccess.Services.Requests;
 using Eshop.Models;
 using Eshop.Models.Models;
 using Microsoft.EntityFrameworkCore;
@@ -34,19 +35,32 @@ namespace eshop.DataAccess.Services.Repo
             return PagedList<OrderDetail>.ToPagedList(query, requestParameter.PageNumber, requestParameter.PageSize);
         }
 
-        public async Task<IEnumerable<OrderDetail>> GetAllByFilterAsync(TableSearch search, string? includes = null)
+        public async Task<PagedList<OrderDetail>> GetAllByFilterAsync(RequestParameter requestParameter , string? includes = null)
         {
             throw new NotImplementedException();
+        }
+
+        public Task<PagedList<OrderDetail>> GetAllByFilterAsync(OrderDetailRequestParamater param, string? include = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<OrderDetail> GetByCondition(Expression<Func<OrderDetail, bool>> predicate, string? includes = null)
+        {
+            IQueryable<OrderDetail> query = context.OrderDetails.Where(predicate).AsNoTracking().AsQueryable();
+            if(includes is not null)
+            {
+                foreach(var item in includes)
+                {
+                    query = query.Include(predicate);
+                }
+            }
+            return await query.FirstOrDefaultAsync();
         }
 
         public async Task<OrderDetail> GetByIdAsync(int id, string? includes = null)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<OrderDetail> GetFirstOrDefaultAsync(TableSearch search, string? includes = null)
-        {
-            throw new NotImplementedException();
+            return await context.OrderDetails.AsNoTracking().FirstOrDefaultAsync(x=>x.Id == id);
         }
     }
 }

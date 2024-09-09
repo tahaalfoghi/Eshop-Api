@@ -1,4 +1,4 @@
-﻿using Eshop.DataAccess.Services.Paging;
+﻿using Eshop.DataAccess.Services.Requests;
 using Eshop.Models.DTOModels;
 using MediatR;
 

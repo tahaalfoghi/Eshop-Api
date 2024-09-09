@@ -2,7 +2,7 @@
 using eshop.DataAccess.Data;
 using eshop.DataAccess.Services.UnitOfWork;
 using Eshop.Api.Queries;
-using Eshop.DataAccess.Services.Paging;
+using Eshop.DataAccess.Services.Requests;
 using Eshop.DataAccess.Services.Validators;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;

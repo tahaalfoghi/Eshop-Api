@@ -1,5 +1,6 @@
 ﻿using eshop.DataAccess.Data;
 using Eshop.DataAccess.Services.Paging;
+using Eshop.DataAccess.Services.Requests;
 using Eshop.Models;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
@@ -42,7 +43,7 @@ namespace Eshop.DataAccess.Services.Repo
             return PagedList<Transaction>.ToPagedList(query, requestParameter.PageNumber, requestParameter.PageSize);
         }
 
-        public async Task<IEnumerable<Transaction>> GetAllByFilterAsync(TableSearch search, string? includes = null)
+        public async Task<PagedList<Transaction>> GetAllByFilterAsync(RequestParameter requestParameter, string? includes = null)
         {
             throw new NotImplementedException();
         }
@@ -51,6 +52,11 @@ namespace Eshop.DataAccess.Services.Repo
         {
             var trans = await context.Transactions.Where(predicate).FirstOrDefaultAsync();
             return trans;
+        }
+
+        public Task<Transaction> GetByCondition(Expression<Func<Transaction, bool>> predicate, string? includes = null)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<Transaction> GetByIdAsync(int id, string? includes = null)
@@ -68,7 +74,7 @@ namespace Eshop.DataAccess.Services.Repo
             return await context.Transactions.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<Transaction> GetFirstOrDefaultAsync(TableSearch search, string? includes = null)
+        public async Task<Transaction> GetFirstOrDefaultAsync(RequestParameter requestParameter, string? includes = null)
         {
             throw new NotImplementedException();
         }

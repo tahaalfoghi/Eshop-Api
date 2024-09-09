@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Eshop.DataAccess.Services.Paging
+namespace Eshop.DataAccess.Services.Requests
 {
     public class RequestParameter
     {
@@ -19,7 +19,7 @@ namespace Eshop.DataAccess.Services.Paging
             }
             set
             {
-                _pageSize = (value > maxPageSize) ? maxPageSize : value;
+                _pageSize = value > maxPageSize ? maxPageSize : value;
             }
         }
     }

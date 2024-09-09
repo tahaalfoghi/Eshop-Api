@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Data;
 using eshop.DataAccess.Services.UnitOfWork;
-using Eshop.DataAccess.Services.Paging;
+using Eshop.DataAccess.Services.Requests;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
 using Microsoft.AspNetCore.Cors;

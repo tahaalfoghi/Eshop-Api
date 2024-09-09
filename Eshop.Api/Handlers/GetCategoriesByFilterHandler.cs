@@ -20,9 +20,9 @@ namespace Eshop.Api.Handlers
 
         public async Task<IEnumerable<CategoryDTO>> Handle(GetCategoriesByFilterQuery request, CancellationToken cancellationToken)
         {
-            var categories = await uow.CategoryRepository.GetAllByFilterAsync(request.Search, includes: "Supplier");
+            var categories = await uow.CategoryRepository.GetAllByFilterAsync(request.Params, includes: "Supplier");
             if (categories is null || categories.Count() == 0)
-                throw new NotFoundException($"no category exists with this filter:{request.Search.ToString()}");
+                throw new NotFoundException($"no category exists with this filter:{request.Params.ToString()}");
 
             return mapper.Map<IEnumerable<CategoryDTO>>(categories);
         }

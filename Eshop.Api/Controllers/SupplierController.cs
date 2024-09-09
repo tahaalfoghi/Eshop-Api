@@ -3,7 +3,7 @@ using eshop.DataAccess.Data;
 using eshop.DataAccess.Services.UnitOfWork;
 using Eshop.Api.Commands;
 using Eshop.Api.Queries;
-using Eshop.DataAccess.Services.Paging;
+using Eshop.DataAccess.Services.Requests;
 using Eshop.DataAccess.Services.Validators;
 using Eshop.Models;
 using Eshop.Models.DTOModels;
@@ -60,29 +60,18 @@ namespace Eshop.Api.Controllers
             return Ok(result);
         }
         [HttpGet]
-        [Route("SupppliersByFilter")]
+        [Route("SuppliersByFilter")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetAllByFilter([FromQuery] TableSearch search)
+        public async Task<IActionResult> GetAllByFilter([FromQuery] SupplierRequestParamater param)
         {
-            var query = new GetSuppliersByFilterQuery(search);
+            var query = new GetSuppliersByFilterQuery(param);
             var result = await mediator.Send(query);
             return Ok(result);
         }
-        [HttpGet]
-        [Route("SupplierByFilter")]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        [ProducesResponseType(500)]
-        public async Task<IActionResult> GetSingleByFilter([FromQuery] TableSearch search)
-        {
-            var query = new GetSupplierByFilterQuery(search);
-            var result = await mediator.Send(query);
-            return Ok(result);
-        }
+        
         [HttpPost]
         [Route("CreateSupplier")]
         [ProducesResponseType(200)]

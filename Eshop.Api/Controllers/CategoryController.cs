@@ -13,8 +13,8 @@ using Eshop.Api.Queries;
 using Eshop.Api.Commands;
 using Eshop.Api.Handlers;
 using Microsoft.AspNetCore.Cors;
-using Eshop.DataAccess.Services.Paging;
 using Newtonsoft.Json;
+using Eshop.DataAccess.Services.Requests;
 
 namespace Eshop.Api.Controllers
 {
@@ -64,21 +64,9 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetAllByFilter([FromQuery] TableSearch search)
+        public async Task<IActionResult> GetAllByFilter([FromQuery] CategoryRequestParamater param)
         {
-            var query = new GetCategoriesByFilterQuery(search);
-            var result = await mediator.Send(query);
-            return Ok(result);
-        }
-        [HttpGet]
-        [Route("CategoryByFilter/{search}")]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        [ProducesResponseType(500)]
-        public async Task<IActionResult> GetSingleByFilter(TableSearch search)
-        {
-            var query = new GetCategoryByFilterQuery(search);
+            var query = new GetCategoriesByFilterQuery(param);
             var result = await mediator.Send(query);
             return Ok(result);
         }

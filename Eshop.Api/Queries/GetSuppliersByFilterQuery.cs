@@ -1,4 +1,4 @@
-﻿using Eshop.Models;
+﻿using Eshop.DataAccess.Services.Requests;
 using Eshop.Models.DTOModels;
 using MediatR;
 
@@ -6,11 +6,11 @@ namespace Eshop.Api.Queries
 {
     public class GetSuppliersByFilterQuery:IRequest<IEnumerable<SupplierDTO>>
     {
-        public TableSearch Search { get;}
+        public SupplierRequestParamater Param {  get; set; }
 
-        public GetSuppliersByFilterQuery(TableSearch Search)
+        public GetSuppliersByFilterQuery(SupplierRequestParamater Param)
         {
-            this.Search = Search;
+            this.Param = Param;
         }
     }
 }

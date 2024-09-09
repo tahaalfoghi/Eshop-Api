@@ -1,6 +1,7 @@
 ﻿using eshop.DataAccess.Data;
 using eshop.DataAccess.Services.Repo;
 using Eshop.DataAccess.Services.Paging;
+using Eshop.DataAccess.Services.Requests;
 using Eshop.Models;
 using Eshop.Models.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -8,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,21 +35,29 @@ namespace Eshop.DataAccess.Services.Repo
             return PagedList<ApplicationUser>.ToPagedList(context.ApplicationUsers,requestParameter.PageNumber,requestParameter.PageSize);
         }
 
-        public async Task<IEnumerable<ApplicationUser>> GetAllByFilterAsync(TableSearch search, string? includes = null)
+        public async Task<PagedList<ApplicationUser>> GetAllByFilterAsync(RequestParameter requestParameter, string? includes = null)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<ApplicationUser> GetByCondition(Expression<Func<ApplicationUser, bool>> predicate, string? includes = null)
+        {
+            IQueryable<ApplicationUser> query = context.ApplicationUsers.AsNoTracking().AsQueryable();
+            query = query.Where(predicate);
+            if(includes is not null)
+            {
+                foreach(var item in includes.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(item);
+                }
+            }
+            return await query.FirstOrDefaultAsync();
         }
 
         public async Task<ApplicationUser> GetByIdAsync(int id, string? includes = null)
         {
             throw new NotImplementedException();
         }
-
-        public async Task<ApplicationUser> GetFirstOrDefaultAsync(TableSearch search, string? includes = null)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<ApplicationUser> GetUser(string? Id)
         {
             return await context.ApplicationUsers.FirstOrDefaultAsync(x => x.Id == Id);
@@ -76,4 +86,5 @@ namespace Eshop.DataAccess.Services.Repo
                         
         }
     }
+   
 }

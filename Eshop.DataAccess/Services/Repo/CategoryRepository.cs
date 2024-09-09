@@ -1,5 +1,6 @@
 using eshop.DataAccess.Data;
 using Eshop.DataAccess.Services.Paging;
+using Eshop.DataAccess.Services.Requests;
 using Eshop.Models;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
@@ -48,48 +49,12 @@ namespace eshop.DataAccess.Services.Repo
             
             return PagedList<Category>.ToPagedList(context.Categories.OrderBy(x=>x.Name), requestParameter.PageNumber, requestParameter.PageSize);
         }
-
-        public async Task<IEnumerable<Category>> GetAllByFilterAsync(TableSearch search, string? includes = null)
+        public async Task<PagedList<Category>> GetAllByFilterAsync(CategoryRequestParamater requestParameter, string? includes = null)
         {
             IQueryable<Category> query = context.Categories.AsNoTracking().AsQueryable();
-            if(search is not null)
+            if(requestParameter is not null)
             {
-                if(!string.IsNullOrEmpty(search.GlobalFilters))
-                {
-                    var words = search.GlobalFilters.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                    if(words.Length == 0)
-                    {
-                        string filter = words[0];
-                        query = query.Where(x => x.Name.Contains(filter)
-                                            || x.Supplier.CompanyName.Contains(filter)
-                                            || x.SupplierId.ToString().Equals(filter.ToString()));
-                    }
-                    else
-                    {
-                        foreach (var word in words)
-                        {
-                            query = query.Where(x=>x.Name.Contains(word));
-                        }
-                    }
-                }
-                if(search.Sort.ToString() is not null)
-                {
-                    if (search.Sort.ToString().Equals("Asc"))
-                        query = query.OrderBy(x => x.Name);
-                    if(search.Sort.ToString().Equals("Desc"))
-                        query = query.OrderByDescending(x => x.Name);
-                    else
-                        query =  query.OrderBy(x => x.Name);
-
-                }
-                if (search.Skip > 0)
-                {
-                    query = query.Skip(search.Skip);
-                }
-                if (search.Rows > 0)
-                {
-                    query = query.Take(search.Rows);
-                }
+                query = query.Filter(requestParameter);
             }
             if (includes is not null)
             {
@@ -97,9 +62,22 @@ namespace eshop.DataAccess.Services.Repo
                 {
                     query = query.Include(item);
                 }
-                return await query.ToListAsync();
+                return PagedList<Category>.ToPagedList(query,requestParameter.PageNumber,requestParameter.PageSize);
             }
-            return await query.ToListAsync();
+            return PagedList<Category>.ToPagedList(query, requestParameter.PageNumber, requestParameter.PageSize);
+        }
+
+        public async Task<Category> GetByCondition(Expression<Func<Category, bool>> predicate, string? includes= null)
+        {
+            IQueryable<Category> query = context.Categories.Where(predicate).AsNoTracking().AsQueryable();
+            if(includes is not null)
+            {
+                foreach(var i in includes.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(i);
+                }
+            }
+            return await query.FirstOrDefaultAsync();
         }
 
         public async Task<Category> GetByIdAsync(int id, string? includes = null)
@@ -115,60 +93,6 @@ namespace eshop.DataAccess.Services.Repo
             }
             return await query.FirstOrDefaultAsync(x => x.Id == id);
         }
-
-        public async Task<Category> GetFirstOrDefaultAsync(TableSearch search, string? includes = null)
-        {
-            IQueryable<Category> query = context.Categories.AsNoTracking().AsQueryable();
-            if (search is not null)
-            {
-                if (!string.IsNullOrEmpty(search.GlobalFilters))
-                {
-                    var words = search.GlobalFilters.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                    if (words.Length == 0)
-                    {
-                        string filter = words[0];
-                        query = query.Where(x => x.Name.Contains(filter)
-                                     || x.Supplier.CompanyName.Contains(filter)
-                                     || x.SupplierId.ToString().Equals(filter.ToString()));
-                    }
-                    else
-                    {
-                        foreach (var word in words)
-                        {
-                            query = query.Where(x => x.Name.Contains(word));
-                        }
-                    }
-                }
-                if (search.Sort.ToString() is not null)
-                {
-                    if (search.Sort.ToString().Equals("Asc",StringComparison.OrdinalIgnoreCase))
-                        query = query.OrderBy(x => x.Name);
-                    if (search.Sort.ToString().Equals("Desc",StringComparison.OrdinalIgnoreCase))
-                        query = query.OrderByDescending(x => x.Name);
-                    else
-                        query = query.OrderBy(x => x.Name);
-
-                }
-                if (search.Skip > 0)
-                {
-                    query = query.Skip(search.Skip);
-                }
-                if (search.Rows > 0)
-                {
-                    query = query.Take(search.Rows);
-                }
-            }
-            if (includes is not null)
-            {
-                foreach (var item in includes.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    query = query.Include(item);
-                }
-                return await query.FirstOrDefaultAsync();
-            }
-            return await query.FirstOrDefaultAsync();
-        }
-
         public async Task UpdateAsync(Category dto_category)
         {
             var existingCategory = await context.Categories.FirstOrDefaultAsync(x => x.Id == dto_category.Id);
@@ -189,6 +113,17 @@ namespace eshop.DataAccess.Services.Repo
                 existingCategory.Description = category.Description;
                 existingCategory.SupplierId = category.SupplierId;
             }
+        }
+    }
+    public static class CategoryExtensions
+    {
+        public static IQueryable<Category> Filter(this IQueryable<Category> source, CategoryRequestParamater request)
+        {
+            return source.Where(x => x.Supplier.CompanyName.Contains(request.SupplierName.Trim().ToLower()));
+        }
+        public static IQueryable<Category> Search(this IQueryable<Category> source, CategoryRequestParamater request)
+        {
+            return source.Where(x => x.Name.Contains(request.Name.Trim().ToLower()));
         }
     }
 }

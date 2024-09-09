@@ -1,5 +1,6 @@
 using eshop.DataAccess.Data;
 using Eshop.DataAccess.Services.Paging;
+using Eshop.DataAccess.Services.Requests;
 using Eshop.Models;
 using Eshop.Models.Models;
 using Microsoft.EntityFrameworkCore;
@@ -35,47 +36,9 @@ namespace eshop.DataAccess.Services.Repo
             return PagedList<Cart>.ToPagedList(context.Carts, requestParameter.PageNumber, requestParameter.PageSize);
         }
 
-        public async Task<IEnumerable<Cart>> GetAllByFilterAsync(TableSearch search, string? includes = null)
+        public async Task<IEnumerable<Cart>> GetAllByFilterAsync(CartRequestParamater param, string? includes = null)
         {
-            IQueryable<Cart> query = context.Carts.AsNoTracking().AsQueryable();
-            if (search is not null)
-            {
-                if (search.GlobalFilters is not null)
-                {
-                    /*var words = search.GlobalFilters.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                    if (words.Length == 0)
-                    {
-                        var filter = words[0];
-                        query = query.Where(x => x.Count.ToLower().Contains(filter.ToLower()));
-                    }
-                    else
-                    {
-                        foreach (var word in words)
-                        {
-                            query = query.Where(x => x.Name.Contains(word) ||
-                                          x.Category.Name.Contains(word) ||
-                                          x.Price.Equals(word));
-
-                        }
-                    }
-                    if (search.Sort.ToString() is not null)
-                    {
-                        if (search.Sort.ToString().Equals("Asc"))
-                            query = query.OrderBy(x => x.Name);
-                        if (search.Sort.ToString().Equals("Desc"))
-                            query = query.OrderByDescending(x => x.Name);
-                        else
-                            query = query.OrderBy(x => x.Name);
-
-                    }*/
-                    if (search.Skip >= 1 && search.Rows >= 1)
-                    {
-                        query = query.Skip(search.Skip).Take(search.Rows);
-                    }
-                }
-            }
-
-            return await query.ToListAsync();
+            throw new NotImplementedException();
         }
         
         public async Task<Cart> GetByIdAsync(int id, string? includes = null)
@@ -151,6 +114,11 @@ namespace eshop.DataAccess.Services.Repo
         public async Task<IEnumerable<Cart>> GetCartsAsync(Expression<Func<Cart, bool>> predicate, string? includes = null)
         {
             return await context.Carts.Where(predicate).ToListAsync();
+        }
+
+        public Task<Cart> GetByCondition(Expression<Func<Cart, bool>> predicate, string? includes = null)
+        {
+            throw new NotImplementedException();
         }
     }
 }

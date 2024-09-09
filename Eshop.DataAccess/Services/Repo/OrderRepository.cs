@@ -1,5 +1,6 @@
 using eshop.DataAccess.Data;
 using Eshop.DataAccess.Services.Paging;
+using Eshop.DataAccess.Services.Requests;
 using Eshop.Models;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
@@ -38,7 +39,7 @@ namespace eshop.DataAccess.Services.Repo
             return PagedList<Order>.ToPagedList(query, requestParameter.PageNumber, requestParameter.PageSize);
         }
 
-        public async Task<IEnumerable<Order>> GetAllByFilterAsync(TableSearch search, string? includes = null)
+        public async Task<PagedList<Order>> GetAllByFilterAsync(RequestParameter requestParameter , string? includes = null)
         {
             throw new NotImplementedException();
         }
@@ -57,13 +58,51 @@ namespace eshop.DataAccess.Services.Repo
             return await context.Orders.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<Order> GetFirstOrDefaultAsync(TableSearch search, string? includes = null)
+        public async Task<Order> GetFirstOrDefaultAsync(RequestParameter requestParameter , string? includes = null)
         {
             throw new NotImplementedException();
         }
         public void ChangeStatus(Order order, OrderStatus status)
         {
             order.Status = status.ToString();
+        }
+
+        public async Task<PagedList<Order>> GetAllByfilterAsync(OrderRequestParamater param, string? includes = null)
+        {
+            IQueryable<Order> query = context.Orders.AsNoTracking().AsQueryable();
+            if(includes is not null)
+            {
+                foreach(var i in includes.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(i);
+                }
+            }
+            query = query.Filter(param);
+            return PagedList<Order>.ToPagedList(query,param.PageNumber,param.PageSize);
+        }
+
+        public async  Task<Order> GetByCondition(Expression<Func<Order, bool>> predicate, string? includes = null)
+        {
+            IQueryable<Order> query =  context.Orders.Where(predicate).AsNoTracking().AsQueryable();
+            if(includes is not null)
+            {
+                foreach(var item in includes.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(item);
+                }
+            }
+            return await query.FirstOrDefaultAsync();
+        }
+    }
+    public static class OrderExtensions
+    {
+        public static IQueryable<Order> Filter(this IQueryable<Order> source, OrderRequestParamater param)
+        {
+            return source.Where(x => x.ApplicationUser.UserName.ToLower().Contains(param.UserName.Trim().ToLower()));
+        }
+        public static IQueryable<Order> Search(this IQueryable<Order> source, OrderRequestParamater param)
+        {
+            return source.Where(x => x.ApplicationUser.UserName.Contains(param.UserName.Trim().ToLower()));
         }
     }
 }

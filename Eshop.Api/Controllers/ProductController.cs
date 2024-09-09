@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Eshop.Api.Commands;
 using Eshop.Api.Queries;
-using Eshop.DataAccess.Services.Paging;
+using Eshop.DataAccess.Services.Requests;
 using Eshop.Models;
 using Eshop.Models.DTOModels;
 using MediatR;
@@ -55,25 +55,14 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetAllProductsByFilter([FromQuery] TableSearch search)
+        public async Task<IActionResult> GetAllProductsByFilter([FromQuery] ProductRequestParamater param)
         {
 
-            var query = new GetProductsByFilterQuery(search);
+            var query = new GetProductsByFilterQuery(param);
             var result = await mediator.Send(query);
             return Ok(result);
         }
-        [HttpGet]
-        [Route("ProductByFilter")]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        [ProducesResponseType(500)]
-        public async Task<IActionResult> GetSingleProductByFilter([FromForm] TableSearch search)
-        {
-            var query = new GetProductByFilterQuery(search);
-            var result = await mediator.Send(query);
-            return Ok(result);
-        }
+        
         [HttpPost]
         [Route("CreateProduct")]
         [ProducesResponseType(200)]

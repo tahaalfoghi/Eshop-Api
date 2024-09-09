@@ -1,0 +1,327 @@
+2024-09-09 12:02:24.543 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-09 12:02:25.475 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-09 12:02:25.514 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-09 12:02:25.519 +02:00 [INF] Hosting environment: Development
+2024-09-09 12:02:25.523 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-09 12:02:26.579 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 1117.5192ms
+2024-09-09 12:02:26.702 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-09 12:02:26.702 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-09 12:02:26.704 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-09 12:02:26.736 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 31.1379ms
+2024-09-09 12:02:26.777 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-09 12:02:26.777 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 75.4804ms
+2024-09-09 12:02:26.843 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 139.6558ms
+2024-09-09 12:02:26.931 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-09 12:02:26.934 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-09 12:02:26.935 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 200 628 image/png 3.8443ms
+2024-09-09 12:02:26.970 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-09 12:02:27.285 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 315.6352ms
+2024-09-09 12:02:48.404 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=---------------------------92664242935580298462224579733 308
+2024-09-09 12:02:48.575 +02:00 [INF] CORS policy execution successful.
+2024-09-09 12:02:48.579 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-09 12:02:48.626 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-09 12:02:50.771 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-09 12:02:50.775 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-09 12:02:50.779 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-09 12:02:50.782 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-09 12:02:55.535 +02:00 [INF] Executed DbCommand (118ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-09-09 12:02:55.592 +02:00 [ERR] Error while attempt to login user:[ pavel@gmail.com ] is not authenticated
+2024-09-09 12:02:55.604 +02:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2024-09-09 12:02:55.617 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 6980.876ms
+2024-09-09 12:02:55.618 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-09 12:02:55.644 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Auth/Login - 400 null text/plain; charset=utf-8 7240.5295ms
+2024-09-09 12:04:20.069 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-09 12:04:20.256 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-09 12:04:20.324 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-09 12:04:20.327 +02:00 [INF] Hosting environment: Development
+2024-09-09 12:04:20.330 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-09 12:04:20.997 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 746.783ms
+2024-09-09 12:04:21.064 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-09 12:04:21.064 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-09 12:04:21.077 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 10.022ms
+2024-09-09 12:04:21.117 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 53.5961ms
+2024-09-09 12:04:21.289 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-09 12:04:21.442 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 153.5928ms
+2024-09-09 12:04:44.879 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=---------------------------33737686011623168161725286509 307
+2024-09-09 12:04:44.969 +02:00 [INF] CORS policy execution successful.
+2024-09-09 12:04:44.973 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-09 12:04:45.006 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-09 12:04:46.597 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-09 12:04:46.604 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-09 12:04:46.610 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-09 12:04:46.616 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-09 12:04:48.268 +02:00 [INF] Executed DbCommand (119ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-09-09 12:04:48.834 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2024-09-09 12:04:48.897 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-09-09 12:04:48.923 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-09-09 12:04:48.995 +02:00 [INF] user [ taha@gmail.com ] login to the system
+2024-09-09 12:04:49.006 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-09-09 12:04:49.275 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 4259.5569ms
+2024-09-09 12:04:49.276 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-09 12:04:49.307 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Auth/Login - 200 468 application/json; charset=utf-8 4428.0671ms
+2024-09-09 12:05:20.225 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/Suppliers - null null
+2024-09-09 12:05:20.338 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api)'
+2024-09-09 12:05:20.346 +02:00 [INF] Route matched with {action = "GetSuppliers", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSuppliers(Eshop.DataAccess.Services.Requests.RequestParameter) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-09 12:05:20.801 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone], [c].[Id], [c].[Description], [c].[Name], [c].[SupplierId]
+FROM [Suppliers] AS [s]
+LEFT JOIN [Categories] AS [c] ON [s].[Id] = [c].[SupplierId]
+ORDER BY [s].[Id]
+2024-09-09 12:05:20.849 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone], [c].[Id], [c].[Description], [c].[Name], [c].[SupplierId]
+FROM [Suppliers] AS [s]
+LEFT JOIN [Categories] AS [c] ON [s].[Id] = [c].[SupplierId]
+ORDER BY [s].[Id]
+2024-09-09 12:05:20.917 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-09 12:05:20.937 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api) in 590.7509ms
+2024-09-09 12:05:20.937 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api)'
+2024-09-09 12:05:20.948 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/Suppliers - 200 1326 application/json; charset=utf-8 723.1669ms
+2024-09-09 12:05:37.173 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Country=Spain - null null
+2024-09-09 12:05:37.181 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-09 12:05:37.187 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.DataAccess.Services.Requests.SupplierRequestParamater) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-09 12:05:37.313 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 126.6645ms
+2024-09-09 12:05:37.314 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-09 12:05:37.449 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No service for type 'MediatR.IRequestHandler`2[Eshop.Api.Queries.GetSuppliersByFilterQuery,System.Collections.Generic.IEnumerable`1[Eshop.Models.DTOModels.SupplierDTO]]' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0()
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, IServiceProvider serviceProvider, CancellationToken cancellationToken)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at Eshop.Api.Controllers.SupplierController.GetAllByFilter(SupplierRequestParamater param) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Controllers\SupplierController.cs:line 71
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2024-09-09 12:05:37.465 +02:00 [ERR] Exception occured {Error Happend in this action method
+}
+System.InvalidOperationException: No service for type 'MediatR.IRequestHandler`2[Eshop.Api.Queries.GetSuppliersByFilterQuery,System.Collections.Generic.IEnumerable`1[Eshop.Models.DTOModels.SupplierDTO]]' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.<>c__DisplayClass1_0.<Handle>g__Handler|0()
+   at MediatR.Wrappers.RequestHandlerWrapperImpl`2.Handle(IRequest`1 request, IServiceProvider serviceProvider, CancellationToken cancellationToken)
+   at MediatR.Mediator.Send[TResponse](IRequest`1 request, CancellationToken cancellationToken)
+   at Eshop.Api.Controllers.SupplierController.GetAllByFilter(SupplierRequestParamater param) in C:\Users\HP\source\repos\Eshop\Eshop.Api\Controllers\SupplierController.cs:line 71
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2024-09-09 12:05:37.482 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Country=Spain - 500 null application/json 309.2754ms
+2024-09-09 12:19:02.625 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-09 12:19:02.838 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-09 12:19:03.076 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-09 12:19:03.105 +02:00 [INF] Hosting environment: Development
+2024-09-09 12:19:03.108 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-09 12:19:03.254 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 419.0462ms
+2024-09-09 12:19:03.357 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-09 12:19:03.360 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-09 12:19:03.370 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 12.0606ms
+2024-09-09 12:19:03.406 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 46.2653ms
+2024-09-09 12:19:03.571 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-09 12:19:03.750 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 179.0502ms
+2024-09-09 12:19:23.914 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Country=Spain - null null
+2024-09-09 12:19:24.145 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-09 12:19:24.186 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.DataAccess.Services.Requests.SupplierRequestParamater) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-09 12:19:26.089 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-09 12:19:26.094 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-09 12:19:26.097 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-09 12:19:26.100 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-09 12:19:28.350 +02:00 [INF] Executed DbCommand (84ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Country] LIKE @__ToLower_0_contains ESCAPE N'\'
+2024-09-09 12:19:28.415 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Country] LIKE @__ToLower_0_contains ESCAPE N'\'
+2024-09-09 12:19:28.461 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-09 12:19:28.658 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 4462.4224ms
+2024-09-09 12:19:28.658 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-09 12:19:28.672 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Country=Spain - 200 384 application/json; charset=utf-8 4757.7965ms
+2024-09-09 12:19:39.061 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Country=Ozu - null null
+2024-09-09 12:19:39.072 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-09 12:19:39.073 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.DataAccess.Services.Requests.SupplierRequestParamater) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-09 12:19:39.114 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Country] LIKE @__ToLower_0_contains ESCAPE N'\'
+2024-09-09 12:19:39.120 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Country] LIKE @__ToLower_0_contains ESCAPE N'\'
+2024-09-09 12:19:39.123 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-09 12:19:39.126 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 52.6713ms
+2024-09-09 12:19:39.126 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-09 12:19:39.127 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Country=Ozu - 200 2 application/json; charset=utf-8 66.3649ms
+2024-09-09 12:19:50.655 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?CompanyName=Ozu - null null
+2024-09-09 12:19:50.661 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-09 12:19:50.661 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.DataAccess.Services.Requests.SupplierRequestParamater) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-09 12:19:50.799 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[CompanyName] LIKE @__ToLower_0_contains ESCAPE N'\'
+2024-09-09 12:19:50.809 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[CompanyName] LIKE @__ToLower_0_contains ESCAPE N'\'
+2024-09-09 12:19:50.809 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-09 12:19:50.811 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 150.2683ms
+2024-09-09 12:19:50.812 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-09 12:19:50.812 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?CompanyName=Ozu - 200 651 application/json; charset=utf-8 157.6826ms
+2024-09-09 12:19:59.909 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Country=Spain&CompanyName=Ozu - null null
+2024-09-09 12:19:59.910 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-09 12:19:59.910 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.DataAccess.Services.Requests.SupplierRequestParamater) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-09 12:19:59.941 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000), @__ToLower_1_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[CompanyName] LIKE @__ToLower_0_contains ESCAPE N'\' AND [s].[Country] LIKE @__ToLower_1_contains ESCAPE N'\'
+2024-09-09 12:19:59.951 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000), @__ToLower_1_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[CompanyName] LIKE @__ToLower_0_contains ESCAPE N'\' AND [s].[Country] LIKE @__ToLower_1_contains ESCAPE N'\'
+2024-09-09 12:19:59.951 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-09 12:19:59.954 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 44.0748ms
+2024-09-09 12:19:59.954 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-09 12:19:59.955 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Country=Spain&CompanyName=Ozu - 200 124 application/json; charset=utf-8 46.1601ms
+2024-09-09 12:20:41.550 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/Suppliers?Country=Spain&CompanyName=Ozu - multipart/form-data; boundary=--------------------------307118015202460070514241 289
+2024-09-09 12:20:41.560 +02:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/9/2024 8:40:45 AM', Current time (UTC): '9/9/2024 10:20:41 AM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-09 12:20:41.594 +02:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/9/2024 8:40:45 AM', Current time (UTC): '9/9/2024 10:20:41 AM'.
+2024-09-09 12:20:41.597 +02:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-09-09 12:20:41.607 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-09 12:20:41.610 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/Suppliers?Country=Spain&CompanyName=Ozu - 401 null null 59.7407ms
+2024-09-09 12:20:50.135 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/Suppliers?Country=Spain&CompanyName=Ozu - multipart/form-data; boundary=--------------------------553155579040129056259277 289
+2024-09-09 12:20:50.136 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api)'
+2024-09-09 12:20:50.146 +02:00 [INF] Route matched with {action = "GetSuppliers", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSuppliers(Eshop.DataAccess.Services.Requests.RequestParameter) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-09 12:20:50.379 +02:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone], [c].[Id], [c].[Description], [c].[Name], [c].[SupplierId]
+FROM [Suppliers] AS [s]
+LEFT JOIN [Categories] AS [c] ON [s].[Id] = [c].[SupplierId]
+ORDER BY [s].[Id]
+2024-09-09 12:20:50.417 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone], [c].[Id], [c].[Description], [c].[Name], [c].[SupplierId]
+FROM [Suppliers] AS [s]
+LEFT JOIN [Categories] AS [c] ON [s].[Id] = [c].[SupplierId]
+ORDER BY [s].[Id]
+2024-09-09 12:20:50.435 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-09 12:20:50.436 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api) in 290.151ms
+2024-09-09 12:20:50.436 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api)'
+2024-09-09 12:20:50.437 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/Suppliers?Country=Spain&CompanyName=Ozu - 200 1326 application/json; charset=utf-8 302.2794ms
+2024-09-09 12:21:05.251 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/SuppliersByFilter?Country=Spain&CompanyName=Ozu - multipart/form-data; boundary=--------------------------391700271404952453049014 289
+2024-09-09 12:21:05.254 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/SuppliersByFilter?Country=Spain&CompanyName=Ozu - 404 null null 3.8163ms
+2024-09-09 12:21:05.256 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44369/api/Supplier/SuppliersByFilter, Response status code: 404
+2024-09-09 12:21:14.546 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Country=Spain&CompanyName=Ozu - null null
+2024-09-09 12:21:14.547 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-09 12:21:14.548 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.DataAccess.Services.Requests.SupplierRequestParamater) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-09 12:21:14.558 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000), @__ToLower_1_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[CompanyName] LIKE @__ToLower_0_contains ESCAPE N'\' AND [s].[Country] LIKE @__ToLower_1_contains ESCAPE N'\'
+2024-09-09 12:21:14.564 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000), @__ToLower_1_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[CompanyName] LIKE @__ToLower_0_contains ESCAPE N'\' AND [s].[Country] LIKE @__ToLower_1_contains ESCAPE N'\'
+2024-09-09 12:21:14.565 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-09 12:21:14.566 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 17.7663ms
+2024-09-09 12:21:14.566 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-09 12:21:14.566 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SupppliersByFilter?Country=Spain&CompanyName=Ozu - 200 124 application/json; charset=utf-8 20.272ms
+2024-09-09 12:21:30.264 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-09 12:21:30.284 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 19.7802ms
+2024-09-09 12:21:30.376 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-09 12:21:30.377 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-09 12:21:30.384 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 7.0734ms
+2024-09-09 12:21:30.408 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 32.3264ms
+2024-09-09 12:21:30.587 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-09 12:21:30.623 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 35.9729ms
+2024-09-09 12:21:31.985 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/SuppliersByFilter?Country=Spain&CompanyName=Ozu - multipart/form-data; boundary=--------------------------288381415974233204417830 289
+2024-09-09 12:21:31.986 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-09 12:21:31.991 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.DataAccess.Services.Requests.SupplierRequestParamater) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-09 12:21:32.005 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000), @__ToLower_1_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[CompanyName] LIKE @__ToLower_0_contains ESCAPE N'\' AND [s].[Country] LIKE @__ToLower_1_contains ESCAPE N'\'
+2024-09-09 12:21:32.011 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000), @__ToLower_1_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[CompanyName] LIKE @__ToLower_0_contains ESCAPE N'\' AND [s].[Country] LIKE @__ToLower_1_contains ESCAPE N'\'
+2024-09-09 12:21:32.011 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-09 12:21:32.012 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 21.045ms
+2024-09-09 12:21:32.012 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-09 12:21:32.013 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/SuppliersByFilter?Country=Spain&CompanyName=Ozu - 200 124 application/json; charset=utf-8 27.9894ms
+2024-09-09 12:21:58.325 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SuppliersByFilter?Country=Spain&CompanyName=Ozu - null null
+2024-09-09 12:21:58.330 +02:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-09-09 12:21:58.330 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-09 12:21:58.331 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SuppliersByFilter?Country=Spain&CompanyName=Ozu - 401 null null 5.5666ms
+2024-09-09 12:22:09.556 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SuppliersByFilter?Country=Spain&CompanyName=Ozu - null null
+2024-09-09 12:22:09.557 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-09 12:22:09.557 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.DataAccess.Services.Requests.SupplierRequestParamater) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-09 12:22:09.569 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000), @__ToLower_1_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[CompanyName] LIKE @__ToLower_0_contains ESCAPE N'\' AND [s].[Country] LIKE @__ToLower_1_contains ESCAPE N'\'
+2024-09-09 12:22:09.577 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000), @__ToLower_1_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[CompanyName] LIKE @__ToLower_0_contains ESCAPE N'\' AND [s].[Country] LIKE @__ToLower_1_contains ESCAPE N'\'
+2024-09-09 12:22:09.577 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-09 12:22:09.578 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 20.8446ms
+2024-09-09 12:22:09.578 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-09 12:22:09.579 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SuppliersByFilter?Country=Spain&CompanyName=Ozu - 200 124 application/json; charset=utf-8 22.5131ms
+2024-09-09 12:22:25.440 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/SuppliersByFilter?Country=Spain - multipart/form-data; boundary=--------------------------298507500389765895932262 289
+2024-09-09 12:22:25.440 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-09 12:22:25.440 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.DataAccess.Services.Requests.SupplierRequestParamater) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-09 12:22:25.450 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Country] LIKE @__ToLower_0_contains ESCAPE N'\'
+2024-09-09 12:22:25.455 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Country] LIKE @__ToLower_0_contains ESCAPE N'\'
+2024-09-09 12:22:25.455 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-09 12:22:25.457 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 16.3233ms
+2024-09-09 12:22:25.457 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-09 12:22:25.457 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/SuppliersByFilter?Country=Spain - 200 384 application/json; charset=utf-8 17.6287ms

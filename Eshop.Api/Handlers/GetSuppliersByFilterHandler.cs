@@ -7,7 +7,7 @@ using MediatR;
 
 namespace Eshop.Api.Handlers
 {
-    public class GetSuppliersByFilterHandler:IRequestHandler<GetSuppliersByFilterQuery, IEnumerable<SupplierDTO>>
+    public class GetSuppliersByFilterHandler:IRequestHandler<GetSuppliersByFilterQuery,IEnumerable<SupplierDTO>>
     {
         private readonly IUnitOfWork uow;
         private readonly IMapper mapper;
@@ -20,32 +20,11 @@ namespace Eshop.Api.Handlers
 
         public async Task<IEnumerable<SupplierDTO>> Handle(GetSuppliersByFilterQuery request, CancellationToken cancellationToken)
         {
-            var suppliers = await uow.SupplierRepository.GetAllByFilterAsync(request.Search);
-            if (suppliers is null || suppliers.Count() == 0)
-                throw new NotFoundException($"No suppliers exists with this filter: [{request.Search}]");
+            var suppliers = await uow.SupplierRepository.GetAllByFilterAsync(request.Param);
+            if (suppliers is null)
+                throw new NotFoundException("Supplier does'nt exists in the database");
 
             return mapper.Map<IEnumerable<SupplierDTO>>(suppliers);
-        }
-    }
-    public class GetSupplierByFilterHandler : IRequestHandler<GetSupplierByFilterQuery, SupplierDTO>
-    {
-        private readonly IUnitOfWork uow;
-        private readonly IMapper mapper;
-
-        public GetSupplierByFilterHandler(IUnitOfWork uow, IMapper mapper)
-        {
-            this.uow = uow;
-            this.mapper = mapper;
-        }
-
-        public async Task<SupplierDTO> Handle(GetSupplierByFilterQuery request, CancellationToken cancellationToken)
-        {
-            var supplier = await uow.SupplierRepository.GetFirstOrDefaultAsync(request.Search);
-            if (supplier is null )
-                throw new NotFoundException($"No suppliers exists with this filter: [{request.Search}]");
-
-            var dtoSupplier = mapper.Map<SupplierDTO>(supplier);
-            return dtoSupplier;
         }
     }
 }

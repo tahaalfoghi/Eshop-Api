@@ -20,7 +20,7 @@ namespace Eshop.Api.Handlers
 
         public async Task<IEnumerable<ProductDTO>> Handle(GetProductsByFilterQuery request, CancellationToken cancellationToken)
         {
-            var products = await uow.ProductRepository.GetAllByFilterAsync(request.search,includes:"Category");
+            var products = await uow.ProductRepository.GetAllByFilterAsync(request.Param,includes:"Category");
             if (products is null)
                 throw new NotFoundException($"Product doesn't exits");
 
