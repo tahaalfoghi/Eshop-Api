@@ -9,9 +9,11 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Security.Cryptography;
+using Microsoft.EntityFrameworkCore;
 namespace Eshop.DataAccess.Services.Auth
 {
     public class AuthService : IAuthService
@@ -63,7 +65,7 @@ namespace Eshop.DataAccess.Services.Auth
             return new AuthModel
             {
                 Email = user.Email,
-                ExpirsOn = jwtSecurityToken.ValidTo,
+                //ExpirsOn = jwtSecurityToken.ValidTo,
                 IsAuthenticated = true,
                 Roles = new List<string> { "Customer" },
                 Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
@@ -122,8 +124,22 @@ namespace Eshop.DataAccess.Services.Auth
             authModel.Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
             authModel.Email = user.Email;
             authModel.UserName = user.UserName;
+            //authModel.ExpiresOn = jwtSecurityToken.ValidTo;
             authModel.Roles = roles.ToList();
-
+            if (user.RefreshTokens.Any(x => x.IsActive))
+            {
+                var activeRefreshToken = user.RefreshTokens.FirstOrDefault(x => x.IsActive);
+                authModel.RefreshToken = activeRefreshToken.Token;
+                authModel.RefreshTokenExpiration = activeRefreshToken.ExpireOn;
+            }
+            else
+            {
+                var refreshToken = GenerateRefreshToken();
+                authModel.RefreshToken = refreshToken.Token;
+                authModel.RefreshTokenExpiration = refreshToken.ExpireOn;
+                user.RefreshTokens.Add(refreshToken);
+                await userManager.UpdateAsync(user);
+            }
 
             return authModel;
         }
@@ -141,6 +157,55 @@ namespace Eshop.DataAccess.Services.Auth
 
             return result.Succeeded ? string.Empty : "Something went wrong";
 
+        }
+        private RefreshToken GenerateRefreshToken()
+        {
+            var randomNumber = new byte[32];
+            using var generator = new RNGCryptoServiceProvider();
+            generator.GetBytes(randomNumber);
+            return new RefreshToken
+            {
+                Token = Convert.ToBase64String(randomNumber),
+                ExpireOn = DateTime.UtcNow.AddDays(2),
+                CreatedAt = DateTime.UtcNow,
+            };
+        }
+
+        public async Task<AuthModel> GenerateRefreshToken(string refreshToken)
+        {
+            var authModel = new AuthModel();
+            
+            var user = await userManager.Users.SingleOrDefaultAsync(x => x.RefreshTokens.Any(x=>x.Token == refreshToken));
+            if(user is null)
+            {
+                authModel.IsAuthenticated = false;
+                authModel.Message = "Invalid Token";
+                return authModel;
+            }
+            var token = user.RefreshTokens.Single(x=>x.Token == refreshToken);
+            if (!token.IsActive)
+            {
+                authModel.IsAuthenticated = false;
+                authModel.Message = "InActive Token";
+                return authModel;
+            }
+
+            token.RevokedOn = DateTime.UtcNow;
+            var newRefreshToken = GenerateRefreshToken();
+            user.RefreshTokens.Add(newRefreshToken);
+            await userManager.UpdateAsync(user);
+
+            var jwtToken = await CreateJwtTokenAsync(user);
+
+            authModel.IsAuthenticated = true;
+            authModel.Token = new JwtSecurityTokenHandler().WriteToken(jwtToken);
+            authModel.Email = user.Email;
+            authModel.UserName = user.UserName;
+            var roles =  await userManager.GetRolesAsync(user);
+            authModel.RefreshToken = newRefreshToken.Token;
+            authModel.RefreshTokenExpiration = newRefreshToken.ExpireOn;
+
+            return authModel;
         }
     }
 }

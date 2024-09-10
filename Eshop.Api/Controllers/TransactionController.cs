@@ -29,7 +29,7 @@ namespace Eshop.Api.Controllers
         }
 
         [HttpGet]
-        [Route("Transactions")]
+        [Route("transactions")]
         public async Task<IActionResult> GetTransactions([FromQuery] RequestParameter requestParameter)
         {
             var query = new GetTransactionsQuery(requestParameter);
@@ -37,7 +37,7 @@ namespace Eshop.Api.Controllers
             return Ok(result);
         }
         [HttpGet]
-        [Route("Transactions/{transactionId:int}")]
+        [Route("transactions/{transactionId:int}")]
         public async Task<IActionResult> GetTransactionById(int transactionId)
         {
             var query = new GetTransactionQuery(transactionId);
@@ -45,7 +45,7 @@ namespace Eshop.Api.Controllers
             return Ok(result);
         }
         [HttpPut]
-        [Route("EditTransaction")]
+        [Route("edit-transaction")]
         public async Task<IActionResult> UpdateTransaction([FromForm] TransactionPostDTO dto_trans)
         {
             var command = new UpdateTransacrtionRequest(dto_trans);
@@ -54,7 +54,7 @@ namespace Eshop.Api.Controllers
 
         }
         [HttpDelete]
-        [Route("DeleteTransaction/{Id:int}")]
+        [Route("delete-transaction/{Id:int}")]
         public async Task<IActionResult> DeleteTransaction(int Id)
         {
             var command = new DeleteTransactionRequest(Id);

@@ -15,5 +15,6 @@ namespace Eshop.DataAccess.Services.Auth
         Task<AuthModel> LoginAsync(TokenRequestModel request);
         Task<JwtSecurityToken> CreateJwtTokenAsync(ApplicationUser user);
         Task<string> AddRoleAsync(AddModelRole model);
+        Task<AuthModel> GenerateRefreshToken(string refreshToken);
     }
 }

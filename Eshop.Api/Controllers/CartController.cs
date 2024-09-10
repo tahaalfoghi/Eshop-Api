@@ -31,7 +31,7 @@ namespace Eshop.Api.Controllers
             this.context = context;
         }
         [HttpGet]
-        [Route("Carts")]
+        [Route("carts")]
         public async Task<IActionResult> GetUserCarts()
         {
             var userId = HttpContext.User.FindFirstValue("uid");
@@ -49,7 +49,7 @@ namespace Eshop.Api.Controllers
 
         }
         [HttpPost]
-        [Route("AddToCart")]
+        [Route("add-to-cart")]
         public async Task<IActionResult> AddToCart(CartPostDTO dto_cart)
         {
             try
@@ -87,7 +87,7 @@ namespace Eshop.Api.Controllers
             }
         }
         [HttpDelete]
-        [Route("DeleteCartItem/{Id:int}")]
+        [Route("delete-cart-item/{Id:int}")]
         public async Task<IActionResult> DeleteCartItem([FromRoute] int Id)
         {
             if (Id <= 0)
@@ -103,7 +103,7 @@ namespace Eshop.Api.Controllers
             return Ok($"Cart item:{Id} deleted successfully");
         }
         [HttpPut]
-        [Route("UpdateCartItem/{Id:int}")]
+        [Route("update-cart-item/{Id:int}")]
         public async Task<IActionResult> UpdateCartItem([FromRoute] CartPostDTO dto_cart)
         {
             var validate = new CartPostValidator();
@@ -121,7 +121,7 @@ namespace Eshop.Api.Controllers
             return Ok($"Cart item {cart.Id} updated successfully");
         }
         [HttpPut]
-        [Route("UpdateCartQuantity/{Id:int}/{ProductId:int}")]
+        [Route("update-cart-quantity/{Id:int}/{ProductId:int}")]
         public async Task<IActionResult> UpdateCartQuantity([FromRoute] CartPostDTO dto_cart)
         {
             var validate = new CartPostValidator();
@@ -139,7 +139,7 @@ namespace Eshop.Api.Controllers
             return BadRequest($"Cart item not found ");
         }
         [HttpGet]
-        [Route("Summery")]
+        [Route("summery")]
         public async Task<IActionResult> Summery()
         {
             var userId = User.FindFirstValue("uid");

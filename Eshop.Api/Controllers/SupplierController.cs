@@ -33,7 +33,7 @@ namespace Eshop.Api.Controllers
             this.mediator = mediator;
         }
         [HttpGet]
-        [Route("Suppliers")]
+        [Route("suppliers")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -46,7 +46,7 @@ namespace Eshop.Api.Controllers
             return Ok(result);
         }
         [HttpGet]
-        [Route("Suppliers/{supplierId:int}")]
+        [Route("suppliers/{supplierId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -60,7 +60,7 @@ namespace Eshop.Api.Controllers
             return Ok(result);
         }
         [HttpGet]
-        [Route("SuppliersByFilter")]
+        [Route("suppliers-by-filter")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -73,7 +73,7 @@ namespace Eshop.Api.Controllers
         }
         
         [HttpPost]
-        [Route("CreateSupplier")]
+        [Route("create-supplier")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -86,7 +86,7 @@ namespace Eshop.Api.Controllers
             return CreatedAtAction(nameof(GetSupplier), new {supplierId = supplierResult.Id}, supplierResult);
         }
         [HttpDelete]
-        [Route("DeleteSupplier/{supplierId:int}")]
+        [Route("delete-supplier/{supplierId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -100,7 +100,7 @@ namespace Eshop.Api.Controllers
             return result ? Ok($"supplier with id: {supplierId} deleted successfully") : BadRequest();
         }
         [HttpPut]
-        [Route("UpdateSupplier")]
+        [Route("update-supplier")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -114,7 +114,7 @@ namespace Eshop.Api.Controllers
             return supplierResult ? Ok($"Supplier updated successfully") : BadRequest();
         }
         [HttpPatch]
-        [Route("UpdatePatch/{supplierId:int}")]
+        [Route("update-patch/{supplierId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]

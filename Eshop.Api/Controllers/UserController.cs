@@ -22,7 +22,7 @@ namespace Eshop.Api.Controllers
             this.authService = authService;
         }
         [HttpGet]
-        [Route("Users")]
+        [Route("users")]
         public async Task<IActionResult> GetUsers()
         {
             var users = await uow.UsersRepository.GetUsersRole();
@@ -32,7 +32,7 @@ namespace Eshop.Api.Controllers
             return Ok(users);
         }
         [HttpGet]
-        [Route("Users/{userId:Guid}")]
+        [Route("users/{userId:Guid}")]
         public async Task<IActionResult> GetUser(Guid userId)
         {
             if (string.IsNullOrEmpty(userId.ToString()))
@@ -45,7 +45,7 @@ namespace Eshop.Api.Controllers
             return Ok(user);
         }
         [HttpPost]
-        [Route("CreateUser")]
+        [Route("create-user")]
         public async Task<IActionResult> CreateUser([FromForm] RegisterModel model)
         {
             if(!ModelState.IsValid)
@@ -58,7 +58,7 @@ namespace Eshop.Api.Controllers
             return Ok($"User {{{model.UserName}, {model.Email}}} created successfully");
         }
         [HttpDelete]
-        [Route("DeleteUser/{userId:Guid}")]
+        [Route("delete-user/{userId:Guid}")]
         public async Task<IActionResult> DeleteUser(Guid userId)
         {
             if (string.IsNullOrEmpty(userId.ToString()))
@@ -74,7 +74,7 @@ namespace Eshop.Api.Controllers
             return Ok($"User: {user.UserName} deleted successfully");
         }
         [HttpDelete]
-        [Route("DeleteUser/{userName}")]
+        [Route("delete-user/{userName}")]
         public async Task<IActionResult> DeleteUserbyUserName(string userName)
         {
             if (string.IsNullOrEmpty(userName))

@@ -17,5 +17,6 @@ namespace Eshop.Models.Models
         [Required]
         [Phone]
         public string Phone { get; set; } = string.Empty;
+        public List<RefreshToken>? RefreshTokens { get; set; }
     }
 }

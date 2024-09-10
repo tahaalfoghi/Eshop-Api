@@ -21,7 +21,7 @@ namespace Eshop.Api.Controllers
         }
         [AllowAnonymous]
         [HttpPost]
-        [Route("Register")]
+        [Route("register")]
         public async Task<IActionResult> Register([FromForm]RegisterModel model)
         {
             if(!ModelState.IsValid)
@@ -40,7 +40,7 @@ namespace Eshop.Api.Controllers
             return Ok(new {Message = "Registration successful!" });
         }
         [HttpPost]
-        [Route("Login")]
+        [Route("login")]
         public async Task<IActionResult> Login([FromForm] TokenRequestModel model)
         {
             if (!ModelState.IsValid)
@@ -52,13 +52,16 @@ namespace Eshop.Api.Controllers
                 logger.LogError($"Error while attempt to login user:[ {model.Email} ] is not authenticated");
                 return BadRequest(result.Message);
             }
-
+            if (!string.IsNullOrEmpty(result.RefreshToken))
+            {
+                SetRefreshTokenInCookie(result.RefreshToken,result.RefreshTokenExpiration);
+            }
             logger.LogInformation($"user [ {model.Email} ] login to the system");
-            return Ok(new {Message= "You Logged in successfully", token = result.Token, ExpiresOn = result.ExpirsOn});
+            return Ok(new {Message= "You Logged in successfully", token = result.Token});
         }
         [Authorize(Roles ="Admin")]
         [HttpPost]
-        [Route("AddRole")]
+        [Route("addd-role")]
         public async Task<IActionResult> AddRoleToUser([FromForm] AddModelRole model)
         {
             if (!ModelState.IsValid)
@@ -70,6 +73,31 @@ namespace Eshop.Api.Controllers
                 return BadRequest(result);
 
             return Ok($"User assigned to [{model.RoleName}] role successfully");
+        }
+        [HttpGet]
+        [Route("refresh-token")]
+        public async Task<IActionResult> RefreshToken()
+        {
+            var refreshToken = Request.Cookies["refreshToken"];
+
+            var result = await authService.GenerateRefreshToken(refreshToken);
+            if (!result.IsAuthenticated)
+            {
+                return BadRequest(result);
+            }
+
+            SetRefreshTokenInCookie(result.RefreshToken,result.RefreshTokenExpiration);
+
+            return Ok(result);
+        }
+        private void SetRefreshTokenInCookie(string refreshToken,DateTime expires)
+        {
+            var cookieOption = new CookieOptions
+            {
+                HttpOnly = true,
+                Expires = expires.ToLocalTime()
+            };
+            Response.Cookies.Append("refreshToken",refreshToken,cookieOption);
         }
     }
 }

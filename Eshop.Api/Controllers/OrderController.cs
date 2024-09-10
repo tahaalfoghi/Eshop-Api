@@ -34,7 +34,7 @@ namespace Eshop.Api.Controllers
             this.context = context;
         }
         [HttpGet]
-        [Route("Orders")]
+        [Route("orders")]
         public async Task<IActionResult> GetOrders([FromQuery] RequestParameter requestParameter)
         {
             var query = new GetOrdersQuery(requestParameter);
@@ -42,7 +42,7 @@ namespace Eshop.Api.Controllers
             return Ok(result);
         }
         [HttpGet]
-        [Route("Orders/{orderId:int}")]
+        [Route("orders/{orderId:int}")]
         public async Task<IActionResult> GetOrder([FromRoute] int orderId)
         {
             var query = new GetOrderQuery(orderId);
@@ -50,7 +50,7 @@ namespace Eshop.Api.Controllers
             return Ok(result);
         }
         [HttpPost]
-        [Route("OrderConfirmation/{orderId:int}")]
+        [Route("Oorder-confirmation/{orderId:int}")]
         public async Task<IActionResult> OrderConfirmation(int orderId)
         {
             if (orderId <= 0)
@@ -77,7 +77,7 @@ namespace Eshop.Api.Controllers
 
         }
         [HttpPost]
-        [Route("ChangeOrderStatus/{orderId:int}")]
+        [Route("change-order-status/{orderId:int}")]
         public async Task<IActionResult> ChangeOrderStatus(int orderId,OrderStatus status)
         {
             if (orderId <= 0)
@@ -103,7 +103,7 @@ namespace Eshop.Api.Controllers
             return Ok($"Order:{order.Id} status changed from:`{oldStatus}` to `{status.ToString()}`");
         }
         [HttpPost]
-        [Route("PlaceOrder")]
+        [Route("place-order")]
         public async Task<IActionResult> PlaceOrder([FromForm] OrderPostDTO dto_order)
         {
 

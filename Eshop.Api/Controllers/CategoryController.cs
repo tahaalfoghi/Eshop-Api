@@ -34,7 +34,7 @@ namespace Eshop.Api.Controllers
             this.mediator = mediator;
         }
         [HttpGet]
-        [Route("Categories")]
+        [Route("categories")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -46,7 +46,7 @@ namespace Eshop.Api.Controllers
             return Ok(result);
         }
         [HttpGet]
-        [Route("Categories/{categoryId:int}")]
+        [Route("categories/{categoryId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -59,7 +59,7 @@ namespace Eshop.Api.Controllers
             return Ok(result);
         }
         [HttpGet]
-        [Route("CategoriesByFilter")]
+        [Route("categories-by-filter")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -71,7 +71,7 @@ namespace Eshop.Api.Controllers
             return Ok(result);
         }
         [HttpPost]
-        [Route("CreateCatgory")]
+        [Route("create-category")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -84,7 +84,7 @@ namespace Eshop.Api.Controllers
             return CreatedAtAction(nameof(GetCategory), new { categoryId = result.Id }, result);
         }
         [HttpDelete]
-        [Route("DeleteCategory/{categoryId:int}")]
+        [Route("delete-category/{categoryId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -96,7 +96,7 @@ namespace Eshop.Api.Controllers
             return result ? Ok($"Category [{categoryId}] deleted successfully") : BadRequest();
         }
         [HttpPut]
-        [Route("UpdateCategory/{categoryId:int}")]
+        [Route("update-category/{categoryId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -109,7 +109,7 @@ namespace Eshop.Api.Controllers
             return Ok($"Category updated successfully");
         }
         [HttpPatch]
-        [Route("UpdatePatchCategory/{categoryId:int}")]
+        [Route("update-patch-category/{categoryId:int}")]
         public async Task<IActionResult> UpdatePath(int categoryId, [FromBody]JsonPatchDocument<CategoryPostDTO> patch)
         {
             

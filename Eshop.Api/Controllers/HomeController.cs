@@ -26,7 +26,7 @@ namespace Eshop.Api.Controllers
             this.mapper = mapper;
         }
         [HttpGet]
-        [Route("Index")]
+        [Route("index")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -41,7 +41,7 @@ namespace Eshop.Api.Controllers
             return Ok(dto_products);
         }
         [HttpGet]
-        [Route("ProductDetails/{pId:int}")]
+        [Route("product-details/{pId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
