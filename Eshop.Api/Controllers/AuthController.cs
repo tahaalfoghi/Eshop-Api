@@ -61,7 +61,7 @@ namespace Eshop.Api.Controllers
         }
         [Authorize(Roles ="Admin")]
         [HttpPost]
-        [Route("addd-role")]
+        [Route("add-role")]
         public async Task<IActionResult> AddRoleToUser([FromForm] AddModelRole model)
         {
             if (!ModelState.IsValid)

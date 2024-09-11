@@ -1,6 +1,7 @@
 using eshop.DataAccess.Data;
 using eshop.DataAccess.Services.Repo;
 using eshop.DataAccess.Services.UnitOfWork;
+using Eshop.DataAccess.DataShaping;
 using Eshop.DataAccess.Services;
 using Eshop.DataAccess.Services.Auth;
 using Eshop.DataAccess.Services.Middleware;
@@ -130,7 +131,7 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+builder.Services.AddScoped(typeof(IDataShaper<>), (typeof(DataShaper<>)));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

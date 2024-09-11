@@ -1,11 +1,7 @@
-﻿using AutoMapper;
-using eshop.DataAccess.Data;
-using eshop.DataAccess.Services.UnitOfWork;
-using Eshop.Api.Commands;
+﻿using Eshop.Api.Commands;
 using Eshop.Api.Queries;
+using Eshop.DataAccess.DataShaping;
 using Eshop.DataAccess.Services.Requests;
-using Eshop.DataAccess.Services.Validators;
-using Eshop.Models;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
 using MediatR;
@@ -14,10 +10,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
-using System.Runtime.InteropServices;
-using System.Text.Json.Serialization;
+
 
 namespace Eshop.Api.Controllers
 {
@@ -28,9 +21,11 @@ namespace Eshop.Api.Controllers
     public class SupplierController : ControllerBase
     {
         private readonly IMediator mediator;
-        public SupplierController(IMediator mediator)
+        private readonly IDataShaper<SupplierDTO> dataShaper;
+        public SupplierController(IMediator mediator, IDataShaper<SupplierDTO> dataShaper)
         {
             this.mediator = mediator;
+            this.dataShaper = dataShaper;
         }
         [HttpGet]
         [Route("suppliers")]
@@ -69,6 +64,7 @@ namespace Eshop.Api.Controllers
         {
             var query = new GetSuppliersByFilterQuery(param);
             var result = await mediator.Send(query);
+
             return Ok(result);
         }
         
