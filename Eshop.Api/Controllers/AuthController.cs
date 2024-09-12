@@ -21,7 +21,7 @@ namespace Eshop.Api.Controllers
         }
         [AllowAnonymous]
         [HttpPost]
-        [Route("register")]
+        [Route("Register")]
         public async Task<IActionResult> Register([FromForm]RegisterModel model)
         {
             if(!ModelState.IsValid)
@@ -40,7 +40,7 @@ namespace Eshop.Api.Controllers
             return Ok(new {Message = "Registration successful!" });
         }
         [HttpPost]
-        [Route("login")]
+        [Route("Login")]
         public async Task<IActionResult> Login([FromForm] TokenRequestModel model)
         {
             if (!ModelState.IsValid)
@@ -61,7 +61,7 @@ namespace Eshop.Api.Controllers
         }
         [Authorize(Roles ="Admin")]
         [HttpPost]
-        [Route("add-role")]
+        [Route("AddRole")]
         public async Task<IActionResult> AddRoleToUser([FromForm] AddModelRole model)
         {
             if (!ModelState.IsValid)
@@ -75,7 +75,7 @@ namespace Eshop.Api.Controllers
             return Ok($"User assigned to [{model.RoleName}] role successfully");
         }
         [HttpGet]
-        [Route("refresh-token")]
+        [Route("RefreshToken")]
         public async Task<IActionResult> RefreshToken()
         {
             var refreshToken = Request.Cookies["refreshToken"];

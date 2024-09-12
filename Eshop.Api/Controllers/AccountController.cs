@@ -23,7 +23,7 @@ namespace Eshop.Api.Controllers
             this.mediator = mediator;
         }
         [HttpGet]
-        [Route("profile")]
+        [Route("Profile")]
         public async Task<IActionResult> GetProfile()
         {
             var userId = HttpContext.User.FindFirstValue("uid");
@@ -33,7 +33,7 @@ namespace Eshop.Api.Controllers
             return Ok(result);
         }
         [HttpPut]
-        [Route("edit-profile")]
+        [Route("EditProfile")]
         public async Task<IActionResult> EditProfile([FromBody] UserModelDTO model)
         {
             var command = new UpdateUserRequest(model);
@@ -41,7 +41,7 @@ namespace Eshop.Api.Controllers
             return result ? Ok($"Your Profile has been updated successfully") : BadRequest();
         }
         [HttpDelete]
-        [Route("delete-account")]
+        [Route("DeleteAccount")]
         public async Task<IActionResult> DeleteAccount()
         {
             var command = new DeleteUserRequest();

@@ -94,9 +94,9 @@ namespace eshop.DataAccess.Services.Repo
 
         
 
-        public async Task UpdateAsync(Supplier supplier)
+        public async Task UpdateAsync(int Id, Supplier supplier)
         {
-            var exists_supplier = await context.Suppliers.FirstOrDefaultAsync(x => x.Id == supplier.Id);
+            var exists_supplier = await context.Suppliers.FirstOrDefaultAsync(x => x.Id == Id);
             if (exists_supplier is not null)
             {
                 exists_supplier.CompanyName = supplier.CompanyName;

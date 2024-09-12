@@ -3,6 +3,7 @@ using Eshop.Api.Queries;
 using Eshop.DataAccess.DataShaping;
 using Eshop.DataAccess.Services.Requests;
 using Eshop.Models.DTOModels;
+using Eshop.Models.LinkModels;
 using Eshop.Models.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -22,13 +23,17 @@ namespace Eshop.Api.Controllers
     {
         private readonly IMediator mediator;
         private readonly IDataShaper<SupplierDTO> dataShaper;
-        public SupplierController(IMediator mediator, IDataShaper<SupplierDTO> dataShaper)
+        private readonly LinkGenerator linkGenerator;
+        private readonly IHttpContextAccessor httpContextAccessor;
+        public SupplierController(IMediator mediator, IDataShaper<SupplierDTO> dataShaper, LinkGenerator linkGenerator, IHttpContextAccessor httpContextAccessor)
         {
             this.mediator = mediator;
             this.dataShaper = dataShaper;
+            this.linkGenerator = linkGenerator;
+            this.httpContextAccessor = httpContextAccessor;
         }
         [HttpGet]
-        [Route("suppliers")]
+        [Route("Suppliers")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -37,11 +42,10 @@ namespace Eshop.Api.Controllers
         {
             var query = new GetSupplliersQuery(requestParameter);
             var result = await mediator.Send(query);
-
             return Ok(result);
         }
         [HttpGet]
-        [Route("suppliers/{supplierId:int}")]
+        [Route("Suppliers/{supplierId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -51,11 +55,12 @@ namespace Eshop.Api.Controllers
             
             var query = new GetSuppllierQuery(supplierId);
             var result = await mediator.Send(query);
+            
 
             return Ok(result);
         }
         [HttpGet]
-        [Route("suppliers-by-filter")]
+        [Route("SuppliersByFilter")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -69,7 +74,7 @@ namespace Eshop.Api.Controllers
         }
         
         [HttpPost]
-        [Route("create-supplier")]
+        [Route("CreateSupplier")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -82,7 +87,7 @@ namespace Eshop.Api.Controllers
             return CreatedAtAction(nameof(GetSupplier), new {supplierId = supplierResult.Id}, supplierResult);
         }
         [HttpDelete]
-        [Route("delete-supplier/{supplierId:int}")]
+        [Route("DeleteSupplier/{supplierId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -96,21 +101,21 @@ namespace Eshop.Api.Controllers
             return result ? Ok($"supplier with id: {supplierId} deleted successfully") : BadRequest();
         }
         [HttpPut]
-        [Route("update-supplier")]
+        [Route("UpdateSupplier/{supplierId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> UpdateSupplier(SupplierDTO dto_supplier)
+        public async Task<IActionResult> UpdateSupplier(int supplierId, SupplierDTO dto_supplier)
         {
             
-            var command = new UpdateSupplierRequest(dto_supplier);
+            var command = new UpdateSupplierRequest(supplierId, dto_supplier);
             var supplierResult = await mediator.Send(command);
 
             return supplierResult ? Ok($"Supplier updated successfully") : BadRequest();
         }
         [HttpPatch]
-        [Route("update-patch/{supplierId:int}")]
+        [Route("UpdatePatch/{supplierId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]

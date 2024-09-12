@@ -10,7 +10,7 @@ namespace eshop.DataAccess.Services.Repo
     public interface ISupplierRepository:IRepository<Supplier>
     {
         Task<PagedList<Supplier>> GetAllByFilterAsync(SupplierRequestParamater param, string? include = null);
-        Task UpdateAsync(Supplier supplier);
+        Task UpdateAsync(int Id,Supplier supplier);
         Task UpdatePatchAsync(int supplierId,Supplier supplier);
     }
 }

@@ -25,7 +25,7 @@ namespace Eshop.Api.Controllers
             this.mediator = mediator;
         }
         [HttpGet]
-        [Route("products")]
+        [Route("Products")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -38,7 +38,7 @@ namespace Eshop.Api.Controllers
             return Ok(result);
         }
         [HttpGet]
-        [Route("products/{productId:int}")]
+        [Route("Products/{productId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -50,7 +50,7 @@ namespace Eshop.Api.Controllers
             return Ok(result);
         }
         [HttpGet]
-        [Route("products-by-filter")]
+        [Route("ProductsByFilter")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -64,7 +64,7 @@ namespace Eshop.Api.Controllers
         }
         
         [HttpPost]
-        [Route("create-product")]
+        [Route("CreateProduct")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -78,7 +78,7 @@ namespace Eshop.Api.Controllers
             return CreatedAtAction(nameof(GetProduct), new {ProductId = result.Id}, result);
         }
         [HttpDelete]
-        [Route("delete-product/{productId:int}")]
+        [Route("DeleteProduct/{productId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -91,7 +91,7 @@ namespace Eshop.Api.Controllers
             return result ? Ok($"Product deleted successfully") : BadRequest();
         }
         [HttpPut]
-        [Route("update-product/{productId:int}")]
+        [Route("UpdateProduct/{productId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -104,7 +104,7 @@ namespace Eshop.Api.Controllers
             return result ? Ok("Product Updated successfully") : BadRequest();    
         }
         [HttpPatch]
-        [Route("update-patch/{productId:int}")]
+        [Route("UpdatePatch/{productId:int}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]

@@ -28,7 +28,7 @@ namespace Eshop.Api.Handlers
                 throw new InvalidModelException($"{check.Errors.ToString()}");
 
             var result = mapper.Map<Supplier>(request.Supplier);
-            await uow.SupplierRepository.UpdateAsync(result);
+            await uow.SupplierRepository.UpdateAsync(request.SupplierId,result);
             await uow.CommitAsync();
 
             return true;
