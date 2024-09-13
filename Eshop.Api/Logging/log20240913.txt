@@ -1,0 +1,290 @@
+2024-09-13 20:40:34.660 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-13 20:40:34.999 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-13 20:40:34.999 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger - null null
+2024-09-13 20:40:35.149 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-13 20:40:35.153 +02:00 [INF] Hosting environment: Development
+2024-09-13 20:40:35.155 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-13 20:40:35.860 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger - 499 null null 869.3626ms
+2024-09-13 20:40:35.941 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 950.4751ms
+2024-09-13 20:40:36.044 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-13 20:40:36.061 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 11.9881ms
+2024-09-13 20:40:36.082 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-13 20:40:36.186 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 104.2313ms
+2024-09-13 20:40:36.357 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-13 20:40:36.502 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 145.4166ms
+2024-09-13 20:40:51.946 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=--------------------------558149283792292358541208 288
+2024-09-13 20:40:52.097 +02:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/5/2024 7:16:13 PM', Current time (UTC): '9/13/2024 6:40:52 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-13 20:40:52.157 +02:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/5/2024 7:16:13 PM', Current time (UTC): '9/13/2024 6:40:52 PM'.
+2024-09-13 20:40:52.161 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-13 20:40:52.181 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-13 20:40:53.378 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:40:53.382 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:40:53.386 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:40:53.390 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:40:55.659 +02:00 [INF] Executed DbCommand (83ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[Phone], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [r].[ApplicationUserId], [r].[Id], [r].[CreatedAt], [r].[ExpireOn], [r].[RevokedOn], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[ApplicationUserId]
+ORDER BY [t].[Id], [r].[ApplicationUserId]
+2024-09-13 20:40:55.692 +02:00 [ERR] Error while attempt to login user:[ taha@mail.com ] is not authenticated
+2024-09-13 20:40:55.698 +02:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2024-09-13 20:40:55.705 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 3520.2714ms
+2024-09-13 20:40:55.706 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-13 20:40:55.718 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:44369/api/Auth/Login - 400 null text/plain; charset=utf-8 3771.7312ms
+2024-09-13 20:41:04.730 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=--------------------------910592849981292478571214 289
+2024-09-13 20:41:04.736 +02:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/5/2024 7:16:13 PM', Current time (UTC): '9/13/2024 6:41:04 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-13 20:41:04.736 +02:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/5/2024 7:16:13 PM', Current time (UTC): '9/13/2024 6:41:04 PM'.
+2024-09-13 20:41:04.737 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-13 20:41:04.737 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-13 20:41:04.808 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[Phone], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [r].[ApplicationUserId], [r].[Id], [r].[CreatedAt], [r].[ExpireOn], [r].[RevokedOn], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[ApplicationUserId]
+ORDER BY [t].[Id], [r].[ApplicationUserId]
+2024-09-13 20:41:05.024 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2024-09-13 20:41:05.052 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-09-13 20:41:05.065 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-09-13 20:41:05.096 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[Phone], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [r].[ApplicationUserId], [r].[Id], [r].[CreatedAt], [r].[ExpireOn], [r].[RevokedOn], [r].[Token]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[ApplicationUserId]
+ORDER BY [t].[Id], [r].[ApplicationUserId]
+2024-09-13 20:41:05.283 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[@p17='?' (Size = 450), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p18='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256), @p19='?' (Size = 450), @p20='?' (DbType = DateTime2), @p21='?' (DbType = DateTime2), @p22='?' (DbType = DateTime2), @p23='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [LastName] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [Phone] = @p11, [PhoneNumber] = @p12, [PhoneNumberConfirmed] = @p13, [SecurityStamp] = @p14, [TwoFactorEnabled] = @p15, [UserName] = @p16
+OUTPUT 1
+WHERE [Id] = @p17 AND [ConcurrencyStamp] = @p18;
+INSERT INTO [RefreshToken] ([ApplicationUserId], [CreatedAt], [ExpireOn], [RevokedOn], [Token])
+OUTPUT INSERTED.[Id]
+VALUES (@p19, @p20, @p21, @p22, @p23);
+2024-09-13 20:41:05.322 +02:00 [INF] user [ taha@gmail.com ] login to the system
+2024-09-13 20:41:05.323 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-09-13 20:41:05.521 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 784.131ms
+2024-09-13 20:41:05.522 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-13 20:41:05.522 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:44369/api/Auth/Login - 200 388 application/json; charset=utf-8 792.3371ms
+2024-09-13 20:41:18.273 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/Suppliers/2019 - application/json 208
+2024-09-13 20:41:18.296 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-13 20:41:18.301 +02:00 [INF] Route matched with {action = "GetSupplier", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSupplier(Int32) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-13 20:41:18.458 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Id] = @__id_0
+2024-09-13 20:41:18.480 +02:00 [INF] Executing OkObjectResult, writing value of type 'Eshop.Models.DTOModels.SupplierDTO'.
+2024-09-13 20:41:18.489 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api) in 188.6048ms
+2024-09-13 20:41:18.490 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-13 20:41:18.491 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/Suppliers/2019 - 200 300 application/json; charset=utf-8 217.4219ms
+2024-09-13 20:43:36.184 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-13 20:43:36.395 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger - null null
+2024-09-13 20:43:36.395 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-13 20:43:36.498 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-13 20:43:36.502 +02:00 [INF] Hosting environment: Development
+2024-09-13 20:43:36.504 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-13 20:43:36.564 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger - 499 null null 177.2517ms
+2024-09-13 20:43:36.642 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 256.5423ms
+2024-09-13 20:43:36.707 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-13 20:43:36.712 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-13 20:43:36.712 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-13 20:43:36.723 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 9.5281ms
+2024-09-13 20:43:36.747 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-13 20:43:36.747 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 40.5505ms
+2024-09-13 20:43:36.765 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 56.1813ms
+2024-09-13 20:43:36.805 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-13 20:43:36.807 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-13 20:43:36.807 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 499 628 image/png 1.8433ms
+2024-09-13 20:43:36.865 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-13 20:43:37.019 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 153.9833ms
+2024-09-13 20:43:42.829 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/Suppliers/2019 - application/json 208
+2024-09-13 20:43:43.103 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-13 20:43:43.151 +02:00 [INF] Route matched with {action = "GetSupplier", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSupplier(Int32) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-13 20:43:45.270 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:43:45.277 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:43:45.283 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:43:45.289 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:43:46.965 +02:00 [INF] Executed DbCommand (115ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Id] = @__id_0
+2024-09-13 20:43:47.185 +02:00 [INF] Executing OkObjectResult, writing value of type 'Eshop.Models.DTOModels.SupplierDTO'.
+2024-09-13 20:43:47.419 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api) in 4260.2795ms
+2024-09-13 20:43:47.420 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-13 20:43:47.432 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/Suppliers/2019 - 200 349 application/json; charset=utf-8 4603.884ms
+2024-09-13 20:44:54.387 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-13 20:44:54.626 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-13 20:44:54.698 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-13 20:44:54.701 +02:00 [INF] Hosting environment: Development
+2024-09-13 20:44:54.704 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-13 20:44:54.819 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 200.7081ms
+2024-09-13 20:44:54.890 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-13 20:44:54.894 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-13 20:44:54.900 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-13 20:44:54.906 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 11.1618ms
+2024-09-13 20:44:54.921 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-13 20:44:54.922 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 31.6144ms
+2024-09-13 20:44:54.944 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 44.8808ms
+2024-09-13 20:44:54.971 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-13 20:44:54.973 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-13 20:44:54.974 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 499 628 image/png 2.8047ms
+2024-09-13 20:44:55.015 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-13 20:44:55.202 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 187.3329ms
+2024-09-13 20:45:05.812 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/Suppliers/2019 - application/json 208
+2024-09-13 20:45:06.047 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-13 20:45:06.099 +02:00 [INF] Route matched with {action = "GetSupplier", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSupplier(Int32) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-13 20:45:08.244 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:45:08.249 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:45:08.255 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:45:08.260 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:45:09.921 +02:00 [INF] Executed DbCommand (123ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Id] = @__id_0
+2024-09-13 20:45:10.169 +02:00 [INF] Executing OkObjectResult, writing value of type 'Eshop.Models.DTOModels.SupplierDTO'.
+2024-09-13 20:45:10.399 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api) in 4289.8542ms
+2024-09-13 20:45:10.401 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-13 20:45:10.420 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/Suppliers/2019 - 200 457 application/json; charset=utf-8 4607.9529ms
+2024-09-13 20:49:01.195 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-13 20:49:01.422 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger - null null
+2024-09-13 20:49:01.422 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-13 20:49:01.503 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-13 20:49:01.506 +02:00 [INF] Hosting environment: Development
+2024-09-13 20:49:01.508 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-13 20:49:01.576 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger - 499 null null 158.8522ms
+2024-09-13 20:49:01.640 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 223.7898ms
+2024-09-13 20:49:01.712 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-13 20:49:01.718 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-13 20:49:01.720 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-13 20:49:01.724 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 5.2847ms
+2024-09-13 20:49:01.728 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-13 20:49:01.729 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 16.8077ms
+2024-09-13 20:49:01.770 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 49.9821ms
+2024-09-13 20:49:01.863 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-13 20:49:01.865 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-13 20:49:01.865 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 499 628 image/png 2.1152ms
+2024-09-13 20:49:01.938 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-13 20:49:02.156 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 217.274ms
+2024-09-13 20:49:04.124 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/Suppliers - application/json 208
+2024-09-13 20:49:04.362 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api)'
+2024-09-13 20:49:04.412 +02:00 [INF] Route matched with {action = "GetSuppliers", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSuppliers(Eshop.DataAccess.Services.Requests.RequestParameter) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-13 20:49:06.241 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:49:06.244 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:49:06.248 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:49:06.252 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:49:07.834 +02:00 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone], [c].[Id], [c].[Description], [c].[Name], [c].[SupplierId]
+FROM [Suppliers] AS [s]
+LEFT JOIN [Categories] AS [c] ON [s].[Id] = [c].[SupplierId]
+ORDER BY [s].[Id]
+2024-09-13 20:49:07.923 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone], [c].[Id], [c].[Description], [c].[Name], [c].[SupplierId]
+FROM [Suppliers] AS [s]
+LEFT JOIN [Categories] AS [c] ON [s].[Id] = [c].[SupplierId]
+ORDER BY [s].[Id]
+2024-09-13 20:49:08.147 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-13 20:49:08.222 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api) in 3800.1596ms
+2024-09-13 20:49:08.222 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api)'
+2024-09-13 20:49:08.232 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/Suppliers - 200 4584 application/json; charset=utf-8 4107.7309ms
+2024-09-13 20:57:52.726 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-13 20:57:53.071 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger - null null
+2024-09-13 20:57:53.071 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-13 20:57:53.234 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-13 20:57:53.239 +02:00 [INF] Hosting environment: Development
+2024-09-13 20:57:53.242 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-13 20:57:53.388 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger - 499 null null 328.0524ms
+2024-09-13 20:57:53.514 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 455.9645ms
+2024-09-13 20:57:53.586 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-13 20:57:53.586 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-13 20:57:53.587 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-13 20:57:53.609 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 14.5016ms
+2024-09-13 20:57:53.615 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-13 20:57:53.616 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 28.2294ms
+2024-09-13 20:57:53.658 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 72.0433ms
+2024-09-13 20:57:53.694 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-13 20:57:53.696 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-13 20:57:53.696 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 499 628 image/png 1.6092ms
+2024-09-13 20:57:53.774 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-13 20:57:54.141 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 367.4632ms
+2024-09-13 20:58:25.044 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/SuppliersByFilter?Country%3DSpain - application/json 208
+2024-09-13 20:58:25.343 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-13 20:58:25.398 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.DataAccess.Services.Requests.SupplierRequestParamater) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-13 20:58:27.551 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:58:27.557 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:58:27.563 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:58:27.569 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-13 20:58:31.538 +02:00 [INF] Executed DbCommand (55ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+ORDER BY [s].[CompanyName]
+2024-09-13 20:58:31.617 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+ORDER BY [s].[CompanyName]
+2024-09-13 20:58:31.687 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-13 20:58:31.880 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 6474.9947ms
+2024-09-13 20:58:31.880 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-13 20:58:31.894 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/SuppliersByFilter?Country%3DSpain - 200 4532 application/json; charset=utf-8 6850.3173ms
+2024-09-13 20:59:02.881 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Supplier/SuppliersByFilter?Country=Spain - null null
+2024-09-13 20:59:02.899 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-13 20:59:02.899 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.DataAccess.Services.Requests.SupplierRequestParamater) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-13 20:59:03.034 +02:00 [INF] Executed DbCommand (43ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Country] LIKE @__ToLower_0_contains ESCAPE N'\'
+ORDER BY [s].[CompanyName]
+2024-09-13 20:59:03.052 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Country] LIKE @__ToLower_0_contains ESCAPE N'\'
+ORDER BY [s].[CompanyName]
+2024-09-13 20:59:03.056 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-13 20:59:03.060 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 160.7668ms
+2024-09-13 20:59:03.060 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-13 20:59:03.061 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Supplier/SuppliersByFilter?Country=Spain - 200 1362 application/json; charset=utf-8 179.3276ms
+2024-09-13 20:59:27.953 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/SuppliersByFilter?Country=Spain - application/json 208
+2024-09-13 20:59:27.961 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-13 20:59:27.961 +02:00 [INF] Route matched with {action = "GetAllByFilter", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllByFilter(Eshop.DataAccess.Services.Requests.SupplierRequestParamater) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-13 20:59:28.103 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Country] LIKE @__ToLower_0_contains ESCAPE N'\'
+ORDER BY [s].[CompanyName]
+2024-09-13 20:59:28.113 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__ToLower_0_contains='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Country] LIKE @__ToLower_0_contains ESCAPE N'\'
+ORDER BY [s].[CompanyName]
+2024-09-13 20:59:28.114 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.SupplierDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-13 20:59:28.116 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api) in 154.554ms
+2024-09-13 20:59:28.116 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetAllByFilter (Eshop.Api)'
+2024-09-13 20:59:28.116 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/SuppliersByFilter?Country=Spain - 200 1362 application/json; charset=utf-8 163.1633ms

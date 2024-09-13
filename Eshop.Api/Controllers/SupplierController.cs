@@ -3,14 +3,12 @@ using Eshop.Api.Queries;
 using Eshop.DataAccess.DataShaping;
 using Eshop.DataAccess.Services.Requests;
 using Eshop.Models.DTOModels;
-using Eshop.Models.LinkModels;
-using Eshop.Models.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using RiskFirst.Hateoas;
 
 
 namespace Eshop.Api.Controllers
@@ -42,10 +40,31 @@ namespace Eshop.Api.Controllers
         {
             var query = new GetSupplliersQuery(requestParameter);
             var result = await mediator.Send(query);
+
+            foreach(var supplier in result)
+            {
+                supplier.Links.Add(new Link(
+                linkGenerator.GetUriByName(httpContextAccessor.HttpContext, $"GetSupplier", new { supplierId = supplier.Id}),
+                "get-supplier",
+                "GET"
+                ));
+
+                supplier.Links.Add(new Link(
+                    linkGenerator.GetUriByName(httpContextAccessor.HttpContext, $"DeleteSupplier", new { supplierId = supplier.Id}),
+                    "delete-supplier",
+                    "DELETE"
+                    ));
+
+                supplier.Links.Add(new Link(
+                    linkGenerator.GetUriByName(httpContextAccessor.HttpContext, $"UpdateSupplier", new { supplierId = supplier.Id}),
+                    "update-supplier",
+                    "PUT"
+                    ));
+            }
             return Ok(result);
         }
         [HttpGet]
-        [Route("Suppliers/{supplierId:int}")]
+        [Route("Suppliers/{supplierId:int}",Name ="GetSupplier")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -55,8 +74,24 @@ namespace Eshop.Api.Controllers
             
             var query = new GetSuppllierQuery(supplierId);
             var result = await mediator.Send(query);
-            
 
+            result.Links.Add(new Link(
+                linkGenerator.GetUriByName(httpContextAccessor.HttpContext,$"GetSupplier", new {supplierId}),
+                "self",
+                "GET"
+                ));
+
+            result.Links.Add(new Link(
+                linkGenerator.GetUriByName(httpContextAccessor.HttpContext, $"DeleteSupplier", new { supplierId }),
+                "delete-supplier",
+                "DELETE"
+                ));
+
+            result.Links.Add(new Link(
+                linkGenerator.GetUriByName(httpContextAccessor.HttpContext, $"UpdateSupplier", new { supplierId }),
+                "update-supplier",
+                "PUT"
+                ));
             return Ok(result);
         }
         [HttpGet]
@@ -69,6 +104,27 @@ namespace Eshop.Api.Controllers
         {
             var query = new GetSuppliersByFilterQuery(param);
             var result = await mediator.Send(query);
+
+            foreach (var supplier in result)
+            {
+                supplier.Links.Add(new Link(
+                linkGenerator.GetUriByName(httpContextAccessor.HttpContext, $"GetSupplier", new { supplierId = supplier.Id }),
+                "get-supplier",
+                "GET"
+                ));
+
+                supplier.Links.Add(new Link(
+                    linkGenerator.GetUriByName(httpContextAccessor.HttpContext, $"DeleteSupplier", new { supplierId = supplier.Id }),
+                    "delete-supplier",
+                    "DELETE"
+                    ));
+
+                supplier.Links.Add(new Link(
+                    linkGenerator.GetUriByName(httpContextAccessor.HttpContext, $"UpdateSupplier", new { supplierId = supplier.Id }),
+                    "update-supplier",
+                    "PUT"
+                    ));
+            }
 
             return Ok(result);
         }
@@ -87,7 +143,7 @@ namespace Eshop.Api.Controllers
             return CreatedAtAction(nameof(GetSupplier), new {supplierId = supplierResult.Id}, supplierResult);
         }
         [HttpDelete]
-        [Route("DeleteSupplier/{supplierId:int}")]
+        [Route("DeleteSupplier/{supplierId:int}", Name = "DeleteSupplier")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -101,7 +157,7 @@ namespace Eshop.Api.Controllers
             return result ? Ok($"supplier with id: {supplierId} deleted successfully") : BadRequest();
         }
         [HttpPut]
-        [Route("UpdateSupplier/{supplierId:int}")]
+        [Route("UpdateSupplier/{supplierId:int}", Name ="UpdateSupplier")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]

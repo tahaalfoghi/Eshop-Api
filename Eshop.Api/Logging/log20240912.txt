@@ -466,3 +466,212 @@ WHERE [s].[Id] = @__id_0
 2024-09-12 11:22:20.064 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api) in 29.9222ms
 2024-09-12 11:22:20.064 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
 2024-09-12 11:22:20.065 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/suppliers/2019 - 200 139 application/json; charset=utf-8 32.8997ms
+2024-09-12 11:55:05.587 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-12 11:55:05.749 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-12 11:55:05.829 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-12 11:55:05.832 +02:00 [INF] Hosting environment: Development
+2024-09-12 11:55:05.834 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-12 11:55:05.972 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 227.9853ms
+2024-09-12 11:55:06.041 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-12 11:55:06.050 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-12 11:55:06.057 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 5.1858ms
+2024-09-12 11:55:06.102 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 61.1159ms
+2024-09-12 11:55:06.172 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-12 11:55:06.300 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 128.4092ms
+2024-09-12 11:55:08.617 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/suppliers/2019 - application/json 208
+2024-09-12 11:55:08.717 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-12 11:55:08.735 +02:00 [INF] Route matched with {action = "GetSupplier", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSupplier(Int32) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-12 11:55:08.740 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api) in 2.0605ms
+2024-09-12 11:55:08.740 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-12 11:55:08.774 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'RiskFirst.Hateoas.ILinksService' while attempting to activate 'Eshop.Api.Controllers.SupplierController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method10(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2024-09-12 11:55:08.781 +02:00 [ERR] Exception occured {Error Happend in this action method
+}
+System.InvalidOperationException: Unable to resolve service for type 'RiskFirst.Hateoas.ILinksService' while attempting to activate 'Eshop.Api.Controllers.SupplierController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method10(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+2024-09-12 11:55:08.789 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/suppliers/2019 - 500 null application/json 171.6837ms
+2024-09-12 12:15:53.308 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-12 12:15:53.484 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-12 12:15:53.542 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-12 12:15:53.544 +02:00 [INF] Hosting environment: Development
+2024-09-12 12:15:53.547 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-12 12:15:53.695 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 215.1191ms
+2024-09-12 12:15:53.732 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-12 12:15:53.751 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-12 12:15:53.755 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-12 12:15:53.755 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-12 12:15:53.755 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 22.7422ms
+2024-09-12 12:15:53.758 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.8086ms
+2024-09-12 12:15:53.787 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.5177ms
+2024-09-12 12:15:53.892 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-12 12:15:54.034 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 141.9077ms
+2024-09-12 12:15:57.132 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/suppliers/2019 - application/json 208
+2024-09-12 12:15:57.232 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-12 12:15:57.249 +02:00 [INF] Route matched with {action = "GetSupplier", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSupplier(Int32) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-12 12:15:58.067 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-12 12:15:58.071 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-12 12:15:58.073 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-12 12:15:58.076 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-12 12:15:59.380 +02:00 [INF] Executed DbCommand (43ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Id] = @__id_0
+2024-09-12 12:15:59.446 +02:00 [INF] Applying links to Eshop.Models.LinkModels.SupplierLinkResponse using requirements ["RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]"]
+2024-09-12 12:15:59.454 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetSuppliers.
+2024-09-12 12:15:59.456 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetSupplier.
+2024-09-12 12:15:59.459 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetAllByFilter.
+2024-09-12 12:15:59.461 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: UpdateSupplier.
+2024-09-12 12:15:59.464 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: DeleteSupplier.
+2024-09-12 12:15:59.466 +02:00 [INF] Applied links to Eshop.Models.LinkModels.SupplierLinkResponse in 17ms
+2024-09-12 12:15:59.471 +02:00 [INF] Executing OkObjectResult, writing value of type 'Eshop.Models.LinkModels.SupplierLinkResponse'.
+2024-09-12 12:15:59.545 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api) in 2291.8284ms
+2024-09-12 12:15:59.545 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-12 12:15:59.552 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/suppliers/2019 - 200 159 application/json; charset=utf-8 2420.5567ms
+2024-09-12 12:32:57.066 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-12 12:32:57.251 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-12 12:32:57.306 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-12 12:32:57.308 +02:00 [INF] Hosting environment: Development
+2024-09-12 12:32:57.309 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-12 12:32:57.415 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 171.623ms
+2024-09-12 12:32:57.468 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-12 12:32:57.468 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-12 12:32:57.477 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 9.249ms
+2024-09-12 12:32:57.515 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.6813ms
+2024-09-12 12:32:57.548 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-12 12:32:57.560 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-12 12:32:57.560 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 499 628 image/png 12.3053ms
+2024-09-12 12:32:57.581 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-12 12:32:57.706 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 125.2335ms
+2024-09-12 12:32:59.993 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/suppliers/2019 - application/json 208
+2024-09-12 12:33:00.108 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-12 12:33:00.131 +02:00 [INF] Route matched with {action = "GetSupplier", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSupplier(Int32) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-12 12:33:00.906 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-12 12:33:00.909 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-12 12:33:00.911 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-12 12:33:00.913 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-12 12:33:02.287 +02:00 [INF] Executed DbCommand (56ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Id] = @__id_0
+2024-09-12 12:33:02.375 +02:00 [INF] Applying links to Eshop.Models.LinkModels.SupplierLinkResponse using requirements ["RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]"]
+2024-09-12 12:33:02.384 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetSuppliers.
+2024-09-12 12:33:02.385 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetSupplier.
+2024-09-12 12:33:02.387 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetAllByFilter.
+2024-09-12 12:33:02.389 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: UpdateSupplier.
+2024-09-12 12:33:02.390 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: DeleteSupplier.
+2024-09-12 12:33:02.393 +02:00 [INF] Applied links to Eshop.Models.LinkModels.SupplierLinkResponse in 15ms
+2024-09-12 12:33:02.397 +02:00 [INF] Executing OkObjectResult, writing value of type 'Eshop.Models.LinkModels.SupplierLinkResponse'.
+2024-09-12 12:33:02.474 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api) in 2339.3436ms
+2024-09-12 12:33:02.475 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-12 12:33:02.481 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/suppliers/2019 - 200 159 application/json; charset=utf-8 2487.855ms
+2024-09-12 12:33:09.300 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/suppliers/2019 - application/json 208
+2024-09-12 12:33:09.304 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-12 12:33:09.304 +02:00 [INF] Route matched with {action = "GetSupplier", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSupplier(Int32) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-12 12:33:09.331 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Id] = @__id_0
+2024-09-12 12:33:09.335 +02:00 [INF] Applying links to Eshop.Models.LinkModels.SupplierLinkResponse using requirements ["RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]"]
+2024-09-12 12:33:09.337 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetSuppliers.
+2024-09-12 12:33:09.340 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetSupplier.
+2024-09-12 12:33:09.342 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetAllByFilter.
+2024-09-12 12:33:09.344 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: UpdateSupplier.
+2024-09-12 12:33:09.346 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: DeleteSupplier.
+2024-09-12 12:33:09.348 +02:00 [INF] Applied links to Eshop.Models.LinkModels.SupplierLinkResponse in 11ms
+2024-09-12 12:33:09.349 +02:00 [INF] Executing OkObjectResult, writing value of type 'Eshop.Models.LinkModels.SupplierLinkResponse'.
+2024-09-12 12:33:09.350 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api) in 45.4798ms
+2024-09-12 12:33:09.350 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-12 12:33:09.350 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/suppliers/2019 - 200 159 application/json; charset=utf-8 50.4286ms
+2024-09-12 12:33:19.935 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/suppliers/2019 - application/json 208
+2024-09-12 12:33:19.938 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-12 12:33:19.938 +02:00 [INF] Route matched with {action = "GetSupplier", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSupplier(Int32) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-12 12:33:19.991 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Id] = @__id_0
+2024-09-12 12:33:19.994 +02:00 [INF] Applying links to Eshop.Models.LinkModels.SupplierLinkResponse using requirements ["RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]"]
+2024-09-12 12:33:19.996 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetSuppliers.
+2024-09-12 12:33:19.997 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetSupplier.
+2024-09-12 12:33:19.999 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetAllByFilter.
+2024-09-12 12:33:20.001 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: UpdateSupplier.
+2024-09-12 12:33:20.002 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: DeleteSupplier.
+2024-09-12 12:33:20.004 +02:00 [INF] Applied links to Eshop.Models.LinkModels.SupplierLinkResponse in 8ms
+2024-09-12 12:33:20.004 +02:00 [INF] Executing OkObjectResult, writing value of type 'Eshop.Models.LinkModels.SupplierLinkResponse'.
+2024-09-12 12:33:20.005 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api) in 66.9748ms
+2024-09-12 12:33:20.005 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-12 12:33:20.005 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/suppliers/2019 - 200 159 application/json; charset=utf-8 70.4413ms
+2024-09-12 12:33:33.294 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/suppliers/2019 - application/json 208
+2024-09-12 12:33:33.294 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-12 12:33:33.295 +02:00 [INF] Route matched with {action = "GetSupplier", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSupplier(Int32) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-12 12:33:33.302 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Id] = @__id_0
+2024-09-12 12:33:33.305 +02:00 [INF] Applying links to Eshop.Models.LinkModels.SupplierLinkResponse using requirements ["RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]"]
+2024-09-12 12:33:33.307 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetSuppliers.
+2024-09-12 12:33:33.309 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetSupplier.
+2024-09-12 12:33:33.310 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetAllByFilter.
+2024-09-12 12:33:33.312 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: UpdateSupplier.
+2024-09-12 12:33:33.314 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: DeleteSupplier.
+2024-09-12 12:33:33.316 +02:00 [INF] Applied links to Eshop.Models.LinkModels.SupplierLinkResponse in 9ms
+2024-09-12 12:33:59.651 +02:00 [INF] Executing OkObjectResult, writing value of type 'Eshop.Models.LinkModels.SupplierLinkResponse'.
+2024-09-12 12:33:59.656 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api) in 26360.7139ms
+2024-09-12 12:33:59.656 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-12 12:33:59.657 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/suppliers/2019 - 200 159 application/json; charset=utf-8 26362.9335ms
+2024-09-12 12:34:02.278 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/suppliers/2019 - application/json 208
+2024-09-12 12:34:02.278 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-12 12:34:02.279 +02:00 [INF] Route matched with {action = "GetSupplier", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSupplier(Int32) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-12 12:34:02.287 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Id] = @__id_0
+2024-09-12 12:34:08.838 +02:00 [INF] Applying links to Eshop.Models.LinkModels.SupplierLinkResponse using requirements ["RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]"]
+2024-09-12 12:34:08.840 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetSuppliers.
+2024-09-12 12:34:08.842 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetSupplier.
+2024-09-12 12:34:08.844 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetAllByFilter.
+2024-09-12 12:34:08.846 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: UpdateSupplier.
+2024-09-12 12:34:08.848 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: DeleteSupplier.
+2024-09-12 12:34:08.849 +02:00 [INF] Applied links to Eshop.Models.LinkModels.SupplierLinkResponse in 9ms
+2024-09-12 12:34:08.850 +02:00 [INF] Executing OkObjectResult, writing value of type 'Eshop.Models.LinkModels.SupplierLinkResponse'.
+2024-09-12 12:34:08.850 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api) in 6571.7148ms
+2024-09-12 12:34:08.850 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-12 12:34:08.851 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/suppliers/2019 - 200 159 application/json; charset=utf-8 6572.9579ms
+2024-09-12 12:34:17.965 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:44369/api/Supplier/suppliers/2019 - application/json 208
+2024-09-12 12:34:17.965 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.SupplierController.GetSupplier (Eshop.Api)'
+2024-09-12 12:34:17.965 +02:00 [INF] Route matched with {action = "GetSupplier", controller = "Supplier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSupplier(Int32) on controller Eshop.Api.Controllers.SupplierController (Eshop.Api).
+2024-09-12 12:34:32.535 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[Address], [s].[CompanyName], [s].[ContactName], [s].[Country], [s].[Phone]
+FROM [Suppliers] AS [s]
+WHERE [s].[Id] = @__id_0
+2024-09-12 12:34:57.134 +02:00 [INF] Applying links to Eshop.Models.LinkModels.SupplierLinkResponse using requirements ["RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]","RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse]"]
+2024-09-12 12:34:57.135 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetSuppliers.
+2024-09-12 12:34:57.136 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetSupplier.
+2024-09-12 12:34:57.138 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: GetAllByFilter.
+2024-09-12 12:34:57.139 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: UpdateSupplier.
+2024-09-12 12:34:57.141 +02:00 [INF] Link RiskFirst.Hateoas.Implementation.RouteLinkRequirement`1[Eshop.Models.LinkModels.SupplierLinkResponse] skipped for user Unknown. Reason: "Error". No route was found for route name: DeleteSupplier.
+2024-09-12 12:34:57.142 +02:00 [INF] Applied links to Eshop.Models.LinkModels.SupplierLinkResponse in 7ms

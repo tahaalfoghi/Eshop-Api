@@ -1,5 +1,4 @@
-﻿using Eshop.Models.LinkModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,6 +15,8 @@ namespace Eshop.Models.DTOModels
         public string? Country { get; set; } = string.Empty;
         public string? Address { get; set; } = string.Empty;
         public string? Phone { get; set; } = string.Empty;
-        //public List<Link> Links { get; set; } = new();
+        public List<Link> Links { get; set; } = new();
+        
     }
+    public record Link(string Href, string Rel, string Method);
 }
