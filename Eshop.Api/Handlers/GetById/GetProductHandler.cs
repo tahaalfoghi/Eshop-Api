@@ -33,7 +33,9 @@ namespace Eshop.Api.Handlers.GetById
             if (product is null)
                 throw new NotFoundException($"Product with id:{request.ProductId} doesn't exists");
 
-            return mapper.Map<ProductDTO>(product);
+            var productDto = mapper.Map<ProductDTO>(product);
+            AddLinks(productDto);
+            return productDto;
         }
         private void AddLinks(ProductDTO product)
         {

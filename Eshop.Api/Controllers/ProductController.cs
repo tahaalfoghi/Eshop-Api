@@ -38,7 +38,7 @@ namespace Eshop.Api.Controllers
             return Ok(result);
         }
         [HttpGet]
-        [Route("Products/{productId:int}")]
+        [Route("Products/{productId:int}", Name = "GetProduct")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -78,7 +78,7 @@ namespace Eshop.Api.Controllers
             return CreatedAtAction(nameof(GetProduct), new {ProductId = result.Id}, result);
         }
         [HttpDelete]
-        [Route("DeleteProduct/{productId:int}")]
+        [Route("DeleteProduct/{productId:int}", Name = "DeleteProduct")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -91,7 +91,7 @@ namespace Eshop.Api.Controllers
             return result ? Ok($"Product deleted successfully") : BadRequest();
         }
         [HttpPut]
-        [Route("UpdateProduct/{productId:int}")]
+        [Route("UpdateProduct/{productId:int}", Name = "UpdateProduct")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -104,7 +104,7 @@ namespace Eshop.Api.Controllers
             return result ? Ok("Product Updated successfully") : BadRequest();    
         }
         [HttpPatch]
-        [Route("UpdatePatch/{productId:int}")]
+        [Route("UpdatePatch/{productId:int}", Name = "UpdatePatchProduct")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
