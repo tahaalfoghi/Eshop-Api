@@ -46,7 +46,7 @@ namespace Eshop.Api.Controllers
             return Ok(result);
         }
         [HttpGet]
-        [Route("Categories/{categoryId:int}")]
+        [Route("Categories/{categoryId:int}",Name ="GetCategory")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -84,7 +84,7 @@ namespace Eshop.Api.Controllers
             return CreatedAtAction(nameof(GetCategory), new { categoryId = result.Id }, result);
         }
         [HttpDelete]
-        [Route("DeleteCategory/{categoryId:int}")]
+        [Route("DeleteCategory/{categoryId:int}",Name = "DeleteCategory")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -96,7 +96,7 @@ namespace Eshop.Api.Controllers
             return result ? Ok($"Category [{categoryId}] deleted successfully") : BadRequest();
         }
         [HttpPut]
-        [Route("UpdateCategory/{categoryId:int}")]
+        [Route("UpdateCategory/{categoryId:int}",Name ="UpdateCategory")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -109,7 +109,7 @@ namespace Eshop.Api.Controllers
             return Ok($"Category updated successfully");
         }
         [HttpPatch]
-        [Route("UpdatePatchCategory/{categoryId:int}")]
+        [Route("UpdatePatchCategory/{categoryId:int}",Name = "UpdatePatch")]
         public async Task<IActionResult> UpdatePath(int categoryId, [FromBody]JsonPatchDocument<CategoryPostDTO> patch)
         {
             

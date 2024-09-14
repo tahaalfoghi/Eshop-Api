@@ -50,6 +50,9 @@ namespace Eshop.Api.Handlers.GetById
 
             supplier.Links.Add(
                linksService.Generate("DeleteSupplier", new { supplierId = supplier.Id }, "delete-supplier", "DELETE"));
+            
+            supplier.Links.Add(
+               linksService.Generate("UpdatePatchSupplier", new { supplierId = supplier.Id }, "updatePatch-supplier", "Patch"));
         }
     }
 }

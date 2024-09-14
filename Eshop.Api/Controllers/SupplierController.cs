@@ -113,7 +113,7 @@ namespace Eshop.Api.Controllers
             return supplierResult ? Ok($"Supplier updated successfully") : BadRequest();
         }
         [HttpPatch]
-        [Route("UpdatePatch/{supplierId:int}")]
+        [Route("UpdatePatch/{supplierId:int}",Name = "UpdatePatchSupplier")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
