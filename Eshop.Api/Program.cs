@@ -1,7 +1,6 @@
 using eshop.DataAccess.Data;
 using eshop.DataAccess.Services.Repo;
 using eshop.DataAccess.Services.UnitOfWork;
-using Eshop.Api.Controllers;
 using Eshop.DataAccess.DataShaping;
 using Eshop.DataAccess.Services;
 using Eshop.DataAccess.Services.Auth;
@@ -16,7 +15,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using RiskFirst.Hateoas;
 using Serilog;
 using System.Reflection;
 using System.Text;
@@ -135,7 +133,8 @@ builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IDataShaper<>), (typeof(DataShaper<>)));
-builder.Services.AddScoped<Eshop.DataAccess.Services.Links.ILinksService,LinkService>();
+builder.Services.AddScoped<Eshop.DataAccess.Services.Links.ILinksService, LinksService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

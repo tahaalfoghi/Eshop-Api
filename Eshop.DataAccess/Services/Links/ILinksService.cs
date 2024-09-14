@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Eshop.Models.Links;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Eshop.DataAccess.Services.Links
 {
     public interface ILinksService
     {
-        void Generate(string endpoint, object? routeValues, string rel, string method);
+        Link Generate(string endpoint, object? routeValues, string rel, string method);
     }
 }

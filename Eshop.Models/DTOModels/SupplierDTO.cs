@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Eshop.Models.Links;
 
 namespace Eshop.Models.DTOModels
 {
@@ -18,5 +19,4 @@ namespace Eshop.Models.DTOModels
         public List<Link> Links { get; set; } = new();
         
     }
-    public record Link(string Href, string Rel, string Method);
 }

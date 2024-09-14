@@ -41,26 +41,6 @@ namespace Eshop.Api.Controllers
             var query = new GetSupplliersQuery(requestParameter);
             var result = await mediator.Send(query);
 
-            foreach(var supplier in result)
-            {
-                supplier.Links.Add(new Link(
-                linkGenerator.GetUriByName(httpContextAccessor.HttpContext, $"GetSupplier", new { supplierId = supplier.Id}),
-                "get-supplier",
-                "GET"
-                ));
-
-                supplier.Links.Add(new Link(
-                    linkGenerator.GetUriByName(httpContextAccessor.HttpContext, $"DeleteSupplier", new { supplierId = supplier.Id}),
-                    "delete-supplier",
-                    "DELETE"
-                    ));
-
-                supplier.Links.Add(new Link(
-                    linkGenerator.GetUriByName(httpContextAccessor.HttpContext, $"UpdateSupplier", new { supplierId = supplier.Id}),
-                    "update-supplier",
-                    "PUT"
-                    ));
-            }
             return Ok(result);
         }
         [HttpGet]
@@ -75,23 +55,6 @@ namespace Eshop.Api.Controllers
             var query = new GetSuppllierQuery(supplierId);
             var result = await mediator.Send(query);
 
-            result.Links.Add(new Link(
-                linkGenerator.GetUriByName(httpContextAccessor.HttpContext,$"GetSupplier", new {supplierId}),
-                "self",
-                "GET"
-                ));
-
-            result.Links.Add(new Link(
-                linkGenerator.GetUriByName(httpContextAccessor.HttpContext, $"DeleteSupplier", new { supplierId }),
-                "delete-supplier",
-                "DELETE"
-                ));
-
-            result.Links.Add(new Link(
-                linkGenerator.GetUriByName(httpContextAccessor.HttpContext, $"UpdateSupplier", new { supplierId }),
-                "update-supplier",
-                "PUT"
-                ));
             return Ok(result);
         }
         [HttpGet]
@@ -104,27 +67,6 @@ namespace Eshop.Api.Controllers
         {
             var query = new GetSuppliersByFilterQuery(param);
             var result = await mediator.Send(query);
-
-            foreach (var supplier in result)
-            {
-                supplier.Links.Add(new Link(
-                linkGenerator.GetUriByName(httpContextAccessor.HttpContext, $"GetSupplier", new { supplierId = supplier.Id }),
-                "get-supplier",
-                "GET"
-                ));
-
-                supplier.Links.Add(new Link(
-                    linkGenerator.GetUriByName(httpContextAccessor.HttpContext, $"DeleteSupplier", new { supplierId = supplier.Id }),
-                    "delete-supplier",
-                    "DELETE"
-                    ));
-
-                supplier.Links.Add(new Link(
-                    linkGenerator.GetUriByName(httpContextAccessor.HttpContext, $"UpdateSupplier", new { supplierId = supplier.Id }),
-                    "update-supplier",
-                    "PUT"
-                    ));
-            }
 
             return Ok(result);
         }
