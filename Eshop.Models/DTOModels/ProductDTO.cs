@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Eshop.Models.Links;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace Eshop.Models.DTOModels
         public decimal Price { get; set; }
         public string? ImageUrl { get; set; }
         public string CategoryName { get; set; } = string.Empty;
-
+        public List<Link> Links { get; set; } = new(); 
         public override string? ToString()
         {
             return $"Name:{Name} Description:{Description} Price:{Price} Category:{CategoryName}";

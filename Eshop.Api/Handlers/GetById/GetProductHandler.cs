@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Services.UnitOfWork;
 using Eshop.Api.Queries;
+using Eshop.DataAccess.Services.Links;
 using Eshop.DataAccess.Services.Middleware;
 using Eshop.Models.DTOModels;
+using Eshop.Models.Models;
 using MediatR;
 using NuGet.Protocol.Plugins;
 
@@ -12,11 +14,14 @@ namespace Eshop.Api.Handlers.GetById
     {
         private readonly IUnitOfWork uow;
         private readonly IMapper mapper;
-
-        public GetProductHandler(IUnitOfWork uow, IMapper mapper)
+        private readonly ILinksService linksService;
+        private readonly IHttpContextAccessor httpContextAccessor;
+        public GetProductHandler(IUnitOfWork uow, IMapper mapper, ILinksService linksService, IHttpContextAccessor httpContextAccessor)
         {
             this.uow = uow;
             this.mapper = mapper;
+            this.linksService = linksService;
+            this.httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<ProductDTO> Handle(GetProductQuery request, CancellationToken cancellationToken)
@@ -29,6 +34,17 @@ namespace Eshop.Api.Handlers.GetById
                 throw new NotFoundException($"Product with id:{request.ProductId} doesn't exists");
 
             return mapper.Map<ProductDTO>(product);
+        }
+        private void AddLinks(ProductDTO product)
+        {
+            product.Links.Add(
+                linksService.Generate("GetProduct", new { productId =  product.Id }, "self", "GET"));
+            product.Links.Add(
+               linksService.Generate("UpdateProduct", new { productId = product.Id }, "update-product", "PUT"));
+            product.Links.Add(
+               linksService.Generate("DeleteProduct", new { productId = product.Id }, "delete-product", "DELETE"));
+            product.Links.Add(
+               linksService.Generate("UpdatePatchProduct", new { productId = product.Id }, "updatePatch-product", "Patch"));
         }
     }
 }
