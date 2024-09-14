@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Eshop.Models.Links;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace Eshop.Models.DTOModels
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string SupplierName { get; set; } = string.Empty;
+        public List<Link> Links { get; set; } = new();
     }
     public class CategoryPostDTO
     {

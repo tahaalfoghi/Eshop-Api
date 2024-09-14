@@ -109,7 +109,7 @@ namespace Eshop.Api.Controllers
             return Ok($"Category updated successfully");
         }
         [HttpPatch]
-        [Route("UpdatePatchCategory/{categoryId:int}",Name = "UpdatePatch")]
+        [Route("UpdatePatchCategory/{categoryId:int}",Name = "UpdatePatchCategory")]
         public async Task<IActionResult> UpdatePath(int categoryId, [FromBody]JsonPatchDocument<CategoryPostDTO> patch)
         {
             
