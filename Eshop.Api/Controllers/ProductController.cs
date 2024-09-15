@@ -116,5 +116,11 @@ namespace Eshop.Api.Controllers
             var result = await mediator.Send(command);
             return result ? Ok($"Product {productId} patch update success") : BadRequest();
         }
+        [HttpOptions]
+        public async Task<IActionResult> GetProductsOptions()
+        {
+            Response.Headers.Add("Allow", "GET,OPTIONS,POST,DELETE,UPDATE,PATCH");
+            return Ok();
+        }
     }
 }
