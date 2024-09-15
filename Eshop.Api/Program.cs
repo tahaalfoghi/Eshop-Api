@@ -136,7 +136,7 @@ builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IDataShaper<>), (typeof(DataShaper<>)));
-builder.Services.AddScoped<Eshop.DataAccess.Services.Links.ILinksService, LinksService>();
+builder.Services.AddScoped<ILinksService, LinksService>();
 
 builder.Services.AddApiVersioning(op =>
 {
