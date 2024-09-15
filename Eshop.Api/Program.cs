@@ -1,6 +1,7 @@
 using eshop.DataAccess.Data;
 using eshop.DataAccess.Services.Repo;
 using eshop.DataAccess.Services.UnitOfWork;
+using Eshop.Api.Controllers;
 using Eshop.DataAccess.DataShaping;
 using Eshop.DataAccess.Services;
 using Eshop.DataAccess.Services.Auth;
@@ -12,6 +13,8 @@ using Eshop.Models.Models;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -135,6 +138,15 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IDataShaper<>), (typeof(DataShaper<>)));
 builder.Services.AddScoped<Eshop.DataAccess.Services.Links.ILinksService, LinksService>();
 
+builder.Services.AddApiVersioning(op =>
+{
+    op.ReportApiVersions = true;
+    op.AssumeDefaultVersionWhenUnspecified = true;
+    op.DefaultApiVersion = new ApiVersion(1,0);
+    op.Conventions.Controller<OrderController>().HasApiVersion(new ApiVersion(1, 0)); 
+    op.Conventions.Controller<OrderV2Controller>().HasDeprecatedApiVersion(new ApiVersion(2, 0));
+    op.ApiVersionReader = new HeaderApiVersionReader("api-version");
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

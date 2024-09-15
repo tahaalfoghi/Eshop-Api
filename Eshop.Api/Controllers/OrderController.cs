@@ -14,6 +14,7 @@ using System.Security.Claims;
 
 namespace Eshop.Api.Controllers
 {
+    
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]

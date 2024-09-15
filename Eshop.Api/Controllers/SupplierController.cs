@@ -13,6 +13,7 @@ using RiskFirst.Hateoas;
 
 namespace Eshop.Api.Controllers
 {
+    [ApiVersion("1.0")]
     [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]

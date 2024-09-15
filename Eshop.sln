@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop.Api", "Eshop.Api\Eshop.Api.csproj", "{AD3E2DEC-48ED-45DB-8B7B-37A802B0ACE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eshop.Api", "Eshop.Api\Eshop.Api.csproj", "{AD3E2DEC-48ED-45DB-8B7B-37A802B0ACE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop.Models", "Eshop.Models\Eshop.Models.csproj", "{04FCCEBE-4E32-486E-97AB-F98630FFACFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eshop.Models", "Eshop.Models\Eshop.Models.csproj", "{04FCCEBE-4E32-486E-97AB-F98630FFACFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eshop.DataAccess", "Eshop.DataAccess\Eshop.DataAccess.csproj", "{98867634-B015-4FCE-AB42-5123F28B2253}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eshop.DataAccess", "Eshop.DataAccess\Eshop.DataAccess.csproj", "{98867634-B015-4FCE-AB42-5123F28B2253}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
