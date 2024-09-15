@@ -69,10 +69,13 @@ namespace eshop.DataAccess.Services.Repo
         public async Task IncreaseCount(Cart cart, int count)
         {
             cart.Count += count;
+            context.Carts.Update(cart);
         }
         public async Task DecreaseCount(Cart cart, int count)
         {
             cart.Count -= count;
+            context.Carts.Update(cart);
+
         }
         public async Task<IEnumerable<Cart>> GetUserCart(string userId,string? includes = null)
         {
@@ -108,7 +111,12 @@ namespace eshop.DataAccess.Services.Repo
 
         public async Task Update(Cart cart)
         {
-            throw new NotImplementedException();
+            var existCart = await context.Carts.FirstOrDefaultAsync(x=>x.Id == cart.Id);
+            if (existCart is not null)
+            {
+                existCart.ProductId = cart.ProductId;
+                existCart.Count = cart.Count;
+            }
         }
 
         public async Task<IEnumerable<Cart>> GetCartsAsync(Expression<Func<Cart, bool>> predicate, string? includes = null)

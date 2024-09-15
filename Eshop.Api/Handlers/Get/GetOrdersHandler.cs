@@ -25,7 +25,7 @@ namespace Eshop.Api.Handlers.Get
             if (orders is null)
                 throw new NotFoundException($"No orders exists in database");
 
-            httpContextAccessor.HttpContext.Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(orders.MetaData));
+            //httpContextAccessor.HttpContext.Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(orders.MetaData));
             return mapper.Map<IEnumerable<OrderDTO>>(orders);
         }
     }

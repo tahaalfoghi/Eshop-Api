@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using System.Transactions;
 
 namespace Eshop.Api.Controllers
 {
@@ -33,6 +32,7 @@ namespace Eshop.Api.Controllers
             this.mediator = mediator;
             this.context = context;
         }
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         [Route("Orders")]
         public async Task<IActionResult> GetOrders([FromQuery] RequestParameter requestParameter)
@@ -41,6 +41,7 @@ namespace Eshop.Api.Controllers
             var result = await mediator.Send(query);
             return Ok(result);
         }
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         [Route("Orders/{orderId:int}")]
         public async Task<IActionResult> GetOrder([FromRoute] int orderId)
@@ -76,6 +77,7 @@ namespace Eshop.Api.Controllers
             return Ok($"order successfully confirmed");
 
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("ChangeOrderStatus/{orderId:int}")]
         public async Task<IActionResult> ChangeOrderStatus(int orderId,OrderStatus status)

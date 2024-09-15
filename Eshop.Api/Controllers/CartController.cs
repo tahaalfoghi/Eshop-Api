@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Data;
 using eshop.DataAccess.Services.UnitOfWork;
+using Eshop.DataAccess.Services.Middleware;
 using Eshop.DataAccess.Services.Validators;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
@@ -102,41 +103,42 @@ namespace Eshop.Api.Controllers
 
             return Ok($"Cart item:{Id} deleted successfully");
         }
+        
         [HttpPut]
-        [Route("UpdateCartItem/{Id:int}")]
-        public async Task<IActionResult> UpdateCartItem([FromRoute] CartPostDTO dto_cart)
+        [Route("IncreaseCartQuantity/{Id:int}/{ProductId:int}")]
+        public async Task<IActionResult> IncreaseCartQuantity(int Id, int ProductId,[FromBody] CartPostDTO dto_cart)
         {
             var validate = new CartPostValidator();
             var result = validate.Validate(dto_cart);
             if (!result.IsValid)
                 return BadRequest(result.Errors.ToString());
 
-            if (!ModelState.IsValid)
-                return BadRequest($"Invalid cart model");
+            var cart = await uow.CartRepository.GetCartAsync(x => x.Id == Id && x.ProductId == ProductId);
+            if (cart is null)
+                throw new NotFoundException();
 
-            var cart = mapper.Map<Cart>(dto_cart);
-            await uow.CartRepository.Update(cart);
+            await uow.CartRepository.IncreaseCount(cart, dto_cart.Count);
             await uow.CommitAsync();
+            return Ok($"Cart item:{cart.Id} Product:{cart.ProductId} count updated successfully");
 
-            return Ok($"Cart item {cart.Id} updated successfully");
         }
         [HttpPut]
-        [Route("UpdateCartQuantity/{Id:int}/{ProductId:int}")]
-        public async Task<IActionResult> UpdateCartQuantity([FromRoute] CartPostDTO dto_cart)
+        [Route("DecreaseCartQuantity/{Id:int}/{ProductId:int}")]
+        public async Task<IActionResult> DecreaseCartQuantity(int Id, int ProductId, [FromBody] CartPostDTO dto_cart)
         {
             var validate = new CartPostValidator();
             var result = validate.Validate(dto_cart);
             if (!result.IsValid)
                 return BadRequest(result.Errors.ToString());
 
-            var cart = await uow.CartRepository.GetCartAsync(x => x.Id == dto_cart.Id && x.ProductId == dto_cart.ProductId);
-            if (cart is not null)
-            {
-                await uow.CartRepository.IncreaseCount(cart, dto_cart.Count);
-                await uow.CommitAsync();
-                return Ok($"Cart item:{cart.Id} Product:{cart.ProductId} count updated successfully");
-            }
-            return BadRequest($"Cart item not found ");
+            var cart = await uow.CartRepository.GetCartAsync(x => x.Id == Id && x.ProductId == ProductId);
+            if (cart is null)
+                throw new NotFoundException();
+
+            await uow.CartRepository.DecreaseCount(cart, dto_cart.Count);
+            await uow.CommitAsync();
+            return Ok($"Cart item:{cart.Id} Product:{cart.ProductId} count updated successfully");
+
         }
         [HttpGet]
         [Route("Summery")]
