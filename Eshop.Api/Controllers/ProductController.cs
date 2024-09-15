@@ -25,7 +25,7 @@ namespace Eshop.Api.Controllers
             this.mediator = mediator;
         }
         [HttpGet]
-        [Route("Products")]
+        [Route("Products", Name = "GetProducts")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -64,7 +64,7 @@ namespace Eshop.Api.Controllers
         }
         
         [HttpPost]
-        [Route("CreateProduct")]
+        [Route("CreateProduct", Name = "CreateProduct")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]

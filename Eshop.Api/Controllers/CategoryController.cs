@@ -34,7 +34,7 @@ namespace Eshop.Api.Controllers
             this.mediator = mediator;
         }
         [HttpGet]
-        [Route("Categories")]
+        [Route("Categories", Name = "GetCategories")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -71,7 +71,7 @@ namespace Eshop.Api.Controllers
             return Ok(result);
         }
         [HttpPost]
-        [Route("CreateCategory")]
+        [Route("CreateCategory", Name = "CreateCategory")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]

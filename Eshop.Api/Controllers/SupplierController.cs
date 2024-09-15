@@ -31,7 +31,7 @@ namespace Eshop.Api.Controllers
             this.httpContextAccessor = httpContextAccessor;
         }
         [HttpGet]
-        [Route("Suppliers")]
+        [Route("Suppliers",Name = "GetSuppliers")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
@@ -72,7 +72,7 @@ namespace Eshop.Api.Controllers
         }
         
         [HttpPost]
-        [Route("CreateSupplier")]
+        [Route("CreateSupplier", Name = "CreateSupplier")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
