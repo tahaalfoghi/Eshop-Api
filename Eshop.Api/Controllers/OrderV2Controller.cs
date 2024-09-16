@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Services.UnitOfWork;
+using Eshop.Api.Queries;
 using Eshop.DataAccess.Services.Middleware;
 using Eshop.DataAccess.Services.Requests;
 using Eshop.Models.DTOModels;
@@ -30,21 +31,9 @@ namespace Eshop.Api.Controllers
         [Route("UserOrders")]
         public async Task<IActionResult> GetUserOrders([FromQuery]RequestParameter requestParameter)
         {
-            var userId = User.FindFirstValue("uid");
-            if (userId is null)
-                throw new BadRequestException("Invalid user id");
-
-            var user = await _uow.UsersRepository.GetUser(userId);
-            if (user is null)
-                throw new NotFoundException("No user signed in");
-
-            var orders = await _uow.OrderRepository.GetAllAsync(requestParameter, includes:"ApplicationUser");
-            if (orders is null)
-                throw new NotFoundException("No orders found");
-
-            var ordersDto = _mapper.Map<IEnumerable<OrderDTO>>(orders);
-
-            return Ok(ordersDto);
+            var query = new GetOrdersQuery(requestParameter);
+            var result = _mediator.Send(query);
+            return Ok(result);
         }
     }
 }
