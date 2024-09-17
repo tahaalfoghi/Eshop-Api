@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using RiskFirst.Hateoas;
 
 
@@ -37,6 +38,7 @@ namespace Eshop.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
+        [EnableRateLimiting("Fixed")]
         public async Task<IActionResult> GetSuppliers([FromQuery] RequestParameter requestParameter)
         {
             var query = new GetSupplliersQuery(requestParameter);

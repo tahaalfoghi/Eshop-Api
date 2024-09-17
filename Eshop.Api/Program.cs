@@ -15,12 +15,14 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Text;
 using System.Text.Json.Serialization;
+using System.Threading.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,6 +41,8 @@ builder.Services.AddControllers().AddNewtonsoftJson()
 
 builder.Services.AddFluentValidationAutoValidation()
                 .AddFluentValidationClientsideAdapters();
+
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -122,6 +126,18 @@ builder.Services.AddMediatR(options =>
     options.RegisterServicesFromAssemblies(typeof(Program).Assembly);
 });
 
+builder.Services.AddRateLimiter(op =>
+{
+    op.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+    op.AddFixedWindowLimiter("Fixed", op =>
+    {
+        op.Window = TimeSpan.FromSeconds(12);
+        op.PermitLimit = 4;
+        op.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+        op.QueueLimit = 2;
+    }).RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+});
+
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
 builder.Services.AddEndpointsApiExplorer();
@@ -149,6 +165,7 @@ builder.Services.AddApiVersioning(op =>
     op.Conventions.Controller<OrderV2Controller>().HasDeprecatedApiVersion(new ApiVersion(2, 0));
     op.ApiVersionReader = new HeaderApiVersionReader("api-version");
 });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -161,11 +178,20 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+
+
+app.UseExceptionHandler();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseExceptionHandler();
+
+app.UseRouting();
+app.UseRateLimiter();
 app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapControllers();
+
 app.UseCors("Eshop-UI");
+
+
 app.Run();
