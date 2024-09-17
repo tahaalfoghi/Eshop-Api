@@ -140,9 +140,12 @@ builder.Services.AddRateLimiter(op =>
 
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAuthorization();
+
 builder.Services.AddAutoMapper(typeof(MapperConfig));
+
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
@@ -174,11 +177,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "EshopApi");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "EshopApi V1");
+        c.SwaggerEndpoint("/swagger/v2/swagger.json", "EshopApi V2");
     });
 }
-
-
 
 app.UseExceptionHandler();
 app.UseHttpsRedirection();

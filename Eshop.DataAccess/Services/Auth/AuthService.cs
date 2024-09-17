@@ -7,12 +7,9 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
 namespace Eshop.DataAccess.Services.Auth
 {
@@ -206,6 +203,13 @@ namespace Eshop.DataAccess.Services.Auth
             authModel.RefreshTokenExpiration = newRefreshToken.ExpireOn;
 
             return authModel;
+        }
+
+        public async Task<bool> ValidateUser(TokenRequestModel model)
+        {
+            var user = await userManager.FindByEmailAsync(model.Email);
+
+            return model is not null && await userManager.CheckPasswordAsync(user, model.Password);
         }
     }
 }

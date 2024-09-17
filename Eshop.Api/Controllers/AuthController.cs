@@ -47,6 +47,12 @@ namespace Eshop.Api.Controllers
             if (!ModelState.IsValid)
                 return BadRequest($"Invalid model {ModelState}");
 
+            if (await authService.ValidateUser(model))
+            {
+                logger.LogError("Authentication failed. Wrong user name or password");
+                return Unauthorized("Username or password is not valid");
+            }
+
             var result = await authService.LoginAsync(model);
             if (!result.IsAuthenticated)
             {

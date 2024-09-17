@@ -15,6 +15,7 @@ namespace Eshop.Api.Controllers
     [Authorize]
     [Route("api/{v:apiversion}/orders")]
     [ApiController]
+    [ApiExplorerSettings(GroupName = "v2")]
     public class OrderV2Controller:ControllerBase
     {
         private readonly IMediator _mediator;

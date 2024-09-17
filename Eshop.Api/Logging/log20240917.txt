@@ -1427,3 +1427,154 @@ ORDER BY [s].[Id]
 2024-09-17 11:02:31.411 +02:00 [INF] Executed action Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api) in 21.1551ms
 2024-09-17 11:02:31.411 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.SupplierController.GetSuppliers (Eshop.Api)'
 2024-09-17 11:02:31.412 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:44369/api/Supplier/Suppliers - 200 5614 application/json; charset=utf-8 6494.1417ms
+2024-09-17 12:03:47.443 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-17 12:03:47.861 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-17 12:03:47.861 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger - null null
+2024-09-17 12:03:47.905 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-17 12:03:47.907 +02:00 [INF] Hosting environment: Development
+2024-09-17 12:03:47.936 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-17 12:03:48.146 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger - 499 null null 295.8423ms
+2024-09-17 12:03:48.265 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 418.3544ms
+2024-09-17 12:03:48.350 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-17 12:03:48.350 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-17 12:03:48.354 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-17 12:03:48.357 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 7.0612ms
+2024-09-17 12:03:48.371 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-17 12:03:48.371 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 20.803ms
+2024-09-17 12:03:48.399 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 45.2202ms
+2024-09-17 12:03:48.508 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-17 12:03:48.512 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-17 12:03:48.512 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 499 628 image/png 4.568ms
+2024-09-17 12:03:48.591 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-17 12:03:48.789 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 197.4123ms
+2024-09-17 12:34:38.504 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-17 12:34:38.717 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-17 12:34:38.792 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-17 12:34:38.795 +02:00 [INF] Hosting environment: Development
+2024-09-17 12:34:38.797 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-17 12:34:38.897 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 184.2306ms
+2024-09-17 12:34:38.948 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-17 12:34:38.948 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-17 12:34:38.961 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 5.218ms
+2024-09-17 12:34:39.006 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 57.4809ms
+2024-09-17 12:34:39.083 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-17 12:34:39.233 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 149.7962ms
+2024-09-17 12:34:48.496 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=--------------------------659129716230873652187874 291
+2024-09-17 12:34:48.631 +02:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/17/2024 10:34:48 AM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-17 12:34:48.671 +02:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/17/2024 10:34:48 AM'.
+2024-09-17 12:34:48.674 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-17 12:34:48.698 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-17 12:34:48.909 +02:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-09-17 12:34:49.020 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 318.9862ms
+2024-09-17 12:34:49.021 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-17 12:34:49.022 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:44369/api/Auth/Login - 400 244 application/problem+json; charset=utf-8 526.8487ms
+2024-09-17 12:35:06.276 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=--------------------------874936287483399272896931 288
+2024-09-17 12:35:06.280 +02:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/17/2024 10:35:06 AM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-17 12:35:06.280 +02:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/17/2024 10:35:06 AM'.
+2024-09-17 12:35:06.281 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-17 12:35:06.281 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-17 12:35:06.808 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-17 12:35:06.810 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-17 12:35:06.813 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-17 12:35:06.816 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-17 12:35:08.637 +02:00 [INF] Executed DbCommand (56ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[Phone], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [r].[ApplicationUserId], [r].[Id], [r].[CreatedAt], [r].[ExpireOn], [r].[RevokedOn], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[ApplicationUserId]
+ORDER BY [t].[Id], [r].[ApplicationUserId]
+2024-09-17 12:35:08.667 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[Phone], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [r].[ApplicationUserId], [r].[Id], [r].[CreatedAt], [r].[ExpireOn], [r].[RevokedOn], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[ApplicationUserId]
+ORDER BY [t].[Id], [r].[ApplicationUserId]
+2024-09-17 12:35:08.671 +02:00 [ERR] Error while attempt to login user:[ salem@gmail.com ] is not authenticated
+2024-09-17 12:35:08.673 +02:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2024-09-17 12:35:08.675 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 2393.8501ms
+2024-09-17 12:35:08.675 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-17 12:35:08.683 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:44369/api/Auth/Login - 400 null text/plain; charset=utf-8 2407.5285ms
+2024-09-17 12:35:21.170 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=--------------------------929090637130509227639819 288
+2024-09-17 12:35:21.172 +02:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/17/2024 10:35:21 AM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-17 12:35:21.173 +02:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/17/2024 10:35:21 AM'.
+2024-09-17 12:35:21.173 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-17 12:35:21.173 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-17 12:35:27.505 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[Phone], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [r].[ApplicationUserId], [r].[Id], [r].[CreatedAt], [r].[ExpireOn], [r].[RevokedOn], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[ApplicationUserId]
+ORDER BY [t].[Id], [r].[ApplicationUserId]
+2024-09-17 12:35:37.017 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[Phone], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [r].[ApplicationUserId], [r].[Id], [r].[CreatedAt], [r].[ExpireOn], [r].[RevokedOn], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[ApplicationUserId]
+ORDER BY [t].[Id], [r].[ApplicationUserId]
+2024-09-17 12:53:37.915 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-17 12:53:38.096 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-17 12:53:38.096 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger - null null
+2024-09-17 12:53:38.169 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-17 12:53:38.171 +02:00 [INF] Hosting environment: Development
+2024-09-17 12:53:38.173 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-17 12:53:38.215 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger - 499 null null 123.445ms
+2024-09-17 12:53:38.271 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 179.025ms
+2024-09-17 12:53:38.325 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-17 12:53:38.325 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-17 12:53:38.327 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-17 12:53:38.332 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 6.9486ms
+2024-09-17 12:53:38.349 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-17 12:53:38.349 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 24.5528ms
+2024-09-17 12:53:38.378 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 51.77ms
+2024-09-17 12:53:38.445 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-17 12:53:38.447 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-17 12:53:38.447 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 499 628 image/png 2.1543ms
+2024-09-17 12:53:38.486 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-17 12:53:38.609 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 122.1121ms
+2024-09-17 12:53:41.207 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v2/swagger.json - null null
+2024-09-17 12:53:41.213 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v2/swagger.json - 404 null null 6.3731ms
+2024-09-17 12:53:43.797 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-17 12:53:43.834 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 36.5375ms
+2024-09-17 12:54:43.530 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-17 12:54:43.719 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-17 12:54:43.784 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-17 12:54:43.789 +02:00 [INF] Hosting environment: Development
+2024-09-17 12:54:43.791 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-17 12:54:43.959 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 246.1286ms
+2024-09-17 12:54:44.006 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-17 12:54:44.009 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-17 12:54:44.026 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 15.4138ms
+2024-09-17 12:54:44.068 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 62.838ms
+2024-09-17 12:54:44.234 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-17 12:54:44.431 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 222.9924ms
+2024-09-17 12:54:48.508 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v2/swagger.json - null null
+2024-09-17 12:54:48.513 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v2/swagger.json - 404 null null 5.0297ms
+2024-09-17 12:54:51.265 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-17 12:54:51.299 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 34.1262ms
