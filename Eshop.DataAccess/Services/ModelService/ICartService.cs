@@ -14,6 +14,6 @@ namespace Eshop.DataAccess.Services.ModelService
         Task DeleteCartItem(int cartId);
         Task IncreaseCartQuantity(int id, int productId, CartPostDTO cartPostDTO);
         Task DecreaseCartQuantity(int id, int productId, CartPostDTO cartPostDTO);
-        Task<IEnumerable<Cart>> Summery();
+        Task<IEnumerable<CartDTO>> Summery();
     }
 }

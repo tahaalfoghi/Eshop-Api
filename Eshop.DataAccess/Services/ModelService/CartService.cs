@@ -64,24 +64,63 @@ namespace Eshop.DataAccess.Services.ModelService
             }
         }
 
-        public Task DecreaseCartQuantity(int id, int productId, CartPostDTO cartPostDTO)
+        public async Task DecreaseCartQuantity(int id, int productId, CartPostDTO cartPostDTO)
         {
-            throw new NotImplementedException();
+            var validate = new CartPostValidator();
+            var result = validate.Validate(cartPostDTO);
+            if (!result.IsValid)
+                throw new InvalidModelException(string.Join(",",result.Errors.ToString()));
+
+            var cart = await _uow.CartRepository.GetCartAsync(x => x.Id == id && x.ProductId == productId);
+            if (cart is null)
+                throw new NotFoundException();
+
+            await _uow.CartRepository.DecreaseCount(cart, cartPostDTO.Count);
+            await _uow.CommitAsync();
         }
 
-        public Task DeleteCartItem(int cartId)
+        public async Task DeleteCartItem(int cartId)
         {
-            throw new NotImplementedException();
+            if (cartId <= 0)
+                throw new BadRequestException($"Invalid id:{cartId} value");
+
+            var cart = await _uow.CartRepository.GetByIdAsync(cartId);
+            if (cart is null)
+                throw new BadRequestException($"Cart with id:{cartId} not found");
+
+            _uow.CartRepository.Delete(cart);
+            await _uow.CommitAsync();
+
         }
 
-        public Task IncreaseCartQuantity(int id, int productId, CartPostDTO cartPostDTO)
+        public async Task IncreaseCartQuantity(int id, int productId, CartPostDTO cartPostDTO)
         {
-            throw new NotImplementedException();
+            var validate = new CartPostValidator();
+            var result = validate.Validate(cartPostDTO);
+            if (!result.IsValid)
+                throw new BadRequestException(string.Join(",",result.Errors.ToString()));
+
+            var cart = await _uow.CartRepository.GetCartAsync(x => x.Id == Id && x.ProductId == ProductId);
+            if (cart is null)
+                throw new NotFoundException();
+
+            await _uow.CartRepository.IncreaseCount(cart, cartPostDTO.Count);
+            await _uow.CommitAsync();
         }
 
-        public Task<IEnumerable<Cart>> Summery()
+        public async Task<IEnumerable<CartDTO>> Summery()
         {
-            throw new NotImplementedException();
+            var userId = _httpContextAccessor.HttpContext.User.FindFirstValue("uid");
+            if (userId is not null)
+            {
+                var carts = _mapper.Map<List<CartDTO>>(await _uow.CartRepository.GetUserCart(userId, includes: "Product"));
+                if (carts is null)
+                    throw new BadRequestException($"Cart is empty");
+
+                return carts;
+            }
+            else
+                throw new BadRequestException($"You Must logged in to access this feature");
         }
     }
 }
