@@ -4,14 +4,11 @@ using eshop.DataAccess.Services.UnitOfWork;
 using Eshop.Api.Commands;
 using Eshop.Api.Queries;
 using Eshop.DataAccess.Services.Requests;
-using Eshop.DataAccess.Services.Validators;
 using Eshop.Models.DTOModels;
-using Eshop.Models.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace Eshop.Api.Controllers
 {
@@ -23,16 +20,10 @@ namespace Eshop.Api.Controllers
 
     public class OrderController:ControllerBase
     {
-        private readonly IUnitOfWork uow;
-        private readonly IMapper mapper;
         private readonly IMediator mediator;
-        private AppDbContext context;
-        public OrderController(IUnitOfWork uow, IMapper mapper, IMediator mediator, AppDbContext context)
+        public OrderController(IMediator mediator)
         {
-            this.uow = uow;
-            this.mapper = mapper;
             this.mediator = mediator;
-            this.context = context;
         }
         [Authorize(Roles = "Admin")]
         [HttpGet]

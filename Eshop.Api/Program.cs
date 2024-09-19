@@ -160,6 +160,7 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IDataShaper<>), (typeof(DataShaper<>)));
 builder.Services.AddScoped<ILinksService, LinksService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddApiVersioning(op =>
 {
     op.ReportApiVersions = true;
