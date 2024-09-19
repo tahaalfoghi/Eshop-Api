@@ -2,9 +2,9 @@
 using MediatR;
 using Microsoft.AspNetCore.JsonPatch;
 
-namespace Eshop.Api.Commands
+namespace Eshop.Api.Commands.Update
 {
-    public class UpdatePatchSupplierRequest:IRequest<bool>
+    public class UpdatePatchSupplierRequest : IRequest<bool>
     {
         public int supplierId { get; set; }
         public JsonPatchDocument<SupplierDTO> patch { get; set; }

@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Services.UnitOfWork;
 using Eshop.Api.Commands;
+using Eshop.Api.Commands.Delete;
+using Eshop.Api.Commands.Update;
 using Eshop.Api.Handlers;
 using Eshop.Api.Queries;
 using Eshop.DataAccess.Services.Requests;

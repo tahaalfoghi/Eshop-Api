@@ -7,6 +7,7 @@ using Eshop.DataAccess.Services;
 using Eshop.DataAccess.Services.Auth;
 using Eshop.DataAccess.Services.Links;
 using Eshop.DataAccess.Services.Middleware;
+using Eshop.DataAccess.Services.ModelService;
 using Eshop.DataAccess.Services.Repo;
 using Eshop.Models;
 using Eshop.Models.Models;
@@ -158,7 +159,7 @@ builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IDataShaper<>), (typeof(DataShaper<>)));
 builder.Services.AddScoped<ILinksService, LinksService>();
-
+builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddApiVersioning(op =>
 {
     op.ReportApiVersions = true;

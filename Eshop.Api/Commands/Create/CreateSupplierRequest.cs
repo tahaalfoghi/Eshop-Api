@@ -2,9 +2,9 @@
 using Eshop.Models.Models;
 using MediatR;
 
-namespace Eshop.Api.Commands
+namespace Eshop.Api.Commands.Create
 {
-    public class CreateSupplierRequest:IRequest<SupplierDTO>
+    public class CreateSupplierRequest : IRequest<SupplierDTO>
     {
         public SupplierDTO Supplier { get; }
 

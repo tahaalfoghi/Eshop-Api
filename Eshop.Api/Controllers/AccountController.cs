@@ -1,4 +1,6 @@
 ﻿using Eshop.Api.Commands;
+using Eshop.Api.Commands.Delete;
+using Eshop.Api.Commands.Update;
 using Eshop.Api.Queries;
 using Eshop.Models;
 using MediatR;

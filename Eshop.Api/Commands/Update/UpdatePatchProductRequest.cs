@@ -2,14 +2,14 @@
 using MediatR;
 using Microsoft.AspNetCore.JsonPatch;
 
-namespace Eshop.Api.Commands
+namespace Eshop.Api.Commands.Update
 {
-    public class UpdatePatchProductRequest:IRequest<bool>
+    public class UpdatePatchProductRequest : IRequest<bool>
     {
-        public int productId {  get; set; }
+        public int productId { get; set; }
         public JsonPatchDocument<ProductPostDTO> patch { get; set; }
 
-        public UpdatePatchProductRequest(int productId,JsonPatchDocument<ProductPostDTO> patch)
+        public UpdatePatchProductRequest(int productId, JsonPatchDocument<ProductPostDTO> patch)
         {
             this.productId = productId;
             this.patch = patch;

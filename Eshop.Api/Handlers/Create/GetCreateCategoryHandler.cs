@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Services.UnitOfWork;
-using Eshop.Api.Commands;
+using Eshop.Api.Commands.Create;
 using Eshop.DataAccess.Services.Middleware;
 using Eshop.DataAccess.Services.Validators;
 using Eshop.Models.DTOModels;

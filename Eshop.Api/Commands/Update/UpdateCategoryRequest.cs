@@ -1,11 +1,11 @@
 ﻿using Eshop.Models.DTOModels;
 using MediatR;
 
-namespace Eshop.Api.Commands
+namespace Eshop.Api.Commands.Update
 {
-    public class UpdateCategoryRequest:IRequest<bool>
+    public class UpdateCategoryRequest : IRequest<bool>
     {
-       public CategoryPostDTO CategoryDto { get; }
+        public CategoryPostDTO CategoryDto { get; }
 
         public UpdateCategoryRequest(CategoryPostDTO CategoryDto)
         {

@@ -1,9 +1,9 @@
 ﻿using Eshop.Models.DTOModels;
 using MediatR;
 
-namespace Eshop.Api.Commands
+namespace Eshop.Api.Commands.Update
 {
-    public class UpdateProductRequest:IRequest<bool>
+    public class UpdateProductRequest : IRequest<bool>
     {
         public int productId { get; set; }
         public ProductPostDTO productPostDTO { get; set; }

@@ -15,6 +15,9 @@ using Eshop.Api.Handlers;
 using Microsoft.AspNetCore.Cors;
 using Newtonsoft.Json;
 using Eshop.DataAccess.Services.Requests;
+using Eshop.Api.Commands.Create;
+using Eshop.Api.Commands.Delete;
+using Eshop.Api.Commands.Update;
 
 namespace Eshop.Api.Controllers
 {

@@ -1,0 +1,367 @@
+2024-09-18 17:43:06.506 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-18 17:43:06.765 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger - null null
+2024-09-18 17:43:06.765 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-18 17:43:06.813 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-18 17:43:06.816 +02:00 [INF] Hosting environment: Development
+2024-09-18 17:43:06.818 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-18 17:43:07.464 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger - 499 null null 704.3049ms
+2024-09-18 17:43:07.525 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 766.7307ms
+2024-09-18 17:43:07.595 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-18 17:43:07.595 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-18 17:43:07.600 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-18 17:43:07.607 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 8.8066ms
+2024-09-18 17:43:07.618 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-18 17:43:07.618 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 24.7679ms
+2024-09-18 17:43:07.658 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 58.0917ms
+2024-09-18 17:43:07.718 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-18 17:43:07.720 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-18 17:43:07.720 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 499 628 image/png 2.6379ms
+2024-09-18 17:43:07.758 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-18 17:43:07.903 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 146.7966ms
+2024-09-18 17:43:22.777 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=---------------------------26746549121906269331937029588 307
+2024-09-18 17:43:22.854 +02:00 [INF] CORS policy execution successful.
+2024-09-18 17:43:22.856 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-18 17:43:22.880 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-18 17:43:28.864 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-18 17:43:28.867 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-18 17:43:28.869 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-18 17:43:28.871 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-18 17:43:30.443 +02:00 [INF] Executed DbCommand (53ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[Phone], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [r].[ApplicationUserId], [r].[Id], [r].[CreatedAt], [r].[ExpireOn], [r].[RevokedOn], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[ApplicationUserId]
+ORDER BY [t].[Id], [r].[ApplicationUserId]
+2024-09-18 17:43:30.745 +02:00 [ERR] Authentication failed. Wrong user name or password
+2024-09-18 17:43:30.749 +02:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2024-09-18 17:43:30.754 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 7870.88ms
+2024-09-18 17:43:30.755 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-18 17:43:30.762 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Auth/Login - 401 null text/plain; charset=utf-8 7985.5945ms
+2024-09-18 17:43:48.771 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=---------------------------321262835831874078843436987683 310
+2024-09-18 17:43:48.774 +02:00 [INF] CORS policy execution successful.
+2024-09-18 17:43:48.774 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-18 17:43:48.774 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-18 17:43:48.821 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[Phone], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [r].[ApplicationUserId], [r].[Id], [r].[CreatedAt], [r].[ExpireOn], [r].[RevokedOn], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[ApplicationUserId]
+ORDER BY [t].[Id], [r].[ApplicationUserId]
+2024-09-18 17:43:48.893 +02:00 [ERR] Authentication failed. Wrong user name or password
+2024-09-18 17:43:48.894 +02:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2024-09-18 17:43:48.895 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 120.3204ms
+2024-09-18 17:43:48.895 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-18 17:43:48.895 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Auth/Login - 401 null text/plain; charset=utf-8 124.5263ms
+2024-09-18 17:44:29.072 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-18 17:44:29.247 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-18 17:44:29.247 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger - null null
+2024-09-18 17:44:29.312 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-18 17:44:29.314 +02:00 [INF] Hosting environment: Development
+2024-09-18 17:44:29.315 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-18 17:44:29.364 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger - 499 null null 123.0099ms
+2024-09-18 17:44:29.477 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 236.7738ms
+2024-09-18 17:44:29.542 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-18 17:44:29.546 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-18 17:44:29.563 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-18 17:44:29.566 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 19.3373ms
+2024-09-18 17:44:29.582 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-09-18 17:44:29.582 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 499 143943 text/css 41.5053ms
+2024-09-18 17:44:29.614 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 50.6726ms
+2024-09-18 17:44:29.721 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-18 17:44:29.723 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-18 17:44:29.723 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 499 628 image/png 2.3834ms
+2024-09-18 17:44:29.798 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-18 17:44:29.966 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 168.1519ms
+2024-09-18 17:44:57.542 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=--------------------------245258964216345842862410 289
+2024-09-18 17:44:57.665 +02:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/18/2024 3:44:57 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-18 17:44:57.701 +02:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/18/2024 3:44:57 PM'.
+2024-09-18 17:44:57.703 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-18 17:44:57.721 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-18 17:44:58.372 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-18 17:44:58.375 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-18 17:44:58.377 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-18 17:44:58.379 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-18 17:44:58.983 +02:00 [INF] Executed DbCommand (42ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[Phone], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [r].[ApplicationUserId], [r].[Id], [r].[CreatedAt], [r].[ExpireOn], [r].[RevokedOn], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[ApplicationUserId]
+ORDER BY [t].[Id], [r].[ApplicationUserId]
+2024-09-18 17:44:59.163 +02:00 [ERR] Authentication failed. Wrong user name or password
+2024-09-18 17:44:59.169 +02:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2024-09-18 17:44:59.175 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 1450.0226ms
+2024-09-18 17:44:59.176 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-18 17:44:59.185 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:44369/api/Auth/Login - 401 null text/plain; charset=utf-8 1642.9667ms
+2024-09-18 17:45:24.856 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-18 17:45:24.874 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 18.5992ms
+2024-09-18 17:45:24.924 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-18 17:45:24.927 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-18 17:45:24.929 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 2.7404ms
+2024-09-18 17:45:24.947 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 22.7094ms
+2024-09-18 17:45:25.098 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-18 17:45:25.173 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 74.8089ms
+2024-09-18 17:45:27.249 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=--------------------------235239651546999772476770 289
+2024-09-18 17:45:27.252 +02:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/18/2024 3:45:27 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-18 17:45:27.252 +02:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/18/2024 3:45:27 PM'.
+2024-09-18 17:45:27.252 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-18 17:45:27.255 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-18 17:45:27.320 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[Phone], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [r].[ApplicationUserId], [r].[Id], [r].[CreatedAt], [r].[ExpireOn], [r].[RevokedOn], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[ApplicationUserId]
+ORDER BY [t].[Id], [r].[ApplicationUserId]
+2024-09-18 17:45:27.413 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2024-09-18 17:45:27.436 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-09-18 17:45:27.445 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-09-18 17:45:27.473 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[Phone], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [r].[ApplicationUserId], [r].[Id], [r].[CreatedAt], [r].[ExpireOn], [r].[RevokedOn], [r].[Token]
+FROM (
+    SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[ApplicationUserId]
+ORDER BY [t].[Id], [r].[ApplicationUserId]
+2024-09-18 17:45:27.608 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@p17='?' (Size = 450), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p18='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256), @p19='?' (Size = 450), @p20='?' (DbType = DateTime2), @p21='?' (DbType = DateTime2), @p22='?' (DbType = DateTime2), @p23='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [LastName] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [Phone] = @p11, [PhoneNumber] = @p12, [PhoneNumberConfirmed] = @p13, [SecurityStamp] = @p14, [TwoFactorEnabled] = @p15, [UserName] = @p16
+OUTPUT 1
+WHERE [Id] = @p17 AND [ConcurrencyStamp] = @p18;
+INSERT INTO [RefreshToken] ([ApplicationUserId], [CreatedAt], [ExpireOn], [RevokedOn], [Token])
+OUTPUT INSERTED.[Id]
+VALUES (@p19, @p20, @p21, @p22, @p23);
+2024-09-18 17:45:27.636 +02:00 [INF] user [ taha@gmail.com ] login to the system
+2024-09-18 17:45:27.638 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-09-18 17:45:27.708 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 452.1583ms
+2024-09-18 17:45:27.708 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-18 17:45:27.708 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:44369/api/Auth/Login - 200 412 application/json; charset=utf-8 459.5697ms
+2024-09-18 17:45:54.458 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/api/Order/Orders - null null
+2024-09-18 17:45:54.473 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.OrderController.GetOrders (Eshop.Api)'
+2024-09-18 17:45:54.477 +02:00 [INF] Route matched with {action = "GetOrders", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrders(Eshop.DataAccess.Services.Requests.RequestParameter) on controller Eshop.Api.Controllers.OrderController (Eshop.Api).
+2024-09-18 17:45:54.608 +02:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-09-18 17:45:54.628 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[Address], [o].[Carrier], [o].[City], [o].[CustomerId], [o].[OrderDate], [o].[PaymentDate], [o].[Status], [o].[TotalPrice], [o].[TrackingNumber], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [r].[ApplicationUserId], [r].[Id], [r].[CreatedAt], [r].[ExpireOn], [r].[RevokedOn], [r].[Token], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[UnitPrice]
+FROM [Orders] AS [o]
+INNER JOIN [AspNetUsers] AS [a] ON [o].[CustomerId] = [a].[Id]
+LEFT JOIN [RefreshToken] AS [r] ON [a].[Id] = [r].[ApplicationUserId]
+LEFT JOIN [OrderDetails] AS [o0] ON [o].[Id] = [o0].[OrderId]
+ORDER BY [o].[Id], [a].[Id], [r].[ApplicationUserId], [r].[Id]
+2024-09-18 17:45:54.640 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [o].[Id], [o].[Address], [o].[Carrier], [o].[City], [o].[CustomerId], [o].[OrderDate], [o].[PaymentDate], [o].[Status], [o].[TotalPrice], [o].[TrackingNumber], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [r].[ApplicationUserId], [r].[Id], [r].[CreatedAt], [r].[ExpireOn], [r].[RevokedOn], [r].[Token], [o0].[Id], [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [o0].[UnitPrice]
+FROM [Orders] AS [o]
+INNER JOIN [AspNetUsers] AS [a] ON [o].[CustomerId] = [a].[Id]
+LEFT JOIN [RefreshToken] AS [r] ON [a].[Id] = [r].[ApplicationUserId]
+LEFT JOIN [OrderDetails] AS [o0] ON [o].[Id] = [o0].[OrderId]
+ORDER BY [o].[Id], [a].[Id], [r].[ApplicationUserId], [r].[Id]
+2024-09-18 17:45:54.654 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Eshop.Models.DTOModels.OrderDTO, Eshop.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-18 17:45:54.664 +02:00 [INF] Executed action Eshop.Api.Controllers.OrderController.GetOrders (Eshop.Api) in 187.0951ms
+2024-09-18 17:45:54.664 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.OrderController.GetOrders (Eshop.Api)'
+2024-09-18 17:45:54.665 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/api/Order/Orders - 200 209 application/json; charset=utf-8 207.1934ms
+2024-09-18 17:46:06.929 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Order/ChangeOrderStatus/5?status=Approved - null 0
+2024-09-18 17:46:06.932 +02:00 [INF] CORS policy execution successful.
+2024-09-18 17:46:06.933 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.OrderController.ChangeOrderStatus (Eshop.Api)'
+2024-09-18 17:46:06.936 +02:00 [INF] Route matched with {action = "ChangeOrderStatus", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ChangeOrderStatus(Int32, Eshop.Models.DTOModels.OrderStatus) on controller Eshop.Api.Controllers.OrderController (Eshop.Api).
+2024-09-18 17:46:06.955 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[Id], [o].[Address], [o].[Carrier], [o].[City], [o].[CustomerId], [o].[OrderDate], [o].[PaymentDate], [o].[Status], [o].[TotalPrice], [o].[TrackingNumber]
+FROM [Orders] AS [o]
+WHERE [o].[Id] = @__id_0
+2024-09-18 17:46:06.987 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Orders] SET [Status] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2024-09-18 17:46:06.988 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-09-18 17:46:06.989 +02:00 [INF] Executed action Eshop.Api.Controllers.OrderController.ChangeOrderStatus (Eshop.Api) in 53.2799ms
+2024-09-18 17:46:06.989 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.OrderController.ChangeOrderStatus (Eshop.Api)'
+2024-09-18 17:46:06.989 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Order/ChangeOrderStatus/5?status=Approved - 200 null text/plain; charset=utf-8 61.0203ms
+2024-09-18 18:06:09.086 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-18 18:06:09.287 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger - null null
+2024-09-18 18:06:09.287 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-18 18:06:09.376 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-18 18:06:09.378 +02:00 [INF] Hosting environment: Development
+2024-09-18 18:06:09.380 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-18 18:06:09.435 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger - 499 null null 155.8818ms
+2024-09-18 18:06:09.487 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 207.8519ms
+2024-09-18 18:06:09.554 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-18 18:06:09.554 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-18 18:06:09.567 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 11.139ms
+2024-09-18 18:06:09.603 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.9097ms
+2024-09-18 18:06:09.669 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-18 18:06:09.817 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 148.6019ms
+2024-09-18 18:06:22.392 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Order/ChangeOrderStatus/2 - null 0
+2024-09-18 18:06:22.461 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-09-18 18:06:22.463 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-18 18:06:22.464 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Order/ChangeOrderStatus/2 - 401 null null 72.542ms
+2024-09-18 18:06:41.629 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Order/ChangeOrderStatus/2?status=Approved - null 0
+2024-09-18 18:06:41.634 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-09-18 18:06:41.634 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-18 18:06:41.635 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Order/ChangeOrderStatus/2?status=Approved - 401 null null 5.3601ms
+2024-09-18 18:07:05.256 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:44369/Order/ChangeOrderStatus/5?status=Pending - multipart/form-data; boundary=--------------------------359669755185395325591233 289
+2024-09-18 18:07:05.308 +02:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/18/2024 4:07:05 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-18 18:07:05.333 +02:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/18/2024 4:07:05 PM'.
+2024-09-18 18:07:05.334 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:44369/Order/ChangeOrderStatus/5?status=Pending - 404 null null 78.2017ms
+2024-09-18 18:07:05.339 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:44369/Order/ChangeOrderStatus/5, Response status code: 404
+2024-09-18 18:07:17.179 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Order/ChangeOrderStatus/5?status=Pending - null 0
+2024-09-18 18:07:17.181 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-09-18 18:07:17.181 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-18 18:07:17.182 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Order/ChangeOrderStatus/5?status=Pending - 401 null null 2.9587ms
+2024-09-18 18:07:35.120 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Order/ChangeOrderStatus/5?status=Pending - null 0
+2024-09-18 18:07:35.121 +02:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/18/2024 4:07:35 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-18 18:07:35.122 +02:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/18/2024 4:07:35 PM'.
+2024-09-18 18:07:35.122 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-09-18 18:07:35.123 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-18 18:07:35.124 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Order/ChangeOrderStatus/5?status=Pending - 401 null null 4.0561ms
+2024-09-18 18:07:54.874 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:44369/Order/ChangeOrderStatus/5?status=Pending - multipart/form-data; boundary=--------------------------092945182687360140181125 289
+2024-09-18 18:07:54.875 +02:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/18/2024 4:07:54 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-18 18:07:54.876 +02:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/18/2024 4:07:54 PM'.
+2024-09-18 18:07:54.877 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:44369/Order/ChangeOrderStatus/5?status=Pending - 404 null null 2.7141ms
+2024-09-18 18:07:54.877 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:44369/Order/ChangeOrderStatus/5, Response status code: 404
+2024-09-18 18:08:19.548 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Auth/Login - multipart/form-data; boundary=---------------------------2926659528800015515503858926 304
+2024-09-18 18:08:19.553 +02:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/18/2024 4:08:19 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-18 18:08:19.554 +02:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/18/2024 4:08:19 PM'.
+2024-09-18 18:08:19.555 +02:00 [INF] CORS policy execution successful.
+2024-09-18 18:08:19.556 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-18 18:08:19.581 +02:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Eshop.Models.TokenRequestModel) on controller Eshop.Api.Controllers.AuthController (Eshop.Api).
+2024-09-18 18:08:20.288 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-18 18:08:20.291 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-18 18:08:20.293 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-18 18:08:20.296 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-18 18:08:20.984 +02:00 [INF] Executed DbCommand (42ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessFailedCount], [t].[ConcurrencyStamp], [t].[Email], [t].[EmailConfirmed], [t].[FirstName], [t].[LastName], [t].[LockoutEnabled], [t].[LockoutEnd], [t].[NormalizedEmail], [t].[NormalizedUserName], [t].[PasswordHash], [t].[Phone], [t].[PhoneNumber], [t].[PhoneNumberConfirmed], [t].[SecurityStamp], [t].[TwoFactorEnabled], [t].[UserName], [r].[ApplicationUserId], [r].[Id], [r].[CreatedAt], [r].[ExpireOn], [r].[RevokedOn], [r].[Token]
+FROM (
+    SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[Phone], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [AspNetUsers] AS [a]
+    WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+) AS [t]
+LEFT JOIN [RefreshToken] AS [r] ON [t].[Id] = [r].[ApplicationUserId]
+ORDER BY [t].[Id], [r].[ApplicationUserId]
+2024-09-18 18:08:21.179 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2024-09-18 18:08:21.203 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-09-18 18:08:21.212 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-09-18 18:08:21.221 +02:00 [INF] user [ taha@gmail.com ] login to the system
+2024-09-18 18:08:21.227 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-09-18 18:08:21.296 +02:00 [INF] Executed action Eshop.Api.Controllers.AuthController.Login (Eshop.Api) in 1710.8838ms
+2024-09-18 18:08:21.297 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.AuthController.Login (Eshop.Api)'
+2024-09-18 18:08:21.306 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Auth/Login - 200 412 application/json; charset=utf-8 1758.0307ms
+2024-09-18 18:08:35.375 +02:00 [INF] Request starting HTTP/2 POST https://localhost:44369/api/Order/ChangeOrderStatus/5?status=Pending - null 0
+2024-09-18 18:08:35.384 +02:00 [INF] CORS policy execution successful.
+2024-09-18 18:08:35.384 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.OrderController.ChangeOrderStatus (Eshop.Api)'
+2024-09-18 18:08:35.388 +02:00 [INF] Route matched with {action = "ChangeOrderStatus", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ChangeOrderStatus(Int32, Eshop.Models.DTOModels.OrderStatus) on controller Eshop.Api.Controllers.OrderController (Eshop.Api).
+2024-09-18 18:08:35.519 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[Id], [o].[Address], [o].[Carrier], [o].[City], [o].[CustomerId], [o].[OrderDate], [o].[PaymentDate], [o].[Status], [o].[TotalPrice], [o].[TrackingNumber]
+FROM [Orders] AS [o]
+WHERE [o].[Id] = @__id_0
+2024-09-18 18:08:35.610 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Orders] SET [Status] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2024-09-18 18:08:35.620 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-09-18 18:08:35.620 +02:00 [INF] Executed action Eshop.Api.Controllers.OrderController.ChangeOrderStatus (Eshop.Api) in 232.175ms
+2024-09-18 18:08:35.620 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.OrderController.ChangeOrderStatus (Eshop.Api)'
+2024-09-18 18:08:35.622 +02:00 [INF] Request finished HTTP/2 POST https://localhost:44369/api/Order/ChangeOrderStatus/5?status=Pending - 200 null text/plain; charset=utf-8 246.4978ms
+2024-09-18 18:08:59.972 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:44369/api/Order/ChangeOrderStatus/5?status=Approved - multipart/form-data; boundary=--------------------------085738084235174177388677 289
+2024-09-18 18:08:59.973 +02:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/18/2024 4:08:59 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2024-09-18 18:08:59.973 +02:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '9/17/2024 9:51:51 AM', Current time (UTC): '9/18/2024 4:08:59 PM'.
+2024-09-18 18:08:59.973 +02:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-09-18 18:08:59.973 +02:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-18 18:08:59.974 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:44369/api/Order/ChangeOrderStatus/5?status=Approved - 401 null null 2.5391ms
+2024-09-18 18:09:09.214 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:44369/api/Order/ChangeOrderStatus/5?status=Approved - multipart/form-data; boundary=--------------------------503654997638365032029888 289
+2024-09-18 18:09:09.215 +02:00 [INF] Executing endpoint 'Eshop.Api.Controllers.OrderController.ChangeOrderStatus (Eshop.Api)'
+2024-09-18 18:09:09.215 +02:00 [INF] Route matched with {action = "ChangeOrderStatus", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ChangeOrderStatus(Int32, Eshop.Models.DTOModels.OrderStatus) on controller Eshop.Api.Controllers.OrderController (Eshop.Api).
+2024-09-18 18:09:09.234 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[Id], [o].[Address], [o].[Carrier], [o].[City], [o].[CustomerId], [o].[OrderDate], [o].[PaymentDate], [o].[Status], [o].[TotalPrice], [o].[TrackingNumber]
+FROM [Orders] AS [o]
+WHERE [o].[Id] = @__id_0
+2024-09-18 18:09:09.241 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Orders] SET [Status] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2024-09-18 18:09:09.242 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-09-18 18:09:09.243 +02:00 [INF] Executed action Eshop.Api.Controllers.OrderController.ChangeOrderStatus (Eshop.Api) in 27.2721ms
+2024-09-18 18:09:09.243 +02:00 [INF] Executed endpoint 'Eshop.Api.Controllers.OrderController.ChangeOrderStatus (Eshop.Api)'
+2024-09-18 18:09:09.243 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:44369/api/Order/ChangeOrderStatus/5?status=Approved - 200 null text/plain; charset=utf-8 28.5765ms

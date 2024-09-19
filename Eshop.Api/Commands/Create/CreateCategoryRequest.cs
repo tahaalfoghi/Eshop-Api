@@ -1,9 +1,9 @@
 ﻿using Eshop.Models.DTOModels;
 using MediatR;
 
-namespace Eshop.Api.Commands
+namespace Eshop.Api.Commands.Create
 {
-    public class CreateCategoryRequest:IRequest<CategoryDTO>
+    public class CreateCategoryRequest : IRequest<CategoryDTO>
     {
         public CategoryPostDTO CategoryPostDto { get; }
 
