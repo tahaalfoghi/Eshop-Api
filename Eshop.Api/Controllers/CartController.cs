@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Data;
 using eshop.DataAccess.Services.UnitOfWork;
+using Eshop.Api.Queries;
 using Eshop.DataAccess.Services.Middleware;
 using Eshop.DataAccess.Services.Validators;
 using Eshop.Models.DTOModels;
 using Eshop.Models.Models;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
@@ -26,11 +28,13 @@ namespace Eshop.Api.Controllers
         private readonly IUnitOfWork uow;
         private readonly IMapper mapper;
         private readonly AppDbContext context;
-        public CartController(IUnitOfWork uow, IMapper mapper, AppDbContext context)
+        private readonly IMediator _mediator;
+        public CartController(IUnitOfWork uow, IMapper mapper, AppDbContext context, IMediator mediator)
         {
             this.uow = uow;
             this.mapper = mapper;
             this.context = context;
+            _mediator = mediator;
         }
         [HttpGet]
         [Route("Carts")]
@@ -145,7 +149,7 @@ namespace Eshop.Api.Controllers
         [Route("Summery")]
         public async Task<IActionResult> Summery()
         {
-            var userId = User.FindFirstValue("uid");
+            /*var userId = User.FindFirstValue("uid");
             if (userId is not null)
             {
                 var carts = mapper.Map<List<CartDTO>>(await uow.CartRepository.GetUserCart(userId, includes: "Product"));
@@ -157,7 +161,10 @@ namespace Eshop.Api.Controllers
                     return BadRequest(new { Message = $"Cart is empty" });
             }
             else
-                return BadRequest(new { Message = $"You Must logged in to access this feature" });
+                return BadRequest(new { Message = $"You Must logged in to access this feature" });*/
+            var query = new GetCartSummery();
+            var result = await _mediator.Send(query);
+            return Ok(result);
         }
         
     }

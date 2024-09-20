@@ -100,7 +100,7 @@ namespace Eshop.DataAccess.Services.ModelService
             if (!result.IsValid)
                 throw new BadRequestException(string.Join(",",result.Errors.ToString()));
 
-            var cart = await _uow.CartRepository.GetCartAsync(x => x.Id == Id && x.ProductId == ProductId);
+            var cart = await _uow.CartRepository.GetCartAsync(x => x.Id == id && x.ProductId == productId);
             if (cart is null)
                 throw new NotFoundException();
 
@@ -111,16 +111,15 @@ namespace Eshop.DataAccess.Services.ModelService
         public async Task<IEnumerable<CartDTO>> Summery()
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirstValue("uid");
-            if (userId is not null)
-            {
-                var carts = _mapper.Map<List<CartDTO>>(await _uow.CartRepository.GetUserCart(userId, includes: "Product"));
-                if (carts is null)
-                    throw new BadRequestException($"Cart is empty");
+            if(userId is null)
+                throw new NotFoundException($"You Must logged in to access this feature");
 
-                return carts;
-            }
-            else
-                throw new BadRequestException($"You Must logged in to access this feature");
+            var carts = _mapper.Map<List<CartDTO>>(await _uow.CartRepository.GetUserCart(userId, includes: "Product"));
+            if (carts is null)
+                throw new BadRequestException($"Cart is empty");
+
+            return carts;
+
         }
     }
 }
