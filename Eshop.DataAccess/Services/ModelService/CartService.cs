@@ -90,7 +90,6 @@ namespace Eshop.DataAccess.Services.ModelService
 
             _uow.CartRepository.Delete(cart);
             await _uow.CommitAsync();
-
         }
 
         public async Task IncreaseCartQuantity(int id, int productId, CartPostDTO cartPostDTO)
