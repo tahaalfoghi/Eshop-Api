@@ -2,9 +2,9 @@
 using Eshop.Models.DTOModels;
 using MediatR;
 
-namespace Eshop.Api.Queries
+namespace Eshop.Api.Queries.Order
 {
-    public class GetOrdersQuery:IRequest<IEnumerable<OrderDTO>>
+    public class GetOrdersQuery : IRequest<IEnumerable<OrderDTO>>
     {
         public RequestParameter requestParameter { get; set; }
 

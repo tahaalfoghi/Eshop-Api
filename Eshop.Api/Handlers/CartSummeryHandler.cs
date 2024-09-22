@@ -1,4 +1,4 @@
-﻿using Eshop.Api.Queries;
+﻿using Eshop.Api.Queries.Cart;
 using Eshop.DataAccess.Services.ModelService;
 using Eshop.Models.DTOModels;
 using MediatR;

@@ -2,11 +2,11 @@
 using Eshop.Models.DTOModels;
 using MediatR;
 
-namespace Eshop.Api.Queries
+namespace Eshop.Api.Queries.Supplier
 {
-    public class GetSuppliersByFilterQuery:IRequest<IEnumerable<SupplierDTO>>
+    public class GetSuppliersByFilterQuery : IRequest<IEnumerable<SupplierDTO>>
     {
-        public SupplierRequestParamater Param {  get; set; }
+        public SupplierRequestParamater Param { get; set; }
 
         public GetSuppliersByFilterQuery(SupplierRequestParamater Param)
         {

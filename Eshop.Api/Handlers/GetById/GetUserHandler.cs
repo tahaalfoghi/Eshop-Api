@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Services.UnitOfWork;
-using Eshop.Api.Queries;
+using Eshop.Api.Queries.User;
 using Eshop.DataAccess.Services.Middleware;
 using Eshop.Models;
 using MediatR;

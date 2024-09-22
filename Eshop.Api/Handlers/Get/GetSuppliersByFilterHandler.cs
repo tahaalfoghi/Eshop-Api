@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Services.UnitOfWork;
-using Eshop.Api.Queries;
+using Eshop.Api.Queries.Supplier;
 using Eshop.DataAccess.DataShaping;
 using Eshop.DataAccess.Services.Links;
 using Eshop.DataAccess.Services.Middleware;

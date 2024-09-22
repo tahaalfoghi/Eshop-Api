@@ -1,7 +1,7 @@
 ﻿using Eshop.Models.DTOModels;
 using MediatR;
 
-namespace Eshop.Api.Queries
+namespace Eshop.Api.Queries.Order
 {
     public class GetOrderQuery : IRequest<OrderDTO>
     {

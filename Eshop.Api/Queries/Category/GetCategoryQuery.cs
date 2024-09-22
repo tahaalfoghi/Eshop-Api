@@ -1,11 +1,11 @@
 ﻿using Eshop.Models.DTOModels;
 using MediatR;
 
-namespace Eshop.Api.Queries
+namespace Eshop.Api.Queries.Category
 {
-    public class GetCategoryQuery:IRequest<CategoryDTO>
+    public class GetCategoryQuery : IRequest<CategoryDTO>
     {
-        public int CategoryId { get;}
+        public int CategoryId { get; }
 
         public GetCategoryQuery(int categoryId)
         {
