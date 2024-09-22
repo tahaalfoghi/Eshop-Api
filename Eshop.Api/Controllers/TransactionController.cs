@@ -5,6 +5,7 @@ using Eshop.Api.Commands.Delete;
 using Eshop.Api.Commands.Update;
 using Eshop.Api.Handlers;
 using Eshop.Api.Queries;
+using Eshop.Api.Queries.Transaction;
 using Eshop.DataAccess.Services.Requests;
 using Eshop.DataAccess.Services.Validators;
 using Eshop.Models.DTOModels;

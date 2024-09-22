@@ -2,6 +2,7 @@
 using Eshop.Api.Commands.Delete;
 using Eshop.Api.Commands.Update;
 using Eshop.Api.Queries;
+using Eshop.Api.Queries.User;
 using Eshop.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;

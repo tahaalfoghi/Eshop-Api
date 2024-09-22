@@ -1,0 +1,33 @@
+2024-09-22 11:23:22.962 +02:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-22 11:23:23.386 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/index.html - null null
+2024-09-22 11:23:23.422 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-22 11:23:23.425 +02:00 [INF] Hosting environment: Development
+2024-09-22 11:23:23.427 +02:00 [INF] Content root path: C:\Users\HP\source\repos\Eshop\Eshop.Api
+2024-09-22 11:23:24.190 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/index.html - 200 null text/html;charset=utf-8 803.7688ms
+2024-09-22 11:23:24.264 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-22 11:23:24.265 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - null null
+2024-09-22 11:23:24.301 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_framework/aspnetcore-browser-refresh.js - 200 13754 application/javascript; charset=utf-8 6.9825ms
+2024-09-22 11:23:24.306 +02:00 [INF] The file /swagger-ui.css was not modified
+2024-09-22 11:23:24.309 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui.css - 304 null text/css 43.8994ms
+2024-09-22 11:23:24.309 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui-standalone-preset.js - null null
+2024-09-22 11:23:24.310 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/swagger-ui-bundle.js - null null
+2024-09-22 11:23:24.311 +02:00 [INF] The file /swagger-ui-bundle.js was not modified
+2024-09-22 11:23:24.311 +02:00 [INF] The file /swagger-ui-standalone-preset.js was not modified
+2024-09-22 11:23:24.312 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui-bundle.js - 304 null text/javascript 1.4732ms
+2024-09-22 11:23:24.312 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/swagger-ui-standalone-preset.js - 304 null text/javascript 3.0749ms
+2024-09-22 11:23:24.340 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/_vs/browserLink - null null
+2024-09-22 11:23:24.392 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/_vs/browserLink - 200 null text/javascript; charset=UTF-8 51.7497ms
+2024-09-22 11:23:24.467 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - null null
+2024-09-22 11:23:24.475 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-09-22 11:23:24.477 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/favicon-32x32.png - 200 628 image/png 9.6247ms
+2024-09-22 11:23:24.535 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-22 11:23:24.709 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 174.2807ms
+2024-09-22 11:23:26.599 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - null null
+2024-09-22 11:23:26.658 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 58.7769ms
+2024-09-22 11:23:26.715 +02:00 [INF] Request starting HTTP/2 GET https://localhost:44369/favicon.ico - null null
+2024-09-22 11:23:26.859 +02:00 [INF] Request finished HTTP/2 GET https://localhost:44369/favicon.ico - 404 null null 144.312ms
+2024-09-22 11:23:26.861 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44369/favicon.ico, Response status code: 404
+2024-09-22 11:27:55.945 +02:00 [WRN] No store type was specified for the decimal property 'TotalPrice' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-22 11:27:55.978 +02:00 [WRN] No store type was specified for the decimal property 'UnitPrice' on entity type 'OrderDetail'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-22 11:27:55.979 +02:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-09-22 11:27:55.979 +02:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Transaction'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.

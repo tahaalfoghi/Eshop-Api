@@ -3,6 +3,7 @@ using Eshop.Api.Commands.Create;
 using Eshop.Api.Commands.Delete;
 using Eshop.Api.Commands.Update;
 using Eshop.Api.Queries;
+using Eshop.Api.Queries.Supplier;
 using Eshop.DataAccess.DataShaping;
 using Eshop.DataAccess.Services.Requests;
 using Eshop.Models.DTOModels;

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using eshop.DataAccess.Services.UnitOfWork;
 using Eshop.Api.Queries;
+using Eshop.Api.Queries.Order;
 using Eshop.DataAccess.Services.Middleware;
 using Eshop.DataAccess.Services.Requests;
 using Eshop.Models.DTOModels;
