@@ -211,5 +211,10 @@ namespace Eshop.DataAccess.Services.Auth
 
             return model is not null && await userManager.CheckPasswordAsync(user, model.Password);
         }
+
+        public async Task Logout()
+        {
+          
+        }
     }
 }

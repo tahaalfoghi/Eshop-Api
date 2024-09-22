@@ -17,5 +17,6 @@ namespace Eshop.DataAccess.Services.Auth
         Task<string> AddRoleAsync(AddModelRole model);
         Task<AuthModel> GenerateRefreshToken(string refreshToken);
         Task<bool> ValidateUser(TokenRequestModel model);
+        Task Logout();
     }
 }
