@@ -5,8 +5,8 @@ namespace Eshop.Api.Commands.Update
 {
     public class UpdateTransacrtionRequest : IRequest<bool>
     {
-        public TransactionPostDTO TransactionDto { get; }
-        public UpdateTransacrtionRequest(TransactionPostDTO TransactionDto)
+        public PaymentDTO TransactionDto { get; }
+        public UpdateTransacrtionRequest(PaymentDTO TransactionDto)
         {
             this.TransactionDto = TransactionDto;
         }

@@ -11,9 +11,9 @@ using System.Transactions;
 
 namespace Eshop.DataAccess.Services.Repo
 {
-    public interface ITransactionRepository:IRepository<Models.Models.Transaction>
+    public interface ITransactionRepository:IRepository<Models.Models.Payment>
     {
-        void Update(Models.Models.Transaction trans);
-        Task<Models.Models.Transaction> GetAsync(Expression<Func<Models.Models.Transaction,bool>> predicate);
+        void Update(Models.Models.Payment trans);
+        Task<Models.Models.Payment> GetAsync(Expression<Func<Models.Models.Payment,bool>> predicate);
     }
 }

@@ -37,11 +37,11 @@ namespace Eshop.DataAccess.Services
             .ForMember(x => x.Username, x => x.MapFrom(x => x.ApplicationUser.UserName));
             
             CreateMap<Order, OrderPostDTO>().ReverseMap();
-            CreateMap<Transaction, TransactionDTO>()
+            CreateMap<Payment, PaymentDTO>()
             .ForMember(x => x.UserEmail, x => x.MapFrom(x => x.ApplicationUser.Email))
             .ForMember(x => x.UserName, x => x.MapFrom(x => x.ApplicationUser.UserName));
 
-            CreateMap<Transaction, TransactionPostDTO>().ReverseMap();
+            CreateMap<Payment, PaymentDTO>().ReverseMap();
             CreateMap<ApplicationUser, UserModelDTO>().ReverseMap();
 
         }

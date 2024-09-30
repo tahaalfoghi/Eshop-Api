@@ -50,7 +50,7 @@ namespace Eshop.Api.Controllers
         }
         [HttpPut]
         [Route("EditTransaction")]
-        public async Task<IActionResult> UpdateTransaction([FromForm] TransactionPostDTO dto_trans)
+        public async Task<IActionResult> UpdateTransaction([FromForm] PaymentDTO dto_trans)
         {
             var command = new UpdateTransacrtionRequest(dto_trans);
             var result = await mediator.Send(command);

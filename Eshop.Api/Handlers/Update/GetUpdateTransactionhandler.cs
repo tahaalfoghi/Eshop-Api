@@ -26,7 +26,7 @@ namespace Eshop.Api.Handlers.Update
             if (!result.IsValid)
                 throw new InvalidModelException($"{string.Join(",", result.Errors.ToString())}");
 
-            var transInDb = mapper.Map<Transaction>(request.TransactionDto);
+            var transInDb = mapper.Map<Payment>(request.TransactionDto);
             if (transInDb is null)
                 throw new NotFoundException($"Transaction [{request.TransactionDto.Id}] not found");
 

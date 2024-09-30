@@ -63,7 +63,7 @@ namespace Eshop.DataAccess.Services.ModelService
                 throw new NotFoundException($"order [{orderId}] is not found");
 
             order.Status = OrderStatus.Pending.ToString();
-            var transaction = new Transaction()
+            var payment = new Payment()
             {
                 OrderId = order.Id,
                 UserId = order.ApplicationUser.Id,
@@ -71,7 +71,7 @@ namespace Eshop.DataAccess.Services.ModelService
                 CreatedAt = DateTime.UtcNow,
             };
             
-            await _uow.TransactionRepository.CreateAsync(transaction);
+            await _uow.TransactionRepository.CreateAsync(payment);
             var carts = await _uow.CartRepository.GetCartsAsync(x=>x.UserId == order.ApplicationUser.Id);
             _uow.CartRepository.DeleteRangeAsync(carts);
             await _uow.CommitAsync();

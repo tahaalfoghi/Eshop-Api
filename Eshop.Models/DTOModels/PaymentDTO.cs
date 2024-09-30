@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Eshop.Models.DTOModels
 {
-    public class TransactionDTO
+    public class PaymentDTO
     {
         public int Id { get; set; }
         public int OrderId { get; set; }
@@ -16,7 +16,7 @@ namespace Eshop.Models.DTOModels
         public decimal Amount { get; set; }
         public DateTime CreatedAt { get; set; }
     }
-    public class TransactionPostDTO
+    public class PaymentPostDTO
     {
         public int Id { get; set; }
         public decimal Amount { get; set; }

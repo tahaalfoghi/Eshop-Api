@@ -7,7 +7,7 @@ using MediatR;
 
 namespace Eshop.Api.Handlers.GetById
 {
-    public class GetTransactionHandler : IRequestHandler<GetTransactionQuery, TransactionDTO>
+    public class GetTransactionHandler : IRequestHandler<GetTransactionQuery, PaymentDTO>
     {
         private readonly IUnitOfWork uow;
         private readonly IMapper mapper;
@@ -18,13 +18,13 @@ namespace Eshop.Api.Handlers.GetById
             this.mapper = mapper;
         }
 
-        public async Task<TransactionDTO> Handle(GetTransactionQuery request, CancellationToken cancellationToken)
+        public async Task<PaymentDTO> Handle(GetTransactionQuery request, CancellationToken cancellationToken)
         {
             var transaction = await uow.TransactionRepository.GetByIdAsync(request.TransactionId, "ApplicationUser");
             if (transaction is null)
                 throw new NotFoundException();
 
-            return mapper.Map<TransactionDTO>(transaction);
+            return mapper.Map<PaymentDTO>(transaction);
         }
     }
 }

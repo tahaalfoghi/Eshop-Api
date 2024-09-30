@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace Eshop.Api.Handlers.Get
 {
-    public class GetTransactionsHandler : IRequestHandler<GetTransactionsQuery, IEnumerable<TransactionDTO>>
+    public class GetTransactionsHandler : IRequestHandler<GetTransactionsQuery, IEnumerable<PaymentDTO>>
     {
         private readonly IUnitOfWork uow;
         private readonly IMapper mapper;
@@ -20,14 +20,14 @@ namespace Eshop.Api.Handlers.Get
             this.httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<IEnumerable<TransactionDTO>> Handle(GetTransactionsQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<PaymentDTO>> Handle(GetTransactionsQuery request, CancellationToken cancellationToken)
         {
             var transactions = await uow.TransactionRepository.GetAllAsync(request.requestParameter, includes: "ApplicationUser");
             if (transactions is null || transactions.Count() == 0)
                 throw new NotFoundException("No transaction exists in database");
 
             httpContextAccessor.HttpContext.Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(transactions.MetaData));
-            return mapper.Map<IEnumerable<TransactionDTO>>(transactions);
+            return mapper.Map<IEnumerable<PaymentDTO>>(transactions);
         }
     }
 }

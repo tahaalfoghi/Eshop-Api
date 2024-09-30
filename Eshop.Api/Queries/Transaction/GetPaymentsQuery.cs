@@ -4,11 +4,11 @@ using MediatR;
 
 namespace Eshop.Api.Queries.Transaction
 {
-    public class GetTransactionsQuery : IRequest<IEnumerable<TransactionDTO>>
+    public class GetPaymentsQuery : IRequest<IEnumerable<PaymentDTO>>
     {
         public RequestParameter requestParameter { get; set; }
 
-        public GetTransactionsQuery(RequestParameter requestParameter)
+        public GetPaymentsQuery(RequestParameter requestParameter)
         {
             this.requestParameter = requestParameter;
         }
