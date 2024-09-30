@@ -90,6 +90,37 @@ namespace Eshop.DataAccess.Services.Validators
             .Matches("[^a-zA-Z0-9]").WithMessage("Password must contain at least one special character");
         }
     }
+    public class CustomerRegisterModelValidator : AbstractValidator<CustomerRegisterModel>
+    {
+        public CustomerRegisterModelValidator()
+        {
+            RuleFor(u => u.UserName)
+            .NotEmpty().WithMessage("First name is required");
+
+            RuleFor(u => u.FirstName)
+            .NotEmpty().WithMessage("First name is required");
+
+            RuleFor(u => u.LastName)
+            .NotEmpty().WithMessage("First name is required");
+
+            RuleFor(u => u.City)
+            .NotEmpty().WithMessage("First name is required");
+
+            RuleFor(u => u.Address)
+            .NotEmpty().WithMessage("First name is required");
+
+            RuleFor(u => u.Email)
+            .NotEmpty().WithMessage("Email is required")
+            .EmailAddress().WithMessage("Invalid email format");
+            RuleFor(u => u.Password)
+            .NotEmpty().WithMessage("Password is required")
+            .MinimumLength(8).WithMessage("Password must be at least 8 characters long")
+            .Matches("[A-Z]").WithMessage("Password must contain at least one uppercase letter")
+            .Matches("[a-z]").WithMessage("Password must contain at least one lowercase letter")
+            .Matches("[0-9]").WithMessage("Password must contain at least one numeric digit")
+            .Matches("[^a-zA-Z0-9]").WithMessage("Password must contain at least one special character");
+        }
+    }
     public class UserModelDTOValidator : AbstractValidator<UserModelDTO>
     {
         public UserModelDTOValidator()

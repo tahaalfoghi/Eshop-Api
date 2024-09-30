@@ -18,12 +18,14 @@ namespace Eshop.DataAccess.Services.Auth
         private readonly UserManager<ApplicationUser> userManager;
         private readonly JWT jwt;
         private readonly RoleManager<IdentityRole> roleManager;
+        private readonly SignInManager<ApplicationUser> signInManager;
 
-        public AuthService(UserManager<ApplicationUser> userManager, IOptions<JWT> jwt, RoleManager<IdentityRole> roleManager)
+        public AuthService(UserManager<ApplicationUser> userManager, IOptions<JWT> jwt, RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager)
         {
             this.userManager = userManager;
             this.jwt = jwt.Value;
             this.roleManager = roleManager;
+            this.signInManager = signInManager;
         }
 
         public async Task<AuthModel> RegisterAsync(RegisterModel model)
@@ -55,7 +57,7 @@ namespace Eshop.DataAccess.Services.Auth
                 return new AuthModel { Message = errors };
             }
 
-            await userManager.AddToRoleAsync(user, "Customer");
+            await userManager.AddToRoleAsync(user, "Admin");
 
             var jwtSecurityToken = await CreateJwtTokenAsync(user);
 
@@ -214,7 +216,53 @@ namespace Eshop.DataAccess.Services.Auth
 
         public async Task Logout()
         {
-          
+           await signInManager.SignOutAsync();
+        }
+
+        public async Task<AuthModel> CustomerRegisterAsync(CustomerRegisterModel model)
+        {
+            if (await userManager.FindByEmailAsync(model.Email) is not null)
+                return new AuthModel { Message = "Email is already registered !" };
+
+            if (await userManager.FindByEmailAsync(model.UserName) is not null)
+                return new AuthModel { Message = "UserName is already registered !" };
+
+            var user = new Customer
+            {
+                FirstName = model.UserName,
+                LastName = model.LastName,
+                UserName = model.UserName,
+                Email = model.Email,
+                Phone = model.Phone,
+                City = model.City,
+                Address = model.Address,
+            };
+
+            var result = await userManager.CreateAsync(user, model.Password);
+
+            if (!result.Succeeded)
+            {
+                string errors = string.Empty;
+                foreach (var e in result.Errors)
+                {
+                    errors += $"{e.Description}, ";
+                }
+                return new AuthModel { Message = errors };
+            }
+
+            await userManager.AddToRoleAsync(user, "Customer");
+
+            var jwtSecurityToken = await CreateJwtTokenAsync(user);
+
+            return new AuthModel
+            {
+                Email = user.Email,
+                //ExpirsOn = jwtSecurityToken.ValidTo,
+                IsAuthenticated = true,
+                Roles = new List<string> { "Customer" },
+                Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
+                UserName = user.UserName,
+            };
         }
     }
 }

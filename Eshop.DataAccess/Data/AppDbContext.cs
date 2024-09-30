@@ -22,9 +22,12 @@ namespace eshop.DataAccess.Data
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Customer>().ToTable("Customers");
         }
     }
 }

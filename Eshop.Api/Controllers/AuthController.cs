@@ -20,10 +20,9 @@ namespace Eshop.Api.Controllers
             this.authService = authService;
             this.logger = logger;
         }
-        [AllowAnonymous]
         [HttpPost]
-        [Route("Register")]
-        public async Task<IActionResult> Register([FromForm]RegisterModel model)
+        [Route("Register-Admin")]
+        public async Task<IActionResult> AdminRegister([FromForm]RegisterModel model)
         {
             if(!ModelState.IsValid)
                 return BadRequest($"Invalid model {ModelState}");
@@ -39,6 +38,26 @@ namespace Eshop.Api.Controllers
 
             logger.LogInformation($"New user regitered to the system:[ {model.UserName}, {model.Email} ]");
             return Ok(new {Message = "Registration successful!" });
+        }
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("Register-Customer")]
+        public async Task<IActionResult> CustomerRegister([FromForm] CustomerRegisterModel model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest($"Invalid model {ModelState}");
+
+            var validate = new CustomerRegisterModelValidator();
+            var check = validate.Validate(model);
+            if (!check.IsValid)
+                return BadRequest(check.Errors.ToString());
+
+            var result = await authService.CustomerRegisterAsync(model);
+            if (!result.IsAuthenticated)
+                return BadRequest(result.Message);
+
+            logger.LogInformation($"New user regitered to the system:[ {model.UserName}, {model.Email} ]");
+            return Ok(new { Message = "Registration successful!" });
         }
         [HttpPost]
         [Route("Login")]
@@ -99,6 +118,13 @@ namespace Eshop.Api.Controllers
                 Expires = expires.ToLocalTime()
             };
             Response.Cookies.Append("refreshToken",refreshToken,cookieOption);
+        }
+        [HttpPost]
+        [Route("Logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await authService.Logout();
+            return NoContent();
         }
     }
 }
