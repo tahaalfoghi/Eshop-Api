@@ -22,46 +22,46 @@ namespace Eshop.Api.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [EnableCors("Eshop-UI")]
-    public class TransactionController:ControllerBase
+    public class PaymentController:ControllerBase
     {
 
         private readonly IMediator mediator;
 
-        public TransactionController(IMediator mediator)
+        public PaymentController(IMediator mediator)
         {
             this.mediator = mediator;
         }
 
         [HttpGet]
-        [Route("Transactions")]
-        public async Task<IActionResult> GetTransactions([FromQuery] RequestParameter requestParameter)
+        [Route("Payments")]
+        public async Task<IActionResult> GetPayments([FromQuery] RequestParameter requestParameter)
         {
-            var query = new GetTransactionsQuery(requestParameter);
+            var query = new GetPaymentsQuery(requestParameter);
             var result = await mediator.Send(query);
             return Ok(result);
         }
         [HttpGet]
-        [Route("Transactions/{transactionId:int}")]
-        public async Task<IActionResult> GetTransactionById(int transactionId)
+        [Route("Payments/{transactionId:int}")]
+        public async Task<IActionResult> GetPaymentById(int transactionId)
         {
-            var query = new GetTransactionQuery(transactionId);
+            var query = new GetPaymentQuery(transactionId);
             var result = await mediator.Send(query);
             return Ok(result);
         }
         [HttpPut]
-        [Route("EditTransaction")]
-        public async Task<IActionResult> UpdateTransaction([FromForm] PaymentDTO dto_trans)
+        [Route("EditPayment")]
+        public async Task<IActionResult> UpdatePayment([FromForm] PaymentDTO dto_trans)
         {
-            var command = new UpdateTransacrtionRequest(dto_trans);
+            var command = new UpdatePaymentRequest(dto_trans);
             var result = await mediator.Send(command);
             return Ok($"transaction {dto_trans.Id} updated successfully");
 
         }
         [HttpDelete]
-        [Route("DeleteTransaction/{Id:int}")]
-        public async Task<IActionResult> DeleteTransaction(int Id)
+        [Route("DeletePayment/{Id:int}")]
+        public async Task<IActionResult> DeletePayment(int Id)
         {
-            var command = new DeleteTransactionRequest(Id);
+            var command = new DeletePaymentRequest(Id);
             var result = await mediator.Send(command);
             return Ok($"transaction {Id} deleted successfully");
         }

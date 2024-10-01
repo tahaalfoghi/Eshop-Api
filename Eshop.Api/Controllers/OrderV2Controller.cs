@@ -20,14 +20,10 @@ namespace Eshop.Api.Controllers
     public class OrderV2Controller:ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly IUnitOfWork _uow;
-        private readonly IMapper _mapper;
 
-        public OrderV2Controller(IMediator mediator, IUnitOfWork uow, IMapper mapper)
+        public OrderV2Controller(IMediator mediator)
         {
             _mediator = mediator;
-            _uow = uow;
-            _mapper = mapper;
         }
         [HttpGet]
         [Route("UserOrders")]

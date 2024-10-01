@@ -43,13 +43,6 @@ namespace Eshop.Api.Controllers
             var result = await mediator.Send(command);
             return result ? Ok($"Your Profile has been updated successfully") : BadRequest();
         }
-        [HttpDelete]
-        [Route("DeleteAccount")]
-        public async Task<IActionResult> DeleteAccount()
-        {
-            var command = new DeleteUserRequest();
-            var result = await mediator.Send(command);
-            return result ? Ok("Account deleted successfully") : BadRequest();
-        }
+        
     }
 }

@@ -6,7 +6,7 @@ using MediatR;
 
 namespace Eshop.Api.Handlers.Delete
 {
-    public class GetDeleteTransactionHandler : IRequestHandler<DeleteTransactionRequest, bool>
+    public class GetDeleteTransactionHandler : IRequestHandler<DeletePaymentRequest, bool>
     {
         private readonly IUnitOfWork uow;
         private readonly IMapper mapper;
@@ -17,7 +17,7 @@ namespace Eshop.Api.Handlers.Delete
             this.mapper = mapper;
         }
 
-        public async Task<bool> Handle(DeleteTransactionRequest request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(DeletePaymentRequest request, CancellationToken cancellationToken)
         {
             if (request.TransactionId <= 0)
                 throw new BadRequestException($"Invalid id:{request.TransactionId}");

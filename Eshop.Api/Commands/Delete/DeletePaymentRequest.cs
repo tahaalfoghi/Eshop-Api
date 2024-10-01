@@ -2,10 +2,10 @@
 
 namespace Eshop.Api.Commands.Delete
 {
-    public class DeleteTransactionRequest : IRequest<bool>
+    public class DeletePaymentRequest : IRequest<bool>
     {
         public int TransactionId { get; }
-        public DeleteTransactionRequest(int TransactionId)
+        public DeletePaymentRequest(int TransactionId)
         {
             this.TransactionId = TransactionId;
         }

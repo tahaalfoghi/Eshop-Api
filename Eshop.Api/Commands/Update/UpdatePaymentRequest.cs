@@ -3,10 +3,10 @@ using MediatR;
 
 namespace Eshop.Api.Commands.Update
 {
-    public class UpdateTransacrtionRequest : IRequest<bool>
+    public class UpdatePaymentRequest : IRequest<bool>
     {
         public PaymentDTO TransactionDto { get; }
-        public UpdateTransacrtionRequest(PaymentDTO TransactionDto)
+        public UpdatePaymentRequest(PaymentDTO TransactionDto)
         {
             this.TransactionDto = TransactionDto;
         }

@@ -74,7 +74,7 @@ namespace Eshop.Api.Controllers
             }
             if (!string.IsNullOrEmpty(result.RefreshToken))
             {
-                SetRefreshTokenInCookie(result.RefreshToken,result.RefreshTokenExpiration);
+                //SetRefreshTokenInCookie(result.RefreshToken,result.RefreshTokenExpiration);
             }
             logger.LogInformation($"user [ {model.Email} ] login to the system");
             return Ok(new {Message= "You Logged in successfully", token = result.Token});
@@ -94,7 +94,7 @@ namespace Eshop.Api.Controllers
 
             return Ok($"User assigned to [{model.RoleName}] role successfully");
         }
-        [HttpGet]
+        /*[HttpGet]
         [Route("RefreshToken")]
         public async Task<IActionResult> RefreshToken()
         {
@@ -109,8 +109,8 @@ namespace Eshop.Api.Controllers
             SetRefreshTokenInCookie(result.RefreshToken,result.RefreshTokenExpiration);
 
             return Ok(result);
-        }
-        private void SetRefreshTokenInCookie(string refreshToken,DateTime expires)
+        }*/
+        /*private void SetRefreshTokenInCookie(string refreshToken,DateTime expires)
         {
             var cookieOption = new CookieOptions
             {
@@ -118,13 +118,13 @@ namespace Eshop.Api.Controllers
                 Expires = expires.ToLocalTime()
             };
             Response.Cookies.Append("refreshToken",refreshToken,cookieOption);
-        }
-        [HttpPost]
+        }*/
+        /*[HttpPost]
         [Route("Logout")]
         public async Task<IActionResult> Logout()
         {
             await authService.Logout();
             return NoContent();
-        }
+        }*/
     }
 }

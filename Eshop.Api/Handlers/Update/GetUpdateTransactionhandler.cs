@@ -8,7 +8,7 @@ using MediatR;
 
 namespace Eshop.Api.Handlers.Update
 {
-    public class GetUpdateTransactionHandler : IRequestHandler<UpdateTransacrtionRequest, bool>
+    public class GetUpdateTransactionHandler : IRequestHandler<UpdatePaymentRequest, bool>
     {
         private readonly IUnitOfWork uow;
         private readonly IMapper mapper;
@@ -19,7 +19,7 @@ namespace Eshop.Api.Handlers.Update
             this.mapper = mapper;
         }
 
-        public async Task<bool> Handle(UpdateTransacrtionRequest request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(UpdatePaymentRequest request, CancellationToken cancellationToken)
         {
             var validate = new TransactionPostValidator();
             var result = validate.Validate(request.TransactionDto);
